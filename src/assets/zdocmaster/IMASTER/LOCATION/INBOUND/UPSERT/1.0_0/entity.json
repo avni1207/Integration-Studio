@@ -1,0 +1,50 @@
+{
+	"integrationEntityDetails": {
+	/*#exists location*/
+	"location": 
+		{
+		/*#with location*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists locationName*/
+				,"locationName": "/*preprocess locationName*/"
+			/*/exists locationName*/
+			/*#exists regionId*/
+				,"regionId": "/*preprocess regionId*/"
+			/*/exists regionId*/
+			/*#exists shipToAddressId*/
+				,"shipToAddressId": "/*preprocess shipToAddressId*/"
+			/*/exists shipToAddressId*/
+			/*#exists billToAddressId*/
+				,"billToAddressId": "/*preprocess billToAddressId*/"
+			/*/exists billToAddressId*/
+			/*#exists invoiceToAddressId*/
+				,"invoiceToAddressId": "/*preprocess invoiceToAddressId*/"
+			/*/exists invoiceToAddressId*/
+			/*#exists apContact*/
+				,"apContact": "/*preprocess apContact*/"
+			/*/exists apContact*/
+			/*#exists erpId*/
+				,"erpId": "/*preprocess erpId*/"
+			/*/exists erpId*/
+			/*#exists createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"createdOn": "/*preprocess createdOn*/"
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"updatedOn": "/*preprocess updatedOn*/"
+			/*/exists updatedOn*/
+		/*/with location*/
+		}
+	/*/exists location*/
+}
+}

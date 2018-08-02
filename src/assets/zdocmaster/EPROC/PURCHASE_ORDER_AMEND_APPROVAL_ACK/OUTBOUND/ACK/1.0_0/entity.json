@@ -1,0 +1,35 @@
+{
+	"integrationEntityDetails": {
+	/*#exists acknowledgement*/
+	"acknowledgement": 
+		{
+		/*#with acknowledgement*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"createdOn": /*preprocess createdOn*/
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"updatedOn": /*preprocess updatedOn*/
+			/*/exists updatedOn*/
+			/*#exists eventId*/
+				,"eventId": "/*preprocess eventId*/"
+			/*/exists eventId*/
+			/*#exists externalId*/
+				,"externalId": "/*preprocess externalId*/"
+			/*/exists externalId*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+		/*/with acknowledgement*/
+		}
+	/*/exists acknowledgement*/
+}
+}

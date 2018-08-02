@@ -1,0 +1,32 @@
+{
+	"integrationEntityDetails": {
+	/*#exists creditMemoReversal*/
+	"creditMemoReversal": 
+		{
+		/*#with creditMemoReversal*/
+			/*#exists creditMemoId*/
+				"creditMemoId": "/*preprocess creditMemoId*/"
+			/*/exists creditMemoId*/
+			/*#exists createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"createdOn": /*preprocess createdOn*/
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"updatedOn": /*preprocess updatedOn*/
+			/*/exists updatedOn*/
+			/*#exists isUniqueId*/
+				,"isUniqueId": /*preprocess isUniqueId*/
+			/*/exists isUniqueId*/
+			/*#exists comments*/
+				,"comments": "/*preprocess comments*/"
+			/*/exists comments*/
+		/*/with creditMemoReversal*/
+		}
+	/*/exists creditMemoReversal*/
+}
+}

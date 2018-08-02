@@ -1,0 +1,38 @@
+{
+	"integrationEntityDetails": {
+	/*#exists glAccountType*/
+	"glAccountType": 
+		{
+		/*#with glAccountType*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists glAccountTypeName*/
+				,"glAccountTypeName": "/*preprocess glAccountTypeName*/"
+			/*/exists glAccountTypeName*/
+			/*#exists glAccountTypeDescription*/
+				,"glAccountTypeDescription": "/*preprocess glAccountTypeDescription*/"
+			/*/exists glAccountTypeDescription*/
+			/*#exists glAccountTypeErpId*/
+				,"glAccountTypeErpId": "/*preprocess glAccountTypeErpId*/"
+			/*/exists glAccountTypeErpId*/
+			/*#exists createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"createdOn": "/*preprocess createdOn*/"
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"updatedOn": "/*preprocess updatedOn*/"
+			/*/exists updatedOn*/
+		/*/with glAccountType*/
+		}
+	/*/exists glAccountType*/
+}
+}

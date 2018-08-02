@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:integration-outbound="http://www.zycus.com/integration/schemas/IntegrationOutbound" targetNamespace="http://www.zycus.com/integration/schemas/IntegrationOutbound" version="1.0">
+  <xs:element name="IntegrationDetails" type="integration-outbound:outboundIntegrationDetails"/>
+  <xs:element name="IntegrationEntity" type="integration-outbound:outboundIntegrationEntity"/>
+  <xs:complexType name="outboundIntegrationEntity">
+    <xs:sequence>
+      <xs:element name="integrationEntityHeader" type="integration-outbound:OutboundIntegrationHeader"/>
+      <xs:element name="integrationEntityDetails" type="integration-outbound:outboundIntegrationEntityDetails"/>
+      <xs:element minOccurs="0" name="processingErrors" type="integration-outbound:processingErrors"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OutboundIntegrationHeader">
+    <!-- <xs:complexContent> <xs:extension base="integration-outbound:BaseIntegrationHeader"> -->
+    <xs:all>
+      <xs:element name="integrationTrackingNumber" type="xs:string"/>
+      <xs:element minOccurs="1" name="referenceCodeForEntity" type="xs:string"/>
+      <xs:element minOccurs="0" name="additionalInfo" type="xs:string"/>
+      <xs:element name="action" type="xs:string"/>
+      <xs:element name="entity" type="xs:string"/>
+      <xs:element name="source" type="xs:string"/>
+      <xs:element name="zDocBaseVersion" type="xs:string"/>
+      <xs:element name="zDocCustomVersion" type="xs:string"/>
+      <xs:element minOccurs="0" name="timestampUTC" type="xs:string"/>
+      <xs:element minOccurs="0" name="attachments" type="integration-outbound:attachments"/>
+    </xs:all>
+    <!-- </xs:extension> </xs:complexContent> -->
+  </xs:complexType>
+  <xs:complexType name="outboundIntegrationEntityDetails">
+    <xs:choice>
+      <xs:element minOccurs="1" name="contractTypes" type="integration-outbound:contractTypes"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="outboundIntegrationDetails">
+    <xs:all>
+      <xs:element minOccurs="1" name="packerId" type="xs:string"/>
+      <xs:element minOccurs="0" name="timestampUTC" type="xs:string"/>
+      <xs:element minOccurs="0" name="additionalInfo" type="xs:string"/>
+      <xs:element name="integrationEntities">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="integrationEntity" type="integration-outbound:outboundIntegrationEntity"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="processingErrors">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="shouldRetry" type="xs:boolean"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="error" type="integration-outbound:error"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="error">
+    <xs:all>
+      <xs:element name="errorCode" type="xs:string"/>
+      <xs:element name="errorDescription" type="xs:string"/>
+      <xs:element minOccurs="0" name="action" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="attachments">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="attachment" type="integration-outbound:attachment"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="attachment">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="id" type="xs:string"/>
+      <xs:element minOccurs="1" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="size" type="xs:long"/>
+      <xs:element minOccurs="0" name="checksum" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- <xs:complexType name="BaseIntegrationHeader"> <xs:all/> </xs:complexType> -->
+  <xs:complexType name="contractTypes">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="types">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="type">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" name="baseTypeName" type="xs:string"/>
+                  <xs:element minOccurs="1" name="typeName" type="xs:string"/>
+                  <xs:element minOccurs="1" name="displayName" type="xs:string"/>
+                  <xs:element minOccurs="1" name="subTypes">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="1" name="subType">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="1" name="subTypeName" type="xs:string"/>
+                              <xs:element minOccurs="1" name="displayName" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

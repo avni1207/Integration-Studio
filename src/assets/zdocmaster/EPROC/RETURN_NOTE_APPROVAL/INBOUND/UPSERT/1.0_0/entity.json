@@ -1,0 +1,23 @@
+{
+	"integrationEntityDetails": {
+	/*#exists returnnoteApproval*/
+	"returnnoteApproval": 
+		{
+		/*#with returnnoteApproval*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists externalId*/
+				,"externalId": "/*preprocess externalId*/"
+			/*/exists externalId*/
+			/*#exists approvalAction*/
+				,"approvalAction": "/*preprocess approvalAction*/"
+			/*/exists approvalAction*/
+			/*#exists approvalComments*/
+				,"approvalComments": "/*preprocess approvalComments*/"
+			/*/exists approvalComments*/
+		/*/with returnnoteApproval*/
+		}
+	/*/exists returnnoteApproval*/
+}
+}

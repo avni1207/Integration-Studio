@@ -1,0 +1,38 @@
+{
+	"integrationEntityDetails": {
+	/*#if deliveryTerm*/
+	"deliveryTerm": 
+		{
+		/*#with deliveryTerm*/
+			/*#if id*/
+				"id": "/*preprocess id*/"
+			/*/if id*/
+			/*#if status*/
+				,"status": "/*preprocess status*/"
+			/*/if status*/
+			/*#if deliveryTermName*/
+				,"deliveryTermName": "/*preprocess deliveryTermName*/"
+			/*/if deliveryTermName*/
+			/*#if description*/
+				,"description": "/*preprocess description*/"
+			/*/if description*/
+			/*#if erpId*/
+				,"erpId": "/*preprocess erpId*/"
+			/*/if erpId*/
+			/*#if createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/if createdBy*/
+			/*#if createdOn*/
+				,"createdOn": "/*preprocess createdOn*/"
+			/*/if createdOn*/
+			/*#if updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/if updatedBy*/
+			/*#if updatedOn*/
+				,"updatedOn": "/*preprocess updatedOn*/"
+			/*/if updatedOn*/
+		/*/with deliveryTerm*/
+		}
+	/*/if deliveryTerm*/
+}
+}

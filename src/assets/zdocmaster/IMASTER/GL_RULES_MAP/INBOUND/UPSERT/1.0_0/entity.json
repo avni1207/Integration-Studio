@@ -1,0 +1,78 @@
+{
+	"integrationEntityDetails": {
+	/*#exists glRulesMap*/
+	"glRulesMap": 
+		{
+		/*#with glRulesMap*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists categoryCode*/
+				,"categoryCode": "/*preprocess categoryCode*/"
+			/*/exists categoryCode*/
+			/*#exists purchaseType*/
+				,"purchaseType": "/*preprocess purchaseType*/"
+			/*/exists purchaseType*/
+			/*#exists orgUnits*/
+			,"orgUnits": 
+				{
+				/*#with orgUnits*/
+					/*#exists orgUnitAssignment*/
+					"orgUnitAssignment": [
+						/*#each orgUnitAssignment*/
+							{
+								/*#exists orgUnitDetails*/
+								"orgUnitDetails": [
+									/*#each orgUnitDetails*/
+										{
+											/*#exists orgUnitLevel*/
+												"orgUnitLevel": "/*preprocess orgUnitLevel*/"
+											/*/exists orgUnitLevel*/
+											/*#exists orgUnitCode*/
+												,"orgUnitCode": "/*preprocess orgUnitCode*/"
+											/*/exists orgUnitCode*/
+										}
+										/*#unless @last*/,/*/unless*/
+									/*/each orgUnitDetails*/
+								]
+								/*/exists orgUnitDetails*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each orgUnitAssignment*/
+					]
+					/*/exists orgUnitAssignment*/
+				/*/with orgUnits*/
+				}
+			/*/exists orgUnits*/
+			/*#exists glAccountTypeId*/
+				,"glAccountTypeId": "/*preprocess glAccountTypeId*/"
+			/*/exists glAccountTypeId*/
+			/*#exists glAccountCode*/
+				,"glAccountCode": "/*preprocess glAccountCode*/"
+			/*/exists glAccountCode*/
+			/*#exists costCenterCode*/
+				,"costCenterCode": "/*preprocess costCenterCode*/"
+			/*/exists costCenterCode*/
+			/*#exists amount*/
+				,"amount": /*preprocess amount*/
+			/*/exists amount*/
+			/*#exists createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"createdOn": /*preprocess createdOn*/
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"updatedOn": /*preprocess updatedOn*/
+			/*/exists updatedOn*/
+		/*/with glRulesMap*/
+		}
+	/*/exists glRulesMap*/
+}
+}

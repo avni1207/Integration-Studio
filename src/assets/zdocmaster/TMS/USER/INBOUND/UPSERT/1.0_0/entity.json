@@ -1,0 +1,243 @@
+{
+	"integrationEntityDetails": {
+	/*#exists user*/
+	"user": 
+		{
+		/*#with user*/
+			/*#exists controlBlock*/
+			"controlBlock": 
+				{
+				/*#each controlBlock*/
+					/*#exists dataProcessingInfo*/
+					"dataProcessingInfo": [
+						/*#each dataProcessingInfo*/
+							{
+								/*#exists key*/
+									"key": "/*preprocess key*/"
+								/*/exists key*/
+								/*#exists value*/
+									,"value": "/*preprocess value*/"
+								/*/exists value*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each dataProcessingInfo*/
+					]
+					/*/exists dataProcessingInfo*/
+				/*/each controlBlock*/
+				}
+			/*/exists controlBlock*/
+			/*#exists id*/
+				,"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists adminDetails*/
+			,"adminDetails": 
+				{
+				/*#each adminDetails*/
+					/*#exists authorizedBy*/
+						"authorizedBy": "/*preprocess authorizedBy*/"
+					/*/exists authorizedBy*/
+				/*/each adminDetails*/
+				}
+			/*/exists adminDetails*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists emailId*/
+				,"emailId": "/*preprocess emailId*/"
+			/*/exists emailId*/
+			/*#exists salutation*/
+				,"salutation": "/*preprocess salutation*/"
+			/*/exists salutation*/
+			/*#exists displayName*/
+				,"displayName": "/*preprocess displayName*/"
+			/*/exists displayName*/
+			/*#exists firstName*/
+				,"firstName": "/*preprocess firstName*/"
+			/*/exists firstName*/
+			/*#exists lastName*/
+				,"lastName": "/*preprocess lastName*/"
+			/*/exists lastName*/
+			/*#exists designationCode*/
+				,"designationCode": "/*preprocess designationCode*/"
+			/*/exists designationCode*/
+			/*#exists reportingManagerEmailId*/
+				,"reportingManagerEmailId": "/*preprocess reportingManagerEmailId*/"
+			/*/exists reportingManagerEmailId*/
+			/*#exists allowLoginThroughZycusPortal*/
+				,"allowLoginThroughZycusPortal": /*preprocess allowLoginThroughZycusPortal*/
+			/*/exists allowLoginThroughZycusPortal*/
+			/*#exists userInitials*/
+				,"userInitials": "/*preprocess userInitials*/"
+			/*/exists userInitials*/
+			/*#exists externalIdentifiers*/
+			,"externalIdentifiers": 
+				{
+				/*#each externalIdentifiers*/
+					/*#exists externalIdentifier*/
+					"externalIdentifier": [
+						/*#each externalIdentifier*/
+							{
+								/*#exists IdentityType*/
+									"IdentityType": "/*preprocess IdentityType*/"
+								/*/exists IdentityType*/
+								/*#exists id*/
+									,"id": "/*preprocess id*/"
+								/*/exists id*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each externalIdentifier*/
+					]
+					/*/exists externalIdentifier*/
+				/*/each externalIdentifiers*/
+				}
+			/*/exists externalIdentifiers*/
+			/*#exists userLevelLimits*/
+			,"userLevelLimits": 
+				{
+				/*#each userLevelLimits*/
+					/*#exists currencyForLimits*/
+						"currencyForLimits": "/*preprocess currencyForLimits*/"
+					/*/exists currencyForLimits*/
+					/*#exists purchaseAmountLimit*/
+						,"purchaseAmountLimit": /*preprocess purchaseAmountLimit*/
+					/*/exists purchaseAmountLimit*/
+					/*#exists requistionApprovalAmountLimit*/
+						,"requistionApprovalAmountLimit": /*preprocess requistionApprovalAmountLimit*/
+					/*/exists requistionApprovalAmountLimit*/
+					/*#exists invoiceApprovalAmountLimit*/
+						,"invoiceApprovalAmountLimit": /*preprocess invoiceApprovalAmountLimit*/
+					/*/exists invoiceApprovalAmountLimit*/
+				/*/each userLevelLimits*/
+				}
+			/*/exists userLevelLimits*/
+			/*#exists defaultOrganizationUnit*/
+			,"defaultOrganizationUnit": 
+				{
+				/*#each defaultOrganizationUnit*/
+					/*#exists organizationLevelOneId*/
+						"organizationLevelOneId": "/*preprocess organizationLevelOneId*/"
+					/*/exists organizationLevelOneId*/
+					/*#exists organizationLevelTwoId*/
+						,"organizationLevelTwoId": "/*preprocess organizationLevelTwoId*/"
+					/*/exists organizationLevelTwoId*/
+					/*#exists costCenterId*/
+						,"costCenterId": "/*preprocess costCenterId*/"
+					/*/exists costCenterId*/
+					/*#exists departmentId*/
+						,"departmentId": "/*preprocess departmentId*/"
+					/*/exists departmentId*/
+					/*#exists locationId*/
+						,"locationId": "/*preprocess locationId*/"
+					/*/exists locationId*/
+				/*/each defaultOrganizationUnit*/
+				}
+			/*/exists defaultOrganizationUnit*/
+			/*#exists productAndRoleAssignment*/
+			,"productAndRoleAssignment": 
+				{
+				/*#each productAndRoleAssignment*/
+					/*#exists product*/
+					"product": [
+						/*#each product*/
+							{
+								/*#exists productName*/
+									"productName": "/*preprocess productName*/"
+								/*/exists productName*/
+								/*#exists roles*/
+								,"roles": 
+									{
+									/*#each roles*/
+										/*#exists role*/
+										"role": [
+											/*#each role*/
+												{
+													/*#exists roleName*/
+														"roleName": "/*preprocess roleName*/"
+													/*/exists roleName*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each role*/
+										]
+										/*/exists role*/
+									/*/each roles*/
+									}
+								/*/exists roles*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each product*/
+					]
+					/*/exists product*/
+				/*/each productAndRoleAssignment*/
+				}
+			/*/exists productAndRoleAssignment*/
+			/*#exists scopeAssignment*/
+			,"scopeAssignment": 
+				{
+				/*#each scopeAssignment*/
+					/*#exists behalfScope*/
+						"behalfScope": "/*preprocess behalfScope*/"
+					/*/exists behalfScope*/
+					/*#exists deliveryScope*/
+						,"deliveryScope": "/*preprocess deliveryScope*/"
+					/*/exists deliveryScope*/
+					/*#exists scopes*/
+					,"scopes": 
+						{
+						/*#each scopes*/
+							/*#exists scope*/
+							"scope": [
+								/*#each scope*/
+									{
+										/*#exists scopeType*/
+											"scopeType": "/*preprocess scopeType*/"
+										/*/exists scopeType*/
+										/*#exists scopeId*/
+											,"scopeId": "/*preprocess scopeId*/"
+										/*/exists scopeId*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each scope*/
+							]
+							/*/exists scope*/
+						/*/each scopes*/
+						}
+					/*/exists scopes*/
+				/*/each scopeAssignment*/
+				}
+			/*/exists scopeAssignment*/
+			/*#exists preference*/
+			,"preference": 
+				{
+				/*#each preference*/
+					/*#exists timeZone*/
+						"timeZone": "/*preprocess timeZone*/"
+					/*/exists timeZone*/
+					/*#exists currencyDisplayFormat*/
+						,"currencyDisplayFormat": "/*preprocess currencyDisplayFormat*/"
+					/*/exists currencyDisplayFormat*/
+					/*#exists dateFormat*/
+						,"dateFormat": "/*preprocess dateFormat*/"
+					/*/exists dateFormat*/
+					/*#exists timeFormat*/
+						,"timeFormat": "/*preprocess timeFormat*/"
+					/*/exists timeFormat*/
+					/*#exists currencyId*/
+						,"currencyId": "/*preprocess currencyId*/"
+					/*/exists currencyId*/
+					/*#exists language*/
+						,"language": "/*preprocess language*/"
+					/*/exists language*/
+					/*#exists decimalPrecision*/
+						,"decimalPrecision": /*preprocess decimalPrecision*/
+					/*/exists decimalPrecision*/
+					/*#exists allowedIPs*/
+						,"allowedIPs": "/*preprocess allowedIPs*/"
+					/*/exists allowedIPs*/
+				/*/each preference*/
+				}
+			/*/exists preference*/
+		/*/with user*/
+		}
+	/*/exists user*/
+}
+}

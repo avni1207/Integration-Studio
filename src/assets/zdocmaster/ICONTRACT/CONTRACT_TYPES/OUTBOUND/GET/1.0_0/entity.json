@@ -1,0 +1,58 @@
+{
+	"integrationEntityDetails": {
+	/*#exists contractTypes*/
+	"contractTypes": 
+		{
+		/*#with contractTypes*/
+			/*#exists types*/
+			"types": 
+				{
+				/*#with types*/
+					/*#exists type*/
+					"type": [
+						/*#each type*/
+							{
+								/*#exists baseTypeName*/
+									"baseTypeName": "/*preprocess baseTypeName*/"
+								/*/exists baseTypeName*/
+								/*#exists typeName*/
+									,"typeName": "/*preprocess typeName*/"
+								/*/exists typeName*/
+								/*#exists displayName*/
+									,"displayName": "/*preprocess displayName*/"
+								/*/exists displayName*/
+								/*#exists subTypes*/
+								,"subTypes": 
+									{
+									/*#with subTypes*/
+										/*#exists subType*/
+										"subType": [
+											/*#each subType*/
+												{
+													/*#exists subTypeName*/
+														"subTypeName": "/*preprocess subTypeName*/"
+													/*/exists subTypeName*/
+													/*#exists displayName*/
+														,"displayName": "/*preprocess displayName*/"
+													/*/exists displayName*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each subType*/
+										]
+										/*/exists subType*/
+									/*/with subTypes*/
+									}
+								/*/exists subTypes*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each type*/
+					]
+					/*/exists type*/
+				/*/with types*/
+				}
+			/*/exists types*/
+		/*/with contractTypes*/
+		}
+	/*/exists contractTypes*/
+}
+}

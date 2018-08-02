@@ -1,0 +1,63 @@
+{
+	"integrationEntityDetails": {
+	/*#exists organizationUnit*/
+	"organizationUnit": 
+		{
+		/*#with organizationUnit*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists ouName*/
+				,"ouName": "/*preprocess ouName*/"
+			/*/exists ouName*/
+			/*#exists orgUnitLevel*/
+				,"orgUnitLevel": "/*preprocess orgUnitLevel*/"
+			/*/exists orgUnitLevel*/
+			/*#exists ouHeadquarterLocationId*/
+				,"ouHeadquarterLocationId": "/*preprocess ouHeadquarterLocationId*/"
+			/*/exists ouHeadquarterLocationId*/
+			/*#exists ouOperatingLocations*/
+			,"ouOperatingLocations": 
+				{
+				/*#each ouOperatingLocations*/
+					/*#exists ouOperatingLocationId*/
+						"ouOperatingLocationId": [/*#each ouOperatingLocationId*/ 
+						"/*preprocess this*/"
+						/*#unless @last*/,/*/unless*/
+					/*/each ouOperatingLocationId*/]
+					/*/exists ouOperatingLocationId*/
+				/*/each ouOperatingLocations*/
+				}
+			/*/exists ouOperatingLocations*/
+			/*#exists parentOuId*/
+				,"parentOuId": "/*preprocess parentOuId*/"
+			/*/exists parentOuId*/
+			/*#exists legalName*/
+				,"legalName": "/*preprocess legalName*/"
+			/*/exists legalName*/
+			/*#exists currency*/
+				,"currency": "/*preprocess currency*/"
+			/*/exists currency*/
+			/*#exists erpId*/
+				,"erpId": "/*preprocess erpId*/"
+			/*/exists erpId*/
+			/*#exists createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"createdOn": /*preprocess createdOn*/
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"updatedOn": /*preprocess updatedOn*/
+			/*/exists updatedOn*/
+		/*/with organizationUnit*/
+		}
+	/*/exists organizationUnit*/
+}
+}

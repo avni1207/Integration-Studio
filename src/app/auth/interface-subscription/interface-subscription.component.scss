@@ -1,0 +1,416 @@
+:host{
+  svg path,
+  svg rect{
+    fill: #2196F3;
+  }
+  .genralForm input.datalistinpt{
+    background-color: transparent;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+  }
+  .genralForm .interfacemsg{
+      color: #dc3545 ;
+      font-size: 12px;
+      padding-left: 180px;
+  }
+  .genralForm input.datalistinpt::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+  .text-danger , .text-success {
+    position: relative;
+    font-weight: bold;
+  }
+  .invalidptrn{
+    top:-4px;
+    display:inline-block;
+  }
+
+  .input-holder-inner.padding-bottom {
+    height: 60px !important;
+  }
+  .input-holder-inner svg {
+    position: relative;
+    top: 7px;
+    height: 25px;
+  }
+  .card{
+    border: 0px;
+    border-radius: 0px;
+  }
+  select:disabled{
+    cursor: not-allowed;
+  }
+  input:read-only {
+    color: #999;
+    cursor: not-allowed;
+  }
+  .genralForm label{
+    display: block;
+  }
+  .genralForm input{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight:bold;
+    border:1px solid #d2d2d2;
+  }
+
+  .genralForm select, .genralForm .idselect{
+    position: relative;
+    background:transparent;
+    z-index: 2;
+    width: 100%;
+    padding: 10px 8px;
+    margin-bottom: 8px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: bold;
+    border: 1px solid #d2d2d2;
+    // background: url("/assets/images/arrow.png") no-repeat right center;
+  }
+  .genralForm .browsebtn{
+    width: 20%;
+    float: left;
+    margin-top: 30px;
+  }
+  .genralForm .endpointradio{
+    width: 48%;
+    float: left;
+    margin-right: 13px;
+    clear: both;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .genralForm .endpointradio input{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-bottom: 0px;
+    vertical-align: middle;
+    margin-right: 14px;
+  }
+  button.btn-download {
+    background-color: #2196F3;
+    border: none;
+    padding: 10px 25px;
+    color: #fff;
+  }
+  .btn-download i {
+    margin-left: 10px;
+  }
+  .select-holder {
+    padding-right: 98px;
+  }
+  .absolute-btn-holder {
+    position: absolute;
+    top: 9px;
+    right: 0;
+    font-size: 15px;
+    /* color: #0472e7; */
+  }
+  .absolute-btn-holder a {
+    color: #2196F3;
+    cursor:pointer;
+    font-size: 13px;
+  }
+  input[type="button"]:disabled{
+    opacity: .25;
+    cursor: not-allowed;
+  }
+
+  .genralForm .input-holder {
+    position: relative;
+    width: 100%;
+  }
+  .genralForm .outputAck input{
+    font-style: italic;
+  }
+  .genralForm .generalsubmitbtn{
+    background: #2196F3;
+    width: 10%;
+    margin: 20px auto;
+    display: block;
+    color: #ffffff;
+    border: 0;
+    font-size: 16px;
+    font-weight: normal;
+    cursor: pointer;
+  }
+  .genralForm input[type="radio"]{
+    width: auto;
+    vertical-align: middle;
+    margin: 7px 0px;
+  }
+  .genralForm  .ftpradio{
+    border: 1px solid #a9a9a9;
+    padding: 5px 10px;
+    margin-bottom: 8px;
+  }
+  .genralForm  .ftpradio span{
+    margin:0 5px;
+  }
+  .genralForm .checksum{
+    background: #fff;
+  }
+  .genralForm .uploadfilediv{
+    display: inline-block;
+    border: 1px solid #a9a9a9;
+  }
+  .genralForm h5{
+    margin: 40px 0 25px 0;
+    padding-bottom: 10px;
+    font-size: 14px;
+  }
+  .genralForm #input{
+    width:100px;
+    border:0px;
+    margin: 0;
+  }
+  .genralForm #input + label {
+    display: inline-block;
+    width: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: 0px 15px 0 5px;
+    margin: 0;
+} 
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 20px;
+  }
+
+  .switch input {display:none;}
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  .absolute-label {
+    position: absolute;
+    width: 145px;
+    display: table;
+    height: 40px;
+
+  }
+  
+  .input-holder-inner {
+    padding-left: 180px;
+    margin-bottom: 20px;
+    height: 40px;
+  }
+  .editenctype{
+    height: 70px;
+  }
+  .absolute-btn-holder i.fa.fa-download {
+    margin-right: 5px;
+  }
+  .absolute-label label {
+    display: table-cell !important;
+    vertical-align: middle;
+    height: 100%;
+    font-weight: normal;
+  }
+  label.switch {
+    position: relative;
+    top: 8px;
+  }
+  form.genralForm .interfacediv {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    width:100%
+  }
+  .genralForm p{
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .genralForm option{
+    font-weight: bold;
+  }
+  
+  .genralForm .italictxt{
+    font-style: italic;
+  }
+  .genralForm .activeinput{
+    padding-top:18px;
+    margin-top:20px;
+    border-top:1px solid #d2d2d2;
+  }
+  .genralForm .activeinput label{
+    font-weight:bold;
+    font-size:14px;
+  }
+  .genralForm .activeinput .input-holder-inner{
+    margin-bottom: 0px;
+  }
+  .genralForm .input-cron{
+    height: auto;
+  }
+  .genralForm .ackdiverr{
+    height: auto;
+  }
+  .select-box-icon{
+    position: relative;
+  }
+  .select-holder.select-box-icon:after{
+    right: 108px;
+  }
+  .select-box-icon:after {
+    content: "\F107";
+    font-family: FontAwesome;
+    right: 8px;
+    position: absolute;
+    top: 7px;
+    font-size: 19px;
+    color: #d2d2d2;
+    z-index: 1;
+  }
+  select.ng-invalid.ng-touched,input.ng-invalid.ng-touched
+  {
+    border:1px solid #dc3545 !important;
+  }
+  input.prefixinpt.ng-invalid.ng-untouched, input.emailInpt.ng-invalid.ng-untouched{
+     border:1px solid #dc3545 !important;
+  }
+  input.generalsubmitbtn:disabled {
+    opacity: .25;
+    cursor: not-allowed;
+  }
+  input.prefixinpt{
+    width: 50% !important;
+    float: left;
+  }
+  input.suffixinpt{
+    width: 50% !important;
+    float: left;
+    background-color: #e9ecef;
+  }
+  .evntselect{
+    height: auto;
+  }
+  .timezonep{
+    font-size: 13px !important;
+    font-weight: normal!important ;
+  }
+
+}
+
+/* cronpicker css */
+
+:host /deep/ .cron-editor-main ul.nav-tabs {
+  border-bottom: 1px solid #ddd;
+}
+:host /deep/ .cron-editor-main ul.nav-tabs>li {
+  float: left;
+  margin-bottom: -1px;
+}
+:host /deep/ .cron-editor-main ul.nav-tabs>li>a {
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  display: block;
+  color: black;
+  text-decoration: none;
+  background-color: transparent;
+  padding: 10px 15px;
+}
+:host /deep/ .cron-editor-main ul.nav-tabs>li.active>a, :host /deep/ .cron-editor-main ul.nav-tabs>li.active>a:focus, :host /deep/ .cron-editor-main ul.nav-tabs>li.active>a:hover {
+  color: #2196F3;
+  cursor: default;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+}
+:host /deep/ .cron-editor-main .tab-content>.active {
+  display: block;
+}
+:host /deep/ .cron-editor-main .well {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #d2d2d2;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+}
+:host /deep/ .cron-editor-main .cron-editor-container .row{
+  margin-top:12px;
+}
+:host /deep/ .cron-editor-main .cron-editor-container .col-xs-12{
+  width:100%;
+  padding: 0px 15px;
+}
+:host /deep/ .cron-editor-main input[type="radio"],:host /deep/ .cron-editor-main input[type="checkbox"]{
+  vertical-align: middle;
+  margin-right: 5px;
+}
+:host /deep/ .cron-editor-main .cron-editor-container .cron-editor-select{
+  width:44px !important;
+  padding: 0px 2px !important;
+}
+:host /deep/ .cron-editor-main .cron-editor-container .month-days{
+  width: 120px !important;
+  padding: 5px;
+}
+
+:host /deep/ .cron-editor-main .cron-editor-container .day-order-in-month {
+  width: 75px !important;
+  padding: 4px !important;
+}
+:host /deep/ .cron-editor-main .cron-editor-container .week-days{
+  width: 100px !important;
+  padding: 5px !important;
+}
+:host /deep/ .cron-editor-main .cron-editor-container .months{
+  width:100px !important;
+}

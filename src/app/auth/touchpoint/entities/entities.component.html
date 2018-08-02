@@ -1,0 +1,210 @@
+<!-- <div *ngIf="!store.touchPointsData.length">
+      Loading...
+</div> -->
+<!--<form name="formNew" #formNew = "ngForm" >
+    <div class="endpointftpWrapper">
+        <div class="filewrapper">
+
+            <div class="input-holder">
+              <label>Product</label>
+              <select>
+                <option value="tms">tms</option>
+                <option value="eproc">eproc</option>
+                <option value="iconsole">iconsole</option>
+                <option value="cmd">cmd</option>
+              </select>
+            </div>
+            <div class="input-holder">
+              <label>Interface</label>
+              <select>
+                <option value="entity1">entity1</option>
+                <option value="entity2">entity2</option>
+                <option value="entity3">entity3</option>
+                <option value="entity4">entity4</option>
+              </select>
+            </div>
+            <div class="input-holder">
+              <label>Direction</label>
+
+              <select #t (change)="onSelect(t.value)">
+                <option value="inbound" selected>Inbound</option>
+                <option value="outbound">Outbound</option>
+              </select>
+            </div>
+            <div class="input-holder">
+              <label>Event(s)</label>
+              <select name="events" multiple>
+                <option value="testevent1">Test event1</option>
+                <option value="testevent2">Test event2</option>
+                <option value="testevent3">Test event3</option>
+
+              </select>
+            </div>
+            <div class="input-holder">
+              <label>Job Name</label>
+              <input type="text" value="tenantname_interface_description" readonly />
+            </div>
+            <div class="input-holder">
+              <label>Entity zDoc</label>
+              <div class="select-holder">
+                <select>
+                  <option value="doc1">doc1</option>
+                  <option value="doc2">doc2</option>
+                </select>
+              </div>
+              <div class="absolute-btn-holder">
+                <button class="btn-download">Download<i class="fa fa-download"></i></button>
+              </div>
+            </div>
+            <div class="input-holder" *ngIf="Isdirect">
+              <label>Acknowledgement zDoc</label>
+              <input type="text" value="Generic Ack zDoc" readonly>
+            </div>
+            <div class="input-holder" *ngIf="!Isdirect">
+              <label>Acknowledgement zDoc</label>
+              <input type="text" value="Please subscribe to PO_Inbound_Ack seperately" readonly>
+            </div>
+            <div class="input-holder" >
+              <label>Integration Approach</label>
+              <select name="approach" ngModel>
+                <option Value="File">File Based Integration</option>
+                <option Value="API">API Based Integration</option>
+              </select>
+            </div>
+      </div>
+      <div class="btndiv">
+        <input class="touchpointbtn" type="button" routerLink="/auth/integration-studio" value="Cancel" />
+        <input class="touchpointbtn" routerLink="/auth/touchpoint/endpoint" (click)="onSubmit(formNew.value)" type="button"  value="Next"/>
+      </div>
+    </div>
+</form>-->
+<form name="formNew" #entityForm="ngForm">
+    <div class="endpointftpWrapper">
+        <div class="filewrapper container-fluid">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="input-holder">
+                <label>Product</label>
+                <select name="product" [(ngModel)]="entitydata.product">
+                  <option value="tms">tms</option>
+                  <option value="eproc">eproc</option>
+                  <option value="iconsole">iconsole</option>
+                  <option value="cmd">cmd</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="input-holder">
+                <label>Interface</label>
+                <select name="entity" [(ngModel)]="entitydata.entity">
+                  <option value="entity1">entity1</option>
+                  <option value="entity2">entity2</option>
+                  <option value="entity3">entity3</option>
+                  <option value="entity4">entity4</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="input-holder">
+                <label>Direction</label>
+                <select name="direction" #t (change)="onSelect(t.value)" [(ngModel)]="entitydata.direction">
+                  <option value="inbound">Inbound</option>
+                  <option value="outbound">Outbound</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="input-holder">
+                <label>Job Name</label>
+                <input type="text" name="jobName"  [(ngModel)]="entitydata.jobName"/>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="input-holder">
+                <label>Entity zDoc</label>
+                <div class="select-holder">
+                  <select name="requestBaseVersion" [(ngModel)]="entitydata.requestBaseVersion">
+                    <option value="doc1">doc1</option>
+                    <option value="doc2">doc2</option>
+                  </select>
+                </div>
+                <div class="absolute-btn-holder">
+                  <button class="btn-download">Download<i class="fa fa-download"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6" *ngIf="Isdirect">
+              <div class="input-holder" >
+                <label>Acknowledgement zDoc</label>
+                <input name="responseBaseVersion" type="text"  [(ngModel)]="entitydata.responseBaseVersion"/>
+              </div>
+            </div>
+            <div class="col-lg-6" *ngIf="!Isdirect">
+              <div class="input-holder" >
+                <label>Acknowledgement zDoc</label>
+                <input name="responseBaseVersion" type="text"  [(ngModel)]="entitydata.responseBaseVersion"/>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="input-holder" >
+                <label>Integration Approach</label>
+                <select name="specType"  [(ngModel)]="entitydata.specType">
+                  <option value="file">File Based Integration</option>
+                  <option value="api">API Based Integration</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="input-holder">
+                <label>Event(s)</label>
+                <select name="action" multiple [(ngModel)]="entitydata.action">
+                  <option value="testevent1">Test event1</option>
+                  <option value="testevent2">Test event2</option>
+                  <option value="testevent3">Test event3</option>
+                </select>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="btndiv">
+        <input class="touchpointbtn" type="button" routerLink="/auth/integration-studio" value="Cancel" />
+        <input class="touchpointbtn" (click)="onSubmit(entityForm.value)" type="button"  value="Next"/>
+      </div>
+
+    </div>
+</form>
+
+
+<!--<pre>{{formNew.value | json}}
+</pre>
+ <form [formGroup]="userform1" *ngIf="store.touchPointsData.length">
+   <div class="entity-wrapper">
+      <!-- <h6>Select One Entity</h6> -->
+      <!-- <div class="entityacc">
+        <ngb-accordion   [closeOthers]="true" activeIds="static-1">
+
+        <ngb-panel *ngFor="let item of store.touchPointsData">
+          <ng-template ngbPanelTitle>
+            <span><i class="fa fa-plus"></i><i class="fa fa-minus"></i><b>{{item.product}}</b></span>
+          </ng-template>
+          <ng-template  ngbPanelContent>
+              <p><input class="big" type="radio" (change)="toggleEditable($event)"  value="{{item.action[0]}}" formControlName="action" ><label class="radiolbl">{{item.action[0]}}</label></p>
+              <p><input class="big" type="radio" (change)="toggleEditable($event)"  value="{{item.action[1]}}" formControlName="action" ><label class="radiolbl">{{item.action[1]}}</label></p>
+              <p><input class="big" type="radio" (change)="toggleEditable($event)"  value="{{item.action[2]}}" formControlName="action" ><label class="radiolbl">{{item.action[2]}}</label></p>
+
+          </ng-template>
+        </ngb-panel>
+        </ngb-accordion>
+      </div> -->
+
+      <!--<div class="button-container float-right">
+        <button [class.enable]="isClassPresent"  routerLink="/auth/touchpoint/endpoint" class="disable btn btn-primary btn-lg">Next</button>
+      </div>-->
+      <!-- <div class="btndiv">
+        <input class="touchpointbtn" type="button" routerLink="/auth/integration-studio" value="Cancel" />
+        <input class="touchpointbtn" type="button" routerLink="/auth/touchpoint/endpoint" value="Next"/>
+      </div> -->
+   <!-- </div>
+
+
+ </form> -->

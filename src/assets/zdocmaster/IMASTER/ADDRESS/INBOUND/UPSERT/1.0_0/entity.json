@@ -1,0 +1,86 @@
+{
+	"integrationEntityDetails": {
+	/*#exists address*/
+	"address": 
+		{
+		/*#with address*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists addressName*/
+				,"addressName": "/*preprocess addressName*/"
+			/*/exists addressName*/
+			/*#exists addressLine1*/
+				,"addressLine1": "/*preprocess addressLine1*/"
+			/*/exists addressLine1*/
+			/*#exists addressLine2*/
+				,"addressLine2": "/*preprocess addressLine2*/"
+			/*/exists addressLine2*/
+			/*#exists addressLine3*/
+				,"addressLine3": "/*preprocess addressLine3*/"
+			/*/exists addressLine3*/
+			/*#exists addressLine4*/
+				,"addressLine4": "/*preprocess addressLine4*/"
+			/*/exists addressLine4*/
+			/*#exists url*/
+				,"url": "/*preprocess url*/"
+			/*/exists url*/
+			/*#exists phone*/
+				,"phone": "/*preprocess phone*/"
+			/*/exists phone*/
+			/*#exists fax*/
+				,"fax": "/*preprocess fax*/"
+			/*/exists fax*/
+			/*#exists email*/
+				,"email": "/*preprocess email*/"
+			/*/exists email*/
+			/*#exists countryId*/
+				,"countryId": "/*preprocess countryId*/"
+			/*/exists countryId*/
+			/*#exists stateId*/
+				,"stateId": "/*preprocess stateId*/"
+			/*/exists stateId*/
+			/*#exists county*/
+				,"county": "/*preprocess county*/"
+			/*/exists county*/
+			/*#exists city*/
+				,"city": "/*preprocess city*/"
+			/*/exists city*/
+			/*#exists zipCode*/
+				,"zipCode": "/*preprocess zipCode*/"
+			/*/exists zipCode*/
+			/*#exists isShipToAddress*/
+				,"isShipToAddress": "/*preprocess isShipToAddress*/"
+			/*/exists isShipToAddress*/
+			/*#exists isBillToAddress*/
+				,"isBillToAddress": "/*preprocess isBillToAddress*/"
+			/*/exists isBillToAddress*/
+			/*#exists isInvoiceToAddress*/
+				,"isInvoiceToAddress": "/*preprocess isInvoiceToAddress*/"
+			/*/exists isInvoiceToAddress*/
+			/*#exists isWarehouseAddress*/
+				,"isWarehouseAddress": "/*preprocess isWarehouseAddress*/"
+			/*/exists isWarehouseAddress*/
+			/*#exists erpId*/
+				,"erpId": "/*preprocess erpId*/"
+			/*/exists erpId*/
+			/*#exists createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"createdOn": "/*preprocess createdOn*/"
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"updatedOn": "/*preprocess updatedOn*/"
+			/*/exists updatedOn*/
+		/*/with address*/
+		}
+	/*/exists address*/
+}
+}

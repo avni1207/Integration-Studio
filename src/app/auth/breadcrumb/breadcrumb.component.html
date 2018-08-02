@@ -1,0 +1,18 @@
+<style>
+.breadcrumb li:last-child a {
+  color:#333;
+  text-decoration: none;
+  cursor: default;
+}
+</style>
+
+<ol class="breadcrumb" [class.has-light-text]="hasLightText">
+  <li class="breadcrumb-item">
+    <a routerLink="/auth/dashboard/integration-studio">Interface Subscription</a>
+  </li>
+ 
+  <li class="breadcrumb-item" *ngFor="let breadcrumb of breadcrumbs; let i = index; trackBy: trackItems" [class.active]="isLast(i)">
+    <a *ngIf="!isLast(i)" [routerLink]="[breadcrumb.url, breadcrumb.params]">{{ breadcrumb.label }}</a>
+    <span *ngIf="isLast(i)">{{ breadcrumb.label }}</span>
+  </li>
+</ol>

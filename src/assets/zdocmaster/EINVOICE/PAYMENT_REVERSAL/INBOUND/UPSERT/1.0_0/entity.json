@@ -1,0 +1,38 @@
+{
+	"integrationEntityDetails": {
+	/*#exists paymentReversal*/
+	"paymentReversal": 
+		{
+		/*#with paymentReversal*/
+			/*#exists referenceNumber*/
+				"referenceNumber": "/*preprocess referenceNumber*/"
+			/*/exists referenceNumber*/
+			/*#exists createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"createdOn": /*preprocess createdOn*/
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"updatedOn": /*preprocess updatedOn*/
+			/*/exists updatedOn*/
+			/*#exists invoiceId*/
+				,"invoiceId": "/*preprocess invoiceId*/"
+			/*/exists invoiceId*/
+			/*#exists isUniqueId*/
+				,"isUniqueId": /*preprocess isUniqueId*/
+			/*/exists isUniqueId*/
+			/*#exists cancellationAmount*/
+				,"cancellationAmount": /*preprocess cancellationAmount*/
+			/*/exists cancellationAmount*/
+			/*#exists comments*/
+				,"comments": "/*preprocess comments*/"
+			/*/exists comments*/
+		/*/with paymentReversal*/
+		}
+	/*/exists paymentReversal*/
+}
+}

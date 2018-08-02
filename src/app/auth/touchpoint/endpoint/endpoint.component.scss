@@ -1,0 +1,35 @@
+:host{
+  .endpointWrapper {
+    padding: 15px 10px;
+    font-size: 14px;
+    margin: 15px auto;
+    background: #fff;
+
+
+  }
+  .endpointWrapper .integration{
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .endpointWrapper .integration input{
+    border-bottom: 1px solid #333;
+    vertical-align: middle;
+  }
+  .endpointWrapper .integration div{
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+  }
+  .endpointWrapper .integration  span{
+      padding: 5px 10px;
+      display: inline-block;
+    }
+  .endpointWrapper label{
+    width: 100%;
+  }
+  .endpointWrapper .btndiv{
+    margin: 70px auto;
+    width: 40%;
+    text-align: center;
+  }
+  .endpointWrapper .big{ width: 2em; height: 2em; }
+}

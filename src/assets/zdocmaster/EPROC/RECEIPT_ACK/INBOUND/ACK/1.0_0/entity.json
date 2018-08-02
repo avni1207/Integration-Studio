@@ -1,0 +1,26 @@
+{
+	"integrationEntityDetails": {
+	/*#exists receiptAcknowledgement*/
+	"receiptAcknowledgement": 
+		{
+		/*#with receiptAcknowledgement*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists eventId*/
+				,"eventId": "/*preprocess eventId*/"
+			/*/exists eventId*/
+			/*#exists externalId*/
+				,"externalId": "/*preprocess externalId*/"
+			/*/exists externalId*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists failureReason*/
+				,"failureReason": "/*preprocess failureReason*/"
+			/*/exists failureReason*/
+		/*/with receiptAcknowledgement*/
+		}
+	/*/exists receiptAcknowledgement*/
+}
+}

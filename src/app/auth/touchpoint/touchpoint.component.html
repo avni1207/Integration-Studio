@@ -1,0 +1,25 @@
+<div class="container touchpointwrapper">
+  <div class="row">
+    <div class="col-sm-12">
+      <div>
+        <p class="dashboardtitle" routerLink="/auth/dashboard">
+          <i class="fa fa-home fa-lg" aria-hidden="true"></i> Back to dashboard
+        </p>
+      </div>
+      <div class="tab-header text-white">
+        <p class="tab-title">
+        <!--{{route}} -->
+        Interface Subscription
+        </p>
+        <nav>
+           <a routerLink="/auth/touchpoint/entities" routerLinkActive="active-link">Configuration</a>
+           <a routerLink="/auth/touchpoint/endpoint" routerLinkActive="active-link" >Mapping</a>
+           <a routerLink="/auth/touchpoint/integrate" routerLinkActive="active-link">Summary</a>
+           <a routerLink="/auth/touchpoint/general" routerLinkActive="active-link">General</a>
+        </nav>
+      </div>
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="sidebar">
+  <div class="menu-toggler sidebar-toggler" (click)="toggleSidebar()">
+    <i  [hidden]="isVisible" class="fa fa-navicon"></i>
+    <i  [hidden]="!isVisible" class="fa fa-times"></i>
+  </div>
+  <ul class="nav flex-column">
+    <li class="nav-item" routerLinkActive="Activetab" title="Api-Specification">
+      <a routerLink="/auth/api-specification">
+        <i class="fa fa-file-text-o"></i>
+      </a>
+    </li>
+    <li class="nav-item" routerLinkActive="Activetab" title="Integration Studio">
+      <a routerLink="/auth/dashboard/integration-studio">
+        <i class="fa fa-link"></i>
+      </a>
+    </li>
+    <li class="nav-item" routerLinkActive="Activetab" title="Api-Configuration" *ngIf="isAdmin">
+        <a routerLink="/auth/api-configuration">
+          <i class="fa fa-object-group"></i>
+        </a>
+    </li> 
+    <li class="nav-item" routerLinkActive="Activetab" title="Zdoc-Configuration" *ngIf="isAdmin">
+        <a routerLink="/auth/zdoc-configuration">
+          <i class="fa fa-file-code-o"></i>
+        </a>
+    </li>
+   <!--  <li class="nav-item"  title="SSO Management">
+        <a routerLink="/auth/dashboard/integration-studio">
+          <i class="fa fa-key"></i>
+        </a>
+    </li>
+    <li class="nav-item" title="Help Manuals">
+        <a routerLink="/auth/dashboard/integration-studio">
+          <i class="fa fa-file-text-o"></i>
+        </a>
+    </li>
+    <li class="nav-item"  title="Import/Export Configuration">
+        <a routerLink="/auth/dashboard/integration-studio">
+          <i class="fa fa-exchange"></i>
+        </a>
+    </li> -->
+  </ul>
+  <div class="sidebar-links-wrapper" [hidden]="!isVisible">
+    <ul>
+      <li routerLinkActive="Activetab">
+        <a routerLink="/auth/api-specification">Api-Specification</a>
+      </li>
+      <li routerLinkActive="Activetab">
+        <a routerLink="/auth/dashboard/integration-studio">Integration Studio</a>
+      </li>
+      <li routerLinkActive="Activetab">
+        <a routerLink="/auth/api-configuration" *ngIf="isAdmin">Api-Configuration</a>
+      </li>
+      <li routerLinkActive="Activetab">
+        <a routerLink="/auth/zdoc-configuration" *ngIf="isAdmin">Zdoc-Configuration</a>
+      </li>
+      <!--<li>
+        <a>SSO Management</a>
+      </li>
+      <li>
+        <a>Help Manuals</a>
+      </li>
+      <li>
+        <a>Import/Export Configuration</a>
+      </li> -->
+    </ul>
+  </div>
+</div>

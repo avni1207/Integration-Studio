@@ -1,0 +1,44 @@
+{
+	"integrationEntityDetails": {
+	/*#if paymentTerm*/
+	"paymentTerm": 
+		{
+		/*#with paymentTerm*/
+			/*#if id*/
+				"id": "/*preprocess id*/"
+			/*/if id*/
+			/*#if status*/
+				,"status": "/*preprocess status*/"
+			/*/if status*/
+			/*#if paymentTermName*/
+				,"paymentTermName": "/*preprocess paymentTermName*/"
+			/*/if paymentTermName*/
+			/*#if creditDays*/
+				,"creditDays": "/*preprocess creditDays*/"
+			/*/if creditDays*/
+			/*#if discountDays*/
+				,"discountDays": "/*preprocess discountDays*/"
+			/*/if discountDays*/
+			/*#if discountPercent*/
+				,"discountPercent": "/*preprocess discountPercent*/"
+			/*/if discountPercent*/
+			/*#if erpId*/
+				,"erpId": "/*preprocess erpId*/"
+			/*/if erpId*/
+			/*#if createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/if createdBy*/
+			/*#if createdOn*/
+				,"createdOn": "/*preprocess createdOn*/"
+			/*/if createdOn*/
+			/*#if updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/if updatedBy*/
+			/*#if updatedOn*/
+				,"updatedOn": "/*preprocess updatedOn*/"
+			/*/if updatedOn*/
+		/*/with paymentTerm*/
+		}
+	/*/if paymentTerm*/
+}
+}

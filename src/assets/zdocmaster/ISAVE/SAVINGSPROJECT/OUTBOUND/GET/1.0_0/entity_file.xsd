@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:integration-outbound="http://www.zycus.com/integration/schemas/IntegrationOutbound" targetNamespace="http://www.zycus.com/integration/schemas/IntegrationOutbound" version="1.0">
+  <xs:element name="IntegrationDetails" type="integration-outbound:outboundIntegrationDetails"/>
+  <xs:element name="IntegrationEntity" type="integration-outbound:outboundIntegrationEntity"/>
+  <xs:complexType name="outboundIntegrationEntity">
+    <xs:sequence>
+      <xs:element name="integrationEntityHeader" type="integration-outbound:OutboundIntegrationHeader"/>
+      <xs:element name="integrationEntityDetails" type="integration-outbound:outboundIntegrationEntityDetails"/>
+      <xs:element minOccurs="0" name="processingErrors" type="integration-outbound:processingErrors"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OutboundIntegrationHeader">
+    <!-- <xs:complexContent> <xs:extension base="integration-outbound:BaseIntegrationHeader"> -->
+    <xs:all>
+      <xs:element name="integrationTrackingNumber" type="xs:string"/>
+      <xs:element minOccurs="1" name="referenceCodeForEntity" type="xs:string"/>
+      <xs:element minOccurs="0" name="additionalInfo" type="xs:string"/>
+      <xs:element name="action" type="xs:string"/>
+      <xs:element name="entity" type="xs:string"/>
+      <xs:element name="source" type="xs:string"/>
+      <xs:element name="zDocBaseVersion" type="xs:string"/>
+      <xs:element name="zDocCustomVersion" type="xs:string"/>
+      <xs:element minOccurs="0" name="timestampUTC" type="xs:string"/>
+      <xs:element minOccurs="0" name="attachments" type="integration-outbound:attachments"/>
+    </xs:all>
+    <!-- </xs:extension> </xs:complexContent> -->
+  </xs:complexType>
+  <xs:complexType name="outboundIntegrationEntityDetails">
+    <xs:choice>
+      <xs:element minOccurs="1" name="savingsproject" type="integration-outbound:savingsproject"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="outboundIntegrationDetails">
+    <xs:all>
+      <xs:element minOccurs="1" name="packerId" type="xs:string"/>
+      <xs:element minOccurs="0" name="timestampUTC" type="xs:string"/>
+      <xs:element minOccurs="0" name="additionalInfo" type="xs:string"/>
+      <xs:element name="integrationEntities">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="integrationEntity" type="integration-outbound:outboundIntegrationEntity"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="processingErrors">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="shouldRetry" type="xs:boolean"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="error" type="integration-outbound:error"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="error">
+    <xs:all>
+      <xs:element name="errorCode" type="xs:string"/>
+      <xs:element name="errorDescription" type="xs:string"/>
+      <xs:element minOccurs="0" name="action" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="attachments">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="attachment" type="integration-outbound:attachment"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="attachment">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="id" type="xs:string"/>
+      <xs:element minOccurs="1" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="size" type="xs:long"/>
+      <xs:element minOccurs="0" name="checksum" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- <xs:complexType name="BaseIntegrationHeader"> <xs:all/> </xs:complexType> -->
+  <xs:complexType name="savingsproject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="erpId" type="xs:string"/>
+      <xs:element minOccurs="0" name="parentProjectID" type="xs:string"/>
+      <xs:element minOccurs="0" name="parentProjectTitle" type="xs:string"/>
+      <xs:element minOccurs="0" name="parentProjectOwner" type="xs:string"/>
+      <xs:element minOccurs="1" name="projectID" type="xs:string"/>
+      <xs:element minOccurs="1" name="projectTitle" type="xs:string"/>
+      <xs:element minOccurs="0" name="projectDescription" type="xs:string"/>
+      <xs:element minOccurs="1" name="projectOwner" type="xs:string"/>
+      <xs:element minOccurs="1" name="sharedProjectOwnerWrapper">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="sharedProjectOwners">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="sharedOwner" type="xs:string"/>
+                  <xs:element minOccurs="0" name="timeOfShare" type="xs:string"/>
+                  <xs:element minOccurs="0" name="sharedDimensionsWrapper">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="sharedDimensions">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="dimensionName" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="projectClassification" type="xs:string"/>
+      <xs:element minOccurs="0" name="projectStatus" type="xs:string"/>
+      <xs:element minOccurs="0" name="projectFrequency" type="xs:string"/>
+      <xs:element minOccurs="0" name="projectStartDate" type="xs:string"/>
+      <xs:element minOccurs="0" name="projectEndDate" type="xs:string"/>
+      <xs:element minOccurs="0" name="projectCreationDate" type="xs:string"/>
+      <xs:element minOccurs="0" name="projectDuration" type="xs:string"/>
+      <xs:element minOccurs="0" name="currency" type="xs:string"/>
+      <xs:element minOccurs="0" name="timezone" type="xs:string"/>
+      <xs:element minOccurs="0" name="exchangeRate" type="xs:string"/>
+      <xs:element minOccurs="0" name="commodity" type="xs:string"/>
+      <xs:element minOccurs="0" name="commodityHierarchy" type="xs:string"/>
+      <xs:element minOccurs="0" name="projectType" type="xs:string"/>
+      <xs:element minOccurs="0" name="customFieldsWrapper">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="customField">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="customFieldID" type="xs:long"/>
+                  <xs:element minOccurs="0" name="customFieldConfig">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="customFieldLabel" type="xs:string"/>
+                        <xs:element minOccurs="0" name="customFieldType" type="xs:string"/>
+                        <xs:element minOccurs="0" name="customFieldDesc" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="customFieldValue" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="isEligibleForWorkflow" type="xs:string"/>
+      <xs:element minOccurs="0" name="currentSavingType">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="currentSavingTypeID" type="xs:long"/>
+            <xs:element minOccurs="0" name="currentSavingTypeName" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="projectSavingStageWrapper">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="projectSavingStageSet">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="savingType">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="savingTypeID" type="xs:long"/>
+                        <xs:element minOccurs="0" name="savingTypeName" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="projectSavingStageValue" type="xs:double"/>
+                  <xs:element minOccurs="0" name="projectSavingStageStatus" type="xs:string"/>
+                  <xs:element minOccurs="0" name="formulaRevision">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="formulaRevisionId" type="xs:long"/>
+                        <xs:element minOccurs="0" name="formula">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="formulaId" type="xs:long"/>
+                              <xs:element minOccurs="0" name="formulaName" type="xs:string"/>
+                              <xs:element minOccurs="0" name="formulaDescription" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="projectBussinessUnitWrapper">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="projectBussinessUnit">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="projectBUName" type="xs:string"/>
+                              <xs:element minOccurs="0" name="projectBUStatusWrapper">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="projectBUStatus">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="divisionSHolderName" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="divisionSHolderStatus" type="xs:string"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="regionsWrapper">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="region">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="regionName" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="regionSavings" type="xs:double"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="baselineSpend">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element minOccurs="0" name="savingsLabel" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="savingsTotalValue" type="xs:double"/>
+                                    <xs:element minOccurs="0" name="savingSplitWrapper">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element maxOccurs="unbounded" minOccurs="0" name="savingsFieldSplit">
+                                            <xs:complexType>
+                                              <xs:sequence>
+                                                <xs:element minOccurs="0" name="savingsFieldSplitPeriod" type="xs:string"/>
+                                                <xs:element minOccurs="0" name="savingsFieldSplitValue" type="xs:double"/>
+                                              </xs:sequence>
+                                            </xs:complexType>
+                                          </xs:element>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" name="savingSplitRemainingAmt" type="xs:double"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="baselineSpendCFWrapper">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="savingField">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="savingsLabel" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="savingsTotalValue" type="xs:double"/>
+                                          <xs:element minOccurs="0" name="savingSplitWrapper">
+                                            <xs:complexType>
+                                              <xs:sequence>
+                                                <xs:element maxOccurs="unbounded" minOccurs="0" name="savingsFieldSplit">
+                                                  <xs:complexType>
+                                                    <xs:sequence>
+                                                      <xs:element minOccurs="0" name="savingsFieldSplitPeriod" type="xs:string"/>
+                                                      <xs:element minOccurs="0" name="savingsFieldSplitValue" type="xs:double"/>
+                                                    </xs:sequence>
+                                                  </xs:complexType>
+                                                </xs:element>
+                                              </xs:sequence>
+                                            </xs:complexType>
+                                          </xs:element>
+                                          <xs:element minOccurs="0" name="savingSplitRemainingAmt" type="xs:double"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="newSpend">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element minOccurs="0" name="savingsLabel" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="savingsTotalValue" type="xs:double"/>
+                                    <xs:element minOccurs="0" name="savingSplitWrapper">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element maxOccurs="unbounded" minOccurs="0" name="savingsFieldSplit">
+                                            <xs:complexType>
+                                              <xs:sequence>
+                                                <xs:element minOccurs="0" name="savingsFieldSplitPeriod" type="xs:string"/>
+                                                <xs:element minOccurs="0" name="savingsFieldSplitValue" type="xs:double"/>
+                                              </xs:sequence>
+                                            </xs:complexType>
+                                          </xs:element>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" name="savingSplitRemainingAmt" type="xs:double"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="newSpendCFWrapper">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="savingField">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="savingsLabel" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="savingsTotalValue" type="xs:double"/>
+                                          <xs:element minOccurs="0" name="savingSplitWrapper">
+                                            <xs:complexType>
+                                              <xs:sequence>
+                                                <xs:element maxOccurs="unbounded" minOccurs="0" name="savingsFieldSplit">
+                                                  <xs:complexType>
+                                                    <xs:sequence>
+                                                      <xs:element minOccurs="0" name="savingsFieldSplitPeriod" type="xs:string"/>
+                                                      <xs:element minOccurs="0" name="savingsFieldSplitValue" type="xs:double"/>
+                                                    </xs:sequence>
+                                                  </xs:complexType>
+                                                </xs:element>
+                                              </xs:sequence>
+                                            </xs:complexType>
+                                          </xs:element>
+                                          <xs:element minOccurs="0" name="savingSplitRemainingAmt" type="xs:double"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="savings">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element minOccurs="0" name="savingsLabel" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="savingsTotalValue" type="xs:double"/>
+                                    <xs:element minOccurs="0" name="savingSplitWrapper">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element maxOccurs="unbounded" minOccurs="0" name="savingsFieldSplit">
+                                            <xs:complexType>
+                                              <xs:sequence>
+                                                <xs:element minOccurs="0" name="savingsFieldSplitPeriod" type="xs:string"/>
+                                                <xs:element minOccurs="0" name="savingsFieldSplitValue" type="xs:double"/>
+                                              </xs:sequence>
+                                            </xs:complexType>
+                                          </xs:element>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" name="savingSplitRemainingAmt" type="xs:double"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="savingsCFWrapper">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="savingField">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="savingsLabel" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="savingsTotalValue" type="xs:double"/>
+                                          <xs:element minOccurs="0" name="savingSplitWrapper">
+                                            <xs:complexType>
+                                              <xs:sequence>
+                                                <xs:element maxOccurs="unbounded" minOccurs="0" name="savingsFieldSplit">
+                                                  <xs:complexType>
+                                                    <xs:sequence>
+                                                      <xs:element minOccurs="0" name="savingsFieldSplitPeriod" type="xs:string"/>
+                                                      <xs:element minOccurs="0" name="savingsFieldSplitValue" type="xs:double"/>
+                                                    </xs:sequence>
+                                                  </xs:complexType>
+                                                </xs:element>
+                                              </xs:sequence>
+                                            </xs:complexType>
+                                          </xs:element>
+                                          <xs:element minOccurs="0" name="savingSplitRemainingAmt" type="xs:double"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="benefitTypeWrapper">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="benefitType">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="benefitTypeName" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="benefitTypeTotalValue" type="xs:double"/>
+                                          <xs:element minOccurs="0" name="benefitTypeTotalPercent" type="xs:double"/>
+                                          <xs:element minOccurs="0" name="benefitTypeSplitWrapper">
+                                            <xs:complexType>
+                                              <xs:sequence>
+                                                <xs:element maxOccurs="unbounded" minOccurs="0" name="benefitTypeSplit">
+                                                  <xs:complexType>
+                                                    <xs:sequence>
+                                                      <xs:element minOccurs="0" name="benefitTypeSplitPeriod" type="xs:string"/>
+                                                      <xs:element minOccurs="0" name="benefitTypeSplitPeriodValue" type="xs:double"/>
+                                                    </xs:sequence>
+                                                  </xs:complexType>
+                                                </xs:element>
+                                              </xs:sequence>
+                                            </xs:complexType>
+                                          </xs:element>
+                                          <xs:element minOccurs="0" name="benefitTypeRemainingValue" type="xs:double"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="financeTrackerPL">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element minOccurs="0" name="financeTrackerLabel" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="financeTrackerTotalValue" type="xs:double"/>
+                                    <xs:element minOccurs="0" name="financeTrackerSplitWrapper">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element maxOccurs="unbounded" minOccurs="0" name="financeTrackerSplit">
+                                            <xs:complexType>
+                                              <xs:sequence>
+                                                <xs:element minOccurs="0" name="financeTrackerSplitPeriod" type="xs:string"/>
+                                                <xs:element minOccurs="0" name="financeTrackerSplitPeriodValue" type="xs:double"/>
+                                              </xs:sequence>
+                                            </xs:complexType>
+                                          </xs:element>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="financeTrackerBS">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element minOccurs="0" name="financeTrackerLabel" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="financeTrackerTotalValue" type="xs:double"/>
+                                    <xs:element minOccurs="0" name="financeTrackerSplitWrapper">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element maxOccurs="unbounded" minOccurs="0" name="financeTrackerSplit">
+                                            <xs:complexType>
+                                              <xs:sequence>
+                                                <xs:element minOccurs="0" name="financeTrackerSplitPeriod" type="xs:string"/>
+                                                <xs:element minOccurs="0" name="financeTrackerSplitPeriodValue" type="xs:double"/>
+                                              </xs:sequence>
+                                            </xs:complexType>
+                                          </xs:element>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="financeTrackerCF">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element minOccurs="0" name="financeTrackerLabel" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="financeTrackerTotalValue" type="xs:double"/>
+                                    <xs:element minOccurs="0" name="financeTrackerSplitWrapper">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element maxOccurs="unbounded" minOccurs="0" name="financeTrackerSplit">
+                                            <xs:complexType>
+                                              <xs:sequence>
+                                                <xs:element minOccurs="0" name="financeTrackerSplitPeriod" type="xs:string"/>
+                                                <xs:element minOccurs="0" name="financeTrackerSplitPeriodValue" type="xs:double"/>
+                                              </xs:sequence>
+                                            </xs:complexType>
+                                          </xs:element>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="bookedSavingsLabel" type="xs:string"/>
+                              <xs:element minOccurs="0" name="bookedSavingsTotal" type="xs:double"/>
+                              <xs:element minOccurs="0" name="bookedSavingSplitWrapper">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element minOccurs="0" name="ubookedSavingSplit">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="ubSavingSplitPeriod" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="ubSavingSplitPeriodValue" type="xs:double"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="unbookedSavingsLabel" type="xs:string"/>
+                              <xs:element minOccurs="0" name="unBookedSavingsTotal" type="xs:double"/>
+                              <xs:element minOccurs="0" name="unBookedSavingSplitWrapper">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element minOccurs="0" name="ubookedSavingSplit">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="ubSavingSplitPeriod" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="ubSavingSplitPeriodValue" type="xs:double"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="attachmentWrapper">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="attachments">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="attachmentNumber" type="xs:long"/>
+                                          <xs:element minOccurs="0" name="attachmentName" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="attachedBy" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="attachmentDate" type="xs:string"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="commentWrapper">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="commentSet">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="stakeholderCommentText" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="stakeholderCommentBy" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="stakeholderCommentDate" type="xs:string"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="stakeholderWrapper">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="stakeholder">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="stakeholderName" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="stakeholderLevel" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="stakeholderRole" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="stakeholderRoleType" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="stakeholderARSentDate" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="stakeholderARStatus" type="xs:string"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

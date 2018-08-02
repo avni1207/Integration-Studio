@@ -1,0 +1,132 @@
+{
+	"integrationEntityDetails": {
+	/*#exists returnNoteDetails*/
+	"returnNoteDetails": 
+		{
+		/*#with returnNoteDetails*/
+			/*#exists returnNoteHeader*/
+			"returnNoteHeader": 
+				{
+				/*#with returnNoteHeader*/
+					/*#exists returnNoteNo*/
+						"returnNoteNo": "/*preprocess returnNoteNo*/"
+					/*/exists returnNoteNo*/
+					/*#exists description*/
+						,"description": "/*preprocess description*/"
+					/*/exists description*/
+					/*#exists notes*/
+						,"notes": "/*preprocess notes*/"
+					/*/exists notes*/
+					/*#exists notifySupplier*/
+						,"notifySupplier": /*preprocess notifySupplier*/
+					/*/exists notifySupplier*/
+					/*#exists referenceType*/
+						,"referenceType": /*preprocess referenceType*/
+					/*/exists referenceType*/
+					/*#exists referenceValue*/
+						,"referenceValue": "/*preprocess referenceValue*/"
+					/*/exists referenceValue*/
+					/*#exists orderNumber*/
+						,"orderNumber": "/*preprocess orderNumber*/"
+					/*/exists orderNumber*/
+					/*#exists erpId*/
+						,"erpId": "/*preprocess erpId*/"
+					/*/exists erpId*/
+					/*#exists supplierDetails*/
+					,"supplierDetails": 
+						{
+						/*#with supplierDetails*/
+							/*#exists supplierErpId*/
+								"supplierErpId": "/*preprocess supplierErpId*/"
+							/*/exists supplierErpId*/
+							/*#exists supplierDbaId*/
+								,"supplierDbaId": "/*preprocess supplierDbaId*/"
+							/*/exists supplierDbaId*/
+							/*#exists supplierName*/
+								,"supplierName": "/*preprocess supplierName*/"
+							/*/exists supplierName*/
+							/*#exists supplierAddress*/
+							,"supplierAddress": 
+								{
+								/*#with supplierAddress*/
+									/*#exists addressERPID*/
+										"addressERPID": "/*preprocess addressERPID*/"
+									/*/exists addressERPID*/
+									/*#exists addressId*/
+										,"addressId": "/*preprocess addressId*/"
+									/*/exists addressId*/
+									/*#exists addressName*/
+										,"addressName": "/*preprocess addressName*/"
+									/*/exists addressName*/
+								/*/with supplierAddress*/
+								}
+							/*/exists supplierAddress*/
+							/*#exists supplierContact*/
+								,"supplierContact": "/*preprocess supplierContact*/"
+							/*/exists supplierContact*/
+							/*#exists supplierEmail*/
+								,"supplierEmail": "/*preprocess supplierEmail*/"
+							/*/exists supplierEmail*/
+						/*/with supplierDetails*/
+						}
+					/*/exists supplierDetails*/
+					/*#exists supplierComments*/
+						,"supplierComments": "/*preprocess supplierComments*/"
+					/*/exists supplierComments*/
+					/*#exists rmaNo*/
+						,"rmaNo": "/*preprocess rmaNo*/"
+					/*/exists rmaNo*/
+				/*/with returnNoteHeader*/
+				}
+			/*/exists returnNoteHeader*/
+			/*#exists items*/
+			,"items": 
+				{
+				/*#with items*/
+					/*#exists item*/
+					"item": [
+						/*#each item*/
+							{
+								/*#exists lineItemId*/
+									"lineItemId": "/*preprocess lineItemId*/"
+								/*/exists lineItemId*/
+								/*#exists lineNo*/
+									,"lineNo": "/*preprocess lineNo*/"
+								/*/exists lineNo*/
+								/*#exists shortDescription*/
+									,"shortDescription": "/*preprocess shortDescription*/"
+								/*/exists shortDescription*/
+								/*#exists longDescription*/
+									,"longDescription": "/*preprocess longDescription*/"
+								/*/exists longDescription*/
+								/*#exists returnedQuantity*/
+									,"returnedQuantity": /*preprocess returnedQuantity*/
+								/*/exists returnedQuantity*/
+								/*#exists reasonForReturn*/
+									,"reasonForReturn": "/*preprocess reasonForReturn*/"
+								/*/exists reasonForReturn*/
+								/*#exists returnMethod*/
+									,"returnMethod": "/*preprocess returnMethod*/"
+								/*/exists returnMethod*/
+								/*#exists valueOfReturnedGoodsOrService*/
+									,"valueOfReturnedGoodsOrService": /*preprocess valueOfReturnedGoodsOrService*/
+								/*/exists valueOfReturnedGoodsOrService*/
+								/*#exists comments*/
+									,"comments": "/*preprocess comments*/"
+								/*/exists comments*/
+								/*#exists commentsForSupplier*/
+									,"commentsForSupplier": "/*preprocess commentsForSupplier*/"
+								/*/exists commentsForSupplier*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each item*/
+					]
+					/*/exists item*/
+				/*/with items*/
+				}
+			/*/exists items*/
+		/*/with returnNoteDetails*/
+		}
+	/*/exists returnNoteDetails*/
+}
+}

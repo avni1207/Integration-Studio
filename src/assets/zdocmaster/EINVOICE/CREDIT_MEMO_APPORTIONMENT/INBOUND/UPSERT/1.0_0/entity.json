@@ -1,0 +1,35 @@
+{
+	"integrationEntityDetails": {
+	/*#exists creditMemoApportionment*/
+	"creditMemoApportionment": 
+		{
+		/*#with creditMemoApportionment*/
+			/*#exists creditMemoId*/
+				"creditMemoId": "/*preprocess creditMemoId*/"
+			/*/exists creditMemoId*/
+			/*#exists createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"createdOn": /*preprocess createdOn*/
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"updatedOn": /*preprocess updatedOn*/
+			/*/exists updatedOn*/
+			/*#exists isUniqueId*/
+				,"isUniqueId": /*preprocess isUniqueId*/
+			/*/exists isUniqueId*/
+			/*#exists apportionedAmount*/
+				,"apportionedAmount": /*preprocess apportionedAmount*/
+			/*/exists apportionedAmount*/
+			/*#exists invoiceId*/
+				,"invoiceId": "/*preprocess invoiceId*/"
+			/*/exists invoiceId*/
+		/*/with creditMemoApportionment*/
+		}
+	/*/exists creditMemoApportionment*/
+}
+}

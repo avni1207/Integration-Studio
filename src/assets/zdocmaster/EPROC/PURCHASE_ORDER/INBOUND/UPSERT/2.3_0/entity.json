@@ -1,0 +1,1185 @@
+{
+	"integrationEntityDetails": {
+	/*#exists poDetails*/
+	"poDetails": 
+		{
+		/*#with poDetails*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists externalId*/
+				,"externalId": "/*preprocess externalId*/"
+			/*/exists externalId*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists poHeader*/
+			,"poHeader": 
+				{
+				/*#each poHeader*/
+					/*#exists purchaseOrderNumber*/
+						"purchaseOrderNumber": "/*preprocess purchaseOrderNumber*/"
+					/*/exists purchaseOrderNumber*/
+					/*#exists archive*/
+						,"archive": /*preprocess archive*/
+					/*/exists archive*/
+					/*#exists poDescription*/
+						,"poDescription": "/*preprocess poDescription*/"
+					/*/exists poDescription*/
+					/*#exists poType*/
+						,"poType": "/*preprocess poType*/"
+					/*/exists poType*/
+					/*#exists accountingCurrencyCode*/
+						,"accountingCurrencyCode": "/*preprocess accountingCurrencyCode*/"
+					/*/exists accountingCurrencyCode*/
+					/*#exists accountingCurrencyExchangeRate*/
+						,"accountingCurrencyExchangeRate": /*preprocess accountingCurrencyExchangeRate*/
+					/*/exists accountingCurrencyExchangeRate*/
+					/*#exists freightCharges*/
+						,"freightCharges": /*preprocess freightCharges*/
+					/*/exists freightCharges*/
+					/*#exists freightTaxAmount*/
+						,"freightTaxAmount": /*preprocess freightTaxAmount*/
+					/*/exists freightTaxAmount*/
+					/*#exists grossTotalAmount*/
+						,"grossTotalAmount": /*preprocess grossTotalAmount*/
+					/*/exists grossTotalAmount*/
+					/*#exists checkoutBuyer*/
+					,"checkoutBuyer": 
+						{
+						/*#each checkoutBuyer*/
+							/*#exists userEmailId*/
+								"userEmailId": "/*preprocess userEmailId*/"
+							/*/exists userEmailId*/
+							/*#exists userId*/
+								,"userId": "/*preprocess userId*/"
+							/*/exists userId*/
+							/*#exists userFirstName*/
+								,"userFirstName": "/*preprocess userFirstName*/"
+							/*/exists userFirstName*/
+							/*#exists userLastName*/
+								,"userLastName": "/*preprocess userLastName*/"
+							/*/exists userLastName*/
+						/*/each checkoutBuyer*/
+						}
+					/*/exists checkoutBuyer*/
+					/*#exists requesterDetails*/
+						,"requesterDetails": "/*preprocess requesterDetails*/"
+					/*/exists requesterDetails*/
+					/*#exists requester*/
+					,"requester": 
+						{
+						/*#each requester*/
+							/*#exists userEmailId*/
+								"userEmailId": "/*preprocess userEmailId*/"
+							/*/exists userEmailId*/
+							/*#exists userId*/
+								,"userId": "/*preprocess userId*/"
+							/*/exists userId*/
+							/*#exists userFirstName*/
+								,"userFirstName": "/*preprocess userFirstName*/"
+							/*/exists userFirstName*/
+							/*#exists userLastName*/
+								,"userLastName": "/*preprocess userLastName*/"
+							/*/exists userLastName*/
+						/*/each requester*/
+						}
+					/*/exists requester*/
+					/*#exists advanceAmount*/
+						,"advanceAmount": /*preprocess advanceAmount*/
+					/*/exists advanceAmount*/
+					/*#exists allowInvoice*/
+						,"allowInvoice": /*preprocess allowInvoice*/
+					/*/exists allowInvoice*/
+					/*#exists amountToBeApproved*/
+						,"amountToBeApproved": /*preprocess amountToBeApproved*/
+					/*/exists amountToBeApproved*/
+					/*#exists approvedAmount*/
+						,"approvedAmount": /*preprocess approvedAmount*/
+					/*/exists approvedAmount*/
+					/*#exists lastApprovedOn*/
+						,"lastApprovedOn": /*preprocess lastApprovedOn*/
+					/*/exists lastApprovedOn*/
+					/*#exists poTotal*/
+						,"poTotal": /*preprocess poTotal*/
+					/*/exists poTotal*/
+					/*#exists chargedAmount*/
+						,"chargedAmount": /*preprocess chargedAmount*/
+					/*/exists chargedAmount*/
+					/*#exists chargedTaxAmount*/
+						,"chargedTaxAmount": /*preprocess chargedTaxAmount*/
+					/*/exists chargedTaxAmount*/
+					/*#exists totalTaxAmount*/
+						,"totalTaxAmount": /*preprocess totalTaxAmount*/
+					/*/exists totalTaxAmount*/
+					/*#exists netTotalAmount*/
+						,"netTotalAmount": /*preprocess netTotalAmount*/
+					/*/exists netTotalAmount*/
+					/*#exists totalItems*/
+						,"totalItems": /*preprocess totalItems*/
+					/*/exists totalItems*/
+					/*#exists deliverToUserType*/
+						,"deliverToUserType": /*preprocess deliverToUserType*/
+					/*/exists deliverToUserType*/
+					/*#exists deliveryTermCode*/
+						,"deliveryTermCode": "/*preprocess deliveryTermCode*/"
+					/*/exists deliveryTermCode*/
+					/*#exists deliveryTo*/
+					,"deliveryTo": 
+						{
+						/*#each deliveryTo*/
+							/*#exists userFirstName*/
+								"userFirstName": "/*preprocess userFirstName*/"
+							/*/exists userFirstName*/
+							/*#exists userLastName*/
+								,"userLastName": "/*preprocess userLastName*/"
+							/*/exists userLastName*/
+							/*#exists userEmailId*/
+								,"userEmailId": "/*preprocess userEmailId*/"
+							/*/exists userEmailId*/
+							/*#exists userId*/
+								,"userId": "/*preprocess userId*/"
+							/*/exists userId*/
+						/*/each deliveryTo*/
+						}
+					/*/exists deliveryTo*/
+					/*#exists discountLevel*/
+						,"discountLevel": /*preprocess discountLevel*/
+					/*/exists discountLevel*/
+					/*#exists discountType*/
+						,"discountType": /*preprocess discountType*/
+					/*/exists discountType*/
+					/*#exists discountValue*/
+						,"discountValue": /*preprocess discountValue*/
+					/*/exists discountValue*/
+					/*#exists invoiceStatus*/
+						,"invoiceStatus": /*preprocess invoiceStatus*/
+					/*/exists invoiceStatus*/
+					/*#exists invoiceUntilDate*/
+						,"invoiceUntilDate": /*preprocess invoiceUntilDate*/
+					/*/exists invoiceUntilDate*/
+					/*#exists invoicedAmount*/
+						,"invoicedAmount": /*preprocess invoicedAmount*/
+					/*/exists invoicedAmount*/
+					/*#exists invoiceToAddress*/
+					,"invoiceToAddress": 
+						{
+						/*#each invoiceToAddress*/
+							/*#exists addressERPID*/
+								"addressERPID": "/*preprocess addressERPID*/"
+							/*/exists addressERPID*/
+							/*#exists addressName*/
+								,"addressName": "/*preprocess addressName*/"
+							/*/exists addressName*/
+							/*#exists addressLine1*/
+								,"addressLine1": "/*preprocess addressLine1*/"
+							/*/exists addressLine1*/
+							/*#exists addressLine2*/
+								,"addressLine2": "/*preprocess addressLine2*/"
+							/*/exists addressLine2*/
+							/*#exists addressLine3*/
+								,"addressLine3": "/*preprocess addressLine3*/"
+							/*/exists addressLine3*/
+							/*#exists addressLine4*/
+								,"addressLine4": "/*preprocess addressLine4*/"
+							/*/exists addressLine4*/
+							/*#exists city*/
+								,"city": "/*preprocess city*/"
+							/*/exists city*/
+							/*#exists zip*/
+								,"zip": "/*preprocess zip*/"
+							/*/exists zip*/
+							/*#exists state*/
+								,"state": "/*preprocess state*/"
+							/*/exists state*/
+							/*#exists country*/
+								,"country": "/*preprocess country*/"
+							/*/exists country*/
+							/*#exists addressCode*/
+								,"addressCode": "/*preprocess addressCode*/"
+							/*/exists addressCode*/
+							/*#exists addressStatus*/
+								,"addressStatus": /*preprocess addressStatus*/
+							/*/exists addressStatus*/
+						/*/each invoiceToAddress*/
+						}
+					/*/exists invoiceToAddress*/
+					/*#exists billToAddress*/
+					,"billToAddress": 
+						{
+						/*#each billToAddress*/
+							/*#exists addressERPID*/
+								"addressERPID": "/*preprocess addressERPID*/"
+							/*/exists addressERPID*/
+							/*#exists addressName*/
+								,"addressName": "/*preprocess addressName*/"
+							/*/exists addressName*/
+							/*#exists addressLine1*/
+								,"addressLine1": "/*preprocess addressLine1*/"
+							/*/exists addressLine1*/
+							/*#exists addressLine2*/
+								,"addressLine2": "/*preprocess addressLine2*/"
+							/*/exists addressLine2*/
+							/*#exists addressLine3*/
+								,"addressLine3": "/*preprocess addressLine3*/"
+							/*/exists addressLine3*/
+							/*#exists addressLine4*/
+								,"addressLine4": "/*preprocess addressLine4*/"
+							/*/exists addressLine4*/
+							/*#exists city*/
+								,"city": "/*preprocess city*/"
+							/*/exists city*/
+							/*#exists zip*/
+								,"zip": "/*preprocess zip*/"
+							/*/exists zip*/
+							/*#exists state*/
+								,"state": "/*preprocess state*/"
+							/*/exists state*/
+							/*#exists country*/
+								,"country": "/*preprocess country*/"
+							/*/exists country*/
+							/*#exists addressCode*/
+								,"addressCode": "/*preprocess addressCode*/"
+							/*/exists addressCode*/
+							/*#exists addressStatus*/
+								,"addressStatus": /*preprocess addressStatus*/
+							/*/exists addressStatus*/
+						/*/each billToAddress*/
+						}
+					/*/exists billToAddress*/
+					/*#exists shipToAddressType*/
+						,"shipToAddressType": /*preprocess shipToAddressType*/
+					/*/exists shipToAddressType*/
+					/*#exists shipToAddress*/
+					,"shipToAddress": 
+						{
+						/*#each shipToAddress*/
+							/*#exists addressERPID*/
+								"addressERPID": "/*preprocess addressERPID*/"
+							/*/exists addressERPID*/
+							/*#exists addressName*/
+								,"addressName": "/*preprocess addressName*/"
+							/*/exists addressName*/
+							/*#exists addressLine1*/
+								,"addressLine1": "/*preprocess addressLine1*/"
+							/*/exists addressLine1*/
+							/*#exists addressLine2*/
+								,"addressLine2": "/*preprocess addressLine2*/"
+							/*/exists addressLine2*/
+							/*#exists addressLine3*/
+								,"addressLine3": "/*preprocess addressLine3*/"
+							/*/exists addressLine3*/
+							/*#exists addressLine4*/
+								,"addressLine4": "/*preprocess addressLine4*/"
+							/*/exists addressLine4*/
+							/*#exists city*/
+								,"city": "/*preprocess city*/"
+							/*/exists city*/
+							/*#exists zip*/
+								,"zip": "/*preprocess zip*/"
+							/*/exists zip*/
+							/*#exists state*/
+								,"state": "/*preprocess state*/"
+							/*/exists state*/
+							/*#exists country*/
+								,"country": "/*preprocess country*/"
+							/*/exists country*/
+							/*#exists addressCode*/
+								,"addressCode": "/*preprocess addressCode*/"
+							/*/exists addressCode*/
+							/*#exists addressStatus*/
+								,"addressStatus": /*preprocess addressStatus*/
+							/*/exists addressStatus*/
+						/*/each shipToAddress*/
+						}
+					/*/exists shipToAddress*/
+					/*#exists closedOn*/
+						,"closedOn": /*preprocess closedOn*/
+					/*/exists closedOn*/
+					/*#exists company*/
+					,"company": 
+						{
+						/*#each company*/
+							/*#exists companyLegalName*/
+								"companyLegalName": "/*preprocess companyLegalName*/"
+							/*/exists companyLegalName*/
+							/*#exists companyHQLocationCode*/
+								,"companyHQLocationCode": "/*preprocess companyHQLocationCode*/"
+							/*/exists companyHQLocationCode*/
+							/*#exists companyCurrency*/
+								,"companyCurrency": "/*preprocess companyCurrency*/"
+							/*/exists companyCurrency*/
+							/*#exists companyCode*/
+								,"companyCode": "/*preprocess companyCode*/"
+							/*/exists companyCode*/
+							/*#exists companyName*/
+								,"companyName": "/*preprocess companyName*/"
+							/*/exists companyName*/
+							/*#exists companyStatus*/
+								,"companyStatus": /*preprocess companyStatus*/
+							/*/exists companyStatus*/
+							/*#exists companyERPID*/
+								,"companyERPID": "/*preprocess companyERPID*/"
+							/*/exists companyERPID*/
+						/*/each company*/
+						}
+					/*/exists company*/
+					/*#exists businessUnit*/
+					,"businessUnit": 
+						{
+						/*#each businessUnit*/
+							/*#exists buCompanyCode*/
+								"buCompanyCode": "/*preprocess buCompanyCode*/"
+							/*/exists buCompanyCode*/
+							/*#exists buHQLocationCode*/
+								,"buHQLocationCode": "/*preprocess buHQLocationCode*/"
+							/*/exists buHQLocationCode*/
+							/*#exists buCode*/
+								,"buCode": "/*preprocess buCode*/"
+							/*/exists buCode*/
+							/*#exists buName*/
+								,"buName": "/*preprocess buName*/"
+							/*/exists buName*/
+							/*#exists buStatus*/
+								,"buStatus": /*preprocess buStatus*/
+							/*/exists buStatus*/
+							/*#exists buERPID*/
+								,"buERPID": "/*preprocess buERPID*/"
+							/*/exists buERPID*/
+						/*/each businessUnit*/
+						}
+					/*/exists businessUnit*/
+					/*#exists locationCode*/
+					,"locationCode": 
+						{
+						/*#each locationCode*/
+							/*#exists location*/
+							"location": 
+								{
+								/*#each location*/
+									/*#exists shipToAddressCode*/
+										"shipToAddressCode": "/*preprocess shipToAddressCode*/"
+									/*/exists shipToAddressCode*/
+									/*#exists billToAddressCode*/
+										,"billToAddressCode": "/*preprocess billToAddressCode*/"
+									/*/exists billToAddressCode*/
+									/*#exists invoiceToAddressCode*/
+										,"invoiceToAddressCode": "/*preprocess invoiceToAddressCode*/"
+									/*/exists invoiceToAddressCode*/
+									/*#exists regionCode*/
+										,"regionCode": "/*preprocess regionCode*/"
+									/*/exists regionCode*/
+									/*#exists apContactEmailID*/
+										,"apContactEmailID": "/*preprocess apContactEmailID*/"
+									/*/exists apContactEmailID*/
+									/*#exists locationCode*/
+										,"locationCode": "/*preprocess locationCode*/"
+									/*/exists locationCode*/
+									/*#exists locationName*/
+										,"locationName": "/*preprocess locationName*/"
+									/*/exists locationName*/
+									/*#exists locationStatus*/
+										,"locationStatus": /*preprocess locationStatus*/
+									/*/exists locationStatus*/
+									/*#exists locationERPID*/
+										,"locationERPID": "/*preprocess locationERPID*/"
+									/*/exists locationERPID*/
+								/*/each location*/
+								}
+							/*/exists location*/
+						/*/each locationCode*/
+						}
+					/*/exists locationCode*/
+					/*#exists confirmStatus*/
+						,"confirmStatus": /*preprocess confirmStatus*/
+					/*/exists confirmStatus*/
+					/*#exists confirmedOn*/
+						,"confirmedOn": /*preprocess confirmedOn*/
+					/*/exists confirmedOn*/
+					/*#exists consumedOrderValue*/
+						,"consumedOrderValue": /*preprocess consumedOrderValue*/
+					/*/exists consumedOrderValue*/
+					/*#exists contractId*/
+						,"contractId": "/*preprocess contractId*/"
+					/*/exists contractId*/
+					/*#exists contractNumber*/
+						,"contractNumber": "/*preprocess contractNumber*/"
+					/*/exists contractNumber*/
+					/*#exists contractType*/
+						,"contractType": /*preprocess contractType*/
+					/*/exists contractType*/
+					/*#exists deliverOn*/
+						,"deliverOn": /*preprocess deliverOn*/
+					/*/exists deliverOn*/
+					/*#exists attachments*/
+					,"attachments": 
+						{
+						/*#each attachments*/
+							/*#exists attachment*/
+							"attachment": [
+								/*#each attachment*/
+									{
+										/*#exists attachmentID*/
+											"attachmentID": "/*preprocess attachmentID*/"
+										/*/exists attachmentID*/
+										/*#exists attachmentName*/
+											,"attachmentName": "/*preprocess attachmentName*/"
+										/*/exists attachmentName*/
+										/*#exists attachmentVisibility*/
+											,"attachmentVisibility": "/*preprocess attachmentVisibility*/"
+										/*/exists attachmentVisibility*/
+										/*#exists attachmentType*/
+											,"attachmentType": /*preprocess attachmentType*/
+										/*/exists attachmentType*/
+										/*#exists attachmentComments*/
+											,"attachmentComments": "/*preprocess attachmentComments*/"
+										/*/exists attachmentComments*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each attachment*/
+							]
+							/*/exists attachment*/
+						/*/each attachments*/
+						}
+					/*/exists attachments*/
+					/*#exists fields*/
+					,"fields": 
+						{
+						/*#each fields*/
+							/*#exists field*/
+							"field": [
+								/*#each field*/
+									{
+										/*#exists id*/
+											"id": "/*preprocess id*/"
+										/*/exists id*/
+										/*#exists type*/
+											,"type": "/*preprocess type*/"
+										/*/exists type*/
+										/*#exists name*/
+											,"name": "/*preprocess name*/"
+										/*/exists name*/
+										/*#exists value*/
+											,"value": "/*preprocess value*/"
+										/*/exists value*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each field*/
+							]
+							/*/exists field*/
+						/*/each fields*/
+						}
+					/*/exists fields*/
+					/*#exists estimatedDeliveryOn*/
+						,"estimatedDeliveryOn": /*preprocess estimatedDeliveryOn*/
+					/*/exists estimatedDeliveryOn*/
+					/*#exists buyerNotes*/
+						,"buyerNotes": "/*preprocess buyerNotes*/"
+					/*/exists buyerNotes*/
+					/*#exists orderAuthorizationType*/
+						,"orderAuthorizationType": "/*preprocess orderAuthorizationType*/"
+					/*/exists orderAuthorizationType*/
+					/*#exists paidAmount*/
+						,"paidAmount": /*preprocess paidAmount*/
+					/*/exists paidAmount*/
+					/*#exists parentBPOId*/
+						,"parentBPOId": "/*preprocess parentBPOId*/"
+					/*/exists parentBPOId*/
+					/*#exists paymentAmountInApproval*/
+						,"paymentAmountInApproval": /*preprocess paymentAmountInApproval*/
+					/*/exists paymentAmountInApproval*/
+					/*#exists paymentMethod*/
+						,"paymentMethod": /*preprocess paymentMethod*/
+					/*/exists paymentMethod*/
+					/*#exists paymentStatus*/
+						,"paymentStatus": "/*preprocess paymentStatus*/"
+					/*/exists paymentStatus*/
+					/*#exists paymentTermId*/
+						,"paymentTermId": "/*preprocess paymentTermId*/"
+					/*/exists paymentTermId*/
+					/*#exists paymentTermName*/
+						,"paymentTermName": "/*preprocess paymentTermName*/"
+					/*/exists paymentTermName*/
+					/*#exists purchaseType*/
+						,"purchaseType": "/*preprocess purchaseType*/"
+					/*/exists purchaseType*/
+					/*#exists purchaseTypeAtLineLevel*/
+						,"purchaseTypeAtLineLevel": /*preprocess purchaseTypeAtLineLevel*/
+					/*/exists purchaseTypeAtLineLevel*/
+					/*#exists retrospectivePo*/
+						,"retrospectivePo": /*preprocess retrospectivePo*/
+					/*/exists retrospectivePo*/
+					/*#exists quotationNo*/
+						,"quotationNo": "/*preprocess quotationNo*/"
+					/*/exists quotationNo*/
+					/*#exists receiptStatus*/
+						,"receiptStatus": /*preprocess receiptStatus*/
+					/*/exists receiptStatus*/
+					/*#exists referenceType*/
+						,"referenceType": /*preprocess referenceType*/
+					/*/exists referenceType*/
+					/*#exists referenceId*/
+						,"referenceId": "/*preprocess referenceId*/"
+					/*/exists referenceId*/
+					/*#exists releaseNumber*/
+						,"releaseNumber": /*preprocess releaseNumber*/
+					/*/exists releaseNumber*/
+					/*#exists releasedOn*/
+						,"releasedOn": /*preprocess releasedOn*/
+					/*/exists releasedOn*/
+					/*#exists reopenedPO*/
+						,"reopenedPO": /*preprocess reopenedPO*/
+					/*/exists reopenedPO*/
+					/*#exists requireReceipt*/
+						,"requireReceipt": /*preprocess requireReceipt*/
+					/*/exists requireReceipt*/
+					/*#exists resubmitionCount*/
+						,"resubmitionCount": /*preprocess resubmitionCount*/
+					/*/exists resubmitionCount*/
+					/*#exists costingSplitLevel*/
+						,"costingSplitLevel": /*preprocess costingSplitLevel*/
+					/*/exists costingSplitLevel*/
+					/*#exists costingSplitType*/
+						,"costingSplitType": /*preprocess costingSplitType*/
+					/*/exists costingSplitType*/
+					/*#exists submittedPOAmount*/
+						,"submittedPOAmount": /*preprocess submittedPOAmount*/
+					/*/exists submittedPOAmount*/
+					/*#exists submittedOn*/
+						,"submittedOn": /*preprocess submittedOn*/
+					/*/exists submittedOn*/
+					/*#exists supplierAddress*/
+					,"supplierAddress": 
+						{
+						/*#each supplierAddress*/
+							/*#exists addressLine1*/
+								"addressLine1": "/*preprocess addressLine1*/"
+							/*/exists addressLine1*/
+							/*#exists city*/
+								,"city": "/*preprocess city*/"
+							/*/exists city*/
+							/*#exists zip*/
+								,"zip": "/*preprocess zip*/"
+							/*/exists zip*/
+							/*#exists state*/
+								,"state": "/*preprocess state*/"
+							/*/exists state*/
+							/*#exists country*/
+								,"country": "/*preprocess country*/"
+							/*/exists country*/
+							/*#exists addressCode*/
+								,"addressCode": "/*preprocess addressCode*/"
+							/*/exists addressCode*/
+							/*#exists addressERPID*/
+								,"addressERPID": "/*preprocess addressERPID*/"
+							/*/exists addressERPID*/
+						/*/each supplierAddress*/
+						}
+					/*/exists supplierAddress*/
+					/*#exists supplierAddressERPId*/
+						,"supplierAddressERPId": "/*preprocess supplierAddressERPId*/"
+					/*/exists supplierAddressERPId*/
+					/*#exists supplierAddressId*/
+						,"supplierAddressId": "/*preprocess supplierAddressId*/"
+					/*/exists supplierAddressId*/
+					/*#exists supplierCurrencyCode*/
+						,"supplierCurrencyCode": "/*preprocess supplierCurrencyCode*/"
+					/*/exists supplierCurrencyCode*/
+					/*#exists supplierERPID*/
+						,"supplierERPID": "/*preprocess supplierERPID*/"
+					/*/exists supplierERPID*/
+					/*#exists supplierId*/
+						,"supplierId": "/*preprocess supplierId*/"
+					/*/exists supplierId*/
+					/*#exists suppPOContactEmail*/
+						,"suppPOContactEmail": "/*preprocess suppPOContactEmail*/"
+					/*/exists suppPOContactEmail*/
+					/*#exists supplierPOContactType*/
+						,"supplierPOContactType": /*preprocess supplierPOContactType*/
+					/*/exists supplierPOContactType*/
+					/*#exists supplierPreferenceType*/
+						,"supplierPreferenceType": /*preprocess supplierPreferenceType*/
+					/*/exists supplierPreferenceType*/
+					/*#exists termsAndConditions*/
+						,"termsAndConditions": "/*preprocess termsAndConditions*/"
+					/*/exists termsAndConditions*/
+					/*#exists totalBPOOrderValue*/
+						,"totalBPOOrderValue": /*preprocess totalBPOOrderValue*/
+					/*/exists totalBPOOrderValue*/
+					/*#exists assignBudget*/
+						,"assignBudget": /*preprocess assignBudget*/
+					/*/exists assignBudget*/
+					/*#exists validFrom*/
+						,"validFrom": /*preprocess validFrom*/
+					/*/exists validFrom*/
+					/*#exists validTo*/
+						,"validTo": /*preprocess validTo*/
+					/*/exists validTo*/
+					/*#exists amendCount*/
+						,"amendCount": /*preprocess amendCount*/
+					/*/exists amendCount*/
+					/*#exists amendStatus*/
+						,"amendStatus": /*preprocess amendStatus*/
+					/*/exists amendStatus*/
+					/*#exists amendComments*/
+						,"amendComments": "/*preprocess amendComments*/"
+					/*/exists amendComments*/
+					/*#exists costings*/
+					,"costings": 
+						{
+						/*#each costings*/
+							/*#exists costing*/
+							"costing": [
+								/*#each costing*/
+									{
+										/*#exists budgetId*/
+											"budgetId": "/*preprocess budgetId*/"
+										/*/exists budgetId*/
+										/*#exists budgetLineId*/
+											,"budgetLineId": "/*preprocess budgetLineId*/"
+										/*/exists budgetLineId*/
+										/*#exists costCenterName*/
+											,"costCenterName": "/*preprocess costCenterName*/"
+										/*/exists costCenterName*/
+										/*#exists costCenterCode*/
+											,"costCenterCode": "/*preprocess costCenterCode*/"
+										/*/exists costCenterCode*/
+										/*#exists projectCode*/
+											,"projectCode": "/*preprocess projectCode*/"
+										/*/exists projectCode*/
+										/*#exists costingValue*/
+											,"costingValue": /*preprocess costingValue*/
+										/*/exists costingValue*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each costing*/
+							]
+							/*/exists costing*/
+						/*/each costings*/
+						}
+					/*/exists costings*/
+				/*/each poHeader*/
+				}
+			/*/exists poHeader*/
+			/*#exists taxes*/
+			,"taxes": 
+				{
+				/*#each taxes*/
+					/*#exists tax*/
+					"tax": [
+						/*#each tax*/
+							{
+								/*#exists compoundTax*/
+									"compoundTax": /*preprocess compoundTax*/
+								/*/exists compoundTax*/
+								/*#exists taxName*/
+									,"taxName": "/*preprocess taxName*/"
+								/*/exists taxName*/
+								/*#exists taxRate*/
+									,"taxRate": /*preprocess taxRate*/
+								/*/exists taxRate*/
+								/*#exists taxType*/
+									,"taxType": "/*preprocess taxType*/"
+								/*/exists taxType*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each tax*/
+					]
+					/*/exists tax*/
+				/*/each taxes*/
+				}
+			/*/exists taxes*/
+			/*#exists items*/
+			,"items": 
+				{
+				/*#each items*/
+					/*#exists item*/
+					"item": [
+						/*#each item*/
+							{
+								/*#exists lineItemId*/
+									"lineItemId": "/*preprocess lineItemId*/"
+								/*/exists lineItemId*/
+								/*#exists lineNumber*/
+									,"lineNumber": /*preprocess lineNumber*/
+								/*/exists lineNumber*/
+								/*#exists referenceRequisitionId*/
+									,"referenceRequisitionId": "/*preprocess referenceRequisitionId*/"
+								/*/exists referenceRequisitionId*/
+								/*#exists requisitionLineNo*/
+									,"requisitionLineNo": /*preprocess requisitionLineNo*/
+								/*/exists requisitionLineNo*/
+								/*#exists referenceRequisitionNo*/
+									,"referenceRequisitionNo": "/*preprocess referenceRequisitionNo*/"
+								/*/exists referenceRequisitionNo*/
+								/*#exists adjustedCreditQuantity*/
+									,"adjustedCreditQuantity": /*preprocess adjustedCreditQuantity*/
+								/*/exists adjustedCreditQuantity*/
+								/*#exists allowedTotalPrice*/
+									,"allowedTotalPrice": /*preprocess allowedTotalPrice*/
+								/*/exists allowedTotalPrice*/
+								/*#exists applyNoTaxes*/
+									,"applyNoTaxes": /*preprocess applyNoTaxes*/
+								/*/exists applyNoTaxes*/
+								/*#exists approvalStatus*/
+									,"approvalStatus": /*preprocess approvalStatus*/
+								/*/exists approvalStatus*/
+								/*#exists approvedQuantity*/
+									,"approvedQuantity": /*preprocess approvedQuantity*/
+								/*/exists approvedQuantity*/
+								/*#exists assetCode*/
+									,"assetCode": "/*preprocess assetCode*/"
+								/*/exists assetCode*/
+								/*#exists assetCodeType*/
+									,"assetCodeType": /*preprocess assetCodeType*/
+								/*/exists assetCodeType*/
+								/*#exists attachments*/
+								,"attachments": 
+									{
+									/*#each attachments*/
+										/*#exists attachment*/
+										"attachment": [
+											/*#each attachment*/
+												{
+													/*#exists attachmentID*/
+														"attachmentID": "/*preprocess attachmentID*/"
+													/*/exists attachmentID*/
+													/*#exists attachmentName*/
+														,"attachmentName": "/*preprocess attachmentName*/"
+													/*/exists attachmentName*/
+													/*#exists attachmentVisibility*/
+														,"attachmentVisibility": "/*preprocess attachmentVisibility*/"
+													/*/exists attachmentVisibility*/
+													/*#exists attachmentType*/
+														,"attachmentType": /*preprocess attachmentType*/
+													/*/exists attachmentType*/
+													/*#exists attachmentComments*/
+														,"attachmentComments": "/*preprocess attachmentComments*/"
+													/*/exists attachmentComments*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each attachment*/
+										]
+										/*/exists attachment*/
+									/*/each attachments*/
+									}
+								/*/exists attachments*/
+								/*#exists requesterDetails*/
+								,"requesterDetails": 
+									{
+									/*#each requesterDetails*/
+										/*#exists userEmailId*/
+											"userEmailId": "/*preprocess userEmailId*/"
+										/*/exists userEmailId*/
+										/*#exists userId*/
+											,"userId": "/*preprocess userId*/"
+										/*/exists userId*/
+										/*#exists userFirstName*/
+											,"userFirstName": "/*preprocess userFirstName*/"
+										/*/exists userFirstName*/
+										/*#exists userLastName*/
+											,"userLastName": "/*preprocess userLastName*/"
+										/*/exists userLastName*/
+									/*/each requesterDetails*/
+									}
+								/*/exists requesterDetails*/
+								/*#exists categoryCode*/
+									,"categoryCode": "/*preprocess categoryCode*/"
+								/*/exists categoryCode*/
+								/*#exists categoryName*/
+									,"categoryName": "/*preprocess categoryName*/"
+								/*/exists categoryName*/
+								/*#exists chargedLineAmount*/
+									,"chargedLineAmount": /*preprocess chargedLineAmount*/
+								/*/exists chargedLineAmount*/
+								/*#exists chargedLineTaxAmount*/
+									,"chargedLineTaxAmount": /*preprocess chargedLineTaxAmount*/
+								/*/exists chargedLineTaxAmount*/
+								/*#exists chargedQuantity*/
+									,"chargedQuantity": /*preprocess chargedQuantity*/
+								/*/exists chargedQuantity*/
+								/*#exists contractId*/
+									,"contractId": "/*preprocess contractId*/"
+								/*/exists contractId*/
+								/*#exists contractNo*/
+									,"contractNo": "/*preprocess contractNo*/"
+								/*/exists contractNo*/
+								/*#exists contractType*/
+									,"contractType": /*preprocess contractType*/
+								/*/exists contractType*/
+								/*#exists currency*/
+									,"currency": "/*preprocess currency*/"
+								/*/exists currency*/
+								/*#exists deliverToUser*/
+								,"deliverToUser": 
+									{
+									/*#each deliverToUser*/
+										/*#exists userFirstName*/
+											"userFirstName": "/*preprocess userFirstName*/"
+										/*/exists userFirstName*/
+										/*#exists userLastName*/
+											,"userLastName": "/*preprocess userLastName*/"
+										/*/exists userLastName*/
+										/*#exists userEmailId*/
+											,"userEmailId": "/*preprocess userEmailId*/"
+										/*/exists userEmailId*/
+										/*#exists userId*/
+											,"userId": "/*preprocess userId*/"
+										/*/exists userId*/
+									/*/each deliverToUser*/
+									}
+								/*/exists deliverToUser*/
+								/*#exists deliverToType*/
+									,"deliverToType": /*preprocess deliverToType*/
+								/*/exists deliverToType*/
+								/*#exists deliveryOn*/
+									,"deliveryOn": /*preprocess deliveryOn*/
+								/*/exists deliveryOn*/
+								/*#exists deliveryUpto*/
+									,"deliveryUpto": /*preprocess deliveryUpto*/
+								/*/exists deliveryUpto*/
+								/*#exists itemDescription*/
+									,"itemDescription": "/*preprocess itemDescription*/"
+								/*/exists itemDescription*/
+								/*#exists discountType*/
+									,"discountType": /*preprocess discountType*/
+								/*/exists discountType*/
+								/*#exists discountValue*/
+									,"discountValue": /*preprocess discountValue*/
+								/*/exists discountValue*/
+								/*#exists fields*/
+								,"fields": 
+									{
+									/*#each fields*/
+										/*#exists field*/
+										"field": [
+											/*#each field*/
+												{
+													/*#exists id*/
+														"id": "/*preprocess id*/"
+													/*/exists id*/
+													/*#exists type*/
+														,"type": "/*preprocess type*/"
+													/*/exists type*/
+													/*#exists name*/
+														,"name": "/*preprocess name*/"
+													/*/exists name*/
+													/*#exists value*/
+														,"value": "/*preprocess value*/"
+													/*/exists value*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each field*/
+										]
+										/*/exists field*/
+									/*/each fields*/
+									}
+								/*/exists fields*/
+								/*#exists greenItem*/
+									,"greenItem": /*preprocess greenItem*/
+								/*/exists greenItem*/
+								/*#exists itemImageURL*/
+									,"itemImageURL": "/*preprocess itemImageURL*/"
+								/*/exists itemImageURL*/
+								/*#exists internalComment*/
+									,"internalComment": "/*preprocess internalComment*/"
+								/*/exists internalComment*/
+								/*#exists invoicedQuantity*/
+									,"invoicedQuantity": /*preprocess invoicedQuantity*/
+								/*/exists invoicedQuantity*/
+								/*#exists itemAttributes*/
+								,"itemAttributes": 
+									{
+									/*#each itemAttributes*/
+										/*#exists itemAttribute*/
+										"itemAttribute": [
+											/*#each itemAttribute*/
+												{
+													/*#exists attributeKey*/
+														"attributeKey": "/*preprocess attributeKey*/"
+													/*/exists attributeKey*/
+													/*#exists attributeValue*/
+														,"attributeValue": "/*preprocess attributeValue*/"
+													/*/exists attributeValue*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each itemAttribute*/
+										]
+										/*/exists itemAttribute*/
+									/*/each itemAttributes*/
+									}
+								/*/exists itemAttributes*/
+								/*#exists itemTaxAmount*/
+									,"itemTaxAmount": /*preprocess itemTaxAmount*/
+								/*/exists itemTaxAmount*/
+								/*#exists itemTaxes*/
+								,"itemTaxes": 
+									{
+									/*#each itemTaxes*/
+										/*#exists tax*/
+										"tax": [
+											/*#each tax*/
+												{
+													/*#exists taxName*/
+														"taxName": "/*preprocess taxName*/"
+													/*/exists taxName*/
+													/*#exists taxRate*/
+														,"taxRate": /*preprocess taxRate*/
+													/*/exists taxRate*/
+													/*#exists taxType*/
+														,"taxType": "/*preprocess taxType*/"
+													/*/exists taxType*/
+													/*#exists itemId*/
+														,"itemId": "/*preprocess itemId*/"
+													/*/exists itemId*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each tax*/
+										]
+										/*/exists tax*/
+									/*/each itemTaxes*/
+									}
+								/*/exists itemTaxes*/
+								/*#exists itemName*/
+									,"itemName": "/*preprocess itemName*/"
+								/*/exists itemName*/
+								/*#exists itemTotalAmount*/
+									,"itemTotalAmount": /*preprocess itemTotalAmount*/
+								/*/exists itemTotalAmount*/
+								/*#exists itemType*/
+									,"itemType": /*preprocess itemType*/
+								/*/exists itemType*/
+								/*#exists manufacturerName*/
+									,"manufacturerName": "/*preprocess manufacturerName*/"
+								/*/exists manufacturerName*/
+								/*#exists manufacturerPartId*/
+									,"manufacturerPartId": "/*preprocess manufacturerPartId*/"
+								/*/exists manufacturerPartId*/
+								/*#exists manufacturerProductUrl*/
+									,"manufacturerProductUrl": "/*preprocess manufacturerProductUrl*/"
+								/*/exists manufacturerProductUrl*/
+								/*#exists marketPrice*/
+									,"marketPrice": /*preprocess marketPrice*/
+								/*/exists marketPrice*/
+								/*#exists maxUnitPrice*/
+									,"maxUnitPrice": /*preprocess maxUnitPrice*/
+								/*/exists maxUnitPrice*/
+								/*#exists netAcceptedQuantity*/
+									,"netAcceptedQuantity": /*preprocess netAcceptedQuantity*/
+								/*/exists netAcceptedQuantity*/
+								/*#exists buyerOrderedQuantity*/
+									,"buyerOrderedQuantity": /*preprocess buyerOrderedQuantity*/
+								/*/exists buyerOrderedQuantity*/
+								/*#exists itemOrigin*/
+									,"itemOrigin": /*preprocess itemOrigin*/
+								/*/exists itemOrigin*/
+								/*#exists preferredItem*/
+									,"preferredItem": /*preprocess preferredItem*/
+								/*/exists preferredItem*/
+								/*#exists itemPrice*/
+									,"itemPrice": /*preprocess itemPrice*/
+								/*/exists itemPrice*/
+								/*#exists purchaseType*/
+									,"purchaseType": "/*preprocess purchaseType*/"
+								/*/exists purchaseType*/
+								/*#exists itemQuantity*/
+									,"itemQuantity": /*preprocess itemQuantity*/
+								/*/exists itemQuantity*/
+								/*#exists receivedType*/
+									,"receivedType": /*preprocess receivedType*/
+								/*/exists receivedType*/
+								/*#exists receivedQuantity*/
+									,"receivedQuantity": /*preprocess receivedQuantity*/
+								/*/exists receivedQuantity*/
+								/*#exists requester*/
+									,"requester": "/*preprocess requester*/"
+								/*/exists requester*/
+								/*#exists shipToAddressCode*/
+									,"shipToAddressCode": "/*preprocess shipToAddressCode*/"
+								/*/exists shipToAddressCode*/
+								/*#exists shipToAddressType*/
+									,"shipToAddressType": /*preprocess shipToAddressType*/
+								/*/exists shipToAddressType*/
+								/*#exists shipToAddress*/
+								,"shipToAddress": 
+									{
+									/*#each shipToAddress*/
+										/*#exists addressName*/
+											"addressName": "/*preprocess addressName*/"
+										/*/exists addressName*/
+										/*#exists addressLine1*/
+											,"addressLine1": "/*preprocess addressLine1*/"
+										/*/exists addressLine1*/
+										/*#exists addressLine2*/
+											,"addressLine2": "/*preprocess addressLine2*/"
+										/*/exists addressLine2*/
+										/*#exists addressLine3*/
+											,"addressLine3": "/*preprocess addressLine3*/"
+										/*/exists addressLine3*/
+										/*#exists addressLine4*/
+											,"addressLine4": "/*preprocess addressLine4*/"
+										/*/exists addressLine4*/
+										/*#exists city*/
+											,"city": "/*preprocess city*/"
+										/*/exists city*/
+										/*#exists zip*/
+											,"zip": "/*preprocess zip*/"
+										/*/exists zip*/
+										/*#exists state*/
+											,"state": "/*preprocess state*/"
+										/*/exists state*/
+										/*#exists country*/
+											,"country": "/*preprocess country*/"
+										/*/exists country*/
+										/*#exists addressCode*/
+											,"addressCode": "/*preprocess addressCode*/"
+										/*/exists addressCode*/
+										/*#exists addressERPID*/
+											,"addressERPID": "/*preprocess addressERPID*/"
+										/*/exists addressERPID*/
+										/*#exists addressStatus*/
+											,"addressStatus": /*preprocess addressStatus*/
+										/*/exists addressStatus*/
+									/*/each shipToAddress*/
+									}
+								/*/exists shipToAddress*/
+								/*#exists itemSourceType*/
+									,"itemSourceType": /*preprocess itemSourceType*/
+								/*/exists itemSourceType*/
+								/*#exists sourcingStatus*/
+									,"sourcingStatus": /*preprocess sourcingStatus*/
+								/*/exists sourcingStatus*/
+								/*#exists costingSplitType*/
+									,"costingSplitType": /*preprocess costingSplitType*/
+								/*/exists costingSplitType*/
+								/*#exists supplierComment*/
+									,"supplierComment": "/*preprocess supplierComment*/"
+								/*/exists supplierComment*/
+								/*#exists supplierPartId*/
+									,"supplierPartId": "/*preprocess supplierPartId*/"
+								/*/exists supplierPartId*/
+								/*#exists supplierProductUrl*/
+									,"supplierProductUrl": "/*preprocess supplierProductUrl*/"
+								/*/exists supplierProductUrl*/
+								/*#exists totalAcceptedQuantity*/
+									,"totalAcceptedQuantity": /*preprocess totalAcceptedQuantity*/
+								/*/exists totalAcceptedQuantity*/
+								/*#exists totalReceivedQuantity*/
+									,"totalReceivedQuantity": /*preprocess totalReceivedQuantity*/
+								/*/exists totalReceivedQuantity*/
+								/*#exists unitOfMeasure*/
+									,"unitOfMeasure": "/*preprocess unitOfMeasure*/"
+								/*/exists unitOfMeasure*/
+								/*#exists costings*/
+								,"costings": 
+									{
+									/*#each costings*/
+										/*#exists costing*/
+										"costing": [
+											/*#each costing*/
+												{
+													/*#exists budgetId*/
+														"budgetId": "/*preprocess budgetId*/"
+													/*/exists budgetId*/
+													/*#exists budgetLineId*/
+														,"budgetLineId": "/*preprocess budgetLineId*/"
+													/*/exists budgetLineId*/
+													/*#exists businessUnitCode*/
+														,"businessUnitCode": "/*preprocess businessUnitCode*/"
+													/*/exists businessUnitCode*/
+													/*#exists costCenterCode*/
+														,"costCenterCode": "/*preprocess costCenterCode*/"
+													/*/exists costCenterCode*/
+													/*#exists projectCode*/
+														,"projectCode": "/*preprocess projectCode*/"
+													/*/exists projectCode*/
+													/*#exists costingValue*/
+														,"costingValue": /*preprocess costingValue*/
+													/*/exists costingValue*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each costing*/
+										]
+										/*/exists costing*/
+									/*/each costings*/
+									}
+								/*/exists costings*/
+								/*#exists accountings*/
+								,"accountings": 
+									{
+									/*#each accountings*/
+										/*#exists glAccountTypeCode*/
+											"glAccountTypeCode": "/*preprocess glAccountTypeCode*/"
+										/*/exists glAccountTypeCode*/
+										/*#exists generalLedgerCode*/
+											,"generalLedgerCode": "/*preprocess generalLedgerCode*/"
+										/*/exists generalLedgerCode*/
+										/*#exists accountedValue*/
+											,"accountedValue": /*preprocess accountedValue*/
+										/*/exists accountedValue*/
+									/*/each accountings*/
+									}
+								/*/exists accountings*/
+								/*#exists validCombinations*/
+								,"validCombinations": 
+									{
+									/*#each validCombinations*/
+										/*#exists itemDetails*/
+										"itemDetails": [
+											/*#each itemDetails*/
+												{
+													/*#exists distributionLineNumber*/
+														"distributionLineNumber": "/*preprocess distributionLineNumber*/"
+													/*/exists distributionLineNumber*/
+													/*#exists validRules*/
+													,"validRules": 
+														{
+														/*#each validRules*/
+															/*#exists field*/
+															"field": [
+																/*#each field*/
+																	{
+																		/*#exists id*/
+																			"id": "/*preprocess id*/"
+																		/*/exists id*/
+																		/*#exists type*/
+																			,"type": "/*preprocess type*/"
+																		/*/exists type*/
+																		/*#exists name*/
+																			,"name": "/*preprocess name*/"
+																		/*/exists name*/
+																		/*#exists value*/
+																			,"value": "/*preprocess value*/"
+																		/*/exists value*/
+																	}
+																	/*#unless @last*/,/*/unless*/
+																/*/each field*/
+															]
+															/*/exists field*/
+														/*/each validRules*/
+														}
+													/*/exists validRules*/
+													/*#exists distributedAmount*/
+														,"distributedAmount": /*preprocess distributedAmount*/
+													/*/exists distributedAmount*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each itemDetails*/
+										]
+										/*/exists itemDetails*/
+									/*/each validCombinations*/
+									}
+								/*/exists validCombinations*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each item*/
+					]
+					/*/exists item*/
+				/*/each items*/
+				}
+			/*/exists items*/
+		/*/with poDetails*/
+		}
+	/*/exists poDetails*/
+}
+}

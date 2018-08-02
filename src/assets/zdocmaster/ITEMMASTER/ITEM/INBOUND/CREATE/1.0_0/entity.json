@@ -1,0 +1,130 @@
+{
+	"integrationEntityDetails": {
+	/*#exists item*/
+	"item": 
+		{
+		/*#with item*/
+			/*#exists erpPartNumber*/
+				"erpPartNumber": "/*preprocess erpPartNumber*/"
+			/*/exists erpPartNumber*/
+			/*#exists itemMasterType*/
+				,"itemMasterType": "/*preprocess itemMasterType*/"
+			/*/exists itemMasterType*/
+			/*#exists itemShortDesc*/
+				,"itemShortDesc": "/*preprocess itemShortDesc*/"
+			/*/exists itemShortDesc*/
+			/*#exists itemDesc*/
+				,"itemDesc": "/*preprocess itemDesc*/"
+			/*/exists itemDesc*/
+			/*#exists productCategoryCode*/
+				,"productCategoryCode": "/*preprocess productCategoryCode*/"
+			/*/exists productCategoryCode*/
+			/*#exists itemType*/
+				,"itemType": "/*preprocess itemType*/"
+			/*/exists itemType*/
+			/*#exists recieveBy*/
+				,"recieveBy": "/*preprocess recieveBy*/"
+			/*/exists recieveBy*/
+			/*#exists uom*/
+				,"uom": "/*preprocess uom*/"
+			/*/exists uom*/
+			/*#exists marketPrice*/
+				,"marketPrice": /*preprocess marketPrice*/
+			/*/exists marketPrice*/
+			/*#exists itemCurrency*/
+				,"itemCurrency": "/*preprocess itemCurrency*/"
+			/*/exists itemCurrency*/
+			/*#exists assetNumberRequired*/
+				,"assetNumberRequired": "/*preprocess assetNumberRequired*/"
+			/*/exists assetNumberRequired*/
+			/*#exists manufacturerName*/
+				,"manufacturerName": "/*preprocess manufacturerName*/"
+			/*/exists manufacturerName*/
+			/*#exists manufacturerPartId*/
+				,"manufacturerPartId": "/*preprocess manufacturerPartId*/"
+			/*/exists manufacturerPartId*/
+			/*#exists validFrom*/
+				,"validFrom": /*preprocess validFrom*/
+			/*/exists validFrom*/
+			/*#exists validTo*/
+				,"validTo": /*preprocess validTo*/
+			/*/exists validTo*/
+			/*#exists specifications*/
+			,"specifications": 
+				{
+				/*#each specifications*/
+					/*#exists specification*/
+					"specification": [
+						/*#each specification*/
+							{
+								/*#exists specificationKey*/
+									"specificationKey": "/*preprocess specificationKey*/"
+								/*/exists specificationKey*/
+								/*#exists specificationValue*/
+									,"specificationValue": "/*preprocess specificationValue*/"
+								/*/exists specificationValue*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each specification*/
+					]
+					/*/exists specification*/
+				/*/each specifications*/
+				}
+			/*/exists specifications*/
+			/*#exists suppliers*/
+			,"suppliers": 
+				{
+				/*#each suppliers*/
+					/*#exists supplier*/
+					"supplier": [
+						/*#each supplier*/
+							{
+								/*#exists supplierErpId*/
+									"supplierErpId": "/*preprocess supplierErpId*/"
+								/*/exists supplierErpId*/
+								/*#exists supplierDbId*/
+									,"supplierDbId": "/*preprocess supplierDbId*/"
+								/*/exists supplierDbId*/
+								/*#exists supplierPartId*/
+									,"supplierPartId": "/*preprocess supplierPartId*/"
+								/*/exists supplierPartId*/
+								/*#exists supplierCurrency*/
+									,"supplierCurrency": "/*preprocess supplierCurrency*/"
+								/*/exists supplierCurrency*/
+								/*#exists price*/
+									,"price": /*preprocess price*/
+								/*/exists price*/
+								/*#exists supplierLeadTime*/
+									,"supplierLeadTime": /*preprocess supplierLeadTime*/
+								/*/exists supplierLeadTime*/
+								/*#exists supplierProductURL*/
+									,"supplierProductURL": "/*preprocess supplierProductURL*/"
+								/*/exists supplierProductURL*/
+								/*#exists preferredItem*/
+									,"preferredItem": /*preprocess preferredItem*/
+								/*/exists preferredItem*/
+								/*#exists active*/
+									,"active": /*preprocess active*/
+								/*/exists active*/
+								/*#exists zeroPrice*/
+									,"zeroPrice": /*preprocess zeroPrice*/
+								/*/exists zeroPrice*/
+								/*#exists validFrom*/
+									,"validFrom": /*preprocess validFrom*/
+								/*/exists validFrom*/
+								/*#exists validTo*/
+									,"validTo": /*preprocess validTo*/
+								/*/exists validTo*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each supplier*/
+					]
+					/*/exists supplier*/
+				/*/each suppliers*/
+				}
+			/*/exists suppliers*/
+		/*/with item*/
+		}
+	/*/exists item*/
+}
+}

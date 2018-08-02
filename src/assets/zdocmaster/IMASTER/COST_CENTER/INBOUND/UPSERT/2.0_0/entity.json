@@ -1,0 +1,50 @@
+{
+		"integrationEntityDetails": {
+		/*#with IntegrationDetails*/
+			{{! log "--> IntegrationDetails" this}}
+			/*#each integrationEntities*/
+				{{! log "--> integrationEntity" this}}
+				/*#each integrationEntity*/
+					/*#each integrationEntityDetails*/
+						{{! log "--> integrationEntityDetails" this}}
+						/*#each COSMAS01*/
+								/*#each IDOC*/
+								"costCenter": 
+									{
+									/*#each E1CSKSM*/
+										/*#exists KOSTL*/
+											"id": "/*preprocess KOSTL*/"
+											,"costCenterName": "/*preprocess KOSTL*/"
+											,"costCenterCode": "/*preprocess KOSTL*/"
+										/*/exists KOSTL*/
+										/*#exists ERSDA*/
+											,"createdOn": "/*preprocess ERSDA*/"
+										/*/exists ERSDA*/
+										/*#exists USNAM*/
+											,"createdBy": "/*preprocess USNAM*/"
+										/*/exists USNAM*/
+										/*#exists BUKRS*/
+										,"orgUnits": 
+											{
+												"orgUnitAssignment": [
+														{
+															"orgUnitDetails": [
+																	{
+																			"orgUnitLevel": "ORG_LVL_1"
+																			,"orgUnitCode": "/*preprocess BUKRS*/"
+																	}
+															]
+														}
+												]
+											}
+										/*/exists BUKRS*/
+									/*/each E1CSKSM*/
+									}
+								/*/each IDOC*/
+							/*/each COSMAS01*/
+						/*/each integrationEntityDetails*/
+					/*/each integrationEntity*/
+			/*/each integrationEntities*/
+		/*/with*/
+									}
+}

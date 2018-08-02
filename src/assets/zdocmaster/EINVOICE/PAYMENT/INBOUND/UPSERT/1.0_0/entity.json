@@ -1,0 +1,47 @@
+{
+	"integrationEntityDetails": {
+	/*#exists payment*/
+	"payment": 
+		{
+		/*#with payment*/
+			/*#exists transactionId*/
+				"transactionId": "/*preprocess transactionId*/"
+			/*/exists transactionId*/
+			/*#exists createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"createdOn": /*preprocess createdOn*/
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"updatedOn": /*preprocess updatedOn*/
+			/*/exists updatedOn*/
+			/*#exists invoiceId*/
+				,"invoiceId": "/*preprocess invoiceId*/"
+			/*/exists invoiceId*/
+			/*#exists isUniqueId*/
+				,"isUniqueId": /*preprocess isUniqueId*/
+			/*/exists isUniqueId*/
+			/*#exists paymentDate*/
+				,"paymentDate": /*preprocess paymentDate*/
+			/*/exists paymentDate*/
+			/*#exists paidAmount*/
+				,"paidAmount": /*preprocess paidAmount*/
+			/*/exists paidAmount*/
+			/*#exists isEPDApplied*/
+				,"isEPDApplied": /*preprocess isEPDApplied*/
+			/*/exists isEPDApplied*/
+			/*#exists referenceNumber*/
+				,"referenceNumber": "/*preprocess referenceNumber*/"
+			/*/exists referenceNumber*/
+			/*#exists comments*/
+				,"comments": "/*preprocess comments*/"
+			/*/exists comments*/
+		/*/with payment*/
+		}
+	/*/exists payment*/
+}
+}

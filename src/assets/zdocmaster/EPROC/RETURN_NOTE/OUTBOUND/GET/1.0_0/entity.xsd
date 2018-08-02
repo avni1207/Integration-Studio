@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:integration-outbound="http://www.zycus.com/integration/schemas/IntegrationOutbound" targetNamespace="http://www.zycus.com/integration/schemas/IntegrationOutbound" version="1.0">
+  <xs:element name="IntegrationEntities" type="integration-outbound:IntegrationEntities"/>
+  <xs:complexType name="IntegrationEntities">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="integrationEntity" type="integration-outbound:integrationEntity"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="integrationEntity">
+    <xs:all>
+      <xs:element name="integrationEntityHeader" type="integration-outbound:APIIntegrationHeader"/>
+      <xs:element minOccurs="1" name="integrationEntityDetails" type="integration-outbound:integrationEntityDetails"/>
+      <xs:element minOccurs="0" name="processingErrors" type="integration-outbound:processingErrors"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="APIIntegrationHeader">
+    <xs:all>
+      <xs:element name="integrationTrackingNumber" type="xs:string"/>
+      <xs:element minOccurs="1" name="referenceCodeForEntity" type="xs:string"/>
+      <xs:element minOccurs="0" name="additionalInfo" type="xs:string"/>
+      <xs:element minOccurs="0" name="attachments" type="integration-outbound:attachments"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="integrationEntityDetails">
+    <xs:choice>
+      <xs:element maxOccurs="1" minOccurs="1" name="returnNoteDetails" type="integration-outbound:returnNoteDetails"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="processingErrors">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="shouldRetry" type="xs:boolean"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="error" type="integration-outbound:error"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="error">
+    <xs:all>
+      <xs:element name="errorCode" type="xs:string"/>
+      <xs:element name="errorDescription" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="attachments">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="attachment" type="integration-outbound:attachment"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="attachment">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="id" type="xs:string"/>
+      <xs:element minOccurs="1" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="size" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="returnNoteDetails">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="returnNoteHeader">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="returnNoteNo" type="xs:string"/>
+            <xs:element minOccurs="1" name="description" type="xs:string"/>
+            <xs:element minOccurs="0" name="notes" type="xs:string"/>
+            <xs:element minOccurs="0" name="notifySupplier" type="xs:boolean"/>
+            <xs:element minOccurs="1" name="referenceType" type="xs:int"/>
+            <xs:element minOccurs="1" name="referenceValue" type="xs:string"/>
+            <xs:element minOccurs="1" name="orderNumber" type="xs:string"/>
+            <xs:element minOccurs="0" name="erpId" type="xs:string"/>
+            <xs:element minOccurs="1" name="supplierDetails">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="supplierErpId" type="xs:string"/>
+                  <xs:element minOccurs="1" name="supplierDbaId" type="xs:string"/>
+                  <xs:element minOccurs="1" name="supplierName" type="xs:string"/>
+                  <xs:element minOccurs="1" name="supplierAddress">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="addressERPID" type="xs:string"/>
+                        <xs:element minOccurs="1" name="addressId" type="xs:string"/>
+                        <xs:element minOccurs="1" name="addressName" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="supplierContact" type="xs:string"/>
+                  <xs:element minOccurs="0" name="supplierEmail" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="supplierComments" type="xs:string"/>
+            <xs:element minOccurs="0" name="rmaNo" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" name="items">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="item">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" name="lineItemId" type="xs:string"/>
+                  <xs:element minOccurs="1" name="lineNo" type="xs:string"/>
+                  <xs:element minOccurs="0" name="shortDescription" type="xs:string"/>
+                  <xs:element minOccurs="0" name="longDescription" type="xs:string"/>
+                  <xs:element minOccurs="1" name="returnedQuantity" type="xs:int"/>
+                  <xs:element minOccurs="1" name="reasonForReturn" type="xs:string"/>
+                  <xs:element minOccurs="1" name="returnMethod" type="xs:string"/>
+                  <xs:element minOccurs="1" name="valueOfReturnedGoodsOrService" type="xs:float"/>
+                  <xs:element minOccurs="0" name="comments" type="xs:string"/>
+                  <xs:element minOccurs="0" name="commentsForSupplier" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,124 @@
+<!--<div *ngIf="!store.touchPointsData2.length">Loading</div>
+ <div class="search-holder">
+  <span>
+    <label>Search : </label><input  #search  (keyup)="0">
+  </span>
+</div>
+<div class="table-container" *ngIf="store.touchPointsData2.length">
+  <table  class="table">
+    <thead>
+      <tr>
+        <th class="headcol"><span>Field Name</span></th>
+        <th><span>Description</span></th>
+        <th><span>Action Points</span></th>
+        <th><span>Remarks</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of store.touchPointsData2 | filter: search.value | paginate: { itemsPerPage: 6, currentPage: p } ">
+        <td class="headcol"><i class="fa fa-plus"></i><span>{{item.feildname}}</span></td>
+        <td ><span>{{item.description}}</span></td>
+        <td ><span>{{item.actionpoints}}</span></td>
+        <td ><span>{{item.remarks}}</span></td>
+      </tr>
+
+    </tbody>
+
+  </table>
+</div>
+<div class="pagination-wrapper">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+<div class="button-container float-right">
+        <button  routerLink="/auth/integration-studio"  class="btn btn-primary btn-lg" tabindex="0" >Download</button>
+</div> -->
+
+
+<div class="endpointreviewWrapper">
+
+  <p class="endpointtitle">
+    Purchase Order Integration
+  </p>
+  <p class="realp">
+     SFTP: Real Time
+  </p>
+  <div class="reviewmodal container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+           <p>
+             From Zycus To client, on <b>create</b>
+           </p>
+           <div class="firstmodal">
+             <p>
+               Each purchase order will be saved on below location<br />
+               on create update & Release of purchase order<br />
+               server port user id password<br/>
+               Folder<br/>
+               EncryptedL:ACE
+             </p>
+             <p>
+               File processing should be uploaded to below folder
+             </p>
+           </div>
+           <p>
+             ERPID update
+           </p>
+           <div class="secondmodal">
+             <p>
+               To update erp id in PO below API can be utilized<br/>
+               API: API Url
+             </p>
+             <p>
+               Integration status can will be responded using below xsd
+             </p>
+           </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-holder">
+             <label>Email Notifications</label>
+             <div class="ftpradio checksum">
+               <input type="radio" name="activateEmailNotification" [value]=true checked [(ngModel)]="summarydata.activateEmailNotification"><span>Yes</span>
+               <input type="radio" name="activateEmailNotification" [value]=false [(ngModel)]="summarydata.activateEmailNotification"><span>No</span>
+             </div>
+         </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-holder">
+              <label>Address</label>
+              <input type="text" name="notificationEmailAddress" [(ngModel)]="summarydata.notificationEmailAddress"/>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-holder">
+              <label>Subject</label>
+              <input type="text" name="notificationEmailSubject" [(ngModel)]="summarydata.notificationEmailSubject" />
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-holder">
+             <label>Active</label>
+             <div class="ftpradio">
+               <input type="radio" name="active" value="true" (click)="open(content)" [(ngModel)]="summarydata.active"><span>Yes</span>
+               <input type="radio" name="active" value="false"  [(ngModel)]="summarydata.active"><span>No</span>
+             </div>
+         </div>
+       </div>
+
+  </div>
+  </div>
+  <div class="btndiv">
+    <input class="touchpointbtn" type="button" routerLink="/auth/touchpoint/endpoint" value="Cancel" />
+    <input class="touchpointbtn" type="button" routerLink="/auth/integration-studio" value="Create Interface"/>
+  </div>
+      <ng-template  #content let-c="close" let-d="dismiss">
+          <div class="modal-header">
+            <h4 class="modal-title">Title</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Order activated successfully
+          </div>
+      </ng-template>
+    </div>

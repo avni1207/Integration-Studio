@@ -1,0 +1,60 @@
+{
+	"integrationEntityDetails": {
+	/*#exists supplierStatusChange*/
+	"supplierStatusChange": 
+		{
+		/*#with supplierStatusChange*/
+			/*#exists id*/
+				"ID": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists createdBy*/
+				,"Created_By": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"Created_On": /*preprocess createdOn*/
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"Updated_By": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"Updated_On": /*preprocess updatedOn*/
+			/*/exists updatedOn*/
+			/*#exists externalid*/
+				,"External_Supplier_Id": "/*preprocess externalid*/"
+			/*/exists externalid*/
+			/*#exists displayGSID*/
+				,"DisplayGSID": "/*preprocess displayGSID*/"
+			/*/exists displayGSID*/
+			/*#exists systemFacilityDetails*/
+			,"systemFacilityDetails": 
+				{
+				/*#each systemFacilityDetails*/
+					/*#exists systemFacilityDetail*/
+					"systemFacilityDetail": [
+						/*#each systemFacilityDetail*/
+							{
+								/*#exists facilityCode*/
+									"Facility_Code": "/*preprocess facilityCode*/"
+								/*/exists facilityCode*/
+								/*#exists systemCode*/
+									,"System_Code": "/*preprocess systemCode*/"
+								/*/exists systemCode*/
+								/*#exists FacilityStatus*/
+									,"Facility_Status": "/*preprocess FacilityStatus*/"
+								/*/exists FacilityStatus*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each systemFacilityDetail*/
+					]
+					/*/exists systemFacilityDetail*/
+				/*/each systemFacilityDetails*/
+				}
+			/*/exists systemFacilityDetails*/
+			/*#exists status*/
+				,"Supplier_Status": "/*preprocess status*/"
+			/*/exists status*/
+		/*/with supplierStatusChange*/
+		}
+	/*/exists supplierStatusChange*/
+}
+}

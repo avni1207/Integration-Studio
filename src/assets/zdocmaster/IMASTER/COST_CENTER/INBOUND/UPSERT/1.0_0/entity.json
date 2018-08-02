@@ -1,0 +1,72 @@
+{
+	"integrationEntityDetails": {
+	/*#exists costCenter*/
+	"costCenter": 
+		{
+		/*#with costCenter*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists costCenterName*/
+				,"costCenterName": "/*preprocess costCenterName*/"
+			/*/exists costCenterName*/
+			/*#exists description*/
+				,"description": "/*preprocess description*/"
+			/*/exists description*/
+			/*#exists costCenterCode*/
+				,"costCenterCode": "/*preprocess costCenterCode*/"
+			/*/exists costCenterCode*/
+			/*#exists orgUnits*/
+			,"orgUnits": 
+				{
+				/*#each orgUnits*/
+					/*#exists orgUnitAssignment*/
+					"orgUnitAssignment": [
+						/*#each orgUnitAssignment*/
+							{
+								/*#exists orgUnitDetails*/
+								"orgUnitDetails": [
+									/*#each orgUnitDetails*/
+										{
+											/*#exists orgUnitLevel*/
+												"orgUnitLevel": "/*preprocess orgUnitLevel*/"
+											/*/exists orgUnitLevel*/
+											/*#exists orgUnitCode*/
+												,"orgUnitCode": "/*preprocess orgUnitCode*/"
+											/*/exists orgUnitCode*/
+										}
+										/*#unless @last*/,/*/unless*/
+									/*/each orgUnitDetails*/
+								]
+								/*/exists orgUnitDetails*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each orgUnitAssignment*/
+					]
+					/*/exists orgUnitAssignment*/
+				/*/each orgUnits*/
+				}
+			/*/exists orgUnits*/
+			/*#exists erpId*/
+				,"erpId": "/*preprocess erpId*/"
+			/*/exists erpId*/
+			/*#exists createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"createdOn": "/*preprocess createdOn*/"
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"updatedOn": "/*preprocess updatedOn*/"
+			/*/exists updatedOn*/
+		/*/with costCenter*/
+		}
+	/*/exists costCenter*/
+}
+}

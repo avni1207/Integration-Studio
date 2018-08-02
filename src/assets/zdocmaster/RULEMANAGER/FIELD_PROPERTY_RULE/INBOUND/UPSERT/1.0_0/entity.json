@@ -1,0 +1,86 @@
+{
+	"integrationEntityDetails": {
+	/*#exists fieldPropertyRule*/
+	"fieldPropertyRule": 
+		{
+		/*#with fieldPropertyRule*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists ruleName*/
+				,"ruleName": "/*preprocess ruleName*/"
+			/*/exists ruleName*/
+			/*#exists scenario*/
+			,"scenario": 
+				{
+				/*#each scenario*/
+					/*#exists scenarioId*/
+						"scenarioId": "/*preprocess scenarioId*/"
+					/*/exists scenarioId*/
+					/*#exists status*/
+						,"status": "/*preprocess status*/"
+					/*/exists status*/
+					/*#exists ifConditions*/
+					,"ifConditions": 
+						{
+						/*#each ifConditions*/
+							/*#exists ifCondition*/
+							"ifCondition": [
+								/*#each ifCondition*/
+									{
+										/*#exists fieldName*/
+											"fieldName": "/*preprocess fieldName*/"
+										/*/exists fieldName*/
+										/*#exists operator*/
+											,"operator": "/*preprocess operator*/"
+										/*/exists operator*/
+										/*#exists fieldValue*/
+											,"fieldValue": "/*preprocess fieldValue*/"
+										/*/exists fieldValue*/
+										/*#exists dataType*/
+											,"dataType": "/*preprocess dataType*/"
+										/*/exists dataType*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each ifCondition*/
+							]
+							/*/exists ifCondition*/
+						/*/each ifConditions*/
+						}
+					/*/exists ifConditions*/
+					/*#exists thenConditions*/
+					,"thenConditions": 
+						{
+						/*#each thenConditions*/
+							/*#exists thenCondition*/
+							"thenCondition": [
+								/*#each thenCondition*/
+									{
+										/*#exists fieldName*/
+											"fieldName": "/*preprocess fieldName*/"
+										/*/exists fieldName*/
+										/*#exists property*/
+											,"property": "/*preprocess property*/"
+										/*/exists property*/
+										/*#exists dataType*/
+											,"dataType": "/*preprocess dataType*/"
+										/*/exists dataType*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each thenCondition*/
+							]
+							/*/exists thenCondition*/
+						/*/each thenConditions*/
+						}
+					/*/exists thenConditions*/
+				/*/each scenario*/
+				}
+			/*/exists scenario*/
+		/*/with fieldPropertyRule*/
+		}
+	/*/exists fieldPropertyRule*/
+}
+}

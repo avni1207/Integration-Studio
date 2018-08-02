@@ -1,0 +1,44 @@
+:host{
+
+    .touchpointwrapper{
+      padding: 30px 0px;
+    }
+    .dashboardtitle{
+      display: inline-block;
+      cursor: pointer;
+    }
+    .tab-header{
+      background: #2D3E50;
+      text-align: center;
+      padding: 20px 0px 8px 0px;
+    }
+    .tab-header a{
+      color: #ffffff;
+      margin: 0px 60px;
+      padding:6px 10px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .tab-header a:hover,.tab-header a:active,.tab-header a.active-link{
+      border-bottom: 5px solid #f5b771;
+    }
+    .tab-header .tab-title{
+      font-size: 20px;
+      text-transform: capitalize;
+    }
+    ::ng-deep .touchpointbtn{
+      background: #2D3E50;
+      color: white;
+      margin: 0px 5px;
+      border: 0px;
+      padding: 8px 25px;
+    }
+    ::ng-deep .btndiv{
+      margin: 70px auto;
+      width: 50%;
+      text-align: center;
+    }
+
+
+
+}

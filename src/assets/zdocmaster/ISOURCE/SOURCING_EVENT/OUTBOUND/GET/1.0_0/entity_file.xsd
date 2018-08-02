@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:integration-outbound="http://www.zycus.com/integration/schemas/IntegrationOutbound" targetNamespace="http://www.zycus.com/integration/schemas/IntegrationOutbound" version="1.0">
+  <xs:element name="IntegrationDetails" type="integration-outbound:outboundIntegrationDetails"/>
+  <xs:element name="IntegrationEntity" type="integration-outbound:outboundIntegrationEntity"/>
+  <xs:complexType name="outboundIntegrationEntity">
+    <xs:sequence>
+      <xs:element name="integrationEntityHeader" type="integration-outbound:OutboundIntegrationHeader"/>
+      <xs:element name="integrationEntityDetails" type="integration-outbound:outboundIntegrationEntityDetails"/>
+      <xs:element minOccurs="0" name="processingErrors" type="integration-outbound:processingErrors"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OutboundIntegrationHeader">
+    <!-- <xs:complexContent> <xs:extension base="integration-outbound:BaseIntegrationHeader"> -->
+    <xs:all>
+      <xs:element name="integrationTrackingNumber" type="xs:string"/>
+      <xs:element minOccurs="1" name="referenceCodeForEntity" type="xs:string"/>
+      <xs:element minOccurs="0" name="additionalInfo" type="xs:string"/>
+      <xs:element name="action" type="xs:string"/>
+      <xs:element name="entity" type="xs:string"/>
+      <xs:element name="source" type="xs:string"/>
+      <xs:element name="zDocBaseVersion" type="xs:string"/>
+      <xs:element name="zDocCustomVersion" type="xs:string"/>
+      <xs:element minOccurs="0" name="timestampUTC" type="xs:string"/>
+      <xs:element minOccurs="0" name="attachments" type="integration-outbound:attachments"/>
+    </xs:all>
+    <!-- </xs:extension> </xs:complexContent> -->
+  </xs:complexType>
+  <xs:complexType name="outboundIntegrationEntityDetails">
+    <xs:choice>
+      <xs:element minOccurs="1" name="sourcingEvent" type="integration-outbound:sourcingEvent"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="outboundIntegrationDetails">
+    <xs:all>
+      <xs:element minOccurs="1" name="packerId" type="xs:string"/>
+      <xs:element minOccurs="0" name="timestampUTC" type="xs:string"/>
+      <xs:element minOccurs="0" name="additionalInfo" type="xs:string"/>
+      <xs:element name="integrationEntities">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="integrationEntity" type="integration-outbound:outboundIntegrationEntity"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="processingErrors">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="shouldRetry" type="xs:boolean"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="error" type="integration-outbound:error"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="error">
+    <xs:all>
+      <xs:element name="errorCode" type="xs:string"/>
+      <xs:element name="errorDescription" type="xs:string"/>
+      <xs:element name="action" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="attachments">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="attachment" type="integration-outbound:attachment"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="attachment">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="id" type="xs:string"/>
+      <xs:element minOccurs="1" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="size" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- <xs:complexType name="BaseIntegrationHeader"> <xs:all/> </xs:complexType> -->
+  <xs:complexType name="sourcingEvent">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="id" type="xs:string"/>
+      <xs:element minOccurs="1" name="eventId" type="xs:string"/>
+      <xs:element minOccurs="1" name="status" type="xs:string"/>
+      <xs:element minOccurs="0" name="createdBy" type="xs:string"/>
+      <xs:element minOccurs="0" name="createdOn" type="xs:long"/>
+      <xs:element minOccurs="0" name="updatedBy" type="xs:string"/>
+      <xs:element minOccurs="0" name="updatedOn" type="xs:long"/>
+      <xs:element minOccurs="1" name="tmsUserid" type="xs:string"/>
+      <xs:element minOccurs="1" name="buyerId" type="xs:long"/>
+      <xs:element minOccurs="1" name="eventName" type="xs:string"/>
+      <xs:element minOccurs="0" name="eventDesc" type="xs:string"/>
+      <xs:element minOccurs="1" name="eventType" type="xs:string"/>
+      <xs:element minOccurs="0" name="auctionType" type="xs:string"/>
+      <xs:element minOccurs="0" name="auctionSubType" type="xs:string"/>
+      <xs:element minOccurs="1" name="statusId" type="xs:long"/>
+      <xs:element minOccurs="0" name="eventOpenTime" type="xs:long"/>
+      <xs:element minOccurs="1" name="buyerEmail" type="xs:string"/>
+      <xs:element minOccurs="0" name="eventCloseTime" type="xs:long"/>
+      <xs:element minOccurs="0" name="isTestEvent" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="isPublicEvent" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="isDeleted" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="publicEventURL" type="xs:string"/>
+      <xs:element minOccurs="0" name="decimalPrecision" type="xs:long"/>
+      <xs:element minOccurs="0" name="isBroadcastedEvent" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="isResponsesSealed" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="primaryCurrency">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="currencyId" type="xs:long"/>
+            <xs:element minOccurs="0" name="abbr" type="xs:string"/>
+            <xs:element minOccurs="0" name="converstionRate" type="xs:double"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="hasMulticurrency" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="acceptedCurrencies">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="acceptedCurrency">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="currencyId" type="xs:long"/>
+                  <xs:element minOccurs="0" name="abbr" type="xs:string"/>
+                  <xs:element minOccurs="0" name="converstionRate" type="xs:double"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="suppliers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="supplier">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="id" type="xs:long"/>
+                  <xs:element minOccurs="0" name="globalSupplierId" type="xs:long"/>
+                  <xs:element minOccurs="0" name="globalContactId" type="xs:long"/>
+                  <xs:element minOccurs="0" name="inviteStatusId" type="xs:long"/>
+                  <xs:element minOccurs="0" name="inviteStatus" type="xs:string"/>
+                  <xs:element minOccurs="0" name="companyName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="email" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="itemLotGroup">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="itemLot">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="itemLotId" type="xs:long"/>
+                  <xs:element minOccurs="0" name="itemLotName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="sectionId" type="xs:long"/>
+                  <xs:element minOccurs="0" name="baseLineCost" type="xs:double"/>
+                  <xs:element minOccurs="0" name="isFlexiItemTable" type="xs:boolean"/>
+                  <xs:element minOccurs="0" name="isTotalCostBidding" type="xs:boolean"/>
+                  <xs:element minOccurs="0" name="itemGroup">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="item">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="itemId" type="xs:long"/>
+                              <xs:element minOccurs="0" name="itemFields">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="itemField">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="value" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="isHidden" type="xs:boolean"/>
+                                          <xs:element minOccurs="0" name="type" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="headerName" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="parentHeaderName" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="fieldCategory" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="formula" type="xs:string"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="incumbentSuppliers">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="incumbentSupplier">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="supplierId" type="xs:long"/>
+                                          <xs:element minOccurs="0" name="globalSupplierId" type="xs:long"/>
+                                          <xs:element minOccurs="0" name="globalContactId" type="xs:long"/>
+                                          <xs:element minOccurs="0" name="quantityPreAllocation" type="xs:double"/>
+                                          <xs:element minOccurs="0" name="percentPreAllocation" type="xs:double"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="sectionLevelSettings">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="sectionLevelSetting">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="id" type="xs:long"/>
+                  <xs:element minOccurs="0" name="name" type="xs:string"/>
+                  <xs:element minOccurs="0" name="isPricingSection" type="xs:boolean"/>
+                  <xs:element minOccurs="0" name="isLineItemBidding" type="xs:boolean"/>
+                  <xs:element minOccurs="0" name="openDateTime" type="xs:long"/>
+                  <xs:element minOccurs="0" name="closeDateTime" type="xs:long"/>
+                  <xs:element minOccurs="0" name="auctionSettings">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="durationPerLotDays" type="xs:int"/>
+                        <xs:element minOccurs="0" name="durationPerLotHours" type="xs:int"/>
+                        <xs:element minOccurs="0" name="durationPerLotMins" type="xs:int"/>
+                        <xs:element minOccurs="0" name="manualAuctionReset" type="xs:int"/>
+                        <xs:element minOccurs="0" name="englishAuction">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="bidSettings">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element minOccurs="0" name="startingBid" type="xs:double"/>
+                                    <xs:element minOccurs="0" name="minimumBidChange" type="xs:double"/>
+                                    <xs:element minOccurs="0" name="minimumBidChangeType" type="xs:string"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="tiePrevention">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element minOccurs="0" name="aboveBestBidValue" type="xs:double"/>
+                                    <xs:element minOccurs="0" name="belowBestBidValue" type="xs:double"/>
+                                    <xs:element minOccurs="0" name="valueType" type="xs:string"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="dutchAuction">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="targetPrice" type="xs:double"/>
+                              <xs:element minOccurs="0" name="reserveBid" type="xs:double"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="eventLevelMetaDataFields">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="eventlevelMetaDataField">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="fieldId" type="xs:long"/>
+                  <xs:element minOccurs="0" name="name" type="xs:string"/>
+                  <xs:element minOccurs="0" name="selectedvalue" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

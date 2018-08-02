@@ -1,0 +1,42 @@
+{
+	"integrationEntityDetails": {
+	/*#exists customMaster*/
+	"customMaster": 
+		{
+		/*#with customMaster*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists customMasterName*/
+				,"customMasterName": "/*preprocess customMasterName*/"
+			/*/exists customMasterName*/
+			/*#exists fields*/
+			,"fields": 
+				{
+				/*#each fields*/
+					/*#exists field*/
+					"field": [
+						/*#each field*/
+							{
+								/*#exists fieldName*/
+									"fieldName": "/*preprocess fieldName*/"
+								/*/exists fieldName*/
+								/*#exists value*/
+									,"value": "/*preprocess value*/"
+								/*/exists value*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each field*/
+					]
+					/*/exists field*/
+				/*/each fields*/
+				}
+			/*/exists fields*/
+		/*/with customMaster*/
+		}
+	/*/exists customMaster*/
+}
+}

@@ -1,0 +1,128 @@
+{
+	"integrationEntityDetails": {
+	/*#exists acknowledgement*/
+	"acknowledgement": 
+		{
+		/*#with acknowledgement*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"createdOn": /*preprocess createdOn*/
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"updatedOn": /*preprocess updatedOn*/
+			/*/exists updatedOn*/
+			/*#exists eventId*/
+				,"eventId": "/*preprocess eventId*/"
+			/*/exists eventId*/
+			/*#exists externalId*/
+				,"externalId": "/*preprocess externalId*/"
+			/*/exists externalId*/
+			/*#exists requestId*/
+				,"requestId": /*preprocess requestId*/
+			/*/exists requestId*/
+			/*#exists DisplayGSID*/
+				,"displayGSID": "/*preprocess DisplayGSID*/"
+			/*/exists DisplayGSID*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists Generic_Error_Message*/
+				,"genericErrorMessage": "/*preprocess Generic_Error_Message*/"
+			/*/exists Generic_Error_Message*/
+			/*#exists Forms*/
+			,"Forms": 
+				{
+				/*#with Forms*/
+					/*#exists Form*/
+					"Form": [
+						/*#each Form*/
+							{
+								/*#exists Form_Name*/
+									"formName": "/*preprocess Form_Name*/"
+								/*/exists Form_Name*/
+								/*#exists Form_Id*/
+									,"formId": "/*preprocess Form_Id*/"
+								/*/exists Form_Id*/
+								/*#exists Fields*/
+								,"Fields": 
+									{
+									/*#with Fields*/
+										/*#exists Field*/
+										"Field": [
+											/*#each Field*/
+												{
+													/*#exists Field_Name*/
+														"fieldName": "/*preprocess Field_Name*/"
+													/*/exists Field_Name*/
+													/*#exists Field_Id*/
+														,"fieldId": "/*preprocess Field_Id*/"
+													/*/exists Field_Id*/
+													/*#exists External_Id*/
+														,"externalId": "/*preprocess External_Id*/"
+													/*/exists External_Id*/
+													/*#exists Internal_Id*/
+														,"internalId": /*preprocess Internal_Id*/
+													/*/exists Internal_Id*/
+													/*#exists Error_Message*/
+														,"errorMessage": "/*preprocess Error_Message*/"
+													/*/exists Error_Message*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each Field*/
+										]
+										/*/exists Field*/
+									/*/with Fields*/
+									}
+								/*/exists Fields*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each Form*/
+					]
+					/*/exists Form*/
+				/*/with Forms*/
+				}
+			/*/exists Forms*/
+			/*#exists Status_Error_Messages*/
+			,"statusErrorMessages": 
+				{
+				/*#with Status_Error_Messages*/
+					/*#exists Status_Error_Message*/
+					"statusErrorMessage": [
+						/*#each Status_Error_Message*/
+							{
+								/*#exists Existing_Internal_System_Code*/
+									"existingInternalSystemCode": "/*preprocess Existing_Internal_System_Code*/"
+								/*/exists Existing_Internal_System_Code*/
+								/*#exists Existing_Internal_Facility_Code*/
+									,"existingInternalFacilityCode": "/*preprocess Existing_Internal_Facility_Code*/"
+								/*/exists Existing_Internal_Facility_Code*/
+								/*#exists Existing_External_System_Code*/
+									,"existingExternalSystemCode": "/*preprocess Existing_External_System_Code*/"
+								/*/exists Existing_External_System_Code*/
+								/*#exists Existing_External_Facility_Code*/
+									,"existingExternalFacilityCode": "/*preprocess Existing_External_Facility_Code*/"
+								/*/exists Existing_External_Facility_Code*/
+								/*#exists Error_Message*/
+									,"errorMessage": "/*preprocess Error_Message*/"
+								/*/exists Error_Message*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each Status_Error_Message*/
+					]
+					/*/exists Status_Error_Message*/
+				/*/with Status_Error_Messages*/
+				}
+			/*/exists Status_Error_Messages*/
+		/*/with acknowledgement*/
+		}
+	/*/exists acknowledgement*/
+}
+}

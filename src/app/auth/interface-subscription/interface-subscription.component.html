@@ -1,0 +1,861 @@
+<div *ngIf="intStudioService.notFoundError != ''"><b>{{intStudioService.notFoundMsg}}</b></div> 
+<div *ngIf="intStudioService.notFoundError == ''">
+  <h5>Interface Subscription</h5>
+  <form name="formNew" class="genralForm" #entityForm="ngForm">
+
+    <!-- EDIT CASE -->
+    <div class="interfacediv" *ngIf="intStudioService.touchPointsEditData != ''">
+
+      <p>
+        General
+      </p>
+    
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Tenant Id</label>
+        </div>
+        <div class="input-holder-inner">
+          <input class="datalistinpt" name="tenantId" [(ngModel)]="interfaceData.data.tenantId" required readonly/>
+        </div>
+      </div>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Tenant Name</label>
+        </div>
+        <div class="input-holder-inner">
+          <input placeholder="Enter tenant Name" type="text" name="tenantName" [(ngModel)]="interfaceData.data.tenantName" required readonly/>
+        </div>
+      </div>
+
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>User Id</label>
+        </div>
+        <div class="input-holder-inner">
+          <input name="userId" [(ngModel)]="interfaceData.data.userId" required readonly/>
+        </div>
+      </div>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Product</label>
+        </div>
+        <div class="input-holder-inner">
+          <input name="product" [(ngModel)]="interfaceData.data.product" required readonly/>
+        </div>
+      </div>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Direction</label>
+        </div>
+        <div class="input-holder-inner">
+          <input name="direction" [(ngModel)]="interfaceData.data.direction" required readonly/>
+        </div>
+      </div>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Interface</label>
+        </div>
+        <div class="input-holder-inner">
+          <input name="entity" [(ngModel)]="interfaceData.data.entity" required readonly/>
+        </div>
+      </div>
+      <div class="input-holder" *ngIf="interfaceData.data.direction == 'OUTBOUND'">
+          <div class="absolute-label">
+            <label>Event(s)</label>
+          </div>
+          <div class="input-holder-inner evntselect select-box-icon">
+            <select name="action" multiple *ngFor="let actions of intStudioService.touchPointsDataEvents.result" [(ngModel)]="interfaceData.data.action"
+            (change)="sendAction(entityForm.value)" required>
+            <option [value]="action" *ngFor="let action of actions.payload">{{action}}</option>
+          </select>
+          <div class="text-danger" *ngIf="showError">
+              You can select only one event incase of Inbound direction
+            </div>
+        </div>
+      </div>
+      <div class="input-holder" *ngIf="interfaceData.data.direction == 'INBOUND'">
+        <div class="absolute-label">
+          <label>Event(s)</label>
+        </div>
+        <div class="input-holder-inner evntselect">
+            <input name="action" [(ngModel)]="interfaceData.data.action" required readonly/>
+        </div>
+      </div>
+    <div class="input-holder">
+      <div class="absolute-label">
+        <label>Job Name</label>
+      </div>
+      <div class="input-holder-inner">
+        <input name="jobName" [(ngModel)]="interfaceData.data.jobName" required readonly/>
+      </div>
+    </div>
+    <div class="input-holder">
+      <div class="absolute-label">
+        <label>Integration Approach</label>
+      </div>
+      <div class="input-holder-inner">
+        <input name="specType" [(ngModel)]="interfaceData.data.specType" required readonly/>
+      </div>
+    </div>
+    
+    <div class="input-holder" *ngIf="intStudioService.touchPointsDataAckZdoc.length > 0 && interfaceData.data.specType">
+      <div class="absolute-label">
+        <label>Entity zDoc</label>
+      </div>
+      <div class="input-holder-inner">
+        <div class="select-holder select-box-icon">
+          <select  name="requestBaseVersion"  (change)="sendEntityFileversion(entityForm.value)" [(ngModel)]="interfaceData.data.requestBaseVersion" required>
+            <option selected *ngFor="let ver of intStudioService.touchPointsDataEntityZdoc"  [value]="ver">{{ver}}</option>
+        </select>
+        <!-- <input type="text" readonly name="requestBaseVersion" [(ngModel)]="interfaceData.data.requestBaseVersion"> -->
+      </div>
+      <div class="absolute-btn-holder">
+        <a (click)="downloadEntityZdoc()"><i class="fa fa-download"></i>Download</a>
+      </div>
+    </div>
+  </div>
+  <div class="input-holder" *ngIf="intStudioService.touchPointsDataAckZdoc.length > 0 && interfaceData.data.specType">
+    <div class="absolute-label">
+      <label>Acknowledgement zDoc</label>
+    </div>
+    
+    <div class="input-holder-inner ackdiverr">
+      <div class="select-holder select-box-icon">
+        <select name="responseBaseVersion" (change)="sendAckFileversion(entityForm.value)" [(ngModel)]="interfaceData.data.responseBaseVersion" required>
+        <option *ngFor="let ackver of intStudioService.touchPointsDataAckZdoc" selected [value]="ackver">{{ackver}}</option>
+      </select>
+      <!-- <input type="text" readonly name="responseBaseVersion" [(ngModel)]="interfaceData.data.responseBaseVersion"> -->
+    </div>
+    <div class="absolute-btn-holder">
+      <a (click)="downloadAckZdoc()"><i class="fa fa-download"></i>Download</a>
+    </div>
+        
+      <div class="text-danger" *ngIf="intStudioService.ackerr">
+          {{intStudioService.ackerr}}
+      </div>
+  </div>
+  </div>
+        <div *ngIf="interfaceData.data.specType=='FILE BASED INTEGRATION'">
+          <p>
+            Configuration
+          </p>
+          <input name="packerRequired" [(ngModel)]="interfaceData.data.packerRequired" hidden/>
+
+          <div class="input-holder"  *ngIf="interfaceData.data.packerRequired == false" >
+            <div class="absolute-label">
+              <label>Integration Frequency</label>
+            </div>
+            <div class="input-holder-inner">
+              <input name="" value="Real Time" required readonly/>
+            </div>
+          </div>
+          <div class="input-holder" *ngIf="interfaceData.data.packerRequired == true">
+            <div class="absolute-label">
+              <label>Integration Frequency</label>
+            </div>
+            <div class="input-holder-inner">
+              <input name="" value="Scheduled" required readonly/>
+            </div>
+          </div>
+
+          <div class="input-holder" *ngIf="interfaceData.data.packerRequired == true">
+            <div class="absolute-label">
+              <label>Select Schedule</label>
+            </div>
+            <div class="input-holder-inner input-cron">
+              <p class="timezonep">{{today | date:'full'}}</p>
+              <cron-editor name="cron" [(cron)]="cron" [disabled]="isCronDisabled" [(options)]="cronOptions" [(ngModel)]="cron" required>Cron here...</cron-editor>
+              {{cron}}
+            </div>
+          </div>
+          <div class="input-holder" *ngIf="interfaceData.data.direction== OUTBOUND">
+            <div class="absolute-label">
+              <label>Generate Empty Packer</label>
+            </div>
+            <div class="input-holder-inner">
+              <label class="switch">
+                <input type="checkbox" name="generatePackerFiles" [(ngModel)]="interfaceData.data.generatePackerFiles" required>
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+          <div class="input-holder">
+            <div class="absolute-label">
+              <label>Enable Attachments </label>
+            </div>
+            <div class="input-holder-inner">
+              <label class="switch">
+                <input type="checkbox" name="enableAttachment" [(ngModel)]="interfaceData.data.enableAttachment">
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+          <div class="input-holder">
+            <div class="absolute-label">
+              <label>Enable Encryption</label>
+            </div>
+            <div class="input-holder-inner">
+              <label class="switch">
+                <input type="checkbox" name="enableEncryption" [(ngModel)]="interfaceData.data.enableEncryption">
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+          <div class="input-holder" *ngIf="interfaceData.data.enableEncryption == true">
+              <div class="absolute-label">
+                <label>Encryption Type</label>
+              </div>
+              <div class="input-holder-inner select-box-icon editenctype">
+                <select #t name="encryptionType" *ngFor="let types of intStudioService.touchPointsDataEncryptionType.result"  (change)="showAesKey(t.value)" [(ngModel)]="interfaceData.data.encryptionType" required>
+                  <option disabled selected value="null">Select Encryption Type</option>
+                  <option [value]="encryptionType" *ngFor="let encryptionType of types.payload">{{encryptionType}}</option>
+                </select>
+                <div *ngIf="interfaceData.data.pgpFile && interfaceData.data.encryptionType == 'PGP'">
+                    <span>PGP file is already uploaded, Click on Choose File if you want to reupload it again</span>
+                </div> 
+              </div>
+            </div>
+            <div class="input-holder" *ngIf="interfaceData.data.enableEncryption == false" style="display:none">
+                <div class="absolute-label">
+                  <label>Encryption Type</label>
+                </div>
+                <div class="input-holder-inner select-box-icon">
+                  <select hidden #t name="encryptionType" *ngFor="let types of intStudioService.touchPointsDataEncryptionType.result" (change)="showAesKey(t.value)" [(ngModel)]="interfaceData.data.encryptionType">
+                    <option value="null" disabled selected>Select Encryption Type</option>
+                    <option [value]="encryptionType" *ngFor="let encryptionType of types.payload">{{encryptionType}}</option>
+                  </select>
+                </div>
+              </div>
+            
+            <div class="input-holder" *ngIf="interfaceData.data.enableEncryption == true && interfaceData.data.encryptionType == 'AES'">
+              <div class="absolute-label">
+                <label>Key</label>
+              </div>
+              <div class="input-holder-inner">
+                <input type="text" name="encryptionKey" maxlength="32" [(ngModel)]="interfaceData.data.encryptionKey" required/>
+              </div>
+            </div>
+            <div class="input-holder" *ngIf="interfaceData.data.enableEncryption == true && interfaceData.data.encryptionType == 'PGP'">
+              
+              <div class="absolute-label">
+                <label>Upload</label>
+              </div>
+              <div class="input-holder-inner">
+                <input type="hidden" name="pgpFile" [(ngModel)]="interfaceData.data.pgpFile" required>
+                <div class="uploadfilediv">
+                    <input  type="file"  #f id="input" required  (change)="fileValidation();isClicked = false">
+                    <label>{{this.interfaceData.fileName}}</label>
+                </div>
+                <input *ngIf="interfaceData.fileName !== '' && interfaceData.data.pgpFile == '' && (pgpValidationMsg == 'Please click upload' || pgpValidationMsg == '')"  type="button" [disabled]="isClicked ? true : null"  (click)="uploadFile();isClicked = true" value="upload" style="width:100px;margin:0 0 0 10px;background-color:#2196F3;color:#fff" required>
+                <svg *ngIf="intStudioService.showloader" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                  <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                    <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"/>
+                  </path>
+                </svg>
+        
+                <div class="text-danger" *ngIf="pgperrorShow">{{pgpValidationMsg}}</div>
+                <!-- <div class="text-success" *ngIf="intStudioService.touchPointsDataGetfilePath !== '' "><i class="fa  fa-check"></i>&nbsp; upload successful</div> -->
+                <div class="text-success" *ngIf="intStudioService.touchPointsDataGetfilePath !== '' && intStudioService.showSuccessfulMsg == true"><i class="fa  fa-check"></i>&nbsp; upload successful</div> 
+                
+              </div>
+            </div>
+          <!-- <input type="hidden" name="encryptionType" [(ngModel)]="interfaceData.data.encryptionType"/>
+          <input type="hidden" name="encryptionKey" [(ngModel)]="interfaceData.data.encryptionKey"/>
+          <input type="hidden" name="pgpFile" [(ngModel)]="interfaceData.data.pgpFile"/> -->
+
+          <div class="input-holder">
+            <h5>SFTP Details</h5>
+          </div>
+          <div class="input-holder">
+            <div class="absolute-label">
+              <label>Host</label>
+            </div>
+            <div class="input-holder-inner">
+              <input type="text" name="server" [(ngModel)]="interfaceData.data.server" readonly/>
+            </div>
+          </div>
+          <div class="input-holder">
+            <div class="absolute-label">
+              <label>Port</label>
+            </div>
+            <div class="input-holder-inner">
+              <input type="text" name="port" [(ngModel)]="interfaceData.data.port" readonly/>
+            </div>
+          </div>
+          <div class="input-holder" *ngIf="interfaceData.data.direction == 'INBOUND'">
+            <div class="absolute-label">
+              <label>To Folders</label>
+            </div>
+            <div class="input-holder-inner">
+                <div class="select-holder">
+                  <input id="toFolder" type="text" title="{{interfaceData.data.folderToWatch}}" name="folderToWatch" [(ngModel)]="interfaceData.data.folderToWatch" readonly/>
+                </div>
+                <div class="absolute-btn-holder">
+                  <a (click)="copyText('toFolder')">
+                    <i class="fa fa-copy"></i>Copy
+                  </a>
+                </div>
+            </div>
+          </div>
+          <div class="input-holder" *ngIf="interfaceData.data.targetFolder != null">
+            <div class="absolute-label">
+              <label>From Folders</label>
+            </div>
+            <div class="input-holder-inner">
+                <div class="select-holder">
+                  <input id="fromFolder" type="text" title="{{interfaceData.data.targetFolder}}" name="targetFolder" [(ngModel)]="interfaceData.data.targetFolder" readonly/>
+                </div>
+                <div class="absolute-btn-holder">
+                  <a (click)="copyText('fromFolder')">
+                    <i class="fa fa-copy"></i>Copy
+                  </a>
+                </div>
+              </div>
+          </div>
+          <!-- <div class="input-holder">
+            <div class="absolute-label">
+              <label>File name pattern</label>
+            </div>
+            <div class="input-holder-inner">
+              <input type="text" name="fileNamePattern" [(ngModel)]="interfaceData.data.fileNamePattern" readonly/>
+            </div>
+          </div> -->
+        
+          <div class="input-holder">
+              <div class="absolute-label">
+                <label>File name pattern</label>
+              </div>
+              <div class="input-holder-inner" [ngClass]="(fnPattern.errors && fnPattern.errors.pattern)?'padding-bottom':''">
+                <input #fnPattern="ngModel" pattern="^[A-Z_]+$" type="text" #filePrefix="ngModel" class="prefixinpt" maxlength="50" name="filePrefix" [(ngModel)]="interfaceData.data.filePrefix" (input)="onPrefixChange($event.target.value)" required/>
+                <input type="text" class="suffixinpt" name="fileSuffix" [(ngModel)]="interfaceData.data.fileSuffix" readonly/>
+                <input type="text" name="fileNamePattern" [(ngModel)]="interfaceData.data.fileNamePattern" type="hidden" />
+                <div class="md-errors-spacer" [hidden]="fnPattern.valid || fnPattern.pristine">
+                  <div class="text-danger invalidptrn"  *ngIf="fnPattern.errors && fnPattern.errors.pattern">
+                      Only A-Z and _ characters allowed
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="input-holder">
+            <div class="absolute-label">
+              <label>Enable Checksum</label>
+            </div>
+            <div class="input-holder-inner">
+              <label class="switch">
+                <input type="checkbox" name="generateChecksum" [(ngModel)]="interfaceData.data.generateChecksum">
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+          <input type="text" name="activateEmailNotification" [(ngModel)]="interfaceData.data.activateEmailNotification" hidden>
+          <input type="text" name="fileNamePattern" [(ngModel)]="interfaceData.data.fileNamePattern" hidden>
+          <div class="input-holder" *ngIf="interfaceData.data.specType=='FILE BASED INTEGRATION'">
+            <p>
+              Notifications
+            </p>
+            <div class="absolute-label">
+              <label>Address</label>
+            </div>
+            <div class="input-holder-inner" [ngClass]="(showError)?'padding-bottom':''">
+              <input maxlength="500" placeholder="Enter email address" (input)="validateMultipleEmailsCommaSeparated(interfaceData.data.notificationEmailAddress,',');" type="email"  name="notificationEmailAddress" [(ngModel)]="interfaceData.data.notificationEmailAddress"  required/>
+              <div class="text-danger" *ngIf="showError">
+                Email is invalid
+              </div>
+            </div>
+          </div>
+          <input type="text" name="notificationEmailSubject" [(ngModel)]="interfaceData.data.notificationEmailSubject" required readonly hidden/>
+          <!-- <div class="input-holder" *ngIf="interfaceData.data.specType=='FILE BASED INTEGRATION'">
+          <div class="absolute-label">
+          <label>Subject</label>
+          </div>
+          <div class="input-holder-inner">
+          <input type="text" name="notificationEmailSubject" [(ngModel)]="interfaceData.data.notificationEmailSubject" required readonly hidden/>
+          </div>
+          </div> -->
+          </div>
+          <div class="input-holder activeinput">
+              <div class="absolute-label">
+                <label>Active</label>
+              </div>
+              <div class="input-holder-inner">
+                <label class="switch">
+                  <input type="checkbox" name="active" (click)="open(content)" [(ngModel)]="interfaceData.data.active" >
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <div *ngIf="IsactivationMessage" [ngClass]="(interfaceData.data.active == false)?'text-danger':'text-success'">
+                {{activationMessage}}
+              </div>
+            </div>
+        </div>
+
+  <!-- ADD CASE -->
+  <div class="interfacediv" *ngIf="intStudioService.touchPointsEditData == ''">
+    <p>
+      General
+    </p>
+   
+    <div class="input-holder">
+      <div class="absolute-label">
+        <label>Tenant Id</label>
+      </div>
+      <div class="input-holder-inner select-box-icon">
+        <input class="datalistinpt" placeholder="Enter or select tenant Id" list="tenantid" maxlength="50" name="tenantId" [ngModel]="interfaceData.data.tenantId" (ngModelChange)="interfaceData.data.tenantId=$event"
+        required (input)="sendId($event.target.value)" />
+        <datalist id="tenantid" *ngFor="let tenants of intStudioService.tenantIds.result">
+          <option *ngFor="let data of tenants.payload" [value]="data.tenantId">{{data.tenantName}}</option>
+        </datalist>
+      </div>
+    </div>
+    <div class="input-holder" *ngIf="interfaceData.data.tenantId != '' && this.intStudioService.tenantNames == ''">
+      <div class="absolute-label">
+        <label>Tenant Name</label>
+      </div>
+      <div class="input-holder-inner" [ngClass]="(tName.errors && tName.errors.pattern)?'padding-bottom':''">
+        <input #tName="ngModel" placeholder="Enter tenant Name" pattern="^[A-Z]+$" type="text" name="tenantName" [(ngModel)]="interfaceData.data.tenantName" (change)="sendName(entityForm.value)" required/>
+        <div class="md-errors-spacer" [hidden]="tName.valid || tName.pristine">
+          <div class="text-danger"  *ngIf="tName.errors && tName.errors.pattern">
+              Only A-Z characters allowed
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="input-holder" *ngIf="interfaceData.data.tenantId != '' && this.intStudioService.tenantNames != ''">
+      <div class="absolute-label">
+        <label>Tenant Name</label>
+      </div>
+      <div class="input-holder-inner">
+        <input placeholder="Enter tenant Name" type="text" name="tenantName" [(ngModel)]="interfaceData.data.tenantName" required readonly/>
+      </div>
+    </div>
+    <div class="input-holder" *ngIf="interfaceData.data.tenantName">
+      <div class="absolute-label">
+        <label>User Id</label>
+      </div>
+      <div class="input-holder-inner" [ngClass]="(email.errors && email.errors.pattern)?'padding-bottom':''">
+        <input placeholder="Enter User Id"  maxlength="100" pattern="^[\w-']+(\.[\w-']+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$"  type="email" #email="ngModel"  name="userId"  [(ngModel)]="interfaceData.data.userId" required/>
+        <div class="md-errors-spacer" [hidden]="email.valid || email.untouched">
+          <div class="text-danger"  *ngIf="email.errors && email.errors.pattern">
+            Email is invalid
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div class="input-holder" *ngIf="intStudioService.touchPointsDataProducts.result && interfaceData.data.userId">
+      <div class="absolute-label">
+        <label>Product</label>
+      </div>
+      <div class="input-holder-inner select-box-icon">
+        <select name="product" *ngFor="let products of intStudioService.touchPointsDataProducts.result" [(ngModel)]="interfaceData.data.product" (change)="sendProductName(entityForm.value)" required>
+          <option value="" disabled selected>Select Product</option>
+          <option [value]="product" *ngFor="let product of products.payload">{{product}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="input-holder" *ngIf="interfaceData.data.product && intStudioService.touchPointsDataDirection.responseCode == '200'">
+      <div class="absolute-label">
+        <label>Direction</label>
+      </div>
+      <div class="input-holder-inner select-box-icon">
+        <select name="direction" *ngFor="let directions of intStudioService.touchPointsDataDirection.result" [(ngModel)]="interfaceData.data.direction" (change)="onSelect(entityForm.value)" required>
+          <option value="" disabled selected>Select Direction</option>
+          <option [value]="direction" *ngFor="let direction of directions.payload">{{direction}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="input-holder" *ngIf="interfaceData.data.product && intStudioService.touchPointsDataEntities.result && intStudioService.touchPointsDataEntities.responseCode == '200'">
+      <div class="absolute-label">
+        <label>Interface</label>
+      </div>
+      <div class="input-holder-inner select-box-icon">
+        <select id="Select" name="entity" *ngFor="let entities of intStudioService.touchPointsDataEntities.result" [(ngModel)]="interfaceData.data.entity" (change)="sendEntity(entityForm.value)" required>
+          <option value="" disabled selected>Select Interface</option>
+          <option [value]="entity" *ngFor="let entity of entities.payload">{{entity}}</option>
+        </select>
+      </div>
+      
+    </div>
+    <div class="input-holder" *ngIf="intStudioService.touchPointsDataEntities.responseCode == '500'">
+        <p class="interfacemsg">{{intStudioService.touchPointsDataEntities.errorMessage}}</p>
+    </div>
+
+    
+    <div *ngIf="Isdirect">
+        <div *ngIf="intStudioService.touchPointsDataEntities.responseCode == '200'">
+            <div class="input-holder" *ngIf="intStudioService.touchPointsDataEvents.responseCode == '200'">
+              <div class="absolute-label">
+                <label>Event(s)</label>
+              </div>
+              <!-- <p-multiSelect name="events" [options]="events" [(ngModel)]="selectedEvent"></p-multiSelect> -->
+              <div class="input-holder-inner evntselect select-box-icon">
+                <select name="action" multiple *ngFor="let actions of intStudioService.touchPointsDataEvents.result" [(ngModel)]="interfaceData.data.action" (change)="sendAction(entityForm.value)" required>
+                  <option [value]="action" *ngFor="let action of actions.payload">{{action}}</option>
+                </select>
+                <div class="text-danger" *ngIf="showError">
+                  You can select only one event incase of Inbound direction
+                </div>
+              </div>
+            </div>
+            <div class="input-holder" *ngIf="intStudioService.touchPointsDataEvents.responseCode == '500'">
+                <p class="interfacemsg">{{intStudioService.touchPointsDataEvents.errorMessage}}</p>
+            </div>
+            <div *ngIf="intStudioService.interfaceIsexist.responseCode == '500'">
+              <p class="interfacemsg">{{intStudioService.interfaceIsexist.errorMessage}}</p>
+            </div> 
+            <div class="input-holder" *ngIf="interfaceData.data.jobName !== '' && interfaceData.data.action " [ngClass]="(intStudioService.touchPointsDataEvents.responseCode == '200')?'jobinpt':''">
+              <div class="absolute-label">
+                <label>Job Name</label>
+              </div>
+              <div class="input-holder-inner">
+                <input type="text" maxlength="120" name="jobName" [(ngModel)]="interfaceData.data.jobName" readonly required/>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div *ngIf="!Isdirect">
+        <div *ngIf="intStudioService.interfaceIsexist.responseCode == '500'">
+            <p class="interfacemsg">{{intStudioService.interfaceIsexist.errorMessage}}</p>
+        </div>
+        <div *ngIf="intStudioService.interfaceIsexist.responseCode == '200' && intStudioService.touchPointsDataEntities.responseCode == '200'">
+            <div class="input-holder" *ngIf="intStudioService.touchPointsDataEvents.responseCode == '200'">
+              <div class="absolute-label">
+                <label>Event(s)</label>
+              </div>
+              <div class="input-holder-inner evntselect select-box-icon">
+                <select name="action" multiple *ngFor="let actions of intStudioService.touchPointsDataEvents.result" [(ngModel)]="interfaceData.data.action" (change)="sendAction(entityForm.value)" required>
+                  <option [value]="action" *ngFor="let action of actions.payload">{{action}}</option>
+                </select>
+                <div class="text-danger" *ngIf="showError">
+                  You can select only one event incase of Inbound direction
+                </div>
+              </div>
+            </div>
+            <div class="input-holder" *ngIf="intStudioService.touchPointsDataEvents.responseCode == '500'">
+                <p class="interfacemsg">{{intStudioService.touchPointsDataEvents.errorMessage}}</p>
+            </div>
+            <div *ngIf="intStudioService.interfaceIsexist.responseCode == '500'">
+              <p class="interfacemsg">{{intStudioService.interfaceIsexist.errorMessage}}</p>
+            </div> 
+            <div class="input-holder" *ngIf="interfaceData.data.jobName !== '' && interfaceData.data.action " [ngClass]="(intStudioService.touchPointsDataEvents.responseCode == '200')?'jobinpt':''">
+              <div class="absolute-label">
+                <label>Job Name</label>
+              </div>
+              <div class="input-holder-inner">
+                <input type="text" name="jobName" [(ngModel)]="interfaceData.data.jobName" readonly required/>
+              </div>
+            </div>
+          </div>
+     </div>
+
+    
+    <div class="input-holder" *ngIf="intStudioService.ackresponse.responseCode == '200' && interfaceData.data.jobName && interfaceData.data.action" [ngClass]="(intStudioService.touchPointsDataEvents.responseCode == '200' && interfaceData.data.jobName == '')?'jobinpt':''">
+      <div class="absolute-label">
+        <label>Integration Approach</label>
+      </div>
+      <div class="input-holder-inner select-box-icon">
+        <select #a name="specType" *ngFor="let approaches of intStudioService.touchPointsDataApproach.result" (change)="showfiledetails(a.value)" [(ngModel)]="interfaceData.data.specType" required>
+          <option value="" disabled selected>Select Approach</option>
+          <option [value]="approach" *ngFor="let approach of approaches.payload" required>{{approach}}</option>
+        </select>
+      </div>
+    </div>
+    <div *ngIf="intStudioService.ackresponse.responseCode == '500'">
+        <p class="interfacemsg"> {{intStudioService.ackresponse.errorMessage}}</p>
+    </div> 
+  
+    <div class="input-holder" *ngIf="intStudioService.touchPointsDataAckZdoc.length > 0 && interfaceData.data.specType">
+      <div class="absolute-label">
+        <label>Entity zDoc</label>
+      </div>
+      <div class="input-holder-inner">
+        <div class="select-holder select-box-icon">
+          <select  name="requestBaseVersion"  (change)="sendEntityFileversion(entityForm.value)" [(ngModel)]="interfaceData.data.requestBaseVersion" required>
+            <option *ngFor="let ver of intStudioService.touchPointsDataEntityZdoc"  [value]="ver">{{ver}}</option>
+        </select>
+        <!-- <input type="text" readonly name="requestBaseVersion" [(ngModel)]="interfaceData.data.requestBaseVersion"> -->
+      </div>
+      <div class="absolute-btn-holder">
+        <a (click)="downloadEntityZdoc()"><i class="fa fa-download"></i>Download</a>
+      </div>
+    </div>
+  </div>
+  <div class="input-holder" *ngIf="intStudioService.touchPointsDataAckZdoc.length > 0 && interfaceData.data.specType">
+    <div class="absolute-label">
+      <label>Acknowledgement zDoc</label>
+    </div>
+    
+    <div class="input-holder-inner ackdiverr">
+      <div class="select-holder select-box-icon">
+        <select name="responseBaseVersion" (change)="sendAckFileversion(entityForm.value)" [(ngModel)]="interfaceData.data.responseBaseVersion" required>
+        <option *ngFor="let ackver of intStudioService.touchPointsDataAckZdoc" selected [value]="ackver">{{ackver}}</option>
+      </select>
+      <!-- <input type="text" readonly name="responseBaseVersion" [(ngModel)]="interfaceData.data.responseBaseVersion"> -->
+    </div>
+    <div class="absolute-btn-holder">
+      <a (click)="downloadAckZdoc()"><i class="fa fa-download"></i>Download</a>
+    </div>
+    <div class="text-danger" *ngIf="intStudioService.ackerr">
+        {{intStudioService.ackerr}}
+    </div>
+  </div>
+  </div>
+  <div *ngIf="interfaceData.data.specType=='FILE BASED INTEGRATION'">
+    <p>
+      Configuration
+    </p>
+    <div class="input-holder" *ngIf="Isdirect">
+      <div class="absolute-label">
+        <label>Integration Frequency</label>
+      </div>
+      <div class="input-holder-inner select-box-icon">
+        <select name="packerRequired" [(ngModel)]="interfaceData.data.packerRequired" required>
+          <option selected [value]="true">Scheduled</option>
+        </select>
+      </div>
+    </div>
+    <div class="input-holder" *ngIf="!Isdirect">
+      <div class="absolute-label">
+        <label>Integration Frequency</label>
+      </div>
+      <div class="input-holder-inner select-box-icon">
+        <select name="packerRequired" [(ngModel)]="interfaceData.data.packerRequired" required>
+          <option [value]="null" disabled selected>Select Frequency</option>
+          <option [value]="false" selected>Real Time</option>
+          <option [value]="true">Scheduled</option>
+        </select>
+      </div>
+    </div>
+    <div class="input-holder" *ngIf="interfaceData.data.packerRequired == 'true'">
+      <div class="absolute-label">
+        <label>Select Schedule</label>
+      </div>
+      <div class="input-holder-inner input-cron">
+        <p class="timezonep">{{today | date:'full'}}</p>
+        <cron-editor name="cron" [(cron)]="cron" [disabled]="isCronDisabled" [(options)]="cronOptions"  [(ngModel)]="cron"  required>Cron here...</cron-editor>
+        {{cron}}
+      </div>
+      </div>
+      <div class="input-holder" *ngIf="!Isdirect">
+        <div class="absolute-label">
+          <label>Generate Empty Packer</label>
+        </div>
+        <div class="input-holder-inner">
+          <label class="switch">
+            <input type="checkbox" name="generatePackerFiles" [(ngModel)]="interfaceData.data.generatePackerFiles">
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Enable Attachments </label>
+        </div>
+
+        <div class="input-holder-inner">
+          <label class="switch">
+            <input type="checkbox" name="enableAttachment" [(ngModel)]="interfaceData.data.enableAttachment">
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Enable Encryption</label>
+        </div>
+        <div class="input-holder-inner">
+          <label class="switch">
+            <input type="checkbox" name="enableEncryption" [(ngModel)]="interfaceData.data.enableEncryption">
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="input-holder" *ngIf="interfaceData.data.enableEncryption == true">
+        <div class="absolute-label">
+          <label>Encryption Type</label>
+        </div>
+        <div class="input-holder-inner select-box-icon editenctype">
+          <select #t name="encryptionType" *ngFor="let types of intStudioService.touchPointsDataEncryptionType.result" (change)="showAesKey(t.value)" [(ngModel)]="interfaceData.data.encryptionType" required>
+            <option value="" disabled selected>Select Encryption Type</option>
+            <option [value]="encryptionType" *ngFor="let encryptionType of types.payload">{{encryptionType}}</option>
+          </select>
+          <!-- <div *ngIf="interfaceData.data.pgpFile && interfaceData.data.encryptionType == 'PGP'">
+              <span>PGP file is uploaded, Click on Choose File if you want to reupload it again</span>
+          </div>  -->
+        </div>
+      </div>
+      <div class="input-holder" *ngIf="interfaceData.data.enableEncryption == false" style="display:none">
+          <div class="absolute-label">
+            <label>Encryption Type</label>
+          </div>
+          <div class="input-holder-inner select-box-icon">
+            <select hidden #t name="encryptionType" *ngFor="let types of intStudioService.touchPointsDataEncryptionType.result" (change)="showAesKey(t.value)" [(ngModel)]="interfaceData.data.encryptionType">
+              <option value="" disabled selected>Select Encryption Type</option>
+              <option [value]="encryptionType" *ngFor="let encryptionType of types.payload">{{encryptionType}}</option>
+            </select>
+          </div>
+        </div>
+      <div class="input-holder" *ngIf="interfaceData.data.enableEncryption == true && interfaceData.data.encryptionType == 'AES'">
+        <div class="absolute-label">
+          <label>Key</label>
+        </div>
+        <div class="input-holder-inner">
+          <input type="text" name="encryptionKey" maxlength="32" [(ngModel)]="interfaceData.data.encryptionKey" required/>
+        </div>
+      </div>
+      <div class="input-holder" *ngIf="interfaceData.data.enableEncryption == true && interfaceData.data.encryptionType == 'PGP'">
+        <div class="absolute-label">
+          <label>Upload</label>
+        </div>
+        <div class="input-holder-inner">
+          <input type="hidden" name="pgpFile" [(ngModel)]="interfaceData.data.pgpFile" required>
+          <div class="uploadfilediv">
+              <input type="file" #f id="input" required  (change)="fileValidation();isClicked = false">
+              <label>{{this.interfaceData.fileName}}</label> 
+          </div>
+          <input *ngIf="interfaceData.fileName !== '' && interfaceData.data.pgpFile == '' && (pgpValidationMsg == 'Please click upload' || pgpValidationMsg == '')"  type="button" [disabled]="isClicked ? true : null"  (click)="uploadFile();isClicked = true" value="upload" style="width:100px;margin:0 0 0 10px;background-color:#2196F3;color:#fff">
+          <svg *ngIf="intStudioService.showloader" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+            <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+              <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"/>
+            </path>
+          </svg>
+
+          <div class="text-danger" *ngIf="pgperrorShow">{{pgpValidationMsg}}</div>
+          <!-- <div class="text-success" *ngIf="intStudioService.touchPointsDataGetfilePath !== '' "><i class="fa  fa-check"></i>&nbsp; upload successful</div> -->
+          <div class="text-success" *ngIf="intStudioService.touchPointsDataGetfilePath !== '' && intStudioService.showSuccessfulMsg == true"><i class="fa  fa-check"></i>&nbsp; upload successful</div>
+        </div>
+      </div>
+      <div class="input-holder">
+        <h5>SFTP Details</h5>
+      </div>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Host</label>
+        </div>
+        <div class="input-holder-inner">
+          <input type="text" name="server" [(ngModel)]="interfaceData.data.server" readonly/>
+        </div>
+      </div>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Port</label>
+        </div>
+        <div class="input-holder-inner">
+          <input type="text" name="port" [(ngModel)]="interfaceData.data.port" readonly/>
+        </div>
+      </div>
+
+      <div class="input-holder" *ngIf="Isdirect">
+        <div class="absolute-label">
+          <label>To Folders</label>
+        </div>
+        <div class="input-holder-inner">
+          <div class="select-holder">
+            <input id="toFolder" type="text" title="{{interfaceData.data.folderToWatch}}" name="folderToWatch" [(ngModel)]="interfaceData.data.folderToWatch" readonly/>
+          </div>
+          <div class="absolute-btn-holder">
+            <a (click)="copyText('toFolder')">
+              <i class="fa fa-copy"></i>Copy
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>From Folders</label>
+        </div>
+        <div class="input-holder-inner">
+          <div class="select-holder">
+            <input id="fromFolder" type="text" title="{{interfaceData.data.targetFolder}}" name="targetFolder" [(ngModel)]="interfaceData.data.targetFolder" readonly/>
+          </div>
+          <div class="absolute-btn-holder">
+            <a (click)="copyText('fromFolder')">
+              <i class="fa fa-copy"></i>Copy
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>File name pattern</label>
+        </div>
+        <div class="input-holder-inner" [ngClass]="(fnPattern.errors && fnPattern.errors.pattern)?'padding-bottom':''">
+          <input #fnPattern="ngModel" pattern="^[A-Z_]+$" placeholder="E.g. CW_INVOICE" type="text" #filePrefix="ngModel" class="prefixinpt" maxlength="50" name="filePrefix" [(ngModel)]="interfaceData.data.filePrefix" (input)="onPrefixChange($event.target.value)" required/>
+          <input type="text" class="suffixinpt" name="fileSuffix" [(ngModel)]="interfaceData.data.fileSuffix" readonly/>
+          <input type="text" name="fileNamePattern" [(ngModel)]="interfaceData.data.fileNamePattern" type="hidden" />
+          <div class="md-errors-spacer" [hidden]="fnPattern.valid || fnPattern.pristine">
+            <div class="text-danger invalidptrn"  *ngIf="fnPattern.errors && fnPattern.errors.pattern">
+                Only A-Z and _ characters allowed
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="input-holder" *ngIf="Isdirect">
+          <div class="absolute-label">
+            <label>Action Folder Required</label>
+          </div>
+          <div class="input-holder-inner">
+            <label class="switch">
+              <input type="checkbox" name="actionRequired" [(ngModel)]="interfaceData.data.actionRequired" (ngModelChange)="actioncheck(entityForm.value, $event)">
+              <span class="slider round"></span>
+            </label>
+          </div>
+      </div>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Enable Checksum</label>
+        </div>
+        <div class="input-holder-inner">
+          <label class="switch">
+            <input type="checkbox" name="generateChecksum" [(ngModel)]="interfaceData.data.generateChecksum">
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <input type="text" name="activateEmailNotification" [(ngModel)]="interfaceData.data.activateEmailNotification" hidden>
+
+    <div class="input-holder" *ngIf="interfaceData.data.specType=='FILE BASED INTEGRATION'">
+      <p>
+        Notifications
+      </p>
+      <div class="absolute-label">
+        <label>Address</label>
+      </div>
+      <div class="input-holder-inner" [ngClass]="(showError)?'padding-bottom':''">
+        <input class="emailInpt" maxlength="500"  type="email" name="notificationEmailAddress" [(ngModel)]="interfaceData.data.notificationEmailAddress" (input)="validateMultipleEmailsCommaSeparated(interfaceData.data.notificationEmailAddress,',');" required/>
+        <div class="text-danger" *ngIf="showError">
+          Email is invalid
+        </div>
+      </div>
+    </div>
+    <input type="text" name="notificationEmailSubject" [(ngModel)]="interfaceData.data.notificationEmailSubject" required readonly hidden/>
+    <!-- <div class="input-holder" *ngIf="interfaceData.data.specType=='FILE BASED INTEGRATION'">
+    <div class="absolute-label">
+    <label>Subject</label>
+    </div>
+    <div class="input-holder-inner">
+    <input type="text" name="notificationEmailSubject" [(ngModel)]="interfaceData.data.notificationEmailSubject" required readonly hidden/>
+    </div>
+    </div> -->
+
+  <div class="input-holder activeinput">
+    <div class="absolute-label">
+      <label>Active</label>
+    </div>
+    <div class="input-holder-inner">
+      <label class="switch">
+        <input type="checkbox" name="active" (click)="open(content)" [(ngModel)]="interfaceData.data.active" >
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <div *ngIf="IsactivationMessage" [ngClass]="(interfaceData.data.active == false)?'text-danger':'text-success'">
+      {{activationMessage}}
+    </div>
+
+  </div>
+  </div>
+  <input class="generalsubmitbtn" [hidden]="!interfaceData.data.specType" type="button" [disabled]="!entityForm.valid || showError || intStudioService.interfaceIsexist.responseCode == '500'" (click)="onSubmit(entityForm.value)" value="Preview" />
+  </form>
+</div> 

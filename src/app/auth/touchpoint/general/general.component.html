@@ -1,0 +1,332 @@
+<form name="formNew" class="genralForm" #entityForm="ngForm">
+<ngb-accordion  activeIds="static-1 , static-2 , static-3">
+  <ngb-panel id="static-1" title="General">
+    <ng-template ngbPanelContent>
+                  <div class="input-holder">
+                     <div class="absolute-label">
+                       <label>Product</label>
+                     </div>
+                     <div class="input-holder-inner">
+                       <select name="product" [(ngModel)]="interfaceData.product">
+                         <option value="tms">tms</option>
+                         <option value="eproc">eproc</option>
+                         <option value="iconsole">iconsole</option>
+                         <option value="cmd">cmd</option>
+                       </select>
+                     </div>
+                    </div>
+                    <div class="input-holder">
+                       <div class="absolute-label">
+                         <label>Interface</label>
+                       </div>
+                       <div class="input-holder-inner">
+                         <select name="entity" [(ngModel)]="interfaceData.entity">
+                           <option value="entity1">entity1</option>
+                           <option value="entity2">entity2</option>
+                           <option value="entity3">entity3</option>
+                           <option value="entity4">entity4</option>
+                         </select>
+                       </div>
+                    </div>
+                    <div class="input-holder">
+                       <div class="absolute-label">
+                         <label>Direction</label>
+                       </div>
+                       <div class="input-holder-inner">
+                         <select name="direction" #t (change)="onSelect(t.value)" [(ngModel)]="interfaceData.direction">
+                           <option value="inbound">Inbound</option>
+                           <option value="outbound">Outbound</option>
+                         </select>
+                       </div>
+                    </div>
+                    <div class="input-holder">
+                       <div class="absolute-label">
+                         <label>Event(s)</label>
+                       </div>
+                       <div class="input-holder-inner">
+                         <select name="action" multiple [(ngModel)]="interfaceData.action">
+                           <option value="testevent1">Test event1</option>
+                           <option value="testevent2">Test event2</option>
+                           <option value="testevent3">Test event3</option>
+                         </select>
+                       </div>
+                    </div>
+                    <div class="input-holder">
+                       <div class="absolute-label">
+                         <label>Job Name</label>
+                       </div>
+                       <div class="input-holder-inner">
+                         <input type="text" name="jobName"  [(ngModel)]="interfaceData.jobName"/>
+                       </div>
+                    </div>
+                    <div class="input-holder">
+                       <div class="absolute-label">
+                         <label>Integration Approach</label>
+                       </div>
+                       <div class="input-holder-inner">
+                         <select name="specType"  [(ngModel)]="interfaceData.specType">
+                           <option value="file">File Based Integration</option>
+                           <option value="api">API Based Integration</option>
+                         </select>
+                       </div>
+                    </div>
+                    <div class="input-holder">
+                       <div class="absolute-label">
+                         <label>Entity zDoc</label>
+                       </div>
+                       <div class="input-holder-inner">
+                         <div class="select-holder">
+                           <select name="requestBaseVersion" [(ngModel)]="interfaceData.requestBaseVersion">
+                             <option value="version1.1">Version 1.1</option>
+                             <option value="version2.1">Version 2.1</option>
+                           </select>
+                         </div>
+                         <div class="absolute-btn-holder">
+                           <a><i class="fa fa-download"></i>Download</a>
+                         </div>
+                       </div>
+                    </div>
+                    <div class="input-holder">
+                       <div class="absolute-label">
+                         <label>Acknowledgement zDoc</label>
+                       </div>
+                       <div class="input-holder-inner">
+                         <input name="responseBaseVersion" type="text"  [(ngModel)]="interfaceData.responseBaseVersion"/>
+                       </div>
+                    </div>
+                    <div class="input-holder">
+                       <div class="absolute-label">
+                         <label>Acknowledgement zDoc</label>
+                       </div>
+                       <div class="input-holder-inner">
+                         <input name="responseBaseVersion" type="text"  [(ngModel)]="interfaceData.responseBaseVersion"/>
+                       </div>
+                    </div>
+            </ng-template>
+  </ngb-panel>
+  <ngb-panel id="static-2" title="Configuration">
+    <ng-template ngbPanelContent *ngIf="interfaceData.specType=='file'">
+      <div class="input-holder" *ngIf="Isdirect">
+         <div class="absolute-label">
+           <label>Integration Frequency</label>
+         </div>
+         <div class="input-holder-inner">
+           <select name="packerRequired" [(ngModel)]="interfaceData.packerRequired">
+             <option value=true>Scheduled</option>
+           </select>
+         </div>
+      </div>
+      <div class="input-holder" *ngIf="!Isdirect">
+         <div class="absolute-label">
+           <label>Integration Frequency</label>
+         </div>
+         <div class="input-holder-inner">
+           <select name="packerRequired" [(ngModel)]="interfaceData.packerRequired">
+             <option value=false>Real Time</option>
+             <option value=true>Scheduled</option>
+           </select>
+         </div>
+      </div>
+      <div class="input-holder">
+         <div class="absolute-label">
+           <label>Select Schedule</label>
+         </div>
+         <div class="input-holder-inner">
+           <input type="text" name="cron" value="" [(ngModel)]="interfaceData.cron" />
+         </div>
+      </div>
+      <div class="input-holder" *ngIf="!Isdirect">
+         <div class="absolute-label">
+           <label>Generate Empty Packer</label>
+         </div>
+         <div class="input-holder-inner">
+           <div class="ftpradio">
+             <input type="radio" name="generatePackerFiles" [value]=true checked [(ngModel)]="interfaceData.generatePackerFiles"><span>Yes</span>
+             <input type="radio" name="generatePackerFiles" [value]=false [(ngModel)]="interfaceData.generatePackerFiles"><span>No</span>
+           </div>
+         </div>
+      </div>
+      <div class="input-holder">
+         <div class="absolute-label">
+             <label>Enable Attachments </label>
+         </div>
+         <div class="input-holder-inner">
+           <div class="ftpradio">
+             <input type="radio" name="enableAttachment" [value]=true checked [(ngModel)]="interfaceData.enableAttachment"><span>Yes</span>
+             <input type="radio" name="enableAttachment" [value]=false [(ngModel)]="interfaceData.enableAttachment"><span>No</span>
+           </div>
+         </div>
+      </div>
+      <div class="input-holder">
+         <div class="absolute-label">
+             <label>Enable Encryption</label>
+         </div>
+         <div class="input-holder-inner">
+           <div class="ftpradio">
+             <input type="radio" name="encrypt" [value]=true  [(ngModel)]="interfaceData.enableEncryption"><span>Yes</span>
+             <input type="radio" name="encrypt" [value]=false checked [(ngModel)]="interfaceData.enableEncryption"><span>No</span>
+           </div>
+         </div>
+      </div>
+      <div class="input-holder">
+         <div class="absolute-label">
+             <label>Key</label>
+         </div>
+         <div class="input-holder-inner">
+           <input type="text" value="Autopopulate" />
+         </div>
+      </div>
+      <div class="input-holder">
+         <div class="absolute-label">
+             <label>Encryption Type</label>
+         </div>
+         <div class="input-holder-inner">
+           <input type="text" value="AES 256 " />
+         </div>
+      </div>
+      <div class="input-holder">
+          <h5>SFTP Details</h5>
+      </div>
+      <div class="input-holder">
+         <div class="absolute-label">
+             <label>Host</label>
+         </div>
+         <div class="input-holder-inner">
+           <input type="text" name="sftpHost" [(ngModel)]="interfaceData.sftpHost"/>
+         </div>
+      </div>
+      <div class="input-holder">
+         <div class="absolute-label">
+             <label>Port</label>
+         </div>
+         <div class="input-holder-inner">
+           <input type="text" name="sftpPort"  [(ngModel)]="interfaceData.sftpPort"/>
+         </div>
+      </div>
+      <div class="input-holder">
+         <div class="absolute-label">
+             <label>Username</label>
+         </div>
+         <div class="input-holder-inner">
+           <input type="text" name="sftpUserName" [(ngModel)]="interfaceData.sftpUserName" />
+         </div>
+      </div>
+      <div class="input-holder">
+         <div class="absolute-label">
+             <label>Password</label>
+         </div>
+         <div class="input-holder-inner">
+           <input type="text" name="sftpPassword" [(ngModel)]="interfaceData.sftpPassword"/>
+         </div>
+      </div>
+      <div class="input-holder">
+         <div class="absolute-label">
+             <label>To Folders</label>
+         </div>
+         <div class="input-holder-inner">
+           <input type="text" name="folderToWatch" [(ngModel)]="interfaceData.folderToWatch"/>
+         </div>
+      </div>
+      <div class="input-holder">
+         <div class="absolute-label">
+             <label>From Folders</label>
+         </div>
+         <div class="input-holder-inner">
+           <input type="text" name="targetFolder" [(ngModel)]="interfaceData.targetFolder"/>
+         </div>
+      </div>
+      <div class="input-holder">
+         <div class="absolute-label">
+             <label>File name pattern</label>
+         </div>
+         <div class="input-holder-inner">
+           <input type="text" name="fileNamePattern" [(ngModel)]="interfaceData.fileNamePattern"/>
+         </div>
+      </div>
+      <div class="input-holder">
+         <div class="absolute-label">
+             <label>Attachment folder</label>
+         </div>
+         <div class="input-holder-inner">
+           <input type="text" value="" />
+         </div>
+      </div>
+      <div class="input-holder">
+         <div class="absolute-label">
+             <label>Enable Checksum</label>
+         </div>
+         <div class="input-holder-inner">
+           <div class="ftpradio checksum">
+             <input type="radio" name="generateChecksum" [value]=true checked  [(ngModel)]="interfaceData.generateChecksum"><span>Yes</span>
+             <input type="radio" name="generateChecksum" [value]=false [(ngModel)]="interfaceData.generateChecksum"><span>No</span>
+           </div>
+         </div>
+      </div>
+    </ng-template>
+    <ng-template ngbPanelContent *ngIf="interfaceData.specType=='api'">
+      <div class="input-holder">
+         <div class="absolute-label">
+             <label>Endpoint URL</label>
+         </div>
+         <div class="input-holder-inner">
+           <input type="text" value="" />
+         </div>
+      </div>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="static-3" title="Notifications">
+    <ng-template ngbPanelContent>
+      <div class="input-holder">
+         <div class="absolute-label">
+             <label>Email Notifications</label>
+         </div>
+         <div class="input-holder-inner">
+           <label class="switch">
+               <input type="checkbox" name="activateEmailNotification" [(ngModel)]="interfaceData.activateEmailNotification">
+               <span class="slider round"></span>
+           </label>
+         </div>
+      </div>
+      <div class="input-holder" *ngIf="interfaceData.activateEmailNotification == true">
+         <div class="absolute-label">
+             <label>Address</label>
+         </div>
+         <div class="input-holder-inner">
+           <input type="text" name="notificationEmailAddress" [(ngModel)]="interfaceData.notificationEmailAddress"/>
+         </div>
+      </div>
+      <div class="input-holder" *ngIf="interfaceData.activateEmailNotification == true">
+         <div class="absolute-label">
+             <label>Subject</label>
+         </div>
+         <div class="input-holder-inner">
+           <input type="text" name="notificationEmailSubject" [(ngModel)]="interfaceData.notificationEmailSubject" />
+         </div>
+      </div>
+      <div class="input-holder" >
+         <div class="absolute-label">
+             <label>Active</label>
+         </div>
+         <div class="input-holder-inner">
+           <label class="switch">
+               <input type="checkbox" name="active" (click)="open(content)" [(ngModel)]="interfaceData.active">
+               <span class="slider round"></span>
+           </label>
+         </div>
+      </div>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
+<input class="generalsubmitbtn" type="button"  (click)="onSubmit()" value="Create Interface"/>
+</form>
+<ng-template  #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">Title</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Order activated successfully
+    </div>
+</ng-template>

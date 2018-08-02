@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:integration-inbound="http://www.zycus.com/integration/schemas/IntegrationInbound" targetNamespace="http://www.zycus.com/integration/schemas/IntegrationInbound" version="1.0">
+  <xs:element name="IntegrationEntities" type="integration-inbound:IntegrationEntities"/>
+  <xs:complexType name="IntegrationEntities">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="integrationEntity" type="integration-inbound:integrationEntity"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="integrationEntity">
+    <xs:all>
+      <xs:element name="integrationEntityHeader" type="integration-inbound:APIIntegrationHeader"/>
+      <xs:element minOccurs="1" name="integrationEntityDetails" type="integration-inbound:integrationEntityDetails"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="APIIntegrationHeader">
+    <xs:all>
+      <xs:element name="integrationTrackingNumber" type="xs:string"/>
+      <xs:element minOccurs="1" name="referenceCodeForEntity" type="xs:string"/>
+      <xs:element minOccurs="0" name="additionalInfo" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="integrationEntityDetails">
+    <xs:choice>
+      <xs:element maxOccurs="1" minOccurs="1" name="address" type="integration-inbound:address"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="address">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="status" type="xs:string"/>
+      <xs:element minOccurs="1" name="addressName" type="xs:string"/>
+      <xs:element minOccurs="1" name="addressLine1" type="xs:string"/>
+      <xs:element minOccurs="0" name="addressLine2" type="xs:string"/>
+      <xs:element minOccurs="0" name="addressLine3" type="xs:string"/>
+      <xs:element minOccurs="0" name="addressLine4" type="xs:string"/>
+      <xs:element minOccurs="0" name="url" type="xs:string"/>
+      <xs:element minOccurs="0" name="phone" type="xs:string"/>
+      <xs:element minOccurs="0" name="fax" type="xs:string"/>
+      <xs:element minOccurs="0" name="email" type="xs:string"/>
+      <xs:element minOccurs="1" name="countryId" type="xs:string"/>
+      <xs:element minOccurs="0" name="stateId" type="xs:string"/>
+      <xs:element minOccurs="0" name="county" type="xs:string"/>
+      <xs:element minOccurs="1" name="city" type="xs:string"/>
+      <xs:element minOccurs="0" name="zipCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="isShipToAddress" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="isBillToAddress" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="isInvoiceToAddress" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="isWarehouseAddress" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="erpId" type="xs:string"/>
+      <xs:element minOccurs="0" name="createdBy" type="xs:string"/>
+      <xs:element minOccurs="0" name="createdOn" type="xs:long"/>
+      <xs:element minOccurs="0" name="updatedBy" type="xs:string"/>
+      <xs:element minOccurs="0" name="updatedOn" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

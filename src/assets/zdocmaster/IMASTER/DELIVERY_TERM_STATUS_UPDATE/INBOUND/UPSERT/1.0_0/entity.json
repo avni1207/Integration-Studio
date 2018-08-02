@@ -1,0 +1,17 @@
+{
+	"integrationEntityDetails": {
+	/*#if statusUpdate*/
+	"statusUpdate": 
+		{
+		/*#with statusUpdate*/
+			/*#if id*/
+				"id": "/*preprocess id*/"
+			/*/if id*/
+			/*#if status*/
+				,"status": "/*preprocess status*/"
+			/*/if status*/
+		/*/with statusUpdate*/
+		}
+	/*/if statusUpdate*/
+}
+}

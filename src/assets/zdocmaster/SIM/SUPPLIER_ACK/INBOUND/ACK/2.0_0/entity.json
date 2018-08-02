@@ -1,0 +1,128 @@
+{
+	"integrationEntityDetails": {
+	/*#exists acknowledgement*/
+	"acknowledgement": 
+		{
+		/*#with acknowledgement*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"createdOn": /*preprocess createdOn*/
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"updatedOn": /*preprocess updatedOn*/
+			/*/exists updatedOn*/
+			/*#exists eventId*/
+				,"eventId": "/*preprocess eventId*/"
+			/*/exists eventId*/
+			/*#exists externalId*/
+				,"externalId": "/*preprocess externalId*/"
+			/*/exists externalId*/
+			/*#exists requestId*/
+				,"requestId": /*preprocess requestId*/
+			/*/exists requestId*/
+			/*#exists displayGSID*/
+				,"DisplayGSID": "/*preprocess displayGSID*/"
+			/*/exists displayGSID*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists genericErrorMessage*/
+				,"Generic_Error_Message": "/*preprocess genericErrorMessage*/"
+			/*/exists genericErrorMessage*/
+			/*#exists Forms*/
+			,"Forms": 
+				{
+				/*#each Forms*/
+					/*#exists Form*/
+					"Form": [
+						/*#each Form*/
+							{
+								/*#exists formName*/
+									"Form_Name": "/*preprocess formName*/"
+								/*/exists formName*/
+								/*#exists formId*/
+									,"Form_Id": "/*preprocess formId*/"
+								/*/exists formId*/
+								/*#exists Fields*/
+								,"Fields": 
+									{
+									/*#each Fields*/
+										/*#exists Field*/
+										"Field": [
+											/*#each Field*/
+												{
+													/*#exists fieldName*/
+														"Field_Name": "/*preprocess fieldName*/"
+													/*/exists fieldName*/
+													/*#exists fieldId*/
+														,"Field_Id": "/*preprocess fieldId*/"
+													/*/exists fieldId*/
+													/*#exists externalId*/
+														,"External_Id": "/*preprocess externalId*/"
+													/*/exists externalId*/
+													/*#exists internalId*/
+														,"Internal_Id": /*preprocess internalId*/
+													/*/exists internalId*/
+													/*#exists errorMessage*/
+														,"Error_Message": "/*preprocess errorMessage*/"
+													/*/exists errorMessage*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each Field*/
+										]
+										/*/exists Field*/
+									/*/each Fields*/
+									}
+								/*/exists Fields*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each Form*/
+					]
+					/*/exists Form*/
+				/*/each Forms*/
+				}
+			/*/exists Forms*/
+			/*#exists statusErrorMessages*/
+			,"Status_Error_Messages": 
+				{
+				/*#each statusErrorMessages*/
+					/*#exists statusErrorMessage*/
+					"Status_Error_Message": [
+						/*#each statusErrorMessage*/
+							{
+								/*#exists existingInternalSystemCode*/
+									"Existing_Internal_System_Code": "/*preprocess existingInternalSystemCode*/"
+								/*/exists existingInternalSystemCode*/
+								/*#exists existingInternalFacilityCode*/
+									,"Existing_Internal_Facility_Code": "/*preprocess existingInternalFacilityCode*/"
+								/*/exists existingInternalFacilityCode*/
+								/*#exists existingExternalSystemCode*/
+									,"Existing_External_System_Code": "/*preprocess existingExternalSystemCode*/"
+								/*/exists existingExternalSystemCode*/
+								/*#exists existingExternalFacilityCode*/
+									,"Existing_External_Facility_Code": "/*preprocess existingExternalFacilityCode*/"
+								/*/exists existingExternalFacilityCode*/
+								/*#exists errorMessage*/
+									,"Error_Message": "/*preprocess errorMessage*/"
+								/*/exists errorMessage*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each statusErrorMessage*/
+					]
+					/*/exists statusErrorMessage*/
+				/*/each statusErrorMessages*/
+				}
+			/*/exists statusErrorMessages*/
+		/*/with acknowledgement*/
+		}
+	/*/exists acknowledgement*/
+}
+}

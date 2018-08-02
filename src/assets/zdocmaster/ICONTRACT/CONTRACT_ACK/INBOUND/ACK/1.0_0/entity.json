@@ -1,0 +1,20 @@
+{
+	"integrationEntityDetails": {
+	/*#exists acknowledgement*/
+	"acknowledgement": 
+		{
+		/*#with acknowledgement*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists externalId*/
+				,"externalId": "/*preprocess externalId*/"
+			/*/exists externalId*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+		/*/with acknowledgement*/
+		}
+	/*/exists acknowledgement*/
+}
+}

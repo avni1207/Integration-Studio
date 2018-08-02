@@ -1,0 +1,117 @@
+:host{
+  .endpointapiWrapper {
+    padding: 15px 0;
+    font-size: 14px;
+    margin: 0 auto;
+    height: 100%;
+  }
+  .apiwrapper{
+    border: 1px solid #ccc;
+    padding: 30px;
+    background-color: #fff;
+  }
+  .absolute-btn-holder {
+      position: absolute;
+      top: 29px;
+      right: 0;
+  }
+  button.btn-download {
+    background-color: #2D3E50;
+    border: none;
+    padding: 10px 25px;
+    color: #fff;
+  }
+  .btn-download i {
+    margin-left: 10px;
+}
+  .apiwrapper,.apiwrapper form{
+    width: 100%;
+    display: inline-block;
+  }
+  .endpointapiWrapper .endpointtitle{
+    font-size: 18px;
+  }
+  .apiwrapper label{
+    display: block;
+  }
+  .apiwrapper input{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 13px;
+  }
+  .apiwrapper select{
+    width: 100%;
+    padding: 10px 8px;
+    margin-bottom: 8px;
+  }
+  .apiwrapper .radioinput{
+    border: 1px solid #ccc;
+    padding: 15px;
+  }
+  .apiwrapper .radioinput input{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-bottom: 0px;
+    vertical-align: middle;
+    margin-right: 14px;
+  }
+  .EventWrapper{
+    display: inline-block;
+    width: 100%;
+    padding: 20px 15px;
+    background: #ddd;
+  }
+  .EventWrapper .entityselect{
+    width: 48%;
+    margin-right: 13px;
+    float: left;
+  }
+  .EventWrapper .eventselect{
+    width: 50%;
+    float: left;
+  }
+ .subscribebtn .btn{
+   background: #2D3E50;
+   color: white;
+   border-radius: 0px;
+   margin: 8px 0px;
+   border: 0px;
+   padding: 10px 25px;
+   width: 25%;
+   float: right;
+   font-weight: normal;
+}
+.blankdiv{
+  padding: 55px 0px;
+  height: 100%;
+  width: 100%;
+  display: block;
+  border: 1px solid #CCC;
+}
+.endpointapiWrapper .btndiv{
+  width: 60%;
+}
+.input-holder {
+    position: relative;
+}
+.select-holder {
+    padding-right: 147px;
+}
+.endpointapiWrapper input[type="radio"]{
+  width: auto;
+  vertical-align: middle;
+  margin-top: 9px;
+}
+.endpointapiWrapper  .ftpradio{
+ border: 1px solid #a9a9a9;
+ padding: 4px 10px 0px;
+ margin-bottom: 8px;
+}
+.endpointapiWrapper  .ftpradio span{
+  margin:0 5px;
+}
+.endpointapiWrapper .checksum{
+  background: #fff;
+}
+
+}

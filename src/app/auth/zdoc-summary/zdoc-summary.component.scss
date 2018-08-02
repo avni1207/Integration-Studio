@@ -1,0 +1,136 @@
+:host{
+ 
+    .genralForm {
+        max-width: 700px;
+        width: 100%;
+        margin: 0 auto;
+        background: #fff;
+        padding: 25px;
+        position: relative;
+     }
+
+    .edit-icon {
+        position: absolute;
+        right: -15px;
+        border: 1px solid #2196F3;
+        padding: 8px 10px;
+        border-radius: 50%;
+        background-color: #2196F3;
+        top: -15px;
+        cursor: pointer;
+    }
+    .edit-icon i {
+        font-size: 21px;
+        color: #FFF;
+    }
+
+    .genralForm .absolute-label{
+        width: 25%;
+        float: left;
+    }
+
+    .input-holder-inner {
+        width: 75%;
+        float: left;
+    }
+    .input-holder-inner p {
+        display: table-cell;
+        vertical-align: middle;
+        word-break: break-all;
+      }
+    .absolute-label label {
+        display: table-cell !important;
+        vertical-align: middle;
+        height: 100%;
+        font-weight: normal;
+    }
+    .text-danger , .text-success {
+        font-weight: bold;
+        text-align: left;
+        margin-bottom: 14px;
+        clear: both;
+    }
+   .genralForm label{
+        display: block;
+    }
+   
+   .absolute-btn-holder {
+        position: absolute;
+        top: 9px;
+        right: 0;
+        font-size: 15px;
+    }
+    .absolute-btn-holder a {
+        color: #2196F3;
+        cursor:pointer;
+        font-size: 13px;
+    }
+   
+    .genralForm .input-holder {
+        position: relative;
+        width: 100%;
+        display: inline-block;
+        margin-bottom: 30px;
+    }
+    .genralForm .absolute-label{
+        width: 25%;
+        float: left;
+    }
+    .genralForm .outputAck input{
+        font-style: italic;
+    }
+    .genralForm .generalsubmitbtn{
+        background: #2196F3;
+        width: 10%;
+        margin: 20px auto;
+        display: block;
+        color: #ffffff;
+        border: 0;
+        font-size: 16px;
+        font-weight: normal;
+        cursor: pointer;
+    }
+    .genralForm h5{
+        margin: 40px 0 25px 0;
+        padding-bottom: 10px;
+        font-size: 14px;
+    }
+    
+    form.genralForm .interfacediv {
+        max-width: 700px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 20px;
+        width:100%;
+        display: inline-block;
+    }
+    .genralForm p{
+        font-weight: bold;
+        margin: 0;
+    }
+    .touchpointbtn {
+        background: #2196F3;;
+        color: white;
+        margin: 0px 5px;
+        border: 0px;
+        padding: 8px 25px;
+        font-size: 16px;
+        font-weight: normal;
+        min-width: 162px;
+      }
+    .btndiv {
+        text-align: center;
+        padding: 20px;
+    }
+    .btndiv input {
+        cursor:pointer
+    }
+    input.generalsubmitbtn:disabled {
+        opacity: .25;
+        cursor: not-allowed;
+      }
+  
+  }
+  
+
+  

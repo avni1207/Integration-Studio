@@ -1,0 +1,131 @@
+<div class="endpointftpWrapper">
+    <p class="endpointtitle">
+      File based Integration <i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i>
+    </p>
+    <div class="filewrapper container-fluid">
+    <form name="formNew" #ftpForm="ngForm">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="input-holder">
+            <label>Integration Frequency</label>
+            <select name="packerRequired" [(ngModel)]="ftpdata.packerRequired">
+              <option value=true>Real Time</option>
+              <option value=false>Scheduled</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-holder">
+            <label>Select Schedule</label>
+              <input type="text" name="cron" value="" [(ngModel)]="ftpdata.cron" />
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-holder">
+            <label>Generate Empty Packer</label>
+            <div class="ftpradio">
+              <input type="radio" name="generatePackerFiles" [value]=true checked [(ngModel)]="ftpdata.generatePackerFiles"><span>Yes</span>
+              <input type="radio" name="generatePackerFiles" [value]=false [(ngModel)]="ftpdata.generatePackerFiles"><span>No</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-holder">
+            <label>Enable Attachments </label>
+            <div class="ftpradio">
+              <input type="radio" name="enableAttachment" [value]=true checked [(ngModel)]="ftpdata.enableAttachment"><span>Yes</span>
+              <input type="radio" name="enableAttachment" [value]=false [(ngModel)]="ftpdata.enableAttachment"><span>No</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-holder">
+            <label>Enable Encryption</label>
+            <div class="ftpradio">
+              <input type="radio" name="encrypt" value="yes" checked><span>Yes</span>
+              <input type="radio" name="encrypt" value="no"><span>No</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-holder">
+              <label>Key</label>
+              <input type="text" value="Autopopulate" />
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-holder">
+              <label>Encryption Type</label>
+              <input type="text" value="AES 256 " />
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="input-holder">
+            <h5>SFTP Details</h5>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-holder">
+            <label>Host</label>
+            <input type="text" name="sftpHost" [(ngModel)]="ftpdata.sftpHost"/>
+           </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-holder">
+            <label>Port</label>
+            <input type="text" name="sftpPort"  [(ngModel)]="ftpdata.sftpPort"/>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-holder">
+            <label>Username</label>
+            <input type="text" name="sftpUserName" [(ngModel)]="ftpdata.sftpUserName" />
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-holder">
+            <label>Password</label>
+            <input type="text" name="sftpPassword" [(ngModel)]="ftpdata.sftpPassword"/>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-holder">
+            <label>To Folders</label>
+            <input type="text" name="folderToWatch" [(ngModel)]="ftpdata.folderToWatch"/>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-holder">
+            <label>From Folders</label>
+            <input type="text" name="targetFolder" [(ngModel)]="ftpdata.targetFolder"/>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-holder">
+            <label>File name pattern</label>
+            <input type="text" name="fileNamePattern" [(ngModel)]="ftpdata.fileNamePattern"/>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-holder">
+            <label>Attachment folder</label>
+            <input type="text" value="" />
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-holder">
+              <label>Enable Checksum</label>
+              <div class="ftpradio checksum">
+                <input type="radio" name="generateChecksum" [value]=true checked  [(ngModel)]="ftpdata.generateChecksum"><span>Yes</span>
+                <input type="radio" name="generateChecksum" [value]=false [(ngModel)]="ftpdata.generateChecksum"><span>No</span>
+              </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="btndiv">
+    <input class="touchpointbtn" type="button" routerLink="/auth/touchpoint/entities" value="Previous"/>
+    <input class="touchpointbtn" (click)="onSubmit(ftpForm.value)" type="button"  value="Next"/>
+  </div>
+</div>

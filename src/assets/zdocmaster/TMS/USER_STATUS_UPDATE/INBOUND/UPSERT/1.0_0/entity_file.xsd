@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:integration-inbound="http://www.zycus.com/integration/schemas/IntegrationInbound" targetNamespace="http://www.zycus.com/integration/schemas/IntegrationInbound" version="1.0">
+  <xs:element name="IntegrationDetails" type="integration-inbound:inboundIntegrationDetails"/>
+  <xs:element name="IntegrationEntity" type="integration-inbound:inboundIntegrationEntity"/>
+  <xs:complexType name="inboundIntegrationEntity">
+    <xs:sequence>
+      <xs:element name="integrationEntityHeader" type="integration-inbound:InboundIntegrationHeader"/>
+      <xs:element name="integrationEntityDetails" type="integration-inbound:inboundIntegrationEntityDetails"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InboundIntegrationHeader">
+    <!--     <xs:complexContent> -->
+    <!--       <xs:extension base="integration-inbound:BaseIntegrationHeader"> -->
+    <xs:all>
+      <xs:element name="integrationTrackingNumber" type="xs:string"/>
+      <xs:element minOccurs="1" name="referenceCodeForEntity" type="xs:string"/>
+      <xs:element minOccurs="0" name="additionalInfo" type="xs:string"/>
+      <xs:element name="action" type="xs:string"/>
+      <xs:element name="entity" type="xs:string"/>
+      <xs:element name="source" type="xs:string"/>
+      <xs:element name="zDocBaseVersion" type="xs:string"/>
+      <xs:element name="zDocCustomVersion" type="xs:string"/>
+      <xs:element minOccurs="0" name="timestampUTC" type="xs:string"/>
+    </xs:all>
+    <!--       </xs:extension> -->
+    <!--     </xs:complexContent> -->
+  </xs:complexType>
+  <xs:complexType name="inboundIntegrationEntityDetails">
+    <xs:choice>
+      <xs:element minOccurs="1" name="statusUpdate" type="integration-inbound:statusUpdate"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="inboundIntegrationDetails">
+    <xs:all>
+      <xs:element name="integrationEntities">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="integrationEntity" type="integration-inbound:inboundIntegrationEntity"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  <!--   <xs:complexType name="BaseIntegrationHeader"> -->
+  <!--     <xs:all/> -->
+  <!--   </xs:complexType> -->
+  <xs:complexType name="statusUpdate">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="emailId" type="xs:string"/>
+      <xs:element minOccurs="0" name="createdBy" type="xs:string"/>
+      <xs:element minOccurs="0" name="createdOn" type="xs:long"/>
+      <xs:element minOccurs="0" name="updatedBy" type="xs:string"/>
+      <xs:element minOccurs="0" name="updatedOn" type="xs:long"/>
+      <xs:element minOccurs="1" name="status" type="xs:string"/>
+      <xs:element minOccurs="0" name="adminDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="authorizedBy" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

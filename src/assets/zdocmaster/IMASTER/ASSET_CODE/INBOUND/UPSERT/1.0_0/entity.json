@@ -1,0 +1,69 @@
+{
+	"integrationEntityDetails": {
+	/*#if assetCode*/
+	"assetCode": 
+		{
+		/*#with assetCode*/
+			/*#if id*/
+				"id": "/*preprocess id*/"
+			/*/if id*/
+			/*#if status*/
+				,"status": "/*preprocess status*/"
+			/*/if status*/
+			/*#if description*/
+				,"description": "/*preprocess description*/"
+			/*/if description*/
+			/*#if assetsCode*/
+				,"assetsCode": "/*preprocess assetsCode*/"
+			/*/if assetsCode*/
+			/*#if orgUnits*/
+			,"orgUnits": 
+				{
+				/*#each orgUnits*/
+					/*#if orgUnitAssignment*/
+					"orgUnitAssignment": [
+						/*#each orgUnitAssignment*/
+							{
+								/*#if orgUnitDetails*/
+								"orgUnitDetails": [
+									/*#each orgUnitDetails*/
+										{
+											/*#if orgUnitLevel*/
+												"orgUnitLevel": "/*preprocess orgUnitLevel*/"
+											/*/if orgUnitLevel*/
+											/*#if orgUnitCode*/
+												,"orgUnitCode": "/*preprocess orgUnitCode*/"
+											/*/if orgUnitCode*/
+										}
+										/*#unless @last*/,/*/unless*/
+									/*/each orgUnitDetails*/
+								]
+								/*/if orgUnitDetails*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each orgUnitAssignment*/
+					]
+					/*/if orgUnitAssignment*/
+				/*/each orgUnits*/
+				}
+			/*/if orgUnits*/
+			/*#if erpId*/
+				,"erpId": "/*preprocess erpId*/"
+			/*/if erpId*/
+			/*#if createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/if createdBy*/
+			/*#if createdOn*/
+				,"createdOn": "/*preprocess createdOn*/"
+			/*/if createdOn*/
+			/*#if updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/if updatedBy*/
+			/*#if updatedOn*/
+				,"updatedOn": "/*preprocess updatedOn*/"
+			/*/if updatedOn*/
+		/*/with assetCode*/
+		}
+	/*/if assetCode*/
+}
+}

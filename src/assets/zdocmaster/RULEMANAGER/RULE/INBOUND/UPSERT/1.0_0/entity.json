@@ -1,0 +1,39 @@
+{
+	"integrationEntityDetails": {
+	/*#exists rule*/
+	"rule": 
+		{
+		/*#with rule*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists combination*/
+			,"combination": 
+				{
+				/*#each combination*/
+					/*#exists fieldDetails*/
+					"fieldDetails": [
+						/*#each fieldDetails*/
+							{
+								/*#exists fieldName*/
+									"fieldName": "/*preprocess fieldName*/"
+								/*/exists fieldName*/
+								/*#exists value*/
+									,"value": "/*preprocess value*/"
+								/*/exists value*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each fieldDetails*/
+					]
+					/*/exists fieldDetails*/
+				/*/each combination*/
+				}
+			/*/exists combination*/
+		/*/with rule*/
+		}
+	/*/exists rule*/
+}
+}

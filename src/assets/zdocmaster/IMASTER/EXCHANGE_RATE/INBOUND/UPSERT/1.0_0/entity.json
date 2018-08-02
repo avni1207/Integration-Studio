@@ -1,0 +1,44 @@
+{
+	"integrationEntityDetails": {
+	/*#exists exchangeRate*/
+	"exchangeRate": 
+		{
+		/*#with exchangeRate*/
+			/*#exists status*/
+				"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists fromCurrency*/
+				,"fromCurrency": "/*preprocess fromCurrency*/"
+			/*/exists fromCurrency*/
+			/*#exists toCurrency*/
+				,"toCurrency": "/*preprocess toCurrency*/"
+			/*/exists toCurrency*/
+			/*#exists rate*/
+				,"rate": /*preprocess rate*/
+			/*/exists rate*/
+			/*#exists inverseRate*/
+				,"inverseRate": /*preprocess inverseRate*/
+			/*/exists inverseRate*/
+			/*#exists purpose*/
+				,"purpose": "/*preprocess purpose*/"
+			/*/exists purpose*/
+			/*#exists erpId*/
+				,"erpId": "/*preprocess erpId*/"
+			/*/exists erpId*/
+			/*#exists createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"createdOn": /*preprocess createdOn*/
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"updatedOn": /*preprocess updatedOn*/
+			/*/exists updatedOn*/
+		/*/with exchangeRate*/
+		}
+	/*/exists exchangeRate*/
+}
+}

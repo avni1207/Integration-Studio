@@ -1,0 +1,267 @@
+<div *ngIf="apiConfigservice.notFoundapiError != ''"><b>{{apiConfigservice.notFoundMsg}}</b></div> 
+<div *ngIf="apiConfigservice.notFoundapiError == ''">
+<h5>Api Subscription</h5>
+<form name="formNew" class="genralForm" #apiForm="ngForm">
+
+    <!-- /*************************** Add case ********************************/ -->
+    <div class="interfacediv" *ngIf="apiConfigservice.editApiData == ''">
+        <div class="input-holder">
+            <div class="absolute-label">
+              <label>Product</label>
+            </div>
+            <div class="input-holder-inner select-box-icon">
+              <select #s name="source" [(ngModel)]="apiData.data.source" (change)="changeOptioncolor(s); sendProductName(s.value)" required>
+                <option value="" disabled selected>Select Product</option>
+                <option [value]="product" *ngFor="let product of apiConfigservice.apiDataProducts.payload">{{product}}</option>
+              </select>
+            </div>
+        </div>
+        <div class="input-holder" *ngIf="apiData.data.source">
+            <div class="absolute-label">
+              <label>Method</label>
+            </div>
+            <div class="input-holder-inner select-box-icon">
+              <select #m name="methodType" [(ngModel)]="apiData.data.methodType" (change)="changeOptioncolor(m); getMethod(apiForm.value)"  required>
+                <option value="" disabled selected>Select Method</option>
+                <option value="GET">GET</option>
+                <option value="POST">POST</option>
+              </select>
+            </div>
+        </div>
+        <div class="input-holder" *ngIf="apiData.data.methodType && apiData.data.methodType == 'POST'">
+            <div class="absolute-label">
+              <label>Request Entity</label>
+            </div>
+            <div class="input-holder-inner">
+              <input class="upprcaseinpt" #tName="ngModel" type="text" maxlength="100" name="requestEntity" pattern="^[A-Za-z_]+$" placeholder="Enter Request Entity" [(ngModel)]="apiData.data.requestEntity" required/>
+              <div class="md-errors-spacer" [hidden]="tName.valid || tName.pristine">
+                  <div class="text-danger"  *ngIf="tName.errors && tName.errors.pattern">
+                      Only A-Z and _ characters allowed
+                  </div>
+                </div>
+
+            </div>
+        </div>  
+        <div class="input-holder" *ngIf="apiData.data.methodType && apiData.data.methodType == 'POST'">
+                <div class="absolute-label">
+                  <label>Request Action</label>
+                </div>
+                <div class="input-holder-inner select-box-icon">
+                  <select #w name="requestAction" [(ngModel)]="apiData.data.requestAction" (change)="changeOptioncolor(w);" required>
+                    <option value="" disabled selected>Select Request Action</option>
+                    <option [value]="reqact" *ngFor="let reqact of apiConfigservice.apiDataReqActions.payload">{{reqact}}</option>
+                  </select>
+                </div>
+        </div>
+        <!-- <div class="input-holder" *ngIf="apiData.data.methodType && apiData.data.methodType == 'POST'">
+            <div class="absolute-label">
+              <label>Request Action</label>
+            </div>
+            <div class="input-holder-inner">
+              <input class="upprcaseinpt"  #sName="ngModel" type="text" maxlength="100" name="requestAction" pattern="^[A-Za-z_]+$" placeholder="Enter Request Action" [(ngModel)]="apiData.data.requestAction" required/>
+              <div class="md-errors-spacer" [hidden]="sName.valid || sName.pristine">
+                  <div class="text-danger"  *ngIf="sName.errors && sName.errors.pattern">
+                      Only A-Z and _ characters allowed
+                  </div>
+                </div>
+            </div>
+        </div>  -->
+
+        <div class="input-holder" *ngIf="apiData.data.methodType">
+            <div class="absolute-label">
+              <label>Response Entity</label>
+            </div>
+            <div class="input-holder-inner">
+              <input class="upprcaseinpt" #rName="ngModel" type="text" maxlength="100" name="responseEntity" pattern="^[A-Za-z_]+$" placeholder="Enter Response Entity" [(ngModel)]="apiData.data.responseEntity" required/>
+              <div class="md-errors-spacer" [hidden]="rName.valid || rName.pristine">
+                  <div class="text-danger"  *ngIf="rName.errors && rName.errors.pattern">
+                      Only A-Z and _ characters allowed
+                  </div>
+                </div>
+            </div>
+        </div>  
+        <div class="input-holder" *ngIf="apiData.data.methodType">
+            <div class="absolute-label">
+              <label>Response Action</label>
+            </div>
+            <div class="input-holder-inner">
+              <input type="text"  name="responseAction" placeholder="Enter Response Action" [(ngModel)]="apiData.data.responseAction" required readonly/>
+              
+            </div>
+        </div> 
+        <div class="input-holder" *ngIf="apiData.data.methodType">
+            <div class="absolute-label">
+              <label>Batch size</label>
+            </div>
+            <div class="input-holder-inner">
+              <input #bName="ngModel" type="text" pattern="^[0-9]*$" maxlength="3" name="batchSize" placeholder="Enter Batch Size" [(ngModel)]="apiData.data.batchSize" required/>
+              <div class="md-errors-spacer" [hidden]="bName.valid || bName.pristine">
+                  <div class="text-danger"  *ngIf="bName.errors && bName.errors.pattern">
+                      Only numeric values are allowed
+                  </div>
+              </div>
+            </div>
+        </div> 
+        <div class="input-holder" *ngIf="apiData.data.methodType">
+            <div class="absolute-label">
+              <label>Parameter JSON</label>
+            </div>
+            <div class="input-holder-inner">
+              <input type="text"  name="parameterJson" maxlength="200"  placeholder="Enter Parameter JSON"  [(ngModel)]="apiData.data.parameterJson"/>
+            </div>
+        </div> 
+        <div class="input-holder" *ngIf="apiData.data.methodType"> 
+            <div class="absolute-label">
+              <label>Endpoint url</label>
+            </div>
+            <div class="input-holder-inner">
+              <input type="text" name="prefixurl" [(ngModel)]="apiData.data.prefixurl" class="prefixinpt"  required readonly/>
+              <input (ngModelChange)="apiConfigservice.validationMsg=''" #eName="ngModel" type="text" name="suffixurl" class="suffixinpt" maxlength="300" pattern="^[a-zA-Z/<>]+$" [(ngModel)]="apiData.data.suffixurl" placeholder="Enter url"/>
+             <input [disabled]="!apiData.data.suffixurl || eName.errors || !apiForm.valid " class="validatebtn" type="button" value="Check for Duplicates" (click)="validateUrl(apiForm.value)"/>
+              <input type="text" name="url" type="hidden" [(ngModel)]="apiData.data.url"/>
+              <div class="md-errors-spacer" [hidden]="eName.valid || eName.pristine">
+                  <div class="text-danger"  *ngIf="eName.errors && eName.errors.pattern">
+                      Only A-Z a-z / < and > characters allowed
+                  </div>
+              </div>
+              <div *ngIf="apiConfigservice.validationMsg == 'true'">
+                  <div class="text-success">{{apiConfigservice.urlFailureMsg}}</div>
+              </div> 
+              <div *ngIf="apiConfigservice.validationMsg == 'false'">
+                  <div class="text-danger">{{apiConfigservice.urlFailureMsg}}</div>
+              </div>
+          
+            </div>
+        </div>
+        <div class="input-holder" *ngIf="apiData.data.methodType">
+            <div class="absolute-label">
+              <label>Switch url</label>
+            </div>
+            <div class="input-holder-inner">
+              <input type="text" name="switchUrl" [(ngModel)]="apiData.data.switchUrl"  required readonly/>
+            </div>
+        </div> 
+    </div>
+
+    <!-- /********************* Edit case *****************************/ -->
+
+    <div class="interfacediv" *ngIf="apiConfigservice.editApiData != ''">
+        <input type="hidden" name="id" [(ngModel)]="apiData.data.id"/>
+        <div class="input-holder">
+            <div class="absolute-label">
+                <label>Product</label>
+            </div>
+            <div class="input-holder-inner">
+                <input type="text" name="source" [(ngModel)]="apiData.data.source" readonly/>
+            </div>
+        </div>
+        <div class="input-holder">
+            <div class="absolute-label">
+                <label>Method</label>
+            </div>
+            <div class="input-holder-inner">
+                <input type="text" name="methodType" [(ngModel)]="apiData.data.methodType" readonly/>
+            </div>
+        </div>
+        <div class="input-holder" *ngIf="apiData.data.methodType == 'POST'">
+            <div class="absolute-label">
+                <label>Request Entity</label>
+            </div>
+            <div class="input-holder-inner">
+                <input class="upprcaseinpt" #tName="ngModel" type="text" maxlength="100" name="requestEntity" pattern="^[A-Za-z_]+$" placeholder="Enter Request Entity" [(ngModel)]="apiData.data.requestEntity"  required/>
+                <div class="md-errors-spacer" [hidden]="tName.valid || tName.pristine">
+                    <div class="text-danger"  *ngIf="tName.errors && tName.errors.pattern">
+                        Only A-Z and _ characters allowed
+                    </div>
+                </div>
+
+            </div>
+        </div>  
+    
+        <div class="input-holder" *ngIf="apiData.data.methodType == 'POST'">
+                <div class="absolute-label">
+                  <label>Request Action</label>
+                </div>
+                <div class="input-holder-inner select-box-icon">
+                  <select #w name="requestAction" [(ngModel)]="apiData.data.requestAction" (change)="changeOptioncolor(w);" required>
+                    <option value="" disabled selected>Select Request Action</option>
+                    <option [value]="reqact" *ngFor="let reqact of apiConfigservice.apiDataReqActions.payload">{{reqact}}</option>
+                  </select>
+                </div>
+        </div>
+        <!-- <div class="input-holder" *ngIf="apiData.data.methodType == 'POST'">
+            <div class="absolute-label">
+                <label>Request Action</label>
+            </div>
+            <div class="input-holder-inner">
+                <input class="upprcaseinpt" #sName="ngModel" type="text" maxlength="100" name="requestAction" pattern="^[A-Za-z_]+$" placeholder="Enter Request Action" [(ngModel)]="apiData.data.requestAction" required/>
+                <div class="md-errors-spacer" [hidden]="sName.valid || sName.pristine">
+                    <div class="text-danger"  *ngIf="sName.errors && sName.errors.pattern">
+                        Only A-Z and _ characters allowed
+                    </div>
+                </div>
+            </div>
+        </div>  -->
+        <div class="input-holder">
+            <div class="absolute-label">
+                <label>Response Entity</label>
+            </div>
+            <div class="input-holder-inner">
+                <input class="upprcaseinpt" #rName="ngModel" type="text" maxlength="100" name="responseEntity" pattern="^[A-Za-z_]+$" placeholder="Enter Response Entity" [(ngModel)]="apiData.data.responseEntity" required/>
+                <div class="md-errors-spacer" [hidden]="rName.valid || rName.pristine">
+                    <div class="text-danger"  *ngIf="rName.errors && rName.errors.pattern">
+                        Only A-Z and _ characters allowed
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <div class="input-holder">
+            <div class="absolute-label">
+                <label>Response Action</label>
+            </div>
+            <div class="input-holder-inner">
+                <input type="text" name="responseAction"  [(ngModel)]="apiData.data.responseAction" required readonly/>
+            </div>
+        </div> 
+        <div class="input-holder">
+            <div class="absolute-label">
+                <label>Batch size</label>
+            </div>
+            <div class="input-holder-inner">
+                <input #bName="ngModel" type="text" pattern="^[0-9]*$" maxlength="3" name="batchSize" placeholder="Enter Batch Size" [(ngModel)]="apiData.data.batchSize" required/>
+                <div class="md-errors-spacer" [hidden]="bName.valid || bName.pristine">
+                    <div class="text-danger"  *ngIf="bName.errors && bName.errors.pattern">
+                        Only numeric values are allowed
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="input-holder">
+            <div class="absolute-label">
+                <label>Parameter JSON</label>
+            </div>
+            <div class="input-holder-inner">
+                <input type="text"  name="parameterJson" [(ngModel)]="apiData.data.parameterJson" readonly/>
+            </div>
+        </div> 
+        <div class="input-holder"> 
+            <div class="absolute-label">
+                <label>Endpoint url</label>
+            </div>
+            <div class="input-holder-inner">
+                <input type="text" name="url" type="text" [(ngModel)]="apiData.data.url" readonly/>
+             </div>
+        </div>
+        <div class="input-holder">
+            <div class="absolute-label">
+                <label>Switch url</label>
+            </div>
+            <div class="input-holder-inner">
+                <input type="text" name="switchUrl" [(ngModel)]="apiData.data.switchUrl" readonly/>
+            </div>
+        </div> 
+    </div>
+    <input class="generalsubmitbtn" [hidden]="!apiConfigservice.editApiData.id"  type="button" [disabled]="!apiForm.valid" (click)="onPreview(apiForm.value)" value="Preview" />
+    <input class="generalsubmitbtn" [hidden]="apiConfigservice.editApiData.id" type="button" [disabled]="!apiForm.valid || apiConfigservice.validationMsg == 'false' || !apiConfigservice.validationMsg" (click)="onPreview(apiForm.value)" value="Preview" />
+</form>
+</div>

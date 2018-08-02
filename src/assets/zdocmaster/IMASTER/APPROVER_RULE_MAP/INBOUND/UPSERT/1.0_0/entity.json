@@ -1,0 +1,100 @@
+{
+	"integrationEntityDetails": {
+	/*#exists approverRuleMap*/
+	"approverRuleMap": 
+		{
+		/*#with approverRuleMap*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists typeOfMap*/
+				,"typeOfMap": "/*preprocess typeOfMap*/"
+			/*/exists typeOfMap*/
+			/*#exists entityId*/
+				,"entityId": "/*preprocess entityId*/"
+			/*/exists entityId*/
+			/*#exists orgUnits*/
+			,"orgUnits": 
+				{
+				/*#each orgUnits*/
+					/*#exists orgUnitAssignment*/
+					"orgUnitAssignment": [
+						/*#each orgUnitAssignment*/
+							{
+								/*#exists orgUnitDetails*/
+								"orgUnitDetails": [
+									/*#each orgUnitDetails*/
+										{
+											/*#exists orgUnitLevel*/
+												"orgUnitLevel": "/*preprocess orgUnitLevel*/"
+											/*/exists orgUnitLevel*/
+											/*#exists orgUnitCode*/
+												,"orgUnitCode": "/*preprocess orgUnitCode*/"
+											/*/exists orgUnitCode*/
+										}
+										/*#unless @last*/,/*/unless*/
+									/*/each orgUnitDetails*/
+								]
+								/*/exists orgUnitDetails*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each orgUnitAssignment*/
+					]
+					/*/exists orgUnitAssignment*/
+				/*/each orgUnits*/
+				}
+			/*/exists orgUnits*/
+			/*#exists entityOwners*/
+			,"entityOwners": 
+				{
+				/*#each entityOwners*/
+					/*#exists entityOwner*/
+					"entityOwner": [
+						/*#each entityOwner*/
+							{
+								/*#exists entityOwnerId*/
+									"entityOwnerId": "/*preprocess entityOwnerId*/"
+								/*/exists entityOwnerId*/
+								/*#exists approvalLimitType*/
+									,"approvalLimitType": "/*preprocess approvalLimitType*/"
+								/*/exists approvalLimitType*/
+								/*#exists lowerLimit*/
+									,"lowerLimit": /*preprocess lowerLimit*/
+								/*/exists lowerLimit*/
+								/*#exists upperLimit*/
+									,"upperLimit": /*preprocess upperLimit*/
+								/*/exists upperLimit*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each entityOwner*/
+					]
+					/*/exists entityOwner*/
+				/*/each entityOwners*/
+				}
+			/*/exists entityOwners*/
+			/*#exists entityOwnersCurrency*/
+				,"entityOwnersCurrency": "/*preprocess entityOwnersCurrency*/"
+			/*/exists entityOwnersCurrency*/
+			/*#exists description*/
+				,"description": "/*preprocess description*/"
+			/*/exists description*/
+			/*#exists createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"createdOn": /*preprocess createdOn*/
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"updatedOn": /*preprocess updatedOn*/
+			/*/exists updatedOn*/
+		/*/with approverRuleMap*/
+		}
+	/*/exists approverRuleMap*/
+}
+}

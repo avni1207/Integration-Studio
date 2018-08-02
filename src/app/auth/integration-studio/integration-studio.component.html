@@ -1,0 +1,98 @@
+
+<div *ngIf="intStudioService.notFoundError != ''"><b>{{intStudioService.notFoundMsg}}</b></div> 
+<div *ngIf="intStudioService.notFoundError == ''">
+  <div class="module-title">
+    <i class="fa fa-magic" aria-hidden="true"></i>
+    Interface Subscription
+  </div>
+  <div class="row">
+    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+      <div class="touch_points_block" (click)="createForm()">
+        <div class="add_icon_block">
+          <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+        </div>
+        <p  class="add_text_block">Subscribe new Interface</p>
+      </div>
+    </div>
+  </div>
+  <div class="module-title filter-row">
+    <div class="row">
+      <div class="col-lg-2 col-sm-2 filter-title">Subscribed Interfaces</div>
+      <div class="col-lg-3 col-sm-3 searchdiv">
+          <i class="fa fa-search" aria-hidden="true"></i><input [(ngModel)]="searchText" placeholder="Search here.."> 
+      </div>
+      <div class="filter filter col-lg-7 col-sm-7" align="right" *ngIf="intStudioService.touchPointsDataTenantIds.length">
+        <label>Filter by Tenant</label>
+        <select name="filter" #t ngModel (change)="sendTenantId(t.value)" >
+          <option value="" selected disabled>Select Tenant</option>
+          <option [value]="tenant.tenantId" *ngFor="let tenant of intStudioService.touchPointsDataTenantIds">{{tenant.tenantName}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="!intStudioService.AllTouchpointsList.length">
+    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+      Loading Interfaces...
+    </div>
+  </div>
+  <div class="row" *ngIf="intStudioService.AllTouchpointsList.length">
+    <div class="col-lg-12" *ngIf="(intStudioService.AllTouchpointsList | filter : searchText).length !== 0">
+      <div class="table-container">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th style="width: 20%">
+                TenantId
+              </th>
+              <th>
+                Product
+              </th>
+              <th>
+                Job Name
+              </th>
+              <th>
+                Event
+              </th>
+              <th>
+                Active
+              </th>
+              <th>
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let touchpoint of intStudioService.AllTouchpointsList | filter : searchText  | paginate: { itemsPerPage: count, currentPage: p }">
+              <td>{{touchpoint.tenantId}}</td>
+              <td>{{touchpoint.product}}</td>
+              <td>{{touchpoint.jobName}}</td>
+              <td><p>{{touchpoint.action}}</p></td>
+              <td>
+                <label class="switch">
+                  <input type="checkbox" name="active" [(ngModel)]="touchpoint.active"  (change)="editActive(touchpoint.active, touchpoint.jobId)" >
+                  <span class="slider round"></span>
+                </label>
+              </td>
+              <td><a title="Edit" (click)="getDetails(touchpoint)"><i class="fa fa-pencil"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="noZdocDiv" *ngIf="( intStudioService.AllTouchpointsList | filter : searchText).length === 0">
+        No Interfaces found
+    </div>
+  </div>
+  
+  <div class="sticky-pagination active" *ngIf="(intStudioService.AllTouchpointsList | filter : searchText).length !== 0">
+      <label>Show 
+          <select name="showRecord" (change)="sendCount($event.target.value)">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          Entries</label>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+{
+	"integrationEntityDetails": {
+	/*#exists templates*/
+	"templates": 
+		{
+		/*#with templates*/
+			/*#exists templateList*/
+			"templateList": [
+				/*#each templateList*/
+					{
+						/*#exists type*/
+							"type": "/*preprocess type*/"
+						/*/exists type*/
+						/*#exists subType*/
+							,"subType": "/*preprocess subType*/"
+						/*/exists subType*/
+						/*#exists templatesByType*/
+						,"templatesByType": 
+							{
+							/*#with templatesByType*/
+								/*#exists template*/
+								"template": [
+									/*#each template*/
+										{
+											/*#exists templateNumber*/
+												"templateNumber": "/*preprocess templateNumber*/"
+											/*/exists templateNumber*/
+											/*#exists templateTitle*/
+												,"templateTitle": "/*preprocess templateTitle*/"
+											/*/exists templateTitle*/
+											/*#exists templateDescription*/
+												,"templateDescription": "/*preprocess templateDescription*/"
+											/*/exists templateDescription*/
+											/*#exists templateFor*/
+												,"templateFor": "/*preprocess templateFor*/"
+											/*/exists templateFor*/
+											/*#exists language*/
+												,"language": "/*preprocess language*/"
+											/*/exists language*/
+										}
+										/*#unless @last*/,/*/unless*/
+									/*/each template*/
+								]
+								/*/exists template*/
+							/*/with templatesByType*/
+							}
+						/*/exists templatesByType*/
+					}
+					/*#unless @last*/,/*/unless*/
+				/*/each templateList*/
+			]
+			/*/exists templateList*/
+		/*/with templates*/
+		}
+	/*/exists templates*/
+}
+}

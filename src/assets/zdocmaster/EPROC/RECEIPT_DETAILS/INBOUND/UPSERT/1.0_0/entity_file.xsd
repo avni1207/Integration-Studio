@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:integration-inbound="http://www.zycus.com/integration/schemas/IntegrationInbound" targetNamespace="http://www.zycus.com/integration/schemas/IntegrationInbound" version="1.0">
+  <xs:element name="IntegrationDetails" type="integration-inbound:inboundIntegrationDetails"/>
+  <xs:element name="IntegrationEntity" type="integration-inbound:inboundIntegrationEntity"/>
+  <xs:complexType name="inboundIntegrationEntity">
+    <xs:sequence>
+      <xs:element name="integrationEntityHeader" type="integration-inbound:InboundIntegrationHeader"/>
+      <xs:element name="integrationEntityDetails" type="integration-inbound:inboundIntegrationEntityDetails"/>
+      <xs:element minOccurs="0" name="processingErrors" type="integration-inbound:processingErrors"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InboundIntegrationHeader">
+    <!-- <xs:complexContent> -->
+    <!-- <xs:extension base="integration-inbound:BaseIntegrationHeader"> -->
+    <xs:all>
+      <xs:element name="integrationTrackingNumber" type="xs:string"/>
+      <xs:element minOccurs="1" name="referenceCodeForEntity" type="xs:string"/>
+      <xs:element minOccurs="0" name="additionalInfo" type="xs:string"/>
+      <xs:element name="action" type="xs:string"/>
+      <xs:element name="entity" type="xs:string"/>
+      <xs:element name="source" type="xs:string"/>
+      <xs:element name="zDocBaseVersion" type="xs:string"/>
+      <xs:element name="zDocCustomVersion" type="xs:string"/>
+      <xs:element minOccurs="0" name="timestampUTC" type="xs:string"/>
+      <xs:element minOccurs="0" name="attachments" type="integration-inbound:attachments"/>
+    </xs:all>
+    <!-- </xs:extension> -->
+    <!-- </xs:complexContent> -->
+  </xs:complexType>
+  <xs:complexType name="inboundIntegrationEntityDetails">
+    <xs:choice>
+      <xs:element minOccurs="1" name="receiptDetails" type="integration-inbound:receiptDetails"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="inboundIntegrationDetails">
+    <xs:all>
+      <xs:element name="integrationEntities">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="integrationEntity" type="integration-inbound:inboundIntegrationEntity"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="processingErrors">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="shouldRetry" type="xs:boolean"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="error" type="integration-inbound:error"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="error">
+    <xs:all>
+      <xs:element name="errorCode" type="xs:string"/>
+      <xs:element name="errorDescription" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="attachments">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="attachment" type="integration-inbound:attachment"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="attachment">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="id" type="xs:string"/>
+      <xs:element minOccurs="1" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="size" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- <xs:complexType name="BaseIntegrationHeader"> -->
+  <!-- <xs:all/> -->
+  <!-- </xs:complexType> -->
+  <xs:complexType name="receiptDetails">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="receiptHeader">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="receivedOn" type="xs:long"/>
+            <xs:element minOccurs="0" name="consignmentNo" type="xs:string"/>
+            <xs:element minOccurs="0" name="shippingInfo" type="xs:string"/>
+            <xs:element minOccurs="0" name="airwayBillNo" type="xs:string"/>
+            <xs:element minOccurs="0" name="receiptComments" type="xs:string"/>
+            <xs:element minOccurs="0" name="lastReceiptOfOrder" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="allowInvoiceCreation" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="receiptId" type="xs:string"/>
+            <xs:element minOccurs="0" name="receiptNo" type="xs:string"/>
+            <xs:element minOccurs="1" name="referenceType" type="xs:int"/>
+            <xs:element minOccurs="1" name="referenceValue" type="xs:string"/>
+            <xs:element minOccurs="1" name="erpId" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" name="items">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="item">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="receivedItemRating" type="xs:int"/>
+                  <xs:element minOccurs="0" name="itemInternalComments" type="xs:string"/>
+                  <xs:element minOccurs="0" name="itemSupplierComments" type="xs:string"/>
+                  <xs:element minOccurs="1" name="receivedQuantity" type="xs:int"/>
+                  <xs:element minOccurs="0" name="assetCode" type="xs:string"/>
+                  <xs:element minOccurs="0" name="lineItemId" type="xs:string"/>
+                  <xs:element minOccurs="0" name="poLineNo" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

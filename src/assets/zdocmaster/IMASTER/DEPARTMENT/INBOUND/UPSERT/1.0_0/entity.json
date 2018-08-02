@@ -1,0 +1,67 @@
+{
+	"integrationEntityDetails": {
+	/*#if department*/
+	"department": 
+		{
+		/*#with department*/
+			/*#if id*/
+				"id": "/*preprocess id*/"
+			/*/if id*/
+			/*#if status*/
+				,"status": "/*preprocess status*/"
+			/*/if status*/
+			/*#if departmentName*/
+				,"departmentName": "/*preprocess departmentName*/"
+			/*/if departmentName*/
+			/*#if description*/
+				,"description": "/*preprocess description*/"
+			/*/if description*/
+			/*#if orgUnits*/
+			,"orgUnits": 
+				{
+				/*#each orgUnits*/
+					/*#if orgUnitAssignment*/
+					"orgUnitAssignment": 
+						{
+						/*#each orgUnitAssignment*/
+							/*#if orgUnitDetails*/
+							"orgUnitDetails": [
+								/*#each orgUnitDetails*/
+									{
+										/*#if orgUnitLevel*/
+											"orgUnitLevel": "/*preprocess orgUnitLevel*/"
+										/*/if orgUnitLevel*/
+										/*#if orgUnitCode*/
+											,"orgUnitCode": "/*preprocess orgUnitCode*/"
+										/*/if orgUnitCode*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each orgUnitDetails*/
+							]
+							/*/if orgUnitDetails*/
+						/*/each orgUnitAssignment*/
+						}
+					/*/if orgUnitAssignment*/
+				/*/each orgUnits*/
+				}
+			/*/if orgUnits*/
+			/*#if erpId*/
+				,"erpId": "/*preprocess erpId*/"
+			/*/if erpId*/
+			/*#if createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/if createdBy*/
+			/*#if createdOn*/
+				,"createdOn": "/*preprocess createdOn*/"
+			/*/if createdOn*/
+			/*#if updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/if updatedBy*/
+			/*#if updatedOn*/
+				,"updatedOn": "/*preprocess updatedOn*/"
+			/*/if updatedOn*/
+		/*/with department*/
+		}
+	/*/if department*/
+}
+}

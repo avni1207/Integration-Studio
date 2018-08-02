@@ -1,0 +1,23 @@
+{
+	"integrationEntityDetails": {
+	/*#exists receiptStatusUpdate*/
+	"receiptStatusUpdate": 
+		{
+		/*#with receiptStatusUpdate*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists externalId*/
+				,"externalId": "/*preprocess externalId*/"
+			/*/exists externalId*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists statusComments*/
+				,"statusComments": "/*preprocess statusComments*/"
+			/*/exists statusComments*/
+		/*/with receiptStatusUpdate*/
+		}
+	/*/exists receiptStatusUpdate*/
+}
+}

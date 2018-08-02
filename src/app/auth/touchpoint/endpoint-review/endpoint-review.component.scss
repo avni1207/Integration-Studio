@@ -1,0 +1,33 @@
+:host{
+  .endpointreviewWrapper {
+    padding: 15px 0;
+    font-size: 14px;
+    margin: 0 auto;
+    height: 100%;
+  }
+  .endpointreviewWrapper .endpointtitle{
+      font-size: 18px;
+      width: 70%;
+      float: left;
+  }
+  .endpointreviewWrapper .realp{
+    width: 30%;
+    float: left;
+    text-align: right;
+  }
+  .endpointreviewWrapper .reviewmodal{
+    clear: both;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  .endpointreviewWrapper .reviewmodal .firstmodal{
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .endpointreviewWrapper .reviewmodal .secondmodal{
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 60px;
+  }
+}

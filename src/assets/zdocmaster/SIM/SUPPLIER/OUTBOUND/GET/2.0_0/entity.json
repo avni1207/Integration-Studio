@@ -1,0 +1,1360 @@
+{
+	"integrationEntityDetails": {
+	/*#exists Supplier*/
+	"supplier": 
+		{
+		/*#with Supplier*/
+			/*#exists requestId*/
+				"requestId": /*preprocess requestId*/
+			/*/exists requestId*/
+			/*#exists controlBlock*/
+			,"controlBlock": 
+				{
+				/*#with controlBlock*/
+					/*#exists dataProcessingInfo*/
+					"dataProcessingInfo": [
+						/*#each dataProcessingInfo*/
+							{
+								/*#exists key*/
+									"key": "/*preprocess key*/"
+								/*/exists key*/
+								/*#exists value*/
+									,"value": "/*preprocess value*/"
+								/*/exists value*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each dataProcessingInfo*/
+					]
+					/*/exists dataProcessingInfo*/
+				/*/with controlBlock*/
+				}
+			/*/exists controlBlock*/
+			/*#exists Zycus_Supplier_ID*/
+				,"id": "/*preprocess Zycus_Supplier_ID*/"
+			/*/exists Zycus_Supplier_ID*/
+			/*#exists External_Supplier_Id*/
+				,"externalid": "/*preprocess External_Supplier_Id*/"
+			/*/exists External_Supplier_Id*/
+			/*#exists Existing_External_Supplier_Id*/
+				,"existingExternalSupplierid": "/*preprocess Existing_External_Supplier_Id*/"
+			/*/exists Existing_External_Supplier_Id*/
+			/*#exists Facility_Code*/
+				,"facilityCode": "/*preprocess Facility_Code*/"
+			/*/exists Facility_Code*/
+			/*#exists System_Code*/
+				,"systemCode": "/*preprocess System_Code*/"
+			/*/exists System_Code*/
+			/*#exists Mandatory_Fields_Flag*/
+				,"mandatoryFieldsFlag": "/*preprocess Mandatory_Fields_Flag*/"
+			/*/exists Mandatory_Fields_Flag*/
+			/*#exists Supplier_Type*/
+				,"supplierType": "/*preprocess Supplier_Type*/"
+			/*/exists Supplier_Type*/
+			/*#exists Existing_Supplier_Status*/
+				,"existingSupplierStatus": "/*preprocess Existing_Supplier_Status*/"
+			/*/exists Existing_Supplier_Status*/
+			/*#exists systemFacilityDetails*/
+			,"systemFacilityDetails": 
+				{
+				/*#with systemFacilityDetails*/
+					/*#exists systemFacilityDetail*/
+					"systemFacilityDetail": [
+						/*#each systemFacilityDetail*/
+							{
+								/*#exists Facility_Code*/
+									"facilityCode": "/*preprocess Facility_Code*/"
+								/*/exists Facility_Code*/
+								/*#exists System_Code*/
+									,"systemCode": "/*preprocess System_Code*/"
+								/*/exists System_Code*/
+								/*#exists Facility_Status*/
+									,"FacilityStatus": "/*preprocess Facility_Status*/"
+								/*/exists Facility_Status*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each systemFacilityDetail*/
+					]
+					/*/exists systemFacilityDetail*/
+				/*/with systemFacilityDetails*/
+				}
+			/*/exists systemFacilityDetails*/
+			/*#exists Supplier_Status*/
+				,"status": "/*preprocess Supplier_Status*/"
+			/*/exists Supplier_Status*/
+			/*#exists Companydetails*/
+			,"companyDetails": 
+				{
+				/*#with Companydetails*/
+					/*#exists DisplayGSID*/
+						"displayGSID": "/*preprocess DisplayGSID*/"
+					/*/exists DisplayGSID*/
+					/*#exists Conf_Agree_Doc*/
+						,"confAgreeDoc": "/*preprocess Conf_Agree_Doc*/"
+					/*/exists Conf_Agree_Doc*/
+					/*#exists Legal_Comp_Name*/
+						,"legalCompanyName": "/*preprocess Legal_Comp_Name*/"
+					/*/exists Legal_Comp_Name*/
+					/*#exists Duns_Number*/
+						,"dunsNumber": "/*preprocess Duns_Number*/"
+					/*/exists Duns_Number*/
+					/*#exists Legal_Structure*/
+						,"legalStructure": "/*preprocess Legal_Structure*/"
+					/*/exists Legal_Structure*/
+					/*#exists Former_Comp_Name*/
+						,"formerCompanyName": "/*preprocess Former_Comp_Name*/"
+					/*/exists Former_Comp_Name*/
+					/*#exists Keyword*/
+						,"keyword": "/*preprocess Keyword*/"
+					/*/exists Keyword*/
+					/*#exists Website*/
+						,"website": "/*preprocess Website*/"
+					/*/exists Website*/
+					/*#exists No_Emp*/
+						,"noEmp": /*preprocess No_Emp*/
+					/*/exists No_Emp*/
+					/*#exists Year_Comp_Estd*/
+						,"yearCompanyEstd": /*preprocess Year_Comp_Estd*/
+					/*/exists Year_Comp_Estd*/
+					/*#exists Gross_Annual_Sales*/
+						,"grossAnnualSales": /*preprocess Gross_Annual_Sales*/
+					/*/exists Gross_Annual_Sales*/
+					/*#exists Nnnn_Comp_Indic*/
+						,"companyIndicator1099": "/*preprocess Nnnn_Comp_Indic*/"
+					/*/exists Nnnn_Comp_Indic*/
+					/*#exists Comments*/
+						,"comments": "/*preprocess Comments*/"
+					/*/exists Comments*/
+					/*#exists Nnnn_Comp_Exempted*/
+						,"nnnnCompExempted": "/*preprocess Nnnn_Comp_Exempted*/"
+					/*/exists Nnnn_Comp_Exempted*/
+					/*#exists Taxid_And_Wxform_Required*/
+						,"taxidAndWxformRequired": "/*preprocess Taxid_And_Wxform_Required*/"
+					/*/exists Taxid_And_Wxform_Required*/
+					/*#exists Tax_Id_Format*/
+						,"taxidFormat": "/*preprocess Tax_Id_Format*/"
+					/*/exists Tax_Id_Format*/
+					/*#exists Wx_Form*/
+						,"wxForm": "/*preprocess Wx_Form*/"
+					/*/exists Wx_Form*/
+					/*#exists Taxid*/
+						,"taxid": "/*preprocess Taxid*/"
+					/*/exists Taxid*/
+					/*#exists Wx_Recvd_Date*/
+						,"wxRecvdDate": /*preprocess Wx_Recvd_Date*/
+					/*/exists Wx_Recvd_Date*/
+					/*#exists Parent_Identifier*/
+						,"parentidentifier": "/*preprocess Parent_Identifier*/"
+					/*/exists Parent_Identifier*/
+					/*#exists Ult_Parent_Identfier*/
+						,"ultParentidentfier": "/*preprocess Ult_Parent_Identfier*/"
+					/*/exists Ult_Parent_Identfier*/
+					/*#exists Parent_Name*/
+						,"parentName": "/*preprocess Parent_Name*/"
+					/*/exists Parent_Name*/
+					/*#exists Ult_Parent_Name*/
+						,"ultParentName": "/*preprocess Ult_Parent_Name*/"
+					/*/exists Ult_Parent_Name*/
+					/*#exists Company_Type_Fix*/
+						,"companyTypeFix": "/*preprocess Company_Type_Fix*/"
+					/*/exists Company_Type_Fix*/
+					/*#exists Fields*/
+					,"fields": 
+						{
+						/*#with Fields*/
+							/*#exists Field*/
+							"field": [
+								/*#each Field*/
+									{
+										/*#exists Id*/
+											"id": "/*preprocess Id*/"
+										/*/exists Id*/
+										/*#exists Value*/
+											,"value": "/*preprocess Value*/"
+										/*/exists Value*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each Field*/
+							]
+							/*/exists Field*/
+						/*/with Fields*/
+						}
+					/*/exists Fields*/
+				/*/with Companydetails*/
+				}
+			/*/exists Companydetails*/
+			/*#exists Smdmtaxinformationtbl*/
+			,"taxInformation": 
+				{
+				/*#with Smdmtaxinformationtbl*/
+					/*#exists Abn_Number_Fixed*/
+						"abnNumberFixed": "/*preprocess Abn_Number_Fixed*/"
+					/*/exists Abn_Number_Fixed*/
+					/*#exists Acn_Number_Fixed*/
+						,"acnNumberFixed": "/*preprocess Acn_Number_Fixed*/"
+					/*/exists Acn_Number_Fixed*/
+					/*#exists Fields*/
+					,"fields": 
+						{
+						/*#with Fields*/
+							/*#exists Field*/
+							"field": [
+								/*#each Field*/
+									{
+										/*#exists Id*/
+											"id": "/*preprocess Id*/"
+										/*/exists Id*/
+										/*#exists Value*/
+											,"value": "/*preprocess Value*/"
+										/*/exists Value*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each Field*/
+							]
+							/*/exists Field*/
+						/*/with Fields*/
+						}
+					/*/exists Fields*/
+				/*/with Smdmtaxinformationtbl*/
+				}
+			/*/exists Smdmtaxinformationtbl*/
+			/*#exists Smdmmastertbl*/
+			,"dbaAliases": 
+				{
+				/*#with Smdmmastertbl*/
+					/*#exists Dba_Alias*/
+					"dbaAlias": [
+						/*#each Dba_Alias*/
+							{
+								/*#exists Dba_Internal_Id*/
+									"dbaInternalid": /*preprocess Dba_Internal_Id*/
+								/*/exists Dba_Internal_Id*/
+								/*#exists Dba_External_Id*/
+									,"dbaExternalid": "/*preprocess Dba_External_Id*/"
+								/*/exists Dba_External_Id*/
+								/*#exists isDelete*/
+									,"isDelete": /*preprocess isDelete*/
+								/*/exists isDelete*/
+								/*#exists Name*/
+									,"name": "/*preprocess Name*/"
+								/*/exists Name*/
+								/*#exists Nametype*/
+									,"nametype": "/*preprocess Nametype*/"
+								/*/exists Nametype*/
+								/*#exists Separateaddress*/
+									,"separateAddress": "/*preprocess Separateaddress*/"
+								/*/exists Separateaddress*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each Dba_Alias*/
+					]
+					/*/exists Dba_Alias*/
+				/*/with Smdmmastertbl*/
+				}
+			/*/exists Smdmmastertbl*/
+			/*#exists Company_References*/
+			,"companyReferences": 
+				{
+				/*#with Company_References*/
+					/*#exists Companyreferences*/
+					"companyReference": [
+						/*#each Companyreferences*/
+							{
+								/*#exists Internal_Id*/
+									"companyRefInternalid": /*preprocess Internal_Id*/
+								/*/exists Internal_Id*/
+								/*#exists External_Id*/
+									,"companyRefExternalid": "/*preprocess External_Id*/"
+								/*/exists External_Id*/
+								/*#exists isDelete*/
+									,"isDelete": /*preprocess isDelete*/
+								/*/exists isDelete*/
+								/*#exists Comp_Ref_Name*/
+									,"compRefName": "/*preprocess Comp_Ref_Name*/"
+								/*/exists Comp_Ref_Name*/
+								/*#exists Comp_Ref_Contact_Name*/
+									,"compRefContactName": "/*preprocess Comp_Ref_Contact_Name*/"
+								/*/exists Comp_Ref_Contact_Name*/
+								/*#exists Comp_Ref_Phone_No*/
+									,"compRefPhoneNo": "/*preprocess Comp_Ref_Phone_No*/"
+								/*/exists Comp_Ref_Phone_No*/
+								/*#exists Comp_Ref_Cell_No*/
+									,"compRefCellNo": "/*preprocess Comp_Ref_Cell_No*/"
+								/*/exists Comp_Ref_Cell_No*/
+								/*#exists Comp_Ref_Email*/
+									,"compRefEmail": "/*preprocess Comp_Ref_Email*/"
+								/*/exists Comp_Ref_Email*/
+								/*#exists Fields*/
+								,"fields": 
+									{
+									/*#with Fields*/
+										/*#exists Field*/
+										"field": [
+											/*#each Field*/
+												{
+													/*#exists Id*/
+														"id": "/*preprocess Id*/"
+													/*/exists Id*/
+													/*#exists Value*/
+														,"value": "/*preprocess Value*/"
+													/*/exists Value*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each Field*/
+										]
+										/*/exists Field*/
+									/*/with Fields*/
+									}
+								/*/exists Fields*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each Companyreferences*/
+					]
+					/*/exists Companyreferences*/
+				/*/with Company_References*/
+				}
+			/*/exists Company_References*/
+			/*#exists Corporate_Fields*/
+			,"corporateFields": 
+				{
+				/*#with Corporate_Fields*/
+					/*#exists Corporatefields*/
+					"corporateField": [
+						/*#each Corporatefields*/
+							{
+								/*#exists Internal_Id*/
+									"corporateFieldsInternalid": /*preprocess Internal_Id*/
+								/*/exists Internal_Id*/
+								/*#exists External_Id*/
+									,"corporateFieldsExternalid": "/*preprocess External_Id*/"
+								/*/exists External_Id*/
+								/*#exists isDelete*/
+									,"isDelete": /*preprocess isDelete*/
+								/*/exists isDelete*/
+								/*#exists Name_Exec*/
+									,"executiveName": "/*preprocess Name_Exec*/"
+								/*/exists Name_Exec*/
+								/*#exists Exec_Title*/
+									,"execTitle": "/*preprocess Exec_Title*/"
+								/*/exists Exec_Title*/
+								/*#exists Exec_Phone_No*/
+									,"execPhoneNo": "/*preprocess Exec_Phone_No*/"
+								/*/exists Exec_Phone_No*/
+								/*#exists Exec_Cell_No*/
+									,"execCellNo": "/*preprocess Exec_Cell_No*/"
+								/*/exists Exec_Cell_No*/
+								/*#exists Fax*/
+									,"fax": "/*preprocess Fax*/"
+								/*/exists Fax*/
+								/*#exists Email*/
+									,"email": "/*preprocess Email*/"
+								/*/exists Email*/
+								/*#exists Fields*/
+								,"fields": 
+									{
+									/*#with Fields*/
+										/*#exists Field*/
+										"field": [
+											/*#each Field*/
+												{
+													/*#exists Id*/
+														"id": "/*preprocess Id*/"
+													/*/exists Id*/
+													/*#exists Value*/
+														,"value": "/*preprocess Value*/"
+													/*/exists Value*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each Field*/
+										]
+										/*/exists Field*/
+									/*/with Fields*/
+									}
+								/*/exists Fields*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each Corporatefields*/
+					]
+					/*/exists Corporatefields*/
+				/*/with Corporate_Fields*/
+				}
+			/*/exists Corporate_Fields*/
+			/*#exists Companydetailssupportdoc*/
+			,"companyDetailsSupportingDoc": 
+				{
+				/*#with Companydetailssupportdoc*/
+					/*#exists Supporting_Documents_For_Company_Information*/
+					"supportingDocumentsForCompanyInformation": [
+						/*#each Supporting_Documents_For_Company_Information*/
+							{
+								/*#exists Internal_Id*/
+									"companySupportingDocsInternalid": /*preprocess Internal_Id*/
+								/*/exists Internal_Id*/
+								/*#exists External_Id*/
+									,"companySupportingDocsExternalid": "/*preprocess External_Id*/"
+								/*/exists External_Id*/
+								/*#exists isDelete*/
+									,"isDelete": /*preprocess isDelete*/
+								/*/exists isDelete*/
+								/*#exists Cd_Support_Document*/
+									,"cdSupportDocument": "/*preprocess Cd_Support_Document*/"
+								/*/exists Cd_Support_Document*/
+								/*#exists Cd_Support_Doc_Recvd_Date*/
+									,"cdSupportDocRecvdDate": /*preprocess Cd_Support_Doc_Recvd_Date*/
+								/*/exists Cd_Support_Doc_Recvd_Date*/
+								/*#exists Cd_Support_Doc_Comment*/
+									,"cdSupportDocComment": "/*preprocess Cd_Support_Doc_Comment*/"
+								/*/exists Cd_Support_Doc_Comment*/
+								/*#exists Fields*/
+								,"fields": 
+									{
+									/*#with Fields*/
+										/*#exists Field*/
+										"field": [
+											/*#each Field*/
+												{
+													/*#exists Id*/
+														"id": "/*preprocess Id*/"
+													/*/exists Id*/
+													/*#exists Value*/
+														,"value": "/*preprocess Value*/"
+													/*/exists Value*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each Field*/
+										]
+										/*/exists Field*/
+									/*/with Fields*/
+									}
+								/*/exists Fields*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each Supporting_Documents_For_Company_Information*/
+					]
+					/*/exists Supporting_Documents_For_Company_Information*/
+				/*/with Companydetailssupportdoc*/
+				}
+			/*/exists Companydetailssupportdoc*/
+			/*#exists Smdmaddresstbl*/
+			,"allLocations": 
+				{
+				/*#with Smdmaddresstbl*/
+					/*#exists Location*/
+					"location": [
+						/*#each Location*/
+							{
+								/*#exists Address_Internal_Id*/
+									"addressInternalid": /*preprocess Address_Internal_Id*/
+								/*/exists Address_Internal_Id*/
+								/*#exists Address_External_Id*/
+									,"addressExternalid": "/*preprocess Address_External_Id*/"
+								/*/exists Address_External_Id*/
+								/*#exists isDelete*/
+									,"isDelete": /*preprocess isDelete*/
+								/*/exists isDelete*/
+								/*#exists Internal_Supplier_Id*/
+									,"internalSupplierid": /*preprocess Internal_Supplier_Id*/
+								/*/exists Internal_Supplier_Id*/
+								/*#exists External_Supplier_Id*/
+									,"externalSupplierid": "/*preprocess External_Supplier_Id*/"
+								/*/exists External_Supplier_Id*/
+								/*#exists Acct_Grp_Id*/
+									,"acctGrpid": "/*preprocess Acct_Grp_Id*/"
+								/*/exists Acct_Grp_Id*/
+								/*#exists Address1*/
+									,"address1": "/*preprocess Address1*/"
+								/*/exists Address1*/
+								/*#exists Address2*/
+									,"address2": "/*preprocess Address2*/"
+								/*/exists Address2*/
+								/*#exists Address3*/
+									,"address3": "/*preprocess Address3*/"
+								/*/exists Address3*/
+								/*#exists Pobox*/
+									,"poBox": "/*preprocess Pobox*/"
+								/*/exists Pobox*/
+								/*#exists Country*/
+									,"country": "/*preprocess Country*/"
+								/*/exists Country*/
+								/*#exists State*/
+									,"state": "/*preprocess State*/"
+								/*/exists State*/
+								/*#exists City*/
+									,"city": "/*preprocess City*/"
+								/*/exists City*/
+								/*#exists Zip*/
+									,"zip": "/*preprocess Zip*/"
+								/*/exists Zip*/
+								/*#exists Phone*/
+									,"phone": "/*preprocess Phone*/"
+								/*/exists Phone*/
+								/*#exists Phone_Extn*/
+									,"phoneExtn": "/*preprocess Phone_Extn*/"
+								/*/exists Phone_Extn*/
+								/*#exists Fax*/
+									,"fax": "/*preprocess Fax*/"
+								/*/exists Fax*/
+								/*#exists Fax_Extn*/
+									,"faxExtn": "/*preprocess Fax_Extn*/"
+								/*/exists Fax_Extn*/
+								/*#exists Rtaddressid*/
+									,"remitToAddressid": /*preprocess Rtaddressid*/
+								/*/exists Rtaddressid*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each Location*/
+					]
+					/*/exists Location*/
+				/*/with Smdmaddresstbl*/
+				}
+			/*/exists Smdmaddresstbl*/
+			/*#exists Contactdetails*/
+			,"contactDetails": 
+				{
+				/*#with Contactdetails*/
+					/*#exists Contactdetail*/
+					"contactDetail": [
+						/*#each Contactdetail*/
+							{
+								/*#exists Contact_Internal_Id*/
+									"contactInternalid": /*preprocess Contact_Internal_Id*/
+								/*/exists Contact_Internal_Id*/
+								/*#exists Contact_External_Id*/
+									,"contactExternalid": "/*preprocess Contact_External_Id*/"
+								/*/exists Contact_External_Id*/
+								/*#exists isDelete*/
+									,"isDelete": /*preprocess isDelete*/
+								/*/exists isDelete*/
+								/*#exists Address_Internal_Id*/
+									,"addressInternalid": /*preprocess Address_Internal_Id*/
+								/*/exists Address_Internal_Id*/
+								/*#exists Address_External_Id*/
+									,"addressExternalid": "/*preprocess Address_External_Id*/"
+								/*/exists Address_External_Id*/
+								/*#exists Contact_Type*/
+									,"contactType": "/*preprocess Contact_Type*/"
+								/*/exists Contact_Type*/
+								/*#exists First_Name*/
+									,"firstName": "/*preprocess First_Name*/"
+								/*/exists First_Name*/
+								/*#exists Middle_Name*/
+									,"middleName": "/*preprocess Middle_Name*/"
+								/*/exists Middle_Name*/
+								/*#exists Last_Name*/
+									,"lastName": "/*preprocess Last_Name*/"
+								/*/exists Last_Name*/
+								/*#exists Title*/
+									,"title": "/*preprocess Title*/"
+								/*/exists Title*/
+								/*#exists Email*/
+									,"email": "/*preprocess Email*/"
+								/*/exists Email*/
+								/*#exists Phone_No*/
+									,"phoneNo": "/*preprocess Phone_No*/"
+								/*/exists Phone_No*/
+								/*#exists Phone_Extn*/
+									,"phoneExtn": "/*preprocess Phone_Extn*/"
+								/*/exists Phone_Extn*/
+								/*#exists Cell_No*/
+									,"cellNo": "/*preprocess Cell_No*/"
+								/*/exists Cell_No*/
+								/*#exists Fax*/
+									,"fax": "/*preprocess Fax*/"
+								/*/exists Fax*/
+								/*#exists Fax_Extn*/
+									,"faxExtn": "/*preprocess Fax_Extn*/"
+								/*/exists Fax_Extn*/
+								/*#exists Time_Zone*/
+									,"timeZone": "/*preprocess Time_Zone*/"
+								/*/exists Time_Zone*/
+								/*#exists Language*/
+									,"language": "/*preprocess Language*/"
+								/*/exists Language*/
+								/*#exists Date_Format*/
+									,"dateFormat": "/*preprocess Date_Format*/"
+								/*/exists Date_Format*/
+								/*#exists Number_Format*/
+									,"numberFormat": "/*preprocess Number_Format*/"
+								/*/exists Number_Format*/
+								/*#exists Currency*/
+									,"currency": "/*preprocess Currency*/"
+								/*/exists Currency*/
+								/*#exists Create_Portal_Login*/
+									,"createPortalLogin": "/*preprocess Create_Portal_Login*/"
+								/*/exists Create_Portal_Login*/
+								/*#exists Allowed_Portal_Side_Products*/
+									,"allowedPortalSideProducts": "/*preprocess Allowed_Portal_Side_Products*/"
+								/*/exists Allowed_Portal_Side_Products*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each Contactdetail*/
+					]
+					/*/exists Contactdetail*/
+				/*/with Contactdetails*/
+				}
+			/*/exists Contactdetails*/
+			/*#exists Rtdetails*/
+			,"remitToAddressDetails": 
+				{
+				/*#with Rtdetails*/
+					/*#exists Remit_To_Address_Details*/
+					"remitToAddressDetails": [
+						/*#each Remit_To_Address_Details*/
+							{
+								/*#exists Internal_Id*/
+									"remitToInternalid": /*preprocess Internal_Id*/
+								/*/exists Internal_Id*/
+								/*#exists External_Id*/
+									,"remitToExternalid": "/*preprocess External_Id*/"
+								/*/exists External_Id*/
+								/*#exists isDelete*/
+									,"isDelete": /*preprocess isDelete*/
+								/*/exists isDelete*/
+								/*#exists Address_Internal_Id*/
+									,"addressInternalid": /*preprocess Address_Internal_Id*/
+								/*/exists Address_Internal_Id*/
+								/*#exists Address_External_Id*/
+									,"addressExternalid": "/*preprocess Address_External_Id*/"
+								/*/exists Address_External_Id*/
+								/*#exists Paymenttype*/
+									,"paymentType": "/*preprocess Paymenttype*/"
+								/*/exists Paymenttype*/
+								/*#exists Currencytype*/
+									,"currencyType": "/*preprocess Currencytype*/"
+								/*/exists Currencytype*/
+								/*#exists Comment*/
+									,"comment": "/*preprocess Comment*/"
+								/*/exists Comment*/
+								/*#exists Fields*/
+								,"fields": 
+									{
+									/*#with Fields*/
+										/*#exists Field*/
+										"field": [
+											/*#each Field*/
+												{
+													/*#exists Id*/
+														"id": "/*preprocess Id*/"
+													/*/exists Id*/
+													/*#exists Value*/
+														,"value": "/*preprocess Value*/"
+													/*/exists Value*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each Field*/
+										]
+										/*/exists Field*/
+									/*/with Fields*/
+									}
+								/*/exists Fields*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each Remit_To_Address_Details*/
+					]
+					/*/exists Remit_To_Address_Details*/
+				/*/with Rtdetails*/
+				}
+			/*/exists Rtdetails*/
+			/*#exists Smdmaddressinfacilitytbl*/
+			,"myLocation": 
+				{
+				/*#with Smdmaddressinfacilitytbl*/
+					/*#exists Addresses*/
+					"addresses": [
+						/*#each Addresses*/
+							{
+								/*#exists Internal_Id*/
+									"myLocationsInternalid": /*preprocess Internal_Id*/
+								/*/exists Internal_Id*/
+								/*#exists External_Id*/
+									,"myLocationsExternalid": "/*preprocess External_Id*/"
+								/*/exists External_Id*/
+								/*#exists isDelete*/
+									,"isDelete": /*preprocess isDelete*/
+								/*/exists isDelete*/
+								/*#exists Address_Internal_Id*/
+									,"addressInternalid": /*preprocess Address_Internal_Id*/
+								/*/exists Address_Internal_Id*/
+								/*#exists Address_External_Id*/
+									,"addressExternalid": "/*preprocess Address_External_Id*/"
+								/*/exists Address_External_Id*/
+								/*#exists Usedat*/
+									,"usedAt": "/*preprocess Usedat*/"
+								/*/exists Usedat*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each Addresses*/
+					]
+					/*/exists Addresses*/
+				/*/with Smdmaddressinfacilitytbl*/
+				}
+			/*/exists Smdmaddressinfacilitytbl*/
+			/*#exists Supporting_Documents*/
+			,"supportingDocuments": 
+				{
+				/*#with Supporting_Documents*/
+					/*#exists Addressviewsupportdoc*/
+					"addressviewSupportingDoc": [
+						/*#each Addressviewsupportdoc*/
+							{
+								/*#exists Internal_Id*/
+									"addressSupportingDocsInternalid": /*preprocess Internal_Id*/
+								/*/exists Internal_Id*/
+								/*#exists External_Id*/
+									,"addressSupportingDocsExternalid": "/*preprocess External_Id*/"
+								/*/exists External_Id*/
+								/*#exists isDelete*/
+									,"isDelete": /*preprocess isDelete*/
+								/*/exists isDelete*/
+								/*#exists Av_Support_Document*/
+									,"avSupportDocument": "/*preprocess Av_Support_Document*/"
+								/*/exists Av_Support_Document*/
+								/*#exists Av_Support_Doc_Recvd_Date*/
+									,"avSupportDocRecvdDate": /*preprocess Av_Support_Doc_Recvd_Date*/
+								/*/exists Av_Support_Doc_Recvd_Date*/
+								/*#exists Av_Support_Doc_Comment*/
+									,"avSupportDocComment": "/*preprocess Av_Support_Doc_Comment*/"
+								/*/exists Av_Support_Doc_Comment*/
+								/*#exists Fields*/
+								,"fields": 
+									{
+									/*#with Fields*/
+										/*#exists Field*/
+										"field": [
+											/*#each Field*/
+												{
+													/*#exists Id*/
+														"id": "/*preprocess Id*/"
+													/*/exists Id*/
+													/*#exists Value*/
+														,"value": "/*preprocess Value*/"
+													/*/exists Value*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each Field*/
+										]
+										/*/exists Field*/
+									/*/with Fields*/
+									}
+								/*/exists Fields*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each Addressviewsupportdoc*/
+					]
+					/*/exists Addressviewsupportdoc*/
+				/*/with Supporting_Documents*/
+				}
+			/*/exists Supporting_Documents*/
+			/*#exists Product_And_Services*/
+			,"productAndServices": 
+				{
+				/*#with Product_And_Services*/
+					/*#exists Smdmcategorytbl*/
+					"selectedProductsAndServices": [
+						/*#each Smdmcategorytbl*/
+							{
+								/*#exists Internal_Id*/
+									"categoryInternalid": /*preprocess Internal_Id*/
+								/*/exists Internal_Id*/
+								/*#exists External_Id*/
+									,"categoryExternalid": "/*preprocess External_Id*/"
+								/*/exists External_Id*/
+								/*#exists isDelete*/
+									,"isDelete": /*preprocess isDelete*/
+								/*/exists isDelete*/
+								/*#exists Categorycode1*/
+									,"categoryCode1": "/*preprocess Categorycode1*/"
+								/*/exists Categorycode1*/
+								/*#exists Categoryname1*/
+									,"categoryName1": "/*preprocess Categoryname1*/"
+								/*/exists Categoryname1*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each Smdmcategorytbl*/
+					]
+					/*/exists Smdmcategorytbl*/
+				/*/with Product_And_Services*/
+				}
+			/*/exists Product_And_Services*/
+			/*#exists spend_Information*/
+			,"spendInformation": 
+				{
+				/*#with spend_Information*/
+					/*#exists Smdmspendtbl*/
+					"selectedSpendInformation": [
+						/*#each Smdmspendtbl*/
+							{
+								/*#exists Internal_Id*/
+									"Internalid": /*preprocess Internal_Id*/
+								/*/exists Internal_Id*/
+								/*#exists External_Id*/
+									,"externalid": "/*preprocess External_Id*/"
+								/*/exists External_Id*/
+								/*#exists isDelete*/
+									,"isDelete": /*preprocess isDelete*/
+								/*/exists isDelete*/
+								/*#exists Internal_Supplier_Id*/
+									,"InternalSupplierid": /*preprocess Internal_Supplier_Id*/
+								/*/exists Internal_Supplier_Id*/
+								/*#exists External_Supplier_Id*/
+									,"externalSupplierid": "/*preprocess External_Supplier_Id*/"
+								/*/exists External_Supplier_Id*/
+								/*#exists Category_Internal_Id*/
+									,"categoryInternalid": /*preprocess Category_Internal_Id*/
+								/*/exists Category_Internal_Id*/
+								/*#exists Category_External_Id*/
+									,"categoryExternalid": "/*preprocess Category_External_Id*/"
+								/*/exists Category_External_Id*/
+								/*#exists Dbaid*/
+									,"dbaId": /*preprocess Dbaid*/
+								/*/exists Dbaid*/
+								/*#exists Categorycode*/
+									,"categoryCode": "/*preprocess Categorycode*/"
+								/*/exists Categorycode*/
+								/*#exists Currencytype*/
+									,"currencyType": "/*preprocess Currencytype*/"
+								/*/exists Currencytype*/
+								/*#exists Amount*/
+									,"amount": /*preprocess Amount*/
+								/*/exists Amount*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each Smdmspendtbl*/
+					]
+					/*/exists Smdmspendtbl*/
+				/*/with spend_Information*/
+				}
+			/*/exists spend_Information*/
+			/*#exists Certificationdetails*/
+			,"certificationDetails": 
+				{
+				/*#with Certificationdetails*/
+					/*#exists Diversity_Details*/
+					"diversityDetails": [
+						/*#each Diversity_Details*/
+							{
+								/*#exists Internal_Id*/
+									"diversityInternalid": /*preprocess Internal_Id*/
+								/*/exists Internal_Id*/
+								/*#exists External_Id*/
+									,"diversityExternalid": "/*preprocess External_Id*/"
+								/*/exists External_Id*/
+								/*#exists isDelete*/
+									,"isDelete": /*preprocess isDelete*/
+								/*/exists isDelete*/
+								/*#exists Diversity_Code*/
+									,"diversityCode": "/*preprocess Diversity_Code*/"
+								/*/exists Diversity_Code*/
+								/*#exists Certification_Number*/
+									,"certificationNumber": "/*preprocess Certification_Number*/"
+								/*/exists Certification_Number*/
+								/*#exists Diverse_Certification_Doc*/
+									,"diverseCertificationDoc": "/*preprocess Diverse_Certification_Doc*/"
+								/*/exists Diverse_Certification_Doc*/
+								/*#exists Certification_Sources*/
+									,"certificationSources": "/*preprocess Certification_Sources*/"
+								/*/exists Certification_Sources*/
+								/*#exists Ceritfication_Expire_Date*/
+									,"ceritficationExpireDate": /*preprocess Ceritfication_Expire_Date*/
+								/*/exists Ceritfication_Expire_Date*/
+								/*#exists Fields*/
+								,"fields": 
+									{
+									/*#with Fields*/
+										/*#exists Field*/
+										"field": [
+											/*#each Field*/
+												{
+													/*#exists Id*/
+														"id": "/*preprocess Id*/"
+													/*/exists Id*/
+													/*#exists Value*/
+														,"value": "/*preprocess Value*/"
+													/*/exists Value*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each Field*/
+										]
+										/*/exists Field*/
+									/*/with Fields*/
+									}
+								/*/exists Fields*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each Diversity_Details*/
+					]
+					/*/exists Diversity_Details*/
+				/*/with Certificationdetails*/
+				}
+			/*/exists Certificationdetails*/
+			/*#exists Bankdetails*/
+			,"bankDetails": 
+				{
+				/*#with Bankdetails*/
+					/*#exists Bank_Name*/
+						"bankName": "/*preprocess Bank_Name*/"
+					/*/exists Bank_Name*/
+					/*#exists Bank_Account_Number*/
+						,"bankAccountNumber": "/*preprocess Bank_Account_Number*/"
+					/*/exists Bank_Account_Number*/
+					/*#exists Bank_Key*/
+						,"bankKey": "/*preprocess Bank_Key*/"
+					/*/exists Bank_Key*/
+					/*#exists Country_Key*/
+						,"countryKey": "/*preprocess Country_Key*/"
+					/*/exists Country_Key*/
+					/*#exists Account_Holder_Name*/
+						,"accountHolderName": "/*preprocess Account_Holder_Name*/"
+					/*/exists Account_Holder_Name*/
+					/*#exists Account_Type*/
+						,"accountType": "/*preprocess Account_Type*/"
+					/*/exists Account_Type*/
+					/*#exists Account_Status*/
+						,"accountStatus": "/*preprocess Account_Status*/"
+					/*/exists Account_Status*/
+					/*#exists Bank_Phone_Number*/
+						,"bankPhoneNumber": "/*preprocess Bank_Phone_Number*/"
+					/*/exists Bank_Phone_Number*/
+					/*#exists Iban*/
+						,"iban": "/*preprocess Iban*/"
+					/*/exists Iban*/
+					/*#exists Fields*/
+					,"fields": 
+						{
+						/*#with Fields*/
+							/*#exists Field*/
+							"field": [
+								/*#each Field*/
+									{
+										/*#exists Id*/
+											"id": "/*preprocess Id*/"
+										/*/exists Id*/
+										/*#exists Value*/
+											,"value": "/*preprocess Value*/"
+										/*/exists Value*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each Field*/
+							]
+							/*/exists Field*/
+						/*/with Fields*/
+						}
+					/*/exists Fields*/
+				/*/with Bankdetails*/
+				}
+			/*/exists Bankdetails*/
+			/*#exists Financialinformation*/
+			,"financialInformation": 
+				{
+				/*#with Financialinformation*/
+					/*#exists Financial_Validation_Status*/
+						"financialValidationStatus": "/*preprocess Financial_Validation_Status*/"
+					/*/exists Financial_Validation_Status*/
+					/*#exists Stock_Symbol*/
+						,"stockSymbol": "/*preprocess Stock_Symbol*/"
+					/*/exists Stock_Symbol*/
+					/*#exists Is_Bankrupt*/
+						,"isBankrupt": "/*preprocess Is_Bankrupt*/"
+					/*/exists Is_Bankrupt*/
+					/*#exists Banruptcy_Date*/
+						,"bankruptcyDate": /*preprocess Banruptcy_Date*/
+					/*/exists Banruptcy_Date*/
+					/*#exists Current_D_And_B_Rating*/
+						,"currentDAndBRating": "/*preprocess Current_D_And_B_Rating*/"
+					/*/exists Current_D_And_B_Rating*/
+					/*#exists D_And_B_Report*/
+						,"dAndBReport": /*preprocess D_And_B_Report*/
+					/*/exists D_And_B_Report*/
+					/*#exists Financial_Statement*/
+						,"financialStatement": /*preprocess Financial_Statement*/
+					/*/exists Financial_Statement*/
+					/*#exists Credit_Rating*/
+						,"creditRating": "/*preprocess Credit_Rating*/"
+					/*/exists Credit_Rating*/
+					/*#exists Credit_Rating_Bureau*/
+						,"creditRatingBureau": "/*preprocess Credit_Rating_Bureau*/"
+					/*/exists Credit_Rating_Bureau*/
+					/*#exists Fields*/
+					,"fields": 
+						{
+						/*#with Fields*/
+							/*#exists Field*/
+							"field": [
+								/*#each Field*/
+									{
+										/*#exists Id*/
+											"id": "/*preprocess Id*/"
+										/*/exists Id*/
+										/*#exists Value*/
+											,"value": "/*preprocess Value*/"
+										/*/exists Value*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each Field*/
+							]
+							/*/exists Field*/
+						/*/with Fields*/
+						}
+					/*/exists Fields*/
+				/*/with Financialinformation*/
+				}
+			/*/exists Financialinformation*/
+			/*#exists Financialratio*/
+			,"financialRatio": 
+				{
+				/*#with Financialratio*/
+					/*#exists Recent_Financial_Year*/
+						"recentFinancialYear": /*preprocess Recent_Financial_Year*/
+					/*/exists Recent_Financial_Year*/
+					/*#exists Current_Profit_Ratio*/
+						,"currentProfitRatio": /*preprocess Current_Profit_Ratio*/
+					/*/exists Current_Profit_Ratio*/
+					/*#exists Quick_Ratio*/
+						,"quickRatio": /*preprocess Quick_Ratio*/
+					/*/exists Quick_Ratio*/
+					/*#exists Profit_Ratio*/
+						,"profitRatio": /*preprocess Profit_Ratio*/
+					/*/exists Profit_Ratio*/
+					/*#exists Net_Profit_Ratio*/
+						,"netProfitRatio": /*preprocess Net_Profit_Ratio*/
+					/*/exists Net_Profit_Ratio*/
+					/*#exists Fields*/
+					,"fields": 
+						{
+						/*#with Fields*/
+							/*#exists Field*/
+							"field": [
+								/*#each Field*/
+									{
+										/*#exists Id*/
+											"id": "/*preprocess Id*/"
+										/*/exists Id*/
+										/*#exists Value*/
+											,"value": "/*preprocess Value*/"
+										/*/exists Value*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each Field*/
+							]
+							/*/exists Field*/
+						/*/with Fields*/
+						}
+					/*/exists Fields*/
+				/*/with Financialratio*/
+				}
+			/*/exists Financialratio*/
+			/*#exists Insurancedetails*/
+			,"insuranceDetails": 
+				{
+				/*#with Insurancedetails*/
+					/*#exists Is_Supp_Self_Insured*/
+						"isSuppSelfInsured": "/*preprocess Is_Supp_Self_Insured*/"
+					/*/exists Is_Supp_Self_Insured*/
+					/*#exists Insurance_Req_Ack*/
+						,"insuranceReqAck": "/*preprocess Insurance_Req_Ack*/"
+					/*/exists Insurance_Req_Ack*/
+					/*#exists Insurance_Validation_Status*/
+						,"insuranceValidationStatus": "/*preprocess Insurance_Validation_Status*/"
+					/*/exists Insurance_Validation_Status*/
+					/*#exists Insurance_Disqual_Reason*/
+						,"insuranceDisqualReason": "/*preprocess Insurance_Disqual_Reason*/"
+					/*/exists Insurance_Disqual_Reason*/
+					/*#exists Insurance_Type*/
+						,"insuranceType": "/*preprocess Insurance_Type*/"
+					/*/exists Insurance_Type*/
+					/*#exists Coverage_Amount*/
+						,"coverageAmount": /*preprocess Coverage_Amount*/
+					/*/exists Coverage_Amount*/
+					/*#exists Certification_Of_Insurance*/
+						,"certificationOfInsurance": "/*preprocess Certification_Of_Insurance*/"
+					/*/exists Certification_Of_Insurance*/
+					/*#exists Insurance_Expiration_Date*/
+						,"insuranceExpirationDate": /*preprocess Insurance_Expiration_Date*/
+					/*/exists Insurance_Expiration_Date*/
+					/*#exists Is_Insurance_Waiver*/
+						,"isInsuranceWaiver": "/*preprocess Is_Insurance_Waiver*/"
+					/*/exists Is_Insurance_Waiver*/
+					/*#exists Waiver_Comment*/
+						,"waiverComment": "/*preprocess Waiver_Comment*/"
+					/*/exists Waiver_Comment*/
+					/*#exists Waiver_Form*/
+						,"waiverForm": "/*preprocess Waiver_Form*/"
+					/*/exists Waiver_Form*/
+					/*#exists Waiver_Expiration_Date*/
+						,"waiverExpirationDate": /*preprocess Waiver_Expiration_Date*/
+					/*/exists Waiver_Expiration_Date*/
+					/*#exists Insurance_Carrier*/
+						,"insuranceCarrier": "/*preprocess Insurance_Carrier*/"
+					/*/exists Insurance_Carrier*/
+					/*#exists Best_Financial_Size_Rating*/
+						,"bestFinancialSizeRating": "/*preprocess Best_Financial_Size_Rating*/"
+					/*/exists Best_Financial_Size_Rating*/
+					/*#exists Best_Financial_Strength_Rating*/
+						,"bestFinancialStrengthRating": "/*preprocess Best_Financial_Strength_Rating*/"
+					/*/exists Best_Financial_Strength_Rating*/
+					/*#exists Fields*/
+					,"fields": 
+						{
+						/*#with Fields*/
+							/*#exists Field*/
+							"field": [
+								/*#each Field*/
+									{
+										/*#exists Id*/
+											"id": "/*preprocess Id*/"
+										/*/exists Id*/
+										/*#exists Value*/
+											,"value": "/*preprocess Value*/"
+										/*/exists Value*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each Field*/
+							]
+							/*/exists Field*/
+						/*/with Fields*/
+						}
+					/*/exists Fields*/
+				/*/with Insurancedetails*/
+				}
+			/*/exists Insurancedetails*/
+			/*#exists Purchasingdetails*/
+			,"purchasingDetails": 
+				{
+				/*#with Purchasingdetails*/
+					/*#exists Is_Contracted_Supplier*/
+						"isContractedSupplier": "/*preprocess Is_Contracted_Supplier*/"
+					/*/exists Is_Contracted_Supplier*/
+					/*#exists Edi_Indicator*/
+						,"ediIndicator": "/*preprocess Edi_Indicator*/"
+					/*/exists Edi_Indicator*/
+					/*#exists Used_At*/
+						,"usedAt": "/*preprocess Used_At*/"
+					/*/exists Used_At*/
+					/*#exists Edi_Delivery_Method*/
+						,"ediDeliveryMethod": "/*preprocess Edi_Delivery_Method*/"
+					/*/exists Edi_Delivery_Method*/
+					/*#exists Supplier_Type*/
+						,"supplierType": "/*preprocess Supplier_Type*/"
+					/*/exists Supplier_Type*/
+					/*#exists Edi_Comment*/
+						,"ediComment": "/*preprocess Edi_Comment*/"
+					/*/exists Edi_Comment*/
+					/*#exists Supplier_Indicator*/
+						,"supplierIndicator": "/*preprocess Supplier_Indicator*/"
+					/*/exists Supplier_Indicator*/
+					/*#exists Edi_Object_Mode*/
+						,"ediObjectMode": "/*preprocess Edi_Object_Mode*/"
+					/*/exists Edi_Object_Mode*/
+					/*#exists Anticipated_Annual_Tx*/
+						,"anticipatedAnnualTx": "/*preprocess Anticipated_Annual_Tx*/"
+					/*/exists Anticipated_Annual_Tx*/
+					/*#exists Edi_Partner_Id*/
+						,"ediPartnerid": "/*preprocess Edi_Partner_Id*/"
+					/*/exists Edi_Partner_Id*/
+					/*#exists Anticipated_Annual_Spend*/
+						,"anticipatedAnnualSpend": "/*preprocess Anticipated_Annual_Spend*/"
+					/*/exists Anticipated_Annual_Spend*/
+					/*#exists Edi_Gs_Qualifier*/
+						,"ediGsQualifier": "/*preprocess Edi_Gs_Qualifier*/"
+					/*/exists Edi_Gs_Qualifier*/
+					/*#exists Justification_Statement*/
+						,"justificationStatement": "/*preprocess Justification_Statement*/"
+					/*/exists Justification_Statement*/
+					/*#exists Edi_Gs_Address*/
+						,"ediGsAddress": "/*preprocess Edi_Gs_Address*/"
+					/*/exists Edi_Gs_Address*/
+					/*#exists Goods_Receipts_Based_Invoice*/
+						,"goodsReceiptsBasedInvoice": "/*preprocess Goods_Receipts_Based_Invoice*/"
+					/*/exists Goods_Receipts_Based_Invoice*/
+					/*#exists Competitor_Flag*/
+						,"competitorFlag": "/*preprocess Competitor_Flag*/"
+					/*/exists Competitor_Flag*/
+					/*#exists Inco_Terms*/
+						,"incoTerms": "/*preprocess Inco_Terms*/"
+					/*/exists Inco_Terms*/
+					/*#exists Fields*/
+					,"fields": 
+						{
+						/*#with Fields*/
+							/*#exists Field*/
+							"field": [
+								/*#each Field*/
+									{
+										/*#exists Id*/
+											"id": "/*preprocess Id*/"
+										/*/exists Id*/
+										/*#exists Value*/
+											,"value": "/*preprocess Value*/"
+										/*/exists Value*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each Field*/
+							]
+							/*/exists Field*/
+						/*/with Fields*/
+						}
+					/*/exists Fields*/
+				/*/with Purchasingdetails*/
+				}
+			/*/exists Purchasingdetails*/
+			/*#exists Paymentterms*/
+			,"paymentTerms": 
+				{
+				/*#with Paymentterms*/
+					/*#exists Payment_Terms*/
+						"paymentTerms": "/*preprocess Payment_Terms*/"
+					/*/exists Payment_Terms*/
+					/*#exists Payment_Type_Indicator*/
+						,"paymentTypeIndicator": "/*preprocess Payment_Type_Indicator*/"
+					/*/exists Payment_Type_Indicator*/
+					/*#exists Po_Submission*/
+						,"poSubmission": "/*preprocess Po_Submission*/"
+					/*/exists Po_Submission*/
+					/*#exists Po_Revision*/
+						,"poRevision": "/*preprocess Po_Revision*/"
+					/*/exists Po_Revision*/
+					/*#exists Transmission_Mode_Indicator*/
+						,"transmissionModeIndicator": "/*preprocess Transmission_Mode_Indicator*/"
+					/*/exists Transmission_Mode_Indicator*/
+					/*#exists Currency_Type*/
+						,"currencyType": "/*preprocess Currency_Type*/"
+					/*/exists Currency_Type*/
+					/*#exists Fields*/
+					,"fields": 
+						{
+						/*#with Fields*/
+							/*#exists Field*/
+							"field": [
+								/*#each Field*/
+									{
+										/*#exists Id*/
+											"id": "/*preprocess Id*/"
+										/*/exists Id*/
+										/*#exists Value*/
+											,"value": "/*preprocess Value*/"
+										/*/exists Value*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each Field*/
+							]
+							/*/exists Field*/
+						/*/with Fields*/
+						}
+					/*/exists Fields*/
+				/*/with Paymentterms*/
+				}
+			/*/exists Paymentterms*/
+			/*#exists Globalpaymentterms*/
+			,"globalPaymentTerms": 
+				{
+				/*#with Globalpaymentterms*/
+					/*#exists Payment_Terms_G*/
+						"paymentTermsG": "/*preprocess Payment_Terms_G*/"
+					/*/exists Payment_Terms_G*/
+					/*#exists Po_Submission_G*/
+						,"poSubmissionG": "/*preprocess Po_Submission_G*/"
+					/*/exists Po_Submission_G*/
+					/*#exists Payment_Type_Indicator_G*/
+						,"paymentTypeIndicatorG": "/*preprocess Payment_Type_Indicator_G*/"
+					/*/exists Payment_Type_Indicator_G*/
+					/*#exists Currency_Type_G*/
+						,"currencyTypeG": "/*preprocess Currency_Type_G*/"
+					/*/exists Currency_Type_G*/
+					/*#exists Customer_Id_G*/
+						,"customeridG": "/*preprocess Customer_Id_G*/"
+					/*/exists Customer_Id_G*/
+					/*#exists Fields*/
+					,"fields": 
+						{
+						/*#with Fields*/
+							/*#exists Field*/
+							"field": [
+								/*#each Field*/
+									{
+										/*#exists Id*/
+											"id": "/*preprocess Id*/"
+										/*/exists Id*/
+										/*#exists Value*/
+											,"value": "/*preprocess Value*/"
+										/*/exists Value*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each Field*/
+							]
+							/*/exists Field*/
+						/*/with Fields*/
+						}
+					/*/exists Fields*/
+				/*/with Globalpaymentterms*/
+				}
+			/*/exists Globalpaymentterms*/
+			/*#exists Forms*/
+			,"forms": 
+				{
+				/*#with Forms*/
+					/*#exists Form*/
+					"form": [
+						/*#each Form*/
+							{
+								/*#exists Id*/
+									"id": "/*preprocess Id*/"
+								/*/exists Id*/
+								/*#exists Records*/
+								,"records": 
+									{
+									/*#with Records*/
+										/*#exists Record*/
+										"record": [
+											/*#each Record*/
+												{
+													/*#exists Internal_Id*/
+														"Internalid": /*preprocess Internal_Id*/
+													/*/exists Internal_Id*/
+													/*#exists External_Id*/
+														,"externalid": "/*preprocess External_Id*/"
+													/*/exists External_Id*/
+													/*#exists isDelete*/
+														,"isDelete": /*preprocess isDelete*/
+													/*/exists isDelete*/
+													/*#exists Fields*/
+													,"fields": 
+														{
+														/*#with Fields*/
+															/*#exists Field*/
+															"field": [
+																/*#each Field*/
+																	{
+																		/*#exists Id*/
+																			"id": "/*preprocess Id*/"
+																		/*/exists Id*/
+																		/*#exists Value*/
+																			,"value": "/*preprocess Value*/"
+																		/*/exists Value*/
+																	}
+																	/*#unless @last*/,/*/unless*/
+																/*/each Field*/
+															]
+															/*/exists Field*/
+														/*/with Fields*/
+														}
+													/*/exists Fields*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each Record*/
+										]
+										/*/exists Record*/
+									/*/with Records*/
+									}
+								/*/exists Records*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each Form*/
+					]
+					/*/exists Form*/
+				/*/with Forms*/
+				}
+			/*/exists Forms*/
+		/*/with Supplier*/
+		}
+	/*/exists Supplier*/
+}
+}

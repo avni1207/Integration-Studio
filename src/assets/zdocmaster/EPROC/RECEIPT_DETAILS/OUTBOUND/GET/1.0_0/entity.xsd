@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:integration-outbound="http://www.zycus.com/integration/schemas/IntegrationOutbound" targetNamespace="http://www.zycus.com/integration/schemas/IntegrationOutbound" version="1.0">
+  <xs:element name="IntegrationEntities" type="integration-outbound:IntegrationEntities"/>
+  <xs:complexType name="IntegrationEntities">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="integrationEntity" type="integration-outbound:integrationEntity"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="integrationEntity">
+    <xs:all>
+      <xs:element name="integrationEntityHeader" type="integration-outbound:APIIntegrationHeader"/>
+      <xs:element minOccurs="1" name="integrationEntityDetails" type="integration-outbound:integrationEntityDetails"/>
+      <xs:element minOccurs="0" name="processingErrors" type="integration-outbound:processingErrors"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="APIIntegrationHeader">
+    <xs:all>
+      <xs:element name="integrationTrackingNumber" type="xs:string"/>
+      <xs:element minOccurs="1" name="referenceCodeForEntity" type="xs:string"/>
+      <xs:element minOccurs="0" name="additionalInfo" type="xs:string"/>
+      <xs:element minOccurs="0" name="attachments" type="integration-outbound:attachments"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="integrationEntityDetails">
+    <xs:choice>
+      <xs:element maxOccurs="1" minOccurs="1" name="receiptDetails" type="integration-outbound:receiptDetails"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="processingErrors">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="shouldRetry" type="xs:boolean"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="error" type="integration-outbound:error"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="error">
+    <xs:all>
+      <xs:element name="errorCode" type="xs:string"/>
+      <xs:element name="errorDescription" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="attachments">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="attachment" type="integration-outbound:attachment"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="attachment">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="id" type="xs:string"/>
+      <xs:element minOccurs="1" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="size" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="receiptDetails">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="receiptHeader">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="receiptNo" type="xs:string"/>
+            <xs:element minOccurs="1" name="receivedOn" type="xs:long"/>
+            <xs:element minOccurs="0" name="consignmentNo" type="xs:string"/>
+            <xs:element minOccurs="0" name="shippingInfo" type="xs:string"/>
+            <xs:element minOccurs="0" name="airwayBillNo" type="xs:string"/>
+            <xs:element minOccurs="0" name="receiptComments" type="xs:string"/>
+            <xs:element minOccurs="0" name="lastReceiptOfOrder" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="allowInvoiceCreation" type="xs:boolean"/>
+            <xs:element minOccurs="1" name="receiptId" type="xs:string"/>
+            <xs:element minOccurs="0" name="referenceType" type="xs:int"/>
+            <xs:element minOccurs="0" name="referenceValue" type="xs:string"/>
+            <xs:element minOccurs="0" name="erpId" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" name="items">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="item">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" name="poLineNo" type="xs:string"/>
+                  <xs:element minOccurs="1" name="lineItemId" type="xs:string"/>
+                  <xs:element minOccurs="0" name="itemNumber" type="xs:string"/>
+                  <xs:element minOccurs="0" name="itemShortDescription" type="xs:string"/>
+                  <xs:element minOccurs="0" name="itemLongDescription" type="xs:string"/>
+                  <xs:element minOccurs="1" name="itemTypeCode" type="xs:int"/>
+                  <xs:element minOccurs="1" name="itemCategoryCode" type="xs:string"/>
+                  <xs:element minOccurs="1" name="itemCurrencyCode" type="xs:string"/>
+                  <xs:element minOccurs="0" name="unitPrice" type="xs:decimal"/>
+                  <xs:element minOccurs="0" name="manufacturerPartName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="manufacturerPartID" type="xs:string"/>
+                  <xs:element minOccurs="0" name="assetCode" type="xs:string"/>
+                  <xs:element minOccurs="0" name="supplierERPID" type="xs:string"/>
+                  <xs:element minOccurs="1" name="supplierDBAID" type="xs:string"/>
+                  <xs:element minOccurs="1" name="supplierName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="requisitionNumberOfTheItem" type="xs:string"/>
+                  <xs:element minOccurs="0" name="requisitionExternalId" type="xs:string"/>
+                  <xs:element minOccurs="1" name="orderNumberOfTheItem" type="xs:string"/>
+                  <xs:element minOccurs="1" name="orderExternalId" type="xs:string"/>
+                  <xs:element minOccurs="1" name="referenceType" type="xs:int"/>
+                  <xs:element minOccurs="0" name="itemUOMCode" type="xs:string"/>
+                  <xs:element minOccurs="0" name="orderedQuantity" type="xs:decimal"/>
+                  <xs:element minOccurs="1" name="receivedQuantity" type="xs:decimal"/>
+                  <xs:element minOccurs="1" name="approvedQuantity" type="xs:decimal"/>
+                  <xs:element minOccurs="1" name="valueOfAcceptedGoods" type="xs:decimal"/>
+                  <xs:element minOccurs="0" name="receivedItemRating" type="xs:int"/>
+                  <xs:element minOccurs="0" name="itemInternalComments" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

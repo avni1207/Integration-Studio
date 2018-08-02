@@ -1,0 +1,433 @@
+{
+	"integrationEntityDetails": {
+	/*#exists metadataDefinition*/
+	"metadataDefinition": 
+		{
+		/*#with metadataDefinition*/
+			/*#exists contractMetadata*/
+			"contractMetadata": 
+				{
+				/*#with contractMetadata*/
+					/*#exists metadataDetails*/
+					"metadataDetails": [
+						/*#each metadataDetails*/
+							{
+								/*#exists type*/
+									"type": "/*preprocess type*/"
+								/*/exists type*/
+								/*#exists subType*/
+									,"subType": "/*preprocess subType*/"
+								/*/exists subType*/
+								/*#exists fieldMetadata*/
+								,"fieldMetadata": 
+									{
+									/*#with fieldMetadata*/
+										/*#exists fieldDetails*/
+										"fieldDetails": [
+											/*#each fieldDetails*/
+												{
+													/*#exists fieldName*/
+														"fieldName": "/*preprocess fieldName*/"
+													/*/exists fieldName*/
+													/*#exists displayName*/
+														,"displayName": "/*preprocess displayName*/"
+													/*/exists displayName*/
+													/*#exists dataType*/
+														,"dataType": "/*preprocess dataType*/"
+													/*/exists dataType*/
+													/*#exists length*/
+														,"length": "/*preprocess length*/"
+													/*/exists length*/
+													/*#exists mandatory*/
+														,"mandatory": "/*preprocess mandatory*/"
+													/*/exists mandatory*/
+													/*#exists allowedValues*/
+														,"allowedValues": "/*preprocess allowedValues*/"
+													/*/exists allowedValues*/
+													/*#exists defaultValue*/
+														,"defaultValue": "/*preprocess defaultValue*/"
+													/*/exists defaultValue*/
+													/*#exists applicableModules*/
+														,"applicableModules": "/*preprocess applicableModules*/"
+													/*/exists applicableModules*/
+													/*#exists subFields*/
+													,"subFields": 
+														{
+														/*#with subFields*/
+															/*#exists subField*/
+															"subField": [
+																/*#each subField*/
+																	{
+																		/*#exists fieldName*/
+																			"fieldName": "/*preprocess fieldName*/"
+																		/*/exists fieldName*/
+																		/*#exists displayName*/
+																			,"displayName": "/*preprocess displayName*/"
+																		/*/exists displayName*/
+																		/*#exists dataType*/
+																			,"dataType": "/*preprocess dataType*/"
+																		/*/exists dataType*/
+																		/*#exists length*/
+																			,"length": "/*preprocess length*/"
+																		/*/exists length*/
+																		/*#exists mandatory*/
+																			,"mandatory": "/*preprocess mandatory*/"
+																		/*/exists mandatory*/
+																		/*#exists allowedValues*/
+																			,"allowedValues": "/*preprocess allowedValues*/"
+																		/*/exists allowedValues*/
+																		/*#exists defaultValue*/
+																			,"defaultValue": "/*preprocess defaultValue*/"
+																		/*/exists defaultValue*/
+																	}
+																	/*#unless @last*/,/*/unless*/
+																/*/each subField*/
+															]
+															/*/exists subField*/
+														/*/with subFields*/
+														}
+													/*/exists subFields*/
+													/*#exists contractRelationship*/
+														,"contractRelationship": "/*preprocess contractRelationship*/"
+													/*/exists contractRelationship*/
+													/*#exists dependantFields*/
+														,"dependantFields": "/*preprocess dependantFields*/"
+													/*/exists dependantFields*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each fieldDetails*/
+										]
+										/*/exists fieldDetails*/
+									/*/with fieldMetadata*/
+									}
+								/*/exists fieldMetadata*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each metadataDetails*/
+					]
+					/*/exists metadataDetails*/
+				/*/with contractMetadata*/
+				}
+			/*/exists contractMetadata*/
+			/*#exists amendmentMetadata*/
+			,"amendmentMetadata": 
+				{
+				/*#with amendmentMetadata*/
+					/*#exists fieldDetails*/
+					"fieldDetails": [
+						/*#each fieldDetails*/
+							{
+								/*#exists fieldName*/
+									"fieldName": "/*preprocess fieldName*/"
+								/*/exists fieldName*/
+								/*#exists displayName*/
+									,"displayName": "/*preprocess displayName*/"
+								/*/exists displayName*/
+								/*#exists dataType*/
+									,"dataType": "/*preprocess dataType*/"
+								/*/exists dataType*/
+								/*#exists length*/
+									,"length": "/*preprocess length*/"
+								/*/exists length*/
+								/*#exists mandatory*/
+									,"mandatory": "/*preprocess mandatory*/"
+								/*/exists mandatory*/
+								/*#exists allowedValues*/
+									,"allowedValues": "/*preprocess allowedValues*/"
+								/*/exists allowedValues*/
+								/*#exists defaultValue*/
+									,"defaultValue": "/*preprocess defaultValue*/"
+								/*/exists defaultValue*/
+								/*#exists applicableModules*/
+									,"applicableModules": "/*preprocess applicableModules*/"
+								/*/exists applicableModules*/
+								/*#exists amendmentRelationship*/
+									,"amendmentRelationship": "/*preprocess amendmentRelationship*/"
+								/*/exists amendmentRelationship*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each fieldDetails*/
+					]
+					/*/exists fieldDetails*/
+				/*/with amendmentMetadata*/
+				}
+			/*/exists amendmentMetadata*/
+			/*#exists documentMetadata*/
+			,"documentMetadata": 
+				{
+				/*#with documentMetadata*/
+					/*#exists metadataDetails*/
+					"metadataDetails": [
+						/*#each metadataDetails*/
+							{
+								/*#exists type*/
+									"type": "/*preprocess type*/"
+								/*/exists type*/
+								/*#exists subType*/
+									,"subType": "/*preprocess subType*/"
+								/*/exists subType*/
+								/*#exists contractDocumentMetadata*/
+								,"contractDocumentMetadata": 
+									{
+									/*#with contractDocumentMetadata*/
+										/*#exists fieldDetails*/
+										"fieldDetails": [
+											/*#each fieldDetails*/
+												{
+													/*#exists fieldName*/
+														"fieldName": "/*preprocess fieldName*/"
+													/*/exists fieldName*/
+													/*#exists displayName*/
+														,"displayName": "/*preprocess displayName*/"
+													/*/exists displayName*/
+													/*#exists dataType*/
+														,"dataType": "/*preprocess dataType*/"
+													/*/exists dataType*/
+													/*#exists length*/
+														,"length": "/*preprocess length*/"
+													/*/exists length*/
+													/*#exists mandatory*/
+														,"mandatory": "/*preprocess mandatory*/"
+													/*/exists mandatory*/
+													/*#exists allowedValues*/
+														,"allowedValues": "/*preprocess allowedValues*/"
+													/*/exists allowedValues*/
+													/*#exists defaultValue*/
+														,"defaultValue": "/*preprocess defaultValue*/"
+													/*/exists defaultValue*/
+													/*#exists applicableModules*/
+														,"applicableModules": "/*preprocess applicableModules*/"
+													/*/exists applicableModules*/
+													/*#exists contractDocumentRelationship*/
+														,"contractDocumentRelationship": "/*preprocess contractDocumentRelationship*/"
+													/*/exists contractDocumentRelationship*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each fieldDetails*/
+										]
+										/*/exists fieldDetails*/
+									/*/with contractDocumentMetadata*/
+									}
+								/*/exists contractDocumentMetadata*/
+								/*#exists amendmentDocumentMetadata*/
+								,"amendmentDocumentMetadata": 
+									{
+									/*#with amendmentDocumentMetadata*/
+										/*#exists fieldDetails*/
+										"fieldDetails": [
+											/*#each fieldDetails*/
+												{
+													/*#exists fieldName*/
+														"fieldName": "/*preprocess fieldName*/"
+													/*/exists fieldName*/
+													/*#exists displayName*/
+														,"displayName": "/*preprocess displayName*/"
+													/*/exists displayName*/
+													/*#exists dataType*/
+														,"dataType": "/*preprocess dataType*/"
+													/*/exists dataType*/
+													/*#exists length*/
+														,"length": "/*preprocess length*/"
+													/*/exists length*/
+													/*#exists mandatory*/
+														,"mandatory": "/*preprocess mandatory*/"
+													/*/exists mandatory*/
+													/*#exists allowedValues*/
+														,"allowedValues": "/*preprocess allowedValues*/"
+													/*/exists allowedValues*/
+													/*#exists defaultValue*/
+														,"defaultValue": "/*preprocess defaultValue*/"
+													/*/exists defaultValue*/
+													/*#exists applicableModules*/
+														,"applicableModules": "/*preprocess applicableModules*/"
+													/*/exists applicableModules*/
+													/*#exists amendmentDocumentRelationship*/
+														,"amendmentDocumentRelationship": "/*preprocess amendmentDocumentRelationship*/"
+													/*/exists amendmentDocumentRelationship*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each fieldDetails*/
+										]
+										/*/exists fieldDetails*/
+									/*/with amendmentDocumentMetadata*/
+									}
+								/*/exists amendmentDocumentMetadata*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each metadataDetails*/
+					]
+					/*/exists metadataDetails*/
+				/*/with documentMetadata*/
+				}
+			/*/exists documentMetadata*/
+			/*#exists lineItemMetadata*/
+			,"lineItemMetadata": 
+				{
+				/*#with lineItemMetadata*/
+					/*#exists fieldDetails*/
+					"fieldDetails": [
+						/*#each fieldDetails*/
+							{
+								/*#exists fieldName*/
+									"fieldName": "/*preprocess fieldName*/"
+								/*/exists fieldName*/
+								/*#exists displayName*/
+									,"displayName": "/*preprocess displayName*/"
+								/*/exists displayName*/
+								/*#exists dataType*/
+									,"dataType": "/*preprocess dataType*/"
+								/*/exists dataType*/
+								/*#exists length*/
+									,"length": "/*preprocess length*/"
+								/*/exists length*/
+								/*#exists mandatory*/
+									,"mandatory": "/*preprocess mandatory*/"
+								/*/exists mandatory*/
+								/*#exists allowedValues*/
+									,"allowedValues": "/*preprocess allowedValues*/"
+								/*/exists allowedValues*/
+								/*#exists defaultValue*/
+									,"defaultValue": "/*preprocess defaultValue*/"
+								/*/exists defaultValue*/
+								/*#exists applicableModules*/
+									,"applicableModules": "/*preprocess applicableModules*/"
+								/*/exists applicableModules*/
+								/*#exists subFields*/
+								,"subFields": 
+									{
+									/*#with subFields*/
+										/*#exists subField*/
+										"subField": [
+											/*#each subField*/
+												{
+													/*#exists fieldName*/
+														"fieldName": "/*preprocess fieldName*/"
+													/*/exists fieldName*/
+													/*#exists displayName*/
+														,"displayName": "/*preprocess displayName*/"
+													/*/exists displayName*/
+													/*#exists dataType*/
+														,"dataType": "/*preprocess dataType*/"
+													/*/exists dataType*/
+													/*#exists length*/
+														,"length": "/*preprocess length*/"
+													/*/exists length*/
+													/*#exists mandatory*/
+														,"mandatory": "/*preprocess mandatory*/"
+													/*/exists mandatory*/
+													/*#exists allowedValues*/
+														,"allowedValues": "/*preprocess allowedValues*/"
+													/*/exists allowedValues*/
+													/*#exists defaultValue*/
+														,"defaultValue": "/*preprocess defaultValue*/"
+													/*/exists defaultValue*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each subField*/
+										]
+										/*/exists subField*/
+									/*/with subFields*/
+									}
+								/*/exists subFields*/
+								/*#exists lineItemRelationship*/
+									,"lineItemRelationship": "/*preprocess lineItemRelationship*/"
+								/*/exists lineItemRelationship*/
+								/*#exists dependantFields*/
+									,"dependantFields": "/*preprocess dependantFields*/"
+								/*/exists dependantFields*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each fieldDetails*/
+					]
+					/*/exists fieldDetails*/
+				/*/with lineItemMetadata*/
+				}
+			/*/exists lineItemMetadata*/
+			/*#exists milestoneMetadata*/
+			,"milestoneMetadata": 
+				{
+				/*#with milestoneMetadata*/
+					/*#exists fieldDetails*/
+					"fieldDetails": [
+						/*#each fieldDetails*/
+							{
+								/*#exists fieldName*/
+									"fieldName": "/*preprocess fieldName*/"
+								/*/exists fieldName*/
+								/*#exists displayName*/
+									,"displayName": "/*preprocess displayName*/"
+								/*/exists displayName*/
+								/*#exists dataType*/
+									,"dataType": "/*preprocess dataType*/"
+								/*/exists dataType*/
+								/*#exists length*/
+									,"length": "/*preprocess length*/"
+								/*/exists length*/
+								/*#exists mandatory*/
+									,"mandatory": "/*preprocess mandatory*/"
+								/*/exists mandatory*/
+								/*#exists allowedValues*/
+									,"allowedValues": "/*preprocess allowedValues*/"
+								/*/exists allowedValues*/
+								/*#exists defaultValue*/
+									,"defaultValue": "/*preprocess defaultValue*/"
+								/*/exists defaultValue*/
+								/*#exists applicableModules*/
+									,"applicableModules": "/*preprocess applicableModules*/"
+								/*/exists applicableModules*/
+								/*#exists subFields*/
+								,"subFields": 
+									{
+									/*#with subFields*/
+										/*#exists subField*/
+										"subField": [
+											/*#each subField*/
+												{
+													/*#exists fieldName*/
+														"fieldName": "/*preprocess fieldName*/"
+													/*/exists fieldName*/
+													/*#exists displayName*/
+														,"displayName": "/*preprocess displayName*/"
+													/*/exists displayName*/
+													/*#exists dataType*/
+														,"dataType": "/*preprocess dataType*/"
+													/*/exists dataType*/
+													/*#exists length*/
+														,"length": "/*preprocess length*/"
+													/*/exists length*/
+													/*#exists mandatory*/
+														,"mandatory": "/*preprocess mandatory*/"
+													/*/exists mandatory*/
+													/*#exists allowedValues*/
+														,"allowedValues": "/*preprocess allowedValues*/"
+													/*/exists allowedValues*/
+													/*#exists defaultValue*/
+														,"defaultValue": "/*preprocess defaultValue*/"
+													/*/exists defaultValue*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each subField*/
+										]
+										/*/exists subField*/
+									/*/with subFields*/
+									}
+								/*/exists subFields*/
+								/*#exists milestoneRelationship*/
+									,"milestoneRelationship": "/*preprocess milestoneRelationship*/"
+								/*/exists milestoneRelationship*/
+								/*#exists dependantFields*/
+									,"dependantFields": "/*preprocess dependantFields*/"
+								/*/exists dependantFields*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each fieldDetails*/
+					]
+					/*/exists fieldDetails*/
+				/*/with milestoneMetadata*/
+				}
+			/*/exists milestoneMetadata*/
+		/*/with metadataDefinition*/
+		}
+	/*/exists metadataDefinition*/
+}
+}

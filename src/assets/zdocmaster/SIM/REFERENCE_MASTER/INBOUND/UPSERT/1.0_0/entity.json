@@ -1,0 +1,54 @@
+{
+	"integrationEntityDetails": {
+	/*#exists referenceMaster*/
+	"referenceMaster": 
+		{
+		/*#with referenceMaster*/
+			/*#exists id*/
+				"ID": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists createdBy*/
+				,"Created_By": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"Created_On": /*preprocess createdOn*/
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"Updated_By": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"Updated_On": /*preprocess updatedOn*/
+			/*/exists updatedOn*/
+			/*#exists referenceMasterName*/
+				,"referenceMasterName": "/*preprocess referenceMasterName*/"
+			/*/exists referenceMasterName*/
+			/*#exists referenceExternalID*/
+				,"referenceExternalID": "/*preprocess referenceExternalID*/"
+			/*/exists referenceExternalID*/
+			/*#exists columns*/
+			,"columns": 
+				{
+				/*#each columns*/
+					/*#exists column*/
+					"column": [
+						/*#each column*/
+							{
+								/*#exists columnName*/
+									"columnName": "/*preprocess columnName*/"
+								/*/exists columnName*/
+								/*#exists columnValue*/
+									,"columnValue": "/*preprocess columnValue*/"
+								/*/exists columnValue*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each column*/
+					]
+					/*/exists column*/
+				/*/each columns*/
+				}
+			/*/exists columns*/
+		/*/with referenceMaster*/
+		}
+	/*/exists referenceMaster*/
+}
+}

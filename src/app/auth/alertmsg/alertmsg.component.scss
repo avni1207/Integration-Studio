@@ -1,0 +1,12 @@
+.alert .close{
+  cursor: pointer;
+  opacity: 1;
+}
+.customalert{
+  margin: 20px 20px 0 85px;
+}
+.customalert.alert-success{
+  background: #00875a;
+  color: white;
+  border: 0px;
+}

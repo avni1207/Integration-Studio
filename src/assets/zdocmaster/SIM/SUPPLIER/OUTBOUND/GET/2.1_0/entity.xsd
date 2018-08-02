@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:integration-outbound="http://www.zycus.com/integration/schemas/IntegrationOutbound" targetNamespace="http://www.zycus.com/integration/schemas/IntegrationOutbound" version="1.0">
+  <xs:element name="IntegrationEntities" type="integration-outbound:IntegrationEntities"/>
+  <xs:complexType name="IntegrationEntities">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="integrationEntity" type="integration-outbound:integrationEntity"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="integrationEntity">
+    <xs:all>
+      <xs:element name="integrationEntityHeader" type="integration-outbound:APIIntegrationHeader"/>
+      <xs:element minOccurs="1" name="integrationEntityDetails" type="integration-outbound:integrationEntityDetails"/>
+      <xs:element minOccurs="0" name="processingErrors" type="integration-outbound:processingErrors"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="APIIntegrationHeader">
+    <xs:all>
+      <xs:element name="integrationTrackingNumber" type="xs:string"/>
+      <xs:element minOccurs="1" name="referenceCodeForEntity" type="xs:string"/>
+      <xs:element minOccurs="0" name="additionalInfo" type="xs:string"/>
+      <xs:element minOccurs="0" name="attachments" type="integration-outbound:attachments"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="integrationEntityDetails">
+    <xs:choice>
+      <xs:element maxOccurs="1" minOccurs="1" name="supplier" type="integration-outbound:supplier"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="processingErrors">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="shouldRetry" type="xs:boolean"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="error" type="integration-outbound:error"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="error">
+    <xs:all>
+      <xs:element name="errorCode" type="xs:string"/>
+      <xs:element name="errorDescription" type="xs:string"/>
+      <xs:element name="action" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="attachments">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="attachment" type="integration-outbound:attachment"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="attachment">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="id" type="xs:string"/>
+      <xs:element minOccurs="1" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="size" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="supplier">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="requestId" type="xs:long"/>
+      <xs:element minOccurs="1" name="controlBlock">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="dataProcessingInfo">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" name="key" type="xs:string"/>
+                  <xs:element minOccurs="1" name="value" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="externalid" type="xs:string"/>
+      <xs:element minOccurs="0" name="existingExternalSupplierid" type="xs:string"/>
+      <xs:element minOccurs="0" name="facilityCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="systemCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="mandatoryFieldsFlag" type="xs:string"/>
+      <xs:element minOccurs="1" name="supplierType" type="xs:string"/>
+      <xs:element minOccurs="0" name="existingSupplierStatus" type="xs:string"/>
+      <xs:element minOccurs="0" name="systemFacilityDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="systemFacilityDetail">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="facilityCode" type="xs:string"/>
+                  <xs:element minOccurs="0" name="systemCode" type="xs:string"/>
+                  <xs:element minOccurs="0" name="FacilityStatus" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="status" type="xs:string"/>
+      <xs:element minOccurs="1" name="companyDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="displayGSID" type="xs:string"/>
+            <xs:element minOccurs="0" name="confAgreeDoc" type="xs:string"/>
+            <xs:element minOccurs="0" name="legalCompanyName" type="xs:string"/>
+            <xs:element minOccurs="0" name="dunsNumber" type="xs:string"/>
+            <xs:element minOccurs="0" name="legalStructure" type="xs:string"/>
+            <xs:element minOccurs="0" name="formerCompanyName" type="xs:string"/>
+            <xs:element minOccurs="0" name="keyword" type="xs:string"/>
+            <xs:element minOccurs="0" name="website" type="xs:string"/>
+            <xs:element minOccurs="0" name="noEmp" type="xs:integer"/>
+            <xs:element minOccurs="0" name="yearCompanyEstd" type="xs:long"/>
+            <xs:element minOccurs="0" name="grossAnnualSales" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="companyIndicator1099" type="xs:string"/>
+            <xs:element minOccurs="0" name="comments" type="xs:string"/>
+            <xs:element minOccurs="0" name="nnnnCompExempted" type="xs:string"/>
+            <xs:element minOccurs="0" name="taxidAndWxformRequired" type="xs:string"/>
+            <xs:element minOccurs="0" name="taxidFormat" type="xs:string"/>
+            <xs:element minOccurs="0" name="wxForm" type="xs:string"/>
+            <xs:element minOccurs="0" name="taxid" type="xs:string"/>
+            <xs:element minOccurs="0" name="wxRecvdDate" type="xs:long"/>
+            <xs:element minOccurs="0" name="parentidentifier" type="xs:string"/>
+            <xs:element minOccurs="0" name="ultParentidentfier" type="xs:string"/>
+            <xs:element minOccurs="0" name="parentName" type="xs:string"/>
+            <xs:element minOccurs="0" name="ultParentName" type="xs:string"/>
+            <xs:element minOccurs="0" name="companyTypeFix" type="xs:string"/>
+            <xs:element minOccurs="0" name="fields">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="field">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="id" type="xs:string"/>
+                        <xs:element minOccurs="0" name="value" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="taxInformation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="abnNumberFixed" type="xs:string"/>
+            <xs:element minOccurs="0" name="acnNumberFixed" type="xs:string"/>
+            <xs:element minOccurs="0" name="fields">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="field">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="id" type="xs:string"/>
+                        <xs:element minOccurs="0" name="value" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="dbaAliases">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="dbaAlias">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="dbaInternalid" type="xs:long"/>
+                  <xs:element minOccurs="0" name="dbaExternalid" type="xs:string"/>
+                  <xs:element minOccurs="0" name="isDelete" type="xs:boolean"/>
+                  <xs:element minOccurs="0" name="name" type="xs:string"/>
+                  <xs:element minOccurs="0" name="nametype" type="xs:string"/>
+                  <xs:element minOccurs="0" name="separateAddress" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="companyReferences">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="companyReference">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="companyRefInternalid" type="xs:long"/>
+                  <xs:element minOccurs="0" name="companyRefExternalid" type="xs:string"/>
+                  <xs:element minOccurs="0" name="isDelete" type="xs:boolean"/>
+                  <xs:element minOccurs="0" name="compRefName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="compRefContactName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="compRefPhoneNo" type="xs:string"/>
+                  <xs:element minOccurs="0" name="compRefCellNo" type="xs:string"/>
+                  <xs:element minOccurs="0" name="compRefEmail" type="xs:string"/>
+                  <xs:element minOccurs="0" name="fields">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="field">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="id" type="xs:string"/>
+                              <xs:element minOccurs="0" name="value" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="corporateFields">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="corporateField">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="corporateFieldsInternalid" type="xs:long"/>
+                  <xs:element minOccurs="0" name="corporateFieldsExternalid" type="xs:string"/>
+                  <xs:element minOccurs="0" name="isDelete" type="xs:boolean"/>
+                  <xs:element minOccurs="0" name="executiveName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="execTitle" type="xs:string"/>
+                  <xs:element minOccurs="0" name="execPhoneNo" type="xs:string"/>
+                  <xs:element minOccurs="0" name="execCellNo" type="xs:string"/>
+                  <xs:element minOccurs="0" name="fax" type="xs:string"/>
+                  <xs:element minOccurs="0" name="email" type="xs:string"/>
+                  <xs:element minOccurs="0" name="fields">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="field">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="id" type="xs:string"/>
+                              <xs:element minOccurs="0" name="value" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="companyDetailsSupportingDoc">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="supportingDocumentsForCompanyInformation">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="companySupportingDocsInternalid" type="xs:long"/>
+                  <xs:element minOccurs="0" name="companySupportingDocsExternalid" type="xs:string"/>
+                  <xs:element minOccurs="0" name="isDelete" type="xs:boolean"/>
+                  <xs:element minOccurs="0" name="cdSupportDocument" type="xs:string"/>
+                  <xs:element minOccurs="0" name="cdSupportDocRecvdDate" type="xs:long"/>
+                  <xs:element minOccurs="0" name="cdSupportDocComment" type="xs:string"/>
+                  <xs:element minOccurs="0" name="fields">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="field">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="id" type="xs:string"/>
+                              <xs:element minOccurs="0" name="value" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="allLocations">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="location">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="addressInternalid" type="xs:long"/>
+                  <xs:element minOccurs="0" name="addressExternalid" type="xs:string"/>
+                  <xs:element minOccurs="0" name="isDelete" type="xs:boolean"/>
+                  <xs:element minOccurs="0" name="internalSupplierid" type="xs:long"/>
+                  <xs:element minOccurs="0" name="externalSupplierid" type="xs:string"/>
+                  <xs:element minOccurs="0" name="acctGrpid" type="xs:string"/>
+                  <xs:element minOccurs="0" name="address1" type="xs:string"/>
+                  <xs:element minOccurs="0" name="address2" type="xs:string"/>
+                  <xs:element minOccurs="0" name="address3" type="xs:string"/>
+                  <xs:element minOccurs="0" name="poBox" type="xs:string"/>
+                  <xs:element minOccurs="0" name="country" type="xs:string"/>
+                  <xs:element minOccurs="0" name="state" type="xs:string"/>
+                  <xs:element minOccurs="0" name="city" type="xs:string"/>
+                  <xs:element minOccurs="0" name="zip" type="xs:string"/>
+                  <xs:element minOccurs="0" name="phone" type="xs:string"/>
+                  <xs:element minOccurs="0" name="phoneExtn" type="xs:string"/>
+                  <xs:element minOccurs="0" name="fax" type="xs:string"/>
+                  <xs:element minOccurs="0" name="faxExtn" type="xs:string"/>
+                  <xs:element minOccurs="0" name="remitToAddressid" type="xs:integer"/>
+                  <xs:element minOccurs="0" name="externalRtAddress" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="contactDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="contactDetail">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="contactInternalid" type="xs:long"/>
+                  <xs:element minOccurs="0" name="contactExternalid" type="xs:string"/>
+                  <xs:element minOccurs="0" name="isDelete" type="xs:boolean"/>
+                  <xs:element minOccurs="0" name="addressInternalid" type="xs:long"/>
+                  <xs:element minOccurs="0" name="addressExternalid" type="xs:string"/>
+                  <xs:element minOccurs="0" name="contactType" type="xs:string"/>
+                  <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="middleName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="title" type="xs:string"/>
+                  <xs:element minOccurs="0" name="email" type="xs:string"/>
+                  <xs:element minOccurs="0" name="phoneNo" type="xs:string"/>
+                  <xs:element minOccurs="0" name="phoneExtn" type="xs:string"/>
+                  <xs:element minOccurs="0" name="cellNo" type="xs:string"/>
+                  <xs:element minOccurs="0" name="fax" type="xs:string"/>
+                  <xs:element minOccurs="0" name="faxExtn" type="xs:string"/>
+                  <xs:element minOccurs="0" name="timeZone" type="xs:string"/>
+                  <xs:element minOccurs="0" name="language" type="xs:string"/>
+                  <xs:element minOccurs="0" name="dateFormat" type="xs:string"/>
+                  <xs:element minOccurs="0" name="numberFormat" type="xs:string"/>
+                  <xs:element minOccurs="0" name="currency" type="xs:string"/>
+                  <xs:element minOccurs="0" name="createPortalLogin" type="xs:string"/>
+                  <xs:element minOccurs="0" name="allowedPortalSideProducts" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="remitToAddressDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="remitToAddressDetails">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="remitToInternalid" type="xs:long"/>
+                  <xs:element minOccurs="0" name="remitToExternalid" type="xs:string"/>
+                  <xs:element minOccurs="0" name="isDelete" type="xs:boolean"/>
+                  <xs:element minOccurs="0" name="addressInternalid" type="xs:long"/>
+                  <xs:element minOccurs="0" name="addressExternalid" type="xs:string"/>
+                  <xs:element minOccurs="0" name="paymentType" type="xs:string"/>
+                  <xs:element minOccurs="0" name="currencyType" type="xs:string"/>
+                  <xs:element minOccurs="0" name="comment" type="xs:string"/>
+                  <xs:element minOccurs="0" name="fields">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="field">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="id" type="xs:string"/>
+                              <xs:element minOccurs="0" name="value" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="myLocation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="addresses">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="myLocationsInternalid" type="xs:long"/>
+                  <xs:element minOccurs="0" name="myLocationsExternalid" type="xs:string"/>
+                  <xs:element minOccurs="0" name="isDelete" type="xs:boolean"/>
+                  <xs:element minOccurs="0" name="addressInternalid" type="xs:long"/>
+                  <xs:element minOccurs="0" name="addressExternalid" type="xs:string"/>
+                  <xs:element minOccurs="0" name="usedAt" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="supportingDocuments">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="addressviewSupportingDoc">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="addressSupportingDocsInternalid" type="xs:long"/>
+                  <xs:element minOccurs="0" name="addressSupportingDocsExternalid" type="xs:string"/>
+                  <xs:element minOccurs="0" name="isDelete" type="xs:boolean"/>
+                  <xs:element minOccurs="0" name="avSupportDocument" type="xs:string"/>
+                  <xs:element minOccurs="0" name="avSupportDocRecvdDate" type="xs:long"/>
+                  <xs:element minOccurs="0" name="avSupportDocComment" type="xs:string"/>
+                  <xs:element minOccurs="0" name="fields">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="field">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="id" type="xs:string"/>
+                              <xs:element minOccurs="0" name="value" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="productAndServices">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="selectedProductsAndServices">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="categoryInternalid" type="xs:long"/>
+                  <xs:element minOccurs="0" name="categoryExternalid" type="xs:string"/>
+                  <xs:element minOccurs="0" name="isDelete" type="xs:boolean"/>
+                  <xs:element minOccurs="0" name="categoryCode1" type="xs:string"/>
+                  <xs:element minOccurs="0" name="categoryName1" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="spendInformation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="selectedSpendInformation">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="Internalid" type="xs:long"/>
+                  <xs:element minOccurs="0" name="externalid" type="xs:string"/>
+                  <xs:element minOccurs="0" name="isDelete" type="xs:boolean"/>
+                  <xs:element minOccurs="0" name="InternalSupplierid" type="xs:long"/>
+                  <xs:element minOccurs="0" name="externalSupplierid" type="xs:string"/>
+                  <xs:element minOccurs="0" name="categoryInternalid" type="xs:long"/>
+                  <xs:element minOccurs="0" name="categoryExternalid" type="xs:string"/>
+                  <xs:element minOccurs="0" name="dbaId" type="xs:integer"/>
+                  <xs:element minOccurs="0" name="categoryCode" type="xs:string"/>
+                  <xs:element minOccurs="0" name="currencyType" type="xs:string"/>
+                  <xs:element minOccurs="0" name="amount" type="xs:decimal"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="certificationDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="diversityDetails">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="diversityInternalid" type="xs:long"/>
+                  <xs:element minOccurs="0" name="diversityExternalid" type="xs:string"/>
+                  <xs:element minOccurs="0" name="isDelete" type="xs:boolean"/>
+                  <xs:element minOccurs="0" name="diversityCode" type="xs:string"/>
+                  <xs:element minOccurs="0" name="certificationNumber" type="xs:string"/>
+                  <xs:element minOccurs="0" name="diverseCertificationDoc" type="xs:string"/>
+                  <xs:element minOccurs="0" name="certificationSources" type="xs:string"/>
+                  <xs:element minOccurs="0" name="ceritficationExpireDate" type="xs:long"/>
+                  <xs:element minOccurs="0" name="fields">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="field">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="id" type="xs:string"/>
+                              <xs:element minOccurs="0" name="value" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="bankDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="bankName" type="xs:string"/>
+            <xs:element minOccurs="0" name="bankAccountNumber" type="xs:string"/>
+            <xs:element minOccurs="0" name="bankKey" type="xs:string"/>
+            <xs:element minOccurs="0" name="countryKey" type="xs:string"/>
+            <xs:element minOccurs="0" name="accountHolderName" type="xs:string"/>
+            <xs:element minOccurs="0" name="accountType" type="xs:string"/>
+            <xs:element minOccurs="0" name="accountStatus" type="xs:string"/>
+            <xs:element minOccurs="0" name="bankPhoneNumber" type="xs:string"/>
+            <xs:element minOccurs="0" name="iban" type="xs:string"/>
+            <xs:element minOccurs="0" name="fields">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="field">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="id" type="xs:string"/>
+                        <xs:element minOccurs="0" name="value" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="financialInformation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="financialValidationStatus" type="xs:string"/>
+            <xs:element minOccurs="0" name="stockSymbol" type="xs:string"/>
+            <xs:element minOccurs="0" name="isBankrupt" type="xs:string"/>
+            <xs:element minOccurs="0" name="bankruptcyDate" type="xs:long"/>
+            <xs:element minOccurs="0" name="currentDAndBRating" type="xs:string"/>
+            <xs:element minOccurs="0" name="dAndBReport" type="xs:integer"/>
+            <xs:element minOccurs="0" name="financialStatement" type="xs:integer"/>
+            <xs:element minOccurs="0" name="creditRating" type="xs:string"/>
+            <xs:element minOccurs="0" name="creditRatingBureau" type="xs:string"/>
+            <xs:element minOccurs="0" name="fields">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="field">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="id" type="xs:string"/>
+                        <xs:element minOccurs="0" name="value" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="financialRatio">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="recentFinancialYear" type="xs:long"/>
+            <xs:element minOccurs="0" name="currentProfitRatio" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="quickRatio" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="profitRatio" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="netProfitRatio" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="fields">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="field">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="id" type="xs:string"/>
+                        <xs:element minOccurs="0" name="value" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="insuranceDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="isSuppSelfInsured" type="xs:string"/>
+            <xs:element minOccurs="0" name="insuranceReqAck" type="xs:string"/>
+            <xs:element minOccurs="0" name="insuranceValidationStatus" type="xs:string"/>
+            <xs:element minOccurs="0" name="insuranceDisqualReason" type="xs:string"/>
+            <xs:element minOccurs="0" name="insuranceType" type="xs:string"/>
+            <xs:element minOccurs="0" name="coverageAmount" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="certificationOfInsurance" type="xs:string"/>
+            <xs:element minOccurs="0" name="insuranceExpirationDate" type="xs:long"/>
+            <xs:element minOccurs="0" name="isInsuranceWaiver" type="xs:string"/>
+            <xs:element minOccurs="0" name="waiverComment" type="xs:string"/>
+            <xs:element minOccurs="0" name="waiverForm" type="xs:string"/>
+            <xs:element minOccurs="0" name="waiverExpirationDate" type="xs:long"/>
+            <xs:element minOccurs="0" name="insuranceCarrier" type="xs:string"/>
+            <xs:element minOccurs="0" name="bestFinancialSizeRating" type="xs:string"/>
+            <xs:element minOccurs="0" name="bestFinancialStrengthRating" type="xs:string"/>
+            <xs:element minOccurs="0" name="fields">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="field">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="id" type="xs:string"/>
+                        <xs:element minOccurs="0" name="value" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="purchasingDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="isContractedSupplier" type="xs:string"/>
+            <xs:element minOccurs="0" name="ediIndicator" type="xs:string"/>
+            <xs:element minOccurs="0" name="usedAt" type="xs:string"/>
+            <xs:element minOccurs="0" name="ediDeliveryMethod" type="xs:string"/>
+            <xs:element minOccurs="0" name="supplierType" type="xs:string"/>
+            <xs:element minOccurs="0" name="ediComment" type="xs:string"/>
+            <xs:element minOccurs="0" name="supplierIndicator" type="xs:string"/>
+            <xs:element minOccurs="0" name="ediObjectMode" type="xs:string"/>
+            <xs:element minOccurs="0" name="anticipatedAnnualTx" type="xs:string"/>
+            <xs:element minOccurs="0" name="ediPartnerid" type="xs:string"/>
+            <xs:element minOccurs="0" name="anticipatedAnnualSpend" type="xs:string"/>
+            <xs:element minOccurs="0" name="ediGsQualifier" type="xs:string"/>
+            <xs:element minOccurs="0" name="justificationStatement" type="xs:string"/>
+            <xs:element minOccurs="0" name="ediGsAddress" type="xs:string"/>
+            <xs:element minOccurs="0" name="goodsReceiptsBasedInvoice" type="xs:string"/>
+            <xs:element minOccurs="0" name="competitorFlag" type="xs:string"/>
+            <xs:element minOccurs="0" name="incoTerms" type="xs:string"/>
+            <xs:element minOccurs="0" name="fields">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="field">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="id" type="xs:string"/>
+                        <xs:element minOccurs="0" name="value" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="paymentTerms">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="paymentTerms" type="xs:string"/>
+            <xs:element minOccurs="0" name="paymentTypeIndicator" type="xs:string"/>
+            <xs:element minOccurs="0" name="poSubmission" type="xs:string"/>
+            <xs:element minOccurs="0" name="poRevision" type="xs:string"/>
+            <xs:element minOccurs="0" name="transmissionModeIndicator" type="xs:string"/>
+            <xs:element minOccurs="0" name="currencyType" type="xs:string"/>
+            <xs:element minOccurs="0" name="fields">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="field">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="id" type="xs:string"/>
+                        <xs:element minOccurs="0" name="value" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="globalPaymentTerms">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="paymentTermsG" type="xs:string"/>
+            <xs:element minOccurs="0" name="poSubmissionG" type="xs:string"/>
+            <xs:element minOccurs="0" name="paymentTypeIndicatorG" type="xs:string"/>
+            <xs:element minOccurs="0" name="currencyTypeG" type="xs:string"/>
+            <xs:element minOccurs="0" name="customeridG" type="xs:string"/>
+            <xs:element minOccurs="0" name="fields">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="field">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="id" type="xs:string"/>
+                        <xs:element minOccurs="0" name="value" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="forms">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="form">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="id" type="xs:string"/>
+                  <xs:element minOccurs="0" name="records">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="record">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="Internalid" type="xs:long"/>
+                              <xs:element minOccurs="0" name="externalid" type="xs:string"/>
+                              <xs:element minOccurs="0" name="isDelete" type="xs:boolean"/>
+                              <xs:element minOccurs="0" name="fields">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="field">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="id" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="sourceId" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="value" type="xs:string"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,1310 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:integration-inbound="http://www.zycus.com/integration/schemas/IntegrationInbound"
+	targetNamespace="http://www.zycus.com/integration/schemas/IntegrationInbound"
+	version="1.0">
+	<xs:element name="IntegrationDetails"
+		type="integration-inbound:inboundIntegrationDetails" />
+	<xs:element name="IntegrationEntity"
+		type="integration-inbound:inboundIntegrationEntity" />
+	<xs:complexType name="inboundIntegrationEntity">
+		<xs:sequence>
+			<xs:element name="integrationEntityHeader"
+				type="integration-inbound:InboundIntegrationHeader" />
+			<xs:element name="integrationEntityDetails"
+				type="integration-inbound:inboundIntegrationEntityDetails" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InboundIntegrationHeader">
+		<!-- <xs:complexContent> -->
+		<!-- <xs:extension base="integration-inbound:BaseIntegrationHeader"> -->
+		<xs:all>
+			<xs:element name="integrationTrackingNumber" type="xs:string" />
+			<xs:element minOccurs="1" name="referenceCodeForEntity"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="additionalInfo" type="xs:string" />
+			<xs:element name="action" type="xs:string" />
+			<xs:element name="entity" type="xs:string" />
+			<xs:element name="source" type="xs:string" />
+			<xs:element name="zDocBaseVersion" type="xs:string" />
+			<xs:element name="zDocCustomVersion" type="xs:string" />
+			<xs:element minOccurs="0" name="timestampUTC" type="xs:string" />
+		</xs:all>
+		<!-- </xs:extension> -->
+		<!-- </xs:complexContent> -->
+	</xs:complexType>
+	
+	<xs:complexType name="COSMAS01">
+			<xs:sequence>
+				<xs:element name="IDOC">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="EDI_DC40">
+								<xs:annotation>
+									<xs:documentation>IDoc Control Record for Interface to
+										External System</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="TABNAM" type="xs:string"
+											fixed="EDI_DC40">
+											<xs:annotation>
+												<xs:documentation>Name of Table Structure
+												</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="MANDT" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Client</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="3" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="DOCNUM" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>IDoc number</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="16" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="DOCREL" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>SAP Release for IDoc</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="4" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="STATUS" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Status of IDoc</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="2" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="DIRECT">
+											<xs:annotation>
+												<xs:documentation>Direction</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:enumeration value="1">
+														<xs:annotation>
+															<xs:documentation>Outbound</xs:documentation>
+														</xs:annotation>
+													</xs:enumeration>
+													<xs:enumeration value="2">
+														<xs:annotation>
+															<xs:documentation>Inbound</xs:documentation>
+														</xs:annotation>
+													</xs:enumeration>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="OUTMOD" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Output mode</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="1" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="EXPRSS" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Overriding in inbound processing
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="1" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="TEST" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Test flag</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="1" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="IDOCTYP" type="xs:string"
+											fixed="COSMAS01">
+											<xs:annotation>
+												<xs:documentation>Name of basic type</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="CIMTYP" minOccurs="0" type="xs:string"
+											fixed="">
+											<xs:annotation>
+												<xs:documentation>Extension (defined by customer)
+												</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="MESTYP" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Message type</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="30" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="MESCOD" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Message code</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="3" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="MESFCT" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Message Function</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="3" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="STD" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>EDI standard, flag</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="1" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="STDVRS" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>EDI standard, version and release
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="6" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="STDMES" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>EDI message type</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="6" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="SNDPOR">
+											<xs:annotation>
+												<xs:documentation>Sender port (SAP System, external
+													subsystem)</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="10" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="SNDPRT">
+											<xs:annotation>
+												<xs:documentation>Partner type of sender
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="2" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="SNDPFC" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Partner Function of Sender
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="2" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="SNDPRN">
+											<xs:annotation>
+												<xs:documentation>Partner Number of Sender
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="10" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="SNDSAD" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Sender address (SADR)</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="21" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="SNDLAD" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Logical address of sender
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="70" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="RCVPOR">
+											<xs:annotation>
+												<xs:documentation>Receiver port</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="10" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="RCVPRT" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Partner Type of Receiver
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="2" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="RCVPFC" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Partner function of recipient
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="2" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="RCVPRN">
+											<xs:annotation>
+												<xs:documentation>Partner Number of Receiver
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="10" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="RCVSAD" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Recipient address (SADR)
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="21" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="RCVLAD" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Logical address of recipient
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="70" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="CREDAT" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Created on</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="8" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="CRETIM" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Created at</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="6" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="REFINT" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Transmission file (EDI Interchange)
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="14" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="REFGRP" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Message group (EDI Message Group)
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="14" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="REFMES" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Message (EDI Message)</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="14" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="ARCKEY" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Key for external message archive
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="70" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="SERIAL" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Serialization</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="20" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="SEGMENT" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="1" />
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="E1CSKSM" maxOccurs="9999">
+								<xs:annotation>
+									<xs:documentation>Master Cost Centers Master Record (CSKS) -
+										Extension</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="MSGFN" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Function</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="3" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="MANDT" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Client</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="3" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="KOKRS" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Controlling Area</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="4" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="KOSTL" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Cost Center</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="10" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="DATBI" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Valid To Date</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="8" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="DATAB" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Valid-From Date</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="8" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="ERSDA" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Created on</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="8" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="USNAM" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Entered by</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="12" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="BKZKP" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Lock Indicator for Actual Primary
+													Postings</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="1" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="BKZKS" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Lock Indicator for Actual Secondary Costs
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="1" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="BKZER" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Lock Indicator for Actual Revenue
+													Postings</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="1" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="BKZOB" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Lock Indicator for Commitment Update
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="1" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="PKZKP" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Lock Indicator for Plan Primary Costs
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="1" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="PKZKS" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Lock Indicator for Plan Secondary Costs
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="1" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="PKZER" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Lock Indicator for Planning Revenues
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="1" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="VMETH" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Indicator for Allowed Allocation Methods
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="2" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="MGEFL" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Indicator for Recording Consumption
+													Quantities</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="1" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="BUKRS" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Company Code</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="6" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="GSBER" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Business Area</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="4" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="ABTEI" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Department</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="12" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="KOSAR" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Cost Center Category</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="1" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="VERAK" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Person Responsible</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="20" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="WAERS" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Currency Key</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="5" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="NKOST" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Subsequent cost center
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="10" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="LAND1" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>3-Byte field</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="3" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="ANRED" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Title</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="15" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="NAME1" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Name 1</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="35" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="NAME2" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Name 2</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="35" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="NAME3" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Name 3</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="35" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="NAME4" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Name 4</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="35" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="ORT01" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>City</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="35" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="ORT02" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>District</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="35" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="STRAS" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>House number and street
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="35" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="PFACH" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>PO Box</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="10" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="PSTLZ" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Postal Code</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="10" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="PSTL2" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>P.O. Box Postal Code</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="10" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="REGIO" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Region (State, Province, County)
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="3" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="SPRAS" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Language Key</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="1" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="TELBX" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Telebox number</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="15" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="TELF1" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>First telephone number
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="16" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="TELF2" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Second telephone number
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="16" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="TELFX" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Fax Number</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="31" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="TELTX" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Teletex number</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="30" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="TELX1" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Telex number</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="30" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="DATLT" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Data communication line no.
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="14" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="KHINR" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Standard Hierarchy Area
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="12" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="KOMPL" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Completion flag for the cost center
+													master record</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="1" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="OBJNR" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Object number</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="22" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="TXJCD" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Tax Jurisdiction</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="15" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="VNAME" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Joint Venture</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="6" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="RECID" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Recovery Indicator</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="2" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="ETYPE" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Equity type</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="3" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="PRCTR" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Profit Center</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="10" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="JV_JIBCL" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>JIB/JIBE Class</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="3" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="JV_JIBSA" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>JIB/JIBE Subclass A</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="5" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="LOGSYSTEM" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Logical System</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="10" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="KVEWE" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Usage of the condition table
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="1" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="KAPPL" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Application</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="2" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="KALSM" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Procedure (Pricing, Output Control, Acct.
+													Det., Costing,...)</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="6" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="KOSZSCHL" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>CO-CCA Overhead Key</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="6" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="DRNAM" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Printer destination for CCtr report
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="4" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="CCKEY" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Cost collector key</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="23" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="STAKZ" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Indicator. object is statistical
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="1" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="FUNKT" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Function of cost center
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="3" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="AFUNK" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Alternative function of cost center
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="3" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="CPI_TEMPL" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Template for Activity-Independent Formula
+													Planning</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="10" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="CPD_TEMPL" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Template for Activity-Dependent Formula
+													Planning</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="10" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="FUNC_AREA" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Functional Area</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="4" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="SCI_TEMPL" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Template: Activity-Independent Allocation
+													to Cost Center</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="10" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="SCD_TEMPL" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Template: Activity-Dependent Allocation
+													to Cost Center</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="10" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="FUNC_AREA_LONG" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Functional Area</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="16" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="JV_OTYPE" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Joint Venture Object Type
+												</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="4" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="VERAK_USER" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>User Responsible</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="12" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="E1CSKTM" maxOccurs="99">
+											<xs:annotation>
+												<xs:documentation>Master cost center texts (CSKT)
+												</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="MSGFN" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>Function</xs:documentation>
+														</xs:annotation>
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:maxLength value="3" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="SPRAS" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>Language Key</xs:documentation>
+														</xs:annotation>
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:maxLength value="1" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="KTEXT" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>General Name</xs:documentation>
+														</xs:annotation>
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:maxLength value="20" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="LTEXT" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>Description</xs:documentation>
+														</xs:annotation>
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:maxLength value="40" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="SPRAS_ISO" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>2-Character SAP Language Code
+															</xs:documentation>
+														</xs:annotation>
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:maxLength value="2" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="SEGMENT" use="required">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="1" />
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="SEGMENT" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="1" />
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="BEGIN" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="1" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	
+	<xs:complexType name="inboundIntegrationEntityDetails">
+		<xs:choice>
+			<xs:element minOccurs="1" name="COSMAS01"
+				type="integration-inbound:COSMAS01" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="inboundIntegrationDetails">
+		<xs:all>
+			<xs:element name="integrationEntities">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" name="integrationEntity"
+							type="integration-inbound:inboundIntegrationEntity" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:all>
+	</xs:complexType>
+	<!-- <xs:complexType name="BaseIntegrationHeader"> -->
+	<!-- <xs:all/> -->
+	<!-- </xs:complexType> -->
+</xs:schema>

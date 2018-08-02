@@ -1,0 +1,63 @@
+form.genralForm .interfacediv {
+  max-width: 400px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 0 20px;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -138px;
+  margin-left: -205px;
+}
+input.generalsubmitbtn:disabled {
+  opacity: .25;
+  cursor: not-allowed;
+}
+.input-holder-inner {
+  padding-left: 80px;
+  margin-bottom: 20px;
+  height: 40px;
+}
+svg#loader-1 {
+  margin: 0 auto;
+  width: 25px;
+  display: block;
+}
+.absolute-label {
+  position: absolute;
+  width: 80px;
+  display: table;
+  height: 40px;
+}
+.genralForm input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: bold;
+  border: 1px solid #d2d2d2;
+}
+.absolute-label label {
+  display: table-cell !important;
+  vertical-align: middle;
+  height: 100%;
+  font-weight: normal;
+}
+.genralForm .generalsubmitbtn {
+  background: #2196F3;
+  width: 100px;
+  margin: 20px auto 0px auto;
+  display: block;
+  color: #ffffff;
+  border: 0;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: center;
+  cursor:pointer;
+  /* float: right; */
+}
+.loginErr{
+  padding-left: 80px;
+}

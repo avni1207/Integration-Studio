@@ -1,0 +1,23 @@
+{
+	"integrationEntityDetails": {
+	/*#exists statusUpdate*/
+	"statusUpdate": 
+		{
+		/*#with statusUpdate*/
+			/*#exists fromCurrency*/
+				"fromCurrency": "/*preprocess fromCurrency*/"
+			/*/exists fromCurrency*/
+			/*#exists toCurrency*/
+				,"toCurrency": "/*preprocess toCurrency*/"
+			/*/exists toCurrency*/
+			/*#exists purpose*/
+				,"purpose": "/*preprocess purpose*/"
+			/*/exists purpose*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+		/*/with statusUpdate*/
+		}
+	/*/exists statusUpdate*/
+}
+}

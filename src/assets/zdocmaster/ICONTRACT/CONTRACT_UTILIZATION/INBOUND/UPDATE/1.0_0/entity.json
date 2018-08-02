@@ -1,0 +1,90 @@
+{
+	"integrationEntityDetails": {
+	/*#exists contractUtilization*/
+	"contractUtilization": 
+		{
+		/*#with contractUtilization*/
+			/*#exists externalId*/
+				"externalId": "/*preprocess externalId*/"
+			/*/exists externalId*/
+			/*#exists utilizationType*/
+				,"utilizationType": "/*preprocess utilizationType*/"
+			/*/exists utilizationType*/
+			/*#exists isDelete*/
+				,"isDelete": "/*preprocess isDelete*/"
+			/*/exists isDelete*/
+			/*#exists documentNumber*/
+				,"documentNumber": "/*preprocess documentNumber*/"
+			/*/exists documentNumber*/
+			/*#exists documentDescription*/
+				,"documentDescription": "/*preprocess documentDescription*/"
+			/*/exists documentDescription*/
+			/*#exists documentDate*/
+				,"documentDate": "/*preprocess documentDate*/"
+			/*/exists documentDate*/
+			/*#exists totalSpendAmount*/
+				,"totalSpendAmount": /*preprocess totalSpendAmount*/
+			/*/exists totalSpendAmount*/
+			/*#exists documentCurrency*/
+				,"documentCurrency": "/*preprocess documentCurrency*/"
+			/*/exists documentCurrency*/
+			/*#exists createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists items*/
+			,"items": 
+				{
+				/*#each items*/
+					/*#exists item*/
+					"item": [
+						/*#each item*/
+							{
+								/*#exists lineItemId*/
+									"lineItemId": "/*preprocess lineItemId*/"
+								/*/exists lineItemId*/
+								/*#exists contractNumber*/
+									,"contractNumber": "/*preprocess contractNumber*/"
+								/*/exists contractNumber*/
+								/*#exists contractLineId*/
+									,"contractLineId": "/*preprocess contractLineId*/"
+								/*/exists contractLineId*/
+								/*#exists lineNumber*/
+									,"lineNumber": "/*preprocess lineNumber*/"
+								/*/exists lineNumber*/
+								/*#exists name*/
+									,"name": "/*preprocess name*/"
+								/*/exists name*/
+								/*#exists description*/
+									,"description": "/*preprocess description*/"
+								/*/exists description*/
+								/*#exists quantity*/
+									,"quantity": /*preprocess quantity*/
+								/*/exists quantity*/
+								/*#exists price*/
+									,"price": /*preprocess price*/
+								/*/exists price*/
+								/*#exists lineAmount*/
+									,"lineAmount": /*preprocess lineAmount*/
+								/*/exists lineAmount*/
+								/*#exists purchaseOrderNumber*/
+									,"purchaseOrderNumber": "/*preprocess purchaseOrderNumber*/"
+								/*/exists purchaseOrderNumber*/
+								/*#exists purchaseOrderDescription*/
+									,"purchaseOrderDescription": "/*preprocess purchaseOrderDescription*/"
+								/*/exists purchaseOrderDescription*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each item*/
+					]
+					/*/exists item*/
+				/*/each items*/
+				}
+			/*/exists items*/
+		/*/with contractUtilization*/
+		}
+	/*/exists contractUtilization*/
+}
+}

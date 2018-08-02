@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:integration-outbound="http://www.zycus.com/integration/schemas/IntegrationOutbound" targetNamespace="http://www.zycus.com/integration/schemas/IntegrationOutbound" version="1.0">
+  <xs:element name="IntegrationDetails" type="integration-outbound:outboundIntegrationDetails"/>
+  <xs:element name="IntegrationEntity" type="integration-outbound:outboundIntegrationEntity"/>
+  <xs:complexType name="outboundIntegrationEntity">
+    <xs:sequence>
+      <xs:element name="integrationEntityHeader" type="integration-outbound:OutboundIntegrationHeader"/>
+      <xs:element name="integrationEntityDetails" type="integration-outbound:outboundIntegrationEntityDetails"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OutboundIntegrationHeader">
+    <!-- <xs:complexContent>
+      <xs:extension base="integration-outbound:BaseIntegrationHeader"> -->
+    <xs:all>
+      <xs:element name="integrationTrackingNumber" type="xs:string"/>
+      <xs:element minOccurs="1" name="referenceCodeForEntity" type="xs:string"/>
+      <xs:element minOccurs="0" name="additionalInfo" type="xs:string"/>
+      <xs:element name="action" type="xs:string"/>
+      <xs:element name="entity" type="xs:string"/>
+      <xs:element name="source" type="xs:string"/>
+      <xs:element name="zDocBaseVersion" type="xs:string"/>
+      <xs:element name="zDocCustomVersion" type="xs:string"/>
+      <xs:element minOccurs="0" name="timestampUTC" type="xs:string"/>
+    </xs:all>
+    <!-- </xs:extension>
+    </xs:complexContent> -->
+  </xs:complexType>
+  <xs:complexType name="outboundIntegrationEntityDetails">
+    <xs:choice>
+      <xs:element minOccurs="1" name="requisitionDetails" type="integration-outbound:requisitionDetails"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="outboundIntegrationDetails">
+    <xs:all>
+      <xs:element minOccurs="1" name="packerId" type="xs:string"/>
+      <xs:element minOccurs="0" name="timestampUTC" type="xs:string"/>
+      <xs:element minOccurs="0" name="additionalInfo" type="xs:string"/>
+      <xs:element name="integrationEntities">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="integrationEntity" type="integration-outbound:outboundIntegrationEntity"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  <!-- <xs:complexType name="BaseIntegrationHeader">
+    <xs:all/>
+  </xs:complexType>  -->
+  <xs:complexType name="requisitionDetails">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="id" type="xs:string"/>
+      <xs:element minOccurs="1" name="status" type="xs:string"/>
+      <xs:element minOccurs="1" name="externalId" type="xs:string"/>
+      <xs:element minOccurs="1" name="version" type="xs:int"/>
+      <xs:element minOccurs="1" name="requisitionHeader">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="parentRequisitionId" type="xs:string"/>
+            <xs:element minOccurs="0" name="referenceRequisitionId" type="xs:string"/>
+            <xs:element minOccurs="1" name="requisitionNo" type="xs:string"/>
+            <xs:element minOccurs="1" name="requisitionName" type="xs:string"/>
+            <xs:element minOccurs="0" name="statusComments" type="xs:string"/>
+            <xs:element minOccurs="0" name="archive" type="xs:boolean"/>
+            <xs:element minOccurs="1" name="createdBy">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" name="userFirstName" type="xs:string"/>
+                  <xs:element minOccurs="1" name="userLastName" type="xs:string"/>
+                  <xs:element minOccurs="1" name="userEmailId" type="xs:string"/>
+                  <xs:element minOccurs="1" name="userId" type="xs:string"/>
+                  <xs:element minOccurs="0" name="userErpId" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="1" name="createdOn" type="xs:long"/>
+            <xs:element minOccurs="1" name="modifiedBy">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" name="userFirstName" type="xs:string"/>
+                  <xs:element minOccurs="1" name="userLastName" type="xs:string"/>
+                  <xs:element minOccurs="1" name="userEmailId" type="xs:string"/>
+                  <xs:element minOccurs="1" name="userId" type="xs:string"/>
+                  <xs:element minOccurs="0" name="userErpId" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="1" name="modifiedOn" type="xs:long"/>
+            <xs:element minOccurs="0" name="onBehalfUser">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="userFirstName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="userLastName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="userEmailId" type="xs:string"/>
+                  <xs:element minOccurs="0" name="userId" type="xs:string"/>
+                  <xs:element minOccurs="0" name="userErpId" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="departmentCode" type="xs:string"/>
+            <xs:element minOccurs="1" name="company">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" name="companyLegalName" type="xs:string"/>
+                  <xs:element minOccurs="1" name="companyHQLocationCode" type="xs:string"/>
+                  <xs:element minOccurs="1" name="companyCurrency" type="xs:string"/>
+                  <xs:element minOccurs="1" name="companyCode" type="xs:string"/>
+                  <xs:element minOccurs="1" name="companyName" type="xs:string"/>
+                  <xs:element minOccurs="1" name="companyStatus" type="xs:boolean"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="1" name="businessUnit">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" name="buCompanyCode" type="xs:string"/>
+                  <xs:element minOccurs="1" name="buHQLocationCode" type="xs:string"/>
+                  <xs:element minOccurs="1" name="buCode" type="xs:string"/>
+                  <xs:element minOccurs="1" name="buName" type="xs:string"/>
+                  <xs:element minOccurs="1" name="buStatus" type="xs:boolean"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="1" name="location">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" name="shipToAddressCode" type="xs:string"/>
+                  <xs:element minOccurs="1" name="billToAddressCode" type="xs:string"/>
+                  <xs:element minOccurs="1" name="invoiceToAddressCode" type="xs:string"/>
+                  <xs:element minOccurs="0" name="regionCode" type="xs:string"/>
+                  <xs:element minOccurs="0" name="apContactEmailID" type="xs:string"/>
+                  <xs:element minOccurs="1" name="locationCode" type="xs:string"/>
+                  <xs:element minOccurs="1" name="locationName" type="xs:string"/>
+                  <xs:element minOccurs="1" name="locationStatus" type="xs:boolean"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="purchaseTypeName" type="xs:string"/>
+            <xs:element minOccurs="0" name="purchaseTypeCode" type="xs:string"/>
+            <xs:element minOccurs="1" name="shipToCodeType" type="xs:int"/>
+            <xs:element minOccurs="1" name="shipToAddress">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" name="addressName" type="xs:string"/>
+                  <xs:element minOccurs="1" name="addressLine1" type="xs:string"/>
+                  <xs:element minOccurs="1" name="city" type="xs:string"/>
+                  <xs:element minOccurs="1" name="state" type="xs:string"/>
+                  <xs:element minOccurs="1" name="country" type="xs:string"/>
+                  <xs:element minOccurs="1" name="addressCode" type="xs:string"/>
+                  <xs:element minOccurs="0" name="addressERPID" type="xs:string"/>
+                  <xs:element minOccurs="0" name="addressStatus" type="xs:boolean"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="1" name="billToAddress">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" name="addressName" type="xs:string"/>
+                  <xs:element minOccurs="1" name="addressLine1" type="xs:string"/>
+                  <xs:element minOccurs="1" name="city" type="xs:string"/>
+                  <xs:element minOccurs="1" name="state" type="xs:string"/>
+                  <xs:element minOccurs="1" name="country" type="xs:string"/>
+                  <xs:element minOccurs="1" name="addressCode" type="xs:string"/>
+                  <xs:element minOccurs="0" name="addressERPID" type="xs:string"/>
+                  <xs:element minOccurs="0" name="addressStatus" type="xs:boolean"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="1" name="invoiceToAddress">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" name="addressName" type="xs:string"/>
+                  <xs:element minOccurs="1" name="addressLine1" type="xs:string"/>
+                  <xs:element minOccurs="1" name="city" type="xs:string"/>
+                  <xs:element minOccurs="1" name="state" type="xs:string"/>
+                  <xs:element minOccurs="1" name="country" type="xs:string"/>
+                  <xs:element minOccurs="1" name="addressCode" type="xs:string"/>
+                  <xs:element minOccurs="0" name="addressERPID" type="xs:string"/>
+                  <xs:element minOccurs="0" name="addressStatus" type="xs:boolean"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="1" name="deliverToType" type="xs:int"/>
+            <xs:element minOccurs="1" name="deliverToPerson" type="xs:string"/>
+            <xs:element minOccurs="1" name="deliveryOn" type="xs:long"/>
+            <xs:element minOccurs="1" name="paymentMethod" type="xs:int"/>
+            <xs:element minOccurs="0" name="paymentTransactionId" type="xs:string"/>
+            <xs:element minOccurs="0" name="paymentId" type="xs:string"/>
+            <xs:element minOccurs="1" name="splitCostingLevel" type="xs:int"/>
+            <xs:element minOccurs="1" name="splitCostingType" type="xs:int"/>
+            <xs:element minOccurs="1" name="grossTotalAmount" type="xs:double"/>
+            <xs:element minOccurs="1" name="orderStatus" type="xs:int"/>
+            <xs:element minOccurs="1" name="receiptStatus" type="xs:int"/>
+            <xs:element minOccurs="1" name="invoiceStatus" type="xs:int"/>
+            <xs:element minOccurs="1" name="approvalIntegrationStatus" type="xs:int"/>
+            <xs:element minOccurs="1" name="externalIntegrationStatus" type="xs:int"/>
+            <xs:element minOccurs="1" name="requesterAction" type="xs:int"/>
+            <xs:element minOccurs="0" name="attachments">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="attachment">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="attachmentId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="AttachmentName" type="xs:string"/>
+                        <xs:element minOccurs="0" name="attachmentVisibility" type="xs:string"/>
+                        <xs:element minOccurs="0" name="attachmentType" type="xs:integer"/>
+                        <xs:element minOccurs="0" name="attachmentComments" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="retrospectivePurchase" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="utilizeBudget" type="xs:boolean"/>
+            <xs:element minOccurs="1" name="requisitionType" type="xs:int"/>
+            <xs:element minOccurs="1" name="origin" type="xs:int"/>
+            <xs:element minOccurs="0" name="assignProject" type="xs:boolean"/>
+            <xs:element minOccurs="1" name="hasBuyerItem" type="xs:boolean"/>
+            <xs:element minOccurs="1" name="updatedOn" type="xs:long"/>
+            <xs:element minOccurs="0" name="utilizeContract" type="xs:string"/>
+            <xs:element minOccurs="0" name="transferredTo">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="userFirstName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="userLastName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="userEmailId" type="xs:string"/>
+                  <xs:element minOccurs="0" name="userId" type="xs:string"/>
+                  <xs:element minOccurs="0" name="userErpId" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="retrospectiveSendPOSupplier" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="retrospectiveLetUserDecide" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="requisitionToExistingPOSetting" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="purchaseTypeAtLineLevel" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="allowedBackdateDays" type="xs:int"/>
+            <xs:element minOccurs="0" name="allowedSuggestedSupplier" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" name="RequisitionItemGroups">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="RequisitionItemGroup">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" name="requisitionId" type="xs:string"/>
+                  <xs:element minOccurs="1" name="groupId" type="xs:string"/>
+                  <xs:element minOccurs="1" name="groupStatus" type="xs:string"/>
+                  <xs:element minOccurs="1" name="updatedOn" type="xs:long"/>
+                  <xs:element minOccurs="1" name="totalItems" type="xs:int"/>
+                  <xs:element minOccurs="1" name="rejectedItemCount" type="xs:int"/>
+                  <xs:element minOccurs="1" name="totalAmount" type="xs:double"/>
+                  <xs:element minOccurs="1" name="totalTaxAmount" type="xs:double"/>
+                  <xs:element minOccurs="1" name="approvedAmount" type="xs:double"/>
+                  <xs:element minOccurs="1" name="buyerAmount" type="xs:double"/>
+                  <xs:element minOccurs="1" name="amountToBeApproved" type="xs:double"/>
+                  <xs:element minOccurs="1" name="orderStatus" type="xs:int"/>
+                  <xs:element minOccurs="1" name="receiptStatus" type="xs:int"/>
+                  <xs:element minOccurs="1" name="invoiceStatus" type="xs:int"/>
+                  <xs:element minOccurs="1" name="statusBuyerNegotiated" type="xs:int"/>
+                  <xs:element minOccurs="1" name="statusRequesterNegotiated" type="xs:int"/>
+                  <xs:element minOccurs="1" name="statusBudgetary" type="xs:int"/>
+                  <xs:element minOccurs="1" name="statusNeedAQuote" type="xs:int"/>
+                  <xs:element minOccurs="1" name="sendToReadyForApproval" type="xs:boolean"/>
+                  <xs:element minOccurs="0" name="submittedOn" type="xs:long"/>
+                  <xs:element minOccurs="0" name="approvedOn" type="xs:long"/>
+                  <xs:element minOccurs="0" name="closedOn" type="xs:long"/>
+                  <xs:element minOccurs="1" name="requesterAction" type="xs:int"/>
+                  <xs:element minOccurs="1" name="reopenedRequisition" type="xs:boolean"/>
+                  <xs:element minOccurs="1" name="resubmitionCount" type="xs:int"/>
+                  <xs:element minOccurs="1" name="canResubmit" type="xs:boolean"/>
+                  <xs:element minOccurs="0" name="linkedPurchaseOrderId" type="xs:string"/>
+                  <xs:element minOccurs="0" name="linkedPurchaseOrderNo" type="xs:string"/>
+                  <xs:element minOccurs="0" name="purchaseOrderId" type="xs:string"/>
+                  <xs:element minOccurs="0" name="receivedOn" type="xs:long"/>
+                  <xs:element minOccurs="1" name="requisitionType" type="xs:int"/>
+                  <xs:element minOccurs="1" name="requisitionItems">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="1" name="RequisitionItem">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="1" name="requisitionId" type="xs:string"/>
+                              <xs:element minOccurs="1" name="groupId" type="xs:string"/>
+                              <xs:element minOccurs="1" name="itemId" type="xs:string"/>
+                              <xs:element minOccurs="1" name="requisitionNo" type="xs:string"/>
+                              <xs:element minOccurs="1" name="itemName" type="xs:string"/>
+                              <xs:element minOccurs="0" name="description" type="xs:string"/>
+                              <xs:element minOccurs="1" name="uom" type="xs:string"/>
+                              <xs:element minOccurs="1" name="currency" type="xs:string"/>
+                              <xs:element minOccurs="1" name="itemQuantity" type="xs:double"/>
+                              <xs:element minOccurs="1" name="itemPrice" type="xs:double"/>
+                              <xs:element minOccurs="1" name="requestedItemPrice" type="xs:double"/>
+                              <xs:element minOccurs="1" name="itemTotalPrice" type="xs:double"/>
+                              <xs:element minOccurs="1" name="approvedQuantity" type="xs:double"/>
+                              <xs:element minOccurs="1" name="itemType" type="xs:int"/>
+                              <xs:element minOccurs="1" name="receiptType" type="xs:int"/>
+                              <xs:element minOccurs="1" name="sourcingStatus" type="xs:int"/>
+                              <xs:element minOccurs="1" name="sourceType" type="xs:int"/>
+                              <xs:element minOccurs="0" name="internalComment" type="xs:string"/>
+                              <xs:element minOccurs="0" name="supplierId" type="xs:string"/>
+                              <xs:element minOccurs="0" name="supplierErpId" type="xs:string"/>
+                              <xs:element minOccurs="0" name="supplierName" type="xs:string"/>
+                              <xs:element minOccurs="0" name="supplierComment" type="xs:string"/>
+                              <xs:element minOccurs="0" name="contractNo" type="xs:string"/>
+                              <xs:element minOccurs="0" name="contractId" type="xs:string"/>
+                              <xs:element minOccurs="1" name="contractType" type="xs:int"/>
+                              <xs:element minOccurs="1" name="splitDelivery" type="xs:boolean"/>
+                              <xs:element minOccurs="1" name="splitCostingType" type="xs:int"/>
+                              <xs:element minOccurs="1" name="rfqId" type="xs:string"/>
+                              <xs:element minOccurs="0" name="quickSourceId" type="xs:string"/>
+                              <xs:element minOccurs="0" name="quickSourceItemId" type="xs:string"/>
+                              <xs:element minOccurs="0" name="replacingItemId" type="xs:string"/>
+                              <xs:element minOccurs="0" name="originalReplacedItemId" type="xs:string"/>
+                              <xs:element minOccurs="0" name="definitionId" type="xs:string"/>
+                              <xs:element minOccurs="1" name="orderable" type="xs:boolean"/>
+                              <xs:element minOccurs="1" name="approvalStatus" type="xs:int"/>
+                              <xs:element minOccurs="1" name="buyerAdded" type="xs:boolean"/>
+                              <xs:element minOccurs="0" name="processEformId" type="xs:string"/>
+                              <xs:element minOccurs="0" name="processEformfields">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="field">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="1" name="id" type="xs:string"/>
+                                          <xs:element minOccurs="1" name="type" type="xs:string"/>
+                                          <xs:element minOccurs="1" name="name" type="xs:string"/>
+                                          <xs:element minOccurs="1" name="value" type="xs:string"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="dynamicFormId" type="xs:string"/>
+                              <xs:element minOccurs="0" name="dynamicInstanceId" type="xs:string"/>
+                              <xs:element minOccurs="0" name="dynamicInstanceVersion" type="xs:int"/>
+                              <xs:element minOccurs="0" name="dynamicFormfields">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="field">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="1" name="id" type="xs:string"/>
+                                          <xs:element minOccurs="1" name="type" type="xs:string"/>
+                                          <xs:element minOccurs="1" name="name" type="xs:string"/>
+                                          <xs:element minOccurs="1" name="value" type="xs:string"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="assetCode" type="xs:string"/>
+                              <xs:element minOccurs="0" name="assetCodeType" type="xs:int"/>
+                              <xs:element minOccurs="0" name="purchaseType" type="xs:string"/>
+                              <xs:element minOccurs="0" name="purchaseTypeCode" type="xs:string"/>
+                              <xs:element minOccurs="1" name="lineNo" type="xs:int"/>
+                              <xs:element minOccurs="1" name="assetNumberRequired" type="xs:boolean"/>
+                              <xs:element minOccurs="0" name="assignedBuyers">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="assignedBuyer">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="assignedBuyerEmail" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="assignedBuyerType" type="xs:int"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="assignedOn" type="xs:long"/>
+                              <xs:element minOccurs="1" name="supplierPreferenceType" type="xs:int"/>
+                              <xs:element minOccurs="1" name="taxAmount" type="xs:double"/>
+                              <xs:element minOccurs="0" name="warehouseCode" type="xs:string"/>
+                              <xs:element minOccurs="0" name="supplierPartId" type="xs:string"/>
+                              <xs:element minOccurs="0" name="supplierAuxPartId" type="xs:string"/>
+                              <xs:element minOccurs="0" name="supplierAddressId" type="xs:string"/>
+                              <xs:element minOccurs="0" name="supplierAddress" type="xs:string"/>
+                              <xs:element minOccurs="0" name="supplierContact" type="xs:string"/>
+                              <xs:element minOccurs="0" name="supplierEmail" type="xs:string"/>
+                              <xs:element minOccurs="1" name="supplierContactType" type="xs:int"/>
+                              <xs:element minOccurs="0" name="supplierPhone" type="xs:string"/>
+                              <xs:element minOccurs="0" name="supplierOtherDetails" type="xs:string"/>
+                              <xs:element minOccurs="0" name="manufacturerPartId" type="xs:string"/>
+                              <xs:element minOccurs="0" name="manufacturerName" type="xs:string"/>
+                              <xs:element minOccurs="0" name="price" type="xs:double"/>
+                              <xs:element minOccurs="1" name="marketPrice" type="xs:double"/>
+                              <xs:element minOccurs="0" name="leadTime" type="xs:int"/>
+                              <xs:element minOccurs="0" name="categoryCode" type="xs:string"/>
+                              <xs:element minOccurs="0" name="categoryName" type="xs:string"/>
+                              <xs:element minOccurs="0" name="unsspscCode" type="xs:string"/>
+                              <xs:element minOccurs="0" name="unsspscName" type="xs:string"/>
+                              <xs:element minOccurs="0" name="supplierProductURL" type="xs:string"/>
+                              <xs:element minOccurs="0" name="manufacturerProductURL" type="xs:string"/>
+                              <xs:element minOccurs="0" name="imageURL" type="xs:string"/>
+                              <xs:element minOccurs="0" name="thumbnailURL" type="xs:string"/>
+                              <xs:element minOccurs="0" name="sourceRefNo" type="xs:string"/>
+                              <xs:element minOccurs="1" name="error" type="xs:boolean"/>
+                              <xs:element minOccurs="1" name="warning" type="xs:boolean"/>
+                              <xs:element minOccurs="1" name="active" type="xs:boolean"/>
+                              <xs:element minOccurs="1" name="hidden" type="xs:boolean"/>
+                              <xs:element minOccurs="1" name="activity" type="xs:int"/>
+                              <xs:element minOccurs="1" name="greenItem" type="xs:boolean"/>
+                              <xs:element minOccurs="1" name="preferredItem" type="xs:boolean"/>
+                              <xs:element minOccurs="0" name="validFrom" type="xs:long"/>
+                              <xs:element minOccurs="0" name="validTo" type="xs:long"/>
+                              <xs:element minOccurs="0" name="publishedOn" type="xs:long"/>
+                              <xs:element minOccurs="0" name="attachments">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="attachment">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="attachmentID" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="attachmentName" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="attachmentVisibility" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="attachmentType" type="xs:integer"/>
+                                          <xs:element minOccurs="0" name="attachmentComments" type="xs:string"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="outOfStock" type="xs:boolean"/>
+                              <xs:element minOccurs="0" name="systemAttributes">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="systemAttribute">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="attributeKey" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="attributeValue" type="xs:string"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="itemAttributes">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="itemAttribute">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="1" name="attributeKey" type="xs:string"/>
+                                          <xs:element minOccurs="1" name="attributeValue" type="xs:string"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="1" name="externalId" type="xs:string"/>
+                              <xs:element minOccurs="1" name="origin" type="xs:int"/>
+                              <xs:element minOccurs="1" name="contracted" type="xs:boolean"/>
+                              <xs:element minOccurs="0" name="parentItemId" type="xs:string"/>
+                              <xs:element minOccurs="1" name="updated" type="xs:boolean"/>
+                              <xs:element minOccurs="0" name="catalogId" type="xs:string"/>
+                              <xs:element minOccurs="1" name="catalogVersion" type="xs:int"/>
+                              <xs:element minOccurs="0" name="catalogItemId" type="xs:int"/>
+                              <xs:element minOccurs="0" name="itemTaxes">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="itemTax">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="type" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="name" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="taxRate" type="xs:double"/>
+                                          <xs:element minOccurs="0" name="compound" type="xs:boolean"/>
+                                          <xs:element minOccurs="0" name="itemId" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="entityId" type="xs:string"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="1" name="deliveries">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="1" name="RequisitionDelivery">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="1" name="lineItemId" type="xs:string"/>
+                                          <xs:element minOccurs="1" name="requisitionId" type="xs:string"/>
+                                          <xs:element minOccurs="1" name="itemId" type="xs:string"/>
+                                          <xs:element minOccurs="1" name="itemQuantity" type="xs:double"/>
+                                          <xs:element minOccurs="1" name="businessUnit">
+                                            <xs:complexType>
+                                              <xs:sequence>
+                                                <xs:element minOccurs="1" name="buCompanyCode" type="xs:string"/>
+                                                <xs:element minOccurs="1" name="buHQLocationCode" type="xs:string"/>
+                                                <xs:element minOccurs="1" name="buCode" type="xs:string"/>
+                                                <xs:element minOccurs="1" name="buName" type="xs:string"/>
+                                                <xs:element minOccurs="1" name="buStatus" type="xs:boolean"/>
+                                              </xs:sequence>
+                                            </xs:complexType>
+                                          </xs:element>
+                                          <xs:element minOccurs="1" name="location">
+                                            <xs:complexType>
+                                              <xs:sequence>
+                                                <xs:element minOccurs="1" name="shipToAddressCode" type="xs:string"/>
+                                                <xs:element minOccurs="1" name="billToAddressCode" type="xs:string"/>
+                                                <xs:element minOccurs="1" name="invoiceToAddressCode" type="xs:string"/>
+                                                <xs:element minOccurs="0" name="regionCode" type="xs:string"/>
+                                                <xs:element minOccurs="0" name="apContactEmailID" type="xs:string"/>
+                                                <xs:element minOccurs="1" name="locationCode" type="xs:string"/>
+                                                <xs:element minOccurs="1" name="locationName" type="xs:string"/>
+                                                <xs:element minOccurs="1" name="locationStatus" type="xs:boolean"/>
+                                              </xs:sequence>
+                                            </xs:complexType>
+                                          </xs:element>
+                                          <xs:element minOccurs="1" name="deliverToType" type="xs:int"/>
+                                          <xs:element minOccurs="1" name="deliverTo" type="xs:string"/>
+                                          <xs:element minOccurs="1" name="deliveryOn" type="xs:long"/>
+                                          <xs:element minOccurs="0" name="deliveryUpto" type="xs:long"/>
+                                          <xs:element minOccurs="1" name="shipToCodeType" type="xs:int"/>
+                                          <xs:element minOccurs="1" name="shipToAddress">
+                                            <xs:complexType>
+                                              <xs:sequence>
+                                                <xs:element minOccurs="1" name="addressName" type="xs:string"/>
+                                                <xs:element minOccurs="1" name="addressLine1" type="xs:string"/>
+                                                <xs:element minOccurs="1" name="city" type="xs:string"/>
+                                                <xs:element minOccurs="1" name="state" type="xs:string"/>
+                                                <xs:element minOccurs="1" name="country" type="xs:string"/>
+                                                <xs:element minOccurs="1" name="addressCode" type="xs:string"/>
+                                                <xs:element minOccurs="0" name="addressERPID" type="xs:string"/>
+                                                <xs:element minOccurs="0" name="addressStatus" type="xs:boolean"/>
+                                              </xs:sequence>
+                                            </xs:complexType>
+                                          </xs:element>
+                                          <xs:element minOccurs="1" name="approvedQuantity" type="xs:double"/>
+                                          <xs:element minOccurs="1" name="orderedQuantity" type="xs:double"/>
+                                          <xs:element minOccurs="1" name="receivedQuantity" type="xs:double"/>
+                                          <xs:element minOccurs="1" name="invoicedQuantity" type="xs:double"/>
+                                          <xs:element minOccurs="0" name="purchaseOrderId" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="assetNumbers">
+                                            <xs:complexType>
+                                              <xs:sequence>
+                                                <xs:element maxOccurs="unbounded" minOccurs="0" name="assetNumber">
+                                                  <xs:complexType>
+                                                    <xs:sequence>
+                                                      <xs:element minOccurs="0" name="serialNumber" type="xs:int"/>
+                                                      <xs:element minOccurs="0" name="assetNumber" type="xs:string"/>
+                                                      <xs:element minOccurs="0" name="manufacturerSerialNumber" type="xs:string"/>
+                                                      <xs:element minOccurs="0" name="notes" type="xs:string"/>
+                                                    </xs:sequence>
+                                                  </xs:complexType>
+                                                </xs:element>
+                                              </xs:sequence>
+                                            </xs:complexType>
+                                          </xs:element>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="1" name="costings">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="1" name="RequisitionCosting">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="1" name="requisitionId" type="xs:string"/>
+                                          <xs:element minOccurs="1" name="itemId" type="xs:string"/>
+                                          <xs:element minOccurs="1" name="businessUnitCode" type="xs:string"/>
+                                          <xs:element minOccurs="1" name="costCenterCode" type="xs:string"/>
+                                          <xs:element minOccurs="1" name="value" type="xs:double"/>
+                                          <xs:element minOccurs="0" name="budgetId" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="budgetLineId" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="budgetLineTransactionId" type="xs:string"/>
+                                          <xs:element minOccurs="1" name="budgetBaseValue" type="xs:double"/>
+                                          <xs:element minOccurs="0" name="projectCode" type="xs:string"/>
+                                          <xs:element minOccurs="1" name="splitValue" type="xs:double"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="1" name="accountings">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="1" name="requisitionAccounting">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="1" name="requisitionId" type="xs:string"/>
+                                          <xs:element minOccurs="1" name="itemId" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="accountTypeCode" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="generalLedgerCode" type="xs:string"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

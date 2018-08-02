@@ -1,0 +1,95 @@
+
+<h5>Summary</h5>
+  <div *ngIf="!apiData.data.source">No summary data found</div>
+  <div *ngIf="apiData.data.source">
+  <div class="genralForm">
+    <div class="edit-icon" [routerLink]="['/auth/api-configuration/api-subscription']"><i class="fa fa-pencil"></i></div>
+   
+    <div class="input-holder">
+        <div class="absolute-label">
+          <label>Product</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{apiData.data.source}}</p>
+        </div>
+    </div>
+    <div class="input-holder">
+        <div class="absolute-label">
+          <label>Method</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{apiData.data.methodType}}</p>
+        </div>
+    </div>
+    <div class="input-holder" *ngIf="apiData.data.methodType == 'POST'">
+      <div class="absolute-label">
+        <label>Request Entity</label>
+      </div>
+      <div class="input-holder-inner">
+        <p>{{apiData.data.requestEntity | uppercase}}</p>
+      </div>
+      </div>
+    <div class="input-holder"  *ngIf="apiData.data.methodType == 'POST'">
+      <div class="absolute-label">
+        <label>Request Action</label>
+      </div>
+      <div class="input-holder-inner">
+        <p>{{apiData.data.requestAction | uppercase}}</p>
+      </div>
+    </div>
+    <div class="input-holder">
+      <div class="absolute-label">
+        <label>Response Entity</label>
+      </div>
+      <div class="input-holder-inner">
+        <p>{{apiData.data.responseEntity | uppercase}}</p>
+      </div>
+    </div>
+    <div class="input-holder">
+        <div class="absolute-label">
+          <label>Response Action</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{apiData.data.responseAction | uppercase}}</p>
+        </div>
+    </div>
+    <div class="input-holder">
+        <div class="absolute-label">
+          <label>Batch size</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{apiData.data.batchSize}}</p>
+        </div>
+    </div>
+    <div class="input-holder">
+          <div class="absolute-label">
+            <label>Parameter JSON</label>
+          </div>
+          <div class="input-holder-inner">
+            <p>{{apiData.data.parameterJson}}</p>
+          </div>
+    </div>
+    <div class="input-holder">
+        <div class="absolute-label">
+          <label>Endpoint url</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{apiData.data.url}}</p>
+        </div>
+    </div>
+    <div class="input-holder">
+        <div class="absolute-label">
+          <label>Switch url</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{apiData.data.switchUrl}}</p>
+        </div>
+    </div>
+   
+  </div>
+  
+  <div class="btndiv">
+      <input [disabled]="isClicked ? true : null" [hidden]="!apiConfigservice.editApiData.id" class="generalsubmitbtn touchpointbtn" type="submit" value="Update Api" (click)="submitApi(apiData.data); isClicked = true"/>
+      <input  [hidden]="apiConfigservice.editApiData.id" [disabled]="isClicked ? true : null" class="generalsubmitbtn touchpointbtn"  type="submit" value="Configure Api" (click)="submitApi(apiData.data); isClicked = true"/>
+  </div>
+</div>

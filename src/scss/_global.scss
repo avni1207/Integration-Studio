@@ -1,0 +1,27 @@
+
+  //css for plus minus icon start
+  .card-header.active .fa.fa-minus {
+    display: inline-block;
+  }
+  .card-header.active .fa.fa-plus {
+    display: none;
+  }
+  .card-header .fa.fa-minus  {
+    display: none;
+  }
+  .card-header .fa{
+    margin-right:10px
+  }
+  //css for plus minus icon end
+
+ //css for table pagination start
+ pagination-controls .ngx-pagination .current {
+    background-color: #2199e8 ;
+   }
+ .ngx-pagination {
+    margin-left: 0;
+    margin-bottom: 0;
+    padding: 0;
+    float: right;
+}
+   //css for table pagination end

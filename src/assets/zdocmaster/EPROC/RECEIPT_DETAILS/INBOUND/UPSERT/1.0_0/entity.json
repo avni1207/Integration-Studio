@@ -1,0 +1,91 @@
+{
+	"integrationEntityDetails": {
+	/*#exists receiptDetails*/
+	"receiptDetails": 
+		{
+		/*#with receiptDetails*/
+			/*#exists receiptHeader*/
+			"receiptHeader": 
+				{
+				/*#each receiptHeader*/
+					/*#exists receivedOn*/
+						"receivedOn": /*preprocess receivedOn*/
+					/*/exists receivedOn*/
+					/*#exists consignmentNo*/
+						,"consignmentNo": "/*preprocess consignmentNo*/"
+					/*/exists consignmentNo*/
+					/*#exists shippingInfo*/
+						,"shippingInfo": "/*preprocess shippingInfo*/"
+					/*/exists shippingInfo*/
+					/*#exists airwayBillNo*/
+						,"airwayBillNo": "/*preprocess airwayBillNo*/"
+					/*/exists airwayBillNo*/
+					/*#exists receiptComments*/
+						,"receiptComments": "/*preprocess receiptComments*/"
+					/*/exists receiptComments*/
+					/*#exists lastReceiptOfOrder*/
+						,"lastReceiptOfOrder": /*preprocess lastReceiptOfOrder*/
+					/*/exists lastReceiptOfOrder*/
+					/*#exists allowInvoiceCreation*/
+						,"allowInvoiceCreation": /*preprocess allowInvoiceCreation*/
+					/*/exists allowInvoiceCreation*/
+					/*#exists receiptId*/
+						,"receiptId": "/*preprocess receiptId*/"
+					/*/exists receiptId*/
+					/*#exists receiptNo*/
+						,"receiptNo": "/*preprocess receiptNo*/"
+					/*/exists receiptNo*/
+					/*#exists referenceType*/
+						,"referenceType": /*preprocess referenceType*/
+					/*/exists referenceType*/
+					/*#exists referenceValue*/
+						,"referenceValue": "/*preprocess referenceValue*/"
+					/*/exists referenceValue*/
+					/*#exists erpId*/
+						,"erpId": "/*preprocess erpId*/"
+					/*/exists erpId*/
+				/*/each receiptHeader*/
+				}
+			/*/exists receiptHeader*/
+			/*#exists items*/
+			,"items": 
+				{
+				/*#each items*/
+					/*#exists item*/
+					"item": [
+						/*#each item*/
+							{
+								/*#exists receivedItemRating*/
+									"receivedItemRating": /*preprocess receivedItemRating*/
+								/*/exists receivedItemRating*/
+								/*#exists itemInternalComments*/
+									,"itemInternalComments": "/*preprocess itemInternalComments*/"
+								/*/exists itemInternalComments*/
+								/*#exists itemSupplierComments*/
+									,"itemSupplierComments": "/*preprocess itemSupplierComments*/"
+								/*/exists itemSupplierComments*/
+								/*#exists receivedQuantity*/
+									,"receivedQuantity": /*preprocess receivedQuantity*/
+								/*/exists receivedQuantity*/
+								/*#exists assetCode*/
+									,"assetCode": "/*preprocess assetCode*/"
+								/*/exists assetCode*/
+								/*#exists lineItemId*/
+									,"lineItemId": "/*preprocess lineItemId*/"
+								/*/exists lineItemId*/
+								/*#exists poLineNo*/
+									,"poLineNo": "/*preprocess poLineNo*/"
+								/*/exists poLineNo*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each item*/
+					]
+					/*/exists item*/
+				/*/each items*/
+				}
+			/*/exists items*/
+		/*/with receiptDetails*/
+		}
+	/*/exists receiptDetails*/
+}
+}

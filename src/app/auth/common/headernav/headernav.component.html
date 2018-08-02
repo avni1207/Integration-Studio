@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-dark studionav">
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link">IntegrationStudio <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <div class="my-2 my-lg-0">
+        <span>v1.0.22</span>
+      <!-- <i class="fa fa-bell icons" aria-hidden="true"></i>
+      <i class="fa fa-cog icons" aria-hidden="true"></i> -->
+      <i (click)="logout()" style="cursor:pointer;font-size:22px;" class="fa fa-power-off icons" aria-hidden="true"></i>
+    </div>
+  </div>
+</nav>
+<p class="envp">{{this.intStudioService.env}}</p>
+<alert></alert>
+
+

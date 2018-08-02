@@ -1,0 +1,310 @@
+
+<h5>Summary</h5>
+<div *ngIf="!interfaceData.data.tenantId">No summary data found</div>
+<div *ngIf="interfaceData.data.tenantId">
+  <div class="genralForm">
+    <div class="edit-icon" (click)="backToEdit()" [routerLink]="['/auth/dashboard/integration-studio/interface-subscription']"><i class="fa fa-pencil"></i></div>
+    <p class="summarytitle">General</p>
+    <div class="input-holder">
+        <div class="absolute-label">
+          <label>Tenant Id</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.tenantId}}</p>
+        </div>
+    </div>
+    <div class="input-holder">
+        <div class="absolute-label">
+          <label>Tenant Name</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.tenantName}}</p>
+        </div>
+    </div>
+    <div class="input-holder">
+      <div class="absolute-label">
+        <label>User Id</label>
+      </div>
+      <div class="input-holder-inner">
+        <p>{{interfaceData.data.userId}}</p>
+      </div>
+      </div>
+    <div class="input-holder">
+      <div class="absolute-label">
+        <label>Product</label>
+      </div>
+      <div class="input-holder-inner">
+        <p>{{interfaceData.data.product}}</p>
+      </div>
+    </div>
+    <div class="input-holder">
+      <div class="absolute-label">
+        <label>Interface</label>
+      </div>
+      <div class="input-holder-inner">
+        <p>{{interfaceData.data.entity}}</p>
+      </div>
+    </div>
+    <div class="input-holder">
+      <div class="absolute-label">
+        <label>Direction</label>
+      </div>
+      <div class="input-holder-inner">
+        <p>{{interfaceData.data.direction}}</p>
+      </div>
+    </div>
+    <div class="input-holder">
+      <div class="absolute-label">
+        <label>Event(s)</label>
+      </div>
+      <div class="input-holder-inner">
+        <p>{{interfaceData.data.action}}</p>
+      </div>
+    </div>
+    <div class="input-holder">
+      <div class="absolute-label">
+        <label>Jobname</label>
+      </div>
+      <div class="input-holder-inner">
+        <p>{{interfaceData.data.jobName}}</p>
+      </div>
+    </div>
+    <div class="input-holder">
+      <div class="absolute-label">
+        <label>Integration Approach</label>
+      </div>
+      <div class="input-holder-inner">
+        <p>{{interfaceData.data.specType}}</p>
+      </div>
+    </div>
+    <div class="input-holder">
+      <div class="absolute-label">
+        <label>Entity zDoc</label>
+      </div>
+      <div class="input-holder-inner">
+        <p>{{interfaceData.data.requestBaseVersion}}</p>
+      </div>
+    </div>
+    <div class="input-holder">
+      <div class="absolute-label">
+        <label>Acknowledgement zDoc</label>
+      </div>
+      <div class="input-holder-inner">
+        <p [ngClass]="(interfaceData.data.direction=='outbound')?'italictxt':''">{{interfaceData.data.responseBaseVersion}}</p>
+      </div>
+    </div>
+    <!-- <div class="input-holder">
+      <div class="absolute-label">
+        <label>Integration Approach</label>
+      </div>
+      <div class="input-holder-inner">
+        <p>{{interfaceData.data.specType}}</p>
+      </div>
+    </div> -->
+
+    <div *ngIf="interfaceData.data.specType=='FILE BASED INTEGRATION'">
+      <p class="summarytitle">Configuration</p>
+      <div class="input-holder" *ngIf="interfaceData.data.packerRequired == 'false' || interfaceData.data.packerRequired == false">
+        <div class="absolute-label">
+          <label>Integration Frequency</label>
+        </div>
+    
+        <div class="input-holder-inner">
+          <p>Real Time</p>
+        </div>
+      </div>
+      <div class="input-holder" *ngIf="interfaceData.data.packerRequired == 'true' || interfaceData.data.packerRequired == true">
+          <div class="absolute-label">
+            <label>Integration Frequency</label>
+          </div>
+      
+          <div class="input-holder-inner">
+            <p>Scheduled</p>
+          </div>
+        </div>
+
+      <!-- <div class="input-holder">
+        <div class="absolute-label">
+          <label>Select Schedule</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.cron}}</p>
+        </div>
+      </div> -->
+      <div class="input-holder" *ngIf="interfaceData.data.direction=='outbound'">
+        <div class="absolute-label">
+          <label>Generate Empty Packer</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.generatePackerFiles}}</p>
+        </div>
+      </div>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Enable Attachments</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.enableAttachment}}</p>
+        </div>
+      </div>
+      <!-- <div class="input-holder" *ngIf="interfaceData.data.enableAttachment == true">
+          <div class="absolute-label">
+            <label>Attachment folder</label>
+          </div>
+          <div class="input-holder-inner">
+            <p>{{interfaceData.data.attachmentFolder}}</p>
+          </div>
+      </div> -->
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Enable Encryption</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.enableEncryption}}</p>
+        </div>
+      </div>
+      <div class="input-holder" *ngIf="interfaceData.data.enableEncryption == true">
+        <div class="absolute-label">
+          <label>Encryption Type</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.encryptionType}}</p>
+        </div>
+      </div>
+      <div class="input-holder" *ngIf="interfaceData.data.enableEncryption == true &&  interfaceData.data.encryptionType == 'AES' && interfaceData.data.encryptionKey !== ''">
+        <div class="absolute-label">
+          <label>Key</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.encryptionKey}}</p>
+        </div>
+      </div>
+      
+      <h5>SFTP Details</h5>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Host</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.server}}</p>
+        </div>
+      </div>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Port</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.port}}</p>
+        </div>
+      </div>
+      <!-- <div class="input-holder">
+        <div class="absolute-label">
+          <label>Username</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.userName}}</p>
+        </div>
+      </div>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Password</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.password}}</p>
+        </div>
+      </div> -->
+      <div class="input-holder" *ngIf="interfaceData.data.direction=='INBOUND'">
+        <div class="absolute-label">
+          <label>To Folders</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.folderToWatch}}</p>
+        </div>
+      </div>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>From Folders</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.targetFolder}}</p>
+        </div>
+      </div>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>File name pattern</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.fileNamePattern}}</p>
+        </div>
+      </div>
+      <div class="input-holder" *ngIf="interfaceData.data.direction=='INBOUND' && interfaceData.data.actionRequired == true">
+          <div class="absolute-label">
+              <label>Action Folder Required</label>
+          </div>
+        <div class="input-holder-inner">
+              <p>{{interfaceData.data.actionRequired}}</p>
+          </div>
+      </div>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Enable Checksum</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.generateChecksum}}</p>
+        </div>
+      </div>
+    </div>
+    <!-- <div  *ngIf="interfaceData.data.specType=='API BASED INTEGRATION' &&  interfaceData.data.direction=='outbound'">
+      <p class="summarytitle">Configuration</p>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Endpoint URL</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.endpointUrl}}</p>
+        </div>
+      </div>
+    </div> -->
+    <div *ngIf="interfaceData.data.specType=='FILE BASED INTEGRATION'">
+      <p class="summarytitle">Notifications</p>
+      <!-- <div class="input-holder">
+        <div class="absolute-label">
+          <label>Email Notifications</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.activateEmailNotification}}</p>
+        </div>
+      </div> -->
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Address</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.notificationEmailAddress}}</p>
+        </div>
+      </div>
+      <!-- <div class="input-holder">
+        <div class="absolute-label">
+          <label>Subject</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{interfaceData.data.notificationEmailSubject}}</p>
+        </div>
+      </div> -->
+  </div>
+
+  <div class="input-holder activeinput">
+      <div class="absolute-label">
+        <label>Active</label>
+      </div>
+      <div class="input-holder-inner">
+        <p>{{interfaceData.data.active}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="btndiv">
+    <input [disabled]="isClicked ? true : null" [hidden]="!intStudioService.touchPointsEditData.jobId" class="generalsubmitbtn touchpointbtn" type="submit" value="Update Interface" (click)="submitInterface(interfaceData.data); isClicked = true"/>
+    <input [disabled]="isClicked ? true : null" [hidden]="intStudioService.touchPointsEditData.jobId" class="generalsubmitbtn touchpointbtn"  type="submit" value="Create Interface" (click)="submitInterface(interfaceData.data); isClicked = true"/>
+  </div>
+</div>

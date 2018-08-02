@@ -1,0 +1,114 @@
+{
+	"integrationEntityDetails": {
+	/*#exists returnNoteDetails*/
+	"returnNoteDetails": 
+		{
+		/*#with returnNoteDetails*/
+			/*#exists returnNoteHeader*/
+			"returnNoteHeader": 
+				{
+				/*#each returnNoteHeader*/
+					/*#exists returnNoteNo*/
+						"returnNoteNo": "/*preprocess returnNoteNo*/"
+					/*/exists returnNoteNo*/
+					/*#exists description*/
+						,"description": "/*preprocess description*/"
+					/*/exists description*/
+					/*#exists notes*/
+						,"notes": "/*preprocess notes*/"
+					/*/exists notes*/
+					/*#exists notifySupplier*/
+						,"notifySupplier": /*preprocess notifySupplier*/
+					/*/exists notifySupplier*/
+					/*#exists referenceType*/
+						,"referenceType": /*preprocess referenceType*/
+					/*/exists referenceType*/
+					/*#exists referenceValue*/
+						,"referenceValue": "/*preprocess referenceValue*/"
+					/*/exists referenceValue*/
+					/*#exists erpId*/
+						,"erpId": "/*preprocess erpId*/"
+					/*/exists erpId*/
+					/*#exists supplierDetails*/
+					,"supplierDetails": 
+						{
+						/*#each supplierDetails*/
+							/*#exists supplierId*/
+								"supplierId": "/*preprocess supplierId*/"
+							/*/exists supplierId*/
+							/*#exists supplierName*/
+								,"supplierName": "/*preprocess supplierName*/"
+							/*/exists supplierName*/
+							/*#exists supplierAddress*/
+							,"supplierAddress": 
+								{
+								/*#each supplierAddress*/
+									/*#exists addressCode*/
+										"addressCode": "/*preprocess addressCode*/"
+									/*/exists addressCode*/
+									/*#exists addressId*/
+										,"addressId": "/*preprocess addressId*/"
+									/*/exists addressId*/
+									/*#exists addressName*/
+										,"addressName": "/*preprocess addressName*/"
+									/*/exists addressName*/
+								/*/each supplierAddress*/
+								}
+							/*/exists supplierAddress*/
+							/*#exists supplierContactType*/
+								,"supplierContactType": "/*preprocess supplierContactType*/"
+							/*/exists supplierContactType*/
+							/*#exists supplierContact*/
+								,"supplierContact": "/*preprocess supplierContact*/"
+							/*/exists supplierContact*/
+							/*#exists supplierEmail*/
+								,"supplierEmail": "/*preprocess supplierEmail*/"
+							/*/exists supplierEmail*/
+						/*/each supplierDetails*/
+						}
+					/*/exists supplierDetails*/
+					/*#exists supplierComments*/
+						,"supplierComments": "/*preprocess supplierComments*/"
+					/*/exists supplierComments*/
+					/*#exists rmaNo*/
+						,"rmaNo": "/*preprocess rmaNo*/"
+					/*/exists rmaNo*/
+				/*/each returnNoteHeader*/
+				}
+			/*/exists returnNoteHeader*/
+			/*#exists items*/
+			,"items": 
+				{
+				/*#each items*/
+					/*#exists item*/
+					"item": [
+						/*#each item*/
+							{
+								/*#exists reasonForReturn*/
+									"reasonForReturn": "/*preprocess reasonForReturn*/"
+								/*/exists reasonForReturn*/
+								/*#exists lineItemId*/
+									,"lineItemId": "/*preprocess lineItemId*/"
+								/*/exists lineItemId*/
+								/*#exists lineNo*/
+									,"lineNo": "/*preprocess lineNo*/"
+								/*/exists lineNo*/
+								/*#exists returnedQuantity*/
+									,"returnedQuantity": /*preprocess returnedQuantity*/
+								/*/exists returnedQuantity*/
+								/*#exists comments*/
+									,"comments": "/*preprocess comments*/"
+								/*/exists comments*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each item*/
+					]
+					/*/exists item*/
+				/*/each items*/
+				}
+			/*/exists items*/
+		/*/with returnNoteDetails*/
+		}
+	/*/exists returnNoteDetails*/
+}
+}

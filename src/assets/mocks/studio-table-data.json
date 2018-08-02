@@ -1,0 +1,155 @@
+{
+  "data" :  [{
+    "feildname" : "ammendStatus",
+    "description" : "Idicates the current status of ammendments made",
+    "actionpoints" : "",
+    "remarks" : "1_status_amend_NA,10_status_amend_NA,20_status_amend_NA"
+   },
+   {
+     "feildname" : "ContractType",
+     "description" : "Discussion if this is required, where contract integration is in place",
+     "actionpoints" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text",
+     "remarks" : ""
+    },
+    {
+      "feildname" : "ContractType",
+      "description" : "Idicates the current status of ammendments made",
+      "actionpoints" : "",
+      "remarks" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text"
+     },
+     {
+       "feildname" : "ContractType",
+       "description" : "Discussion if this is required, where contract integration is in place",
+       "actionpoints" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text",
+       "remarks" : ""
+      },
+      {
+        "feildname" : "ContractType",
+        "description" : "Discussion if this is required, where contract integration is in place",
+        "actionpoints" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text",
+        "remarks" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text"
+      },
+      {
+        "feildname" : "ammendStatus",
+        "description" : "Idicates the current status of ammendments made",
+        "actionpoints" : "",
+        "remarks" : "1_status_amend_NA,10_status_amend_NA,20_status_amend_NA"
+       },
+       {
+         "feildname" : "ContractType",
+         "description" : "Discussion if this is required, where contract integration is in place",
+         "actionpoints" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text",
+         "remarks" : ""
+        },
+        {
+          "feildname" : "ContractType",
+          "description" : "Idicates the current status of ammendments made",
+          "actionpoints" : "",
+          "remarks" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text"
+         },
+         {
+           "feildname" : "ContractType",
+           "description" : "Discussion if this is required, where contract integration is in place",
+           "actionpoints" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text",
+           "remarks" : ""
+          },
+          {
+            "feildname" : "ContractType",
+            "description" : "Discussion if this is required, where contract integration is in place",
+            "actionpoints" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text",
+            "remarks" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text"
+          },
+          {
+            "feildname" : "ammendStatus",
+            "description" : "Idicates the current status of ammendments made",
+            "actionpoints" : "",
+            "remarks" : "1_status_amend_NA,10_status_amend_NA,20_status_amend_NA"
+           },
+           {
+             "feildname" : "ContractType",
+             "description" : "Discussion if this is required, where contract integration is in place",
+             "actionpoints" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text",
+             "remarks" : ""
+            },
+            {
+              "feildname" : "ContractType",
+              "description" : "Idicates the current status of ammendments made",
+              "actionpoints" : "",
+              "remarks" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text"
+             },
+             {
+               "feildname" : "ContractType",
+               "description" : "Discussion if this is required, where contract integration is in place",
+               "actionpoints" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text",
+               "remarks" : ""
+              },
+              {
+                "feildname" : "ContractType",
+                "description" : "Discussion if this is required, where contract integration is in place",
+                "actionpoints" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text",
+                "remarks" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text"
+              },
+              {
+                "feildname" : "ammendStatus",
+                "description" : "Idicates the current status of ammendments made",
+                "actionpoints" : "",
+                "remarks" : "1_status_amend_NA,10_status_amend_NA,20_status_amend_NA"
+               },
+               {
+                 "feildname" : "ContractType",
+                 "description" : "Discussion if this is required, where contract integration is in place",
+                 "actionpoints" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text",
+                 "remarks" : ""
+                },
+                {
+                  "feildname" : "ContractType",
+                  "description" : "Idicates the current status of ammendments made",
+                  "actionpoints" : "",
+                  "remarks" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text"
+                 },
+                 {
+                   "feildname" : "ContractType",
+                   "description" : "Discussion if this is required, where contract integration is in place",
+                   "actionpoints" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text",
+                   "remarks" : ""
+                  },
+                  {
+                    "feildname" : "ContractType",
+                    "description" : "Discussion if this is required, where contract integration is in place",
+                    "actionpoints" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text",
+                    "remarks" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text"
+                  },
+                  {
+                    "feildname" : "ammendStatus",
+                    "description" : "Idicates the current status of ammendments made",
+                    "actionpoints" : "",
+                    "remarks" : "1_status_amend_NA,10_status_amend_NA,20_status_amend_NA"
+                   },
+                   {
+                     "feildname" : "ContractType",
+                     "description" : "Discussion if this is required, where contract integration is in place",
+                     "actionpoints" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text",
+                     "remarks" : ""
+                    },
+                    {
+                      "feildname" : "ContractType",
+                      "description" : "Idicates the current status of ammendments made",
+                      "actionpoints" : "",
+                      "remarks" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text"
+                     },
+                     {
+                       "feildname" : "ContractType",
+                       "description" : "Discussion if this is required, where contract integration is in place",
+                       "actionpoints" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text",
+                       "remarks" : ""
+                      },
+                      {
+                        "feildname" : "ContractType",
+                        "description" : "Discussion if this is required, where contract integration is in place",
+                        "actionpoints" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text",
+                        "remarks" : "Indicates the type of contract eg. BPO Contract , Icontact contract or free text"
+                       }
+       ]
+
+
+}

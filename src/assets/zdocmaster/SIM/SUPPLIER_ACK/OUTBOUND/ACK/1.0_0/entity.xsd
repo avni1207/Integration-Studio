@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:integration-outbound="http://www.zycus.com/integration/schemas/IntegrationOutbound" targetNamespace="http://www.zycus.com/integration/schemas/IntegrationOutbound" version="1.0">
+  <xs:element name="IntegrationEntities" type="integration-outbound:IntegrationEntities"/>
+  <xs:complexType name="IntegrationEntities">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="integrationEntity" type="integration-outbound:integrationEntity"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="integrationEntity">
+    <xs:all>
+      <xs:element name="integrationEntityHeader" type="integration-outbound:APIIntegrationHeader"/>
+      <xs:element minOccurs="1" name="integrationEntityDetails" type="integration-outbound:integrationEntityDetails"/>
+      <xs:element minOccurs="0" name="processingErrors" type="integration-outbound:processingErrors"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="APIIntegrationHeader">
+    <xs:all>
+      <xs:element name="integrationTrackingNumber" type="xs:string"/>
+      <xs:element minOccurs="1" name="referenceCodeForEntity" type="xs:string"/>
+      <xs:element minOccurs="0" name="additionalInfo" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="integrationEntityDetails">
+    <xs:choice>
+      <xs:element maxOccurs="1" minOccurs="1" name="acknowledgement" type="integration-outbound:acknowledgement"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="processingErrors">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="error" type="integration-outbound:error"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="error">
+    <xs:all>
+      <xs:element name="errorCode" type="xs:string"/>
+      <xs:element name="errorDescription" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="acknowledgement">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="createdBy" type="xs:string"/>
+      <xs:element minOccurs="0" name="createdOn" type="xs:long"/>
+      <xs:element minOccurs="0" name="updatedBy" type="xs:string"/>
+      <xs:element minOccurs="0" name="updatedOn" type="xs:long"/>
+      <xs:element minOccurs="0" name="eventId" type="xs:string"/>
+      <xs:element minOccurs="1" name="externalId" type="xs:string"/>
+      <xs:element minOccurs="0" name="zycusSupplierID" type="xs:string"/>
+      <xs:element minOccurs="0" name="displayGSID" type="xs:string"/>
+      <xs:element minOccurs="1" name="status" type="xs:string"/>
+      <xs:element minOccurs="0" name="genericErrorMessage" type="xs:string"/>
+      <xs:element minOccurs="0" name="Forms">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Form">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="formName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="formId" type="xs:string"/>
+                  <xs:element minOccurs="0" name="Fields">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="Field">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+                              <xs:element minOccurs="0" name="fieldId" type="xs:string"/>
+                              <xs:element minOccurs="0" name="externalId" type="xs:string"/>
+                              <xs:element minOccurs="0" name="internalId" type="xs:long"/>
+                              <xs:element minOccurs="0" name="errorMessage" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="statusErrorMessages">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="statusErrorMessage">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="existingInternalSystemCode" type="xs:string"/>
+                  <xs:element minOccurs="0" name="existingInternalFacilityCode" type="xs:string"/>
+                  <xs:element minOccurs="0" name="existingExternalSystemCode" type="xs:string"/>
+                  <xs:element minOccurs="0" name="existingExternalFacilityCode" type="xs:string"/>
+                  <xs:element minOccurs="0" name="errorMessage" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

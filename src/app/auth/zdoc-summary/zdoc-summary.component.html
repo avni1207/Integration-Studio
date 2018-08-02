@@ -1,0 +1,96 @@
+
+<h5>Summary</h5>
+<div *ngIf="!zdocData.data.product">No summary data found</div>
+<div *ngIf="zdocData.data.product">
+<div class="genralForm">
+  <div class="edit-icon" [routerLink]="['/auth/zdoc-configuration/zdoc-subscription']"><i class="fa fa-pencil"></i></div>
+ 
+  <div class="input-holder">
+      <div class="absolute-label">
+        <label>Product</label>
+      </div>
+      <div class="input-holder-inner">
+        <p>{{zdocData.data.product}}</p>
+      </div>
+  </div>
+  <div class="input-holder">
+      <div class="absolute-label">
+        <label>Direction</label>
+      </div>
+      <div class="input-holder-inner">
+        <p>{{zdocData.data.directionFlag}}</p>
+      </div>
+  </div>
+  <div class="input-holder">
+    <div class="absolute-label">
+      <label>Interface</label>
+    </div>
+    <div class="input-holder-inner">
+      <p>{{zdocData.data.entity | uppercase}}</p>
+    </div>
+    </div>
+  <div class="input-holder">
+    <div class="absolute-label">
+      <label>Action</label>
+    </div>
+    <div class="input-holder-inner">
+      <p>{{zdocData.data.action | uppercase}}</p>
+    </div>
+  </div>
+  <div class="input-holder">
+    <div class="absolute-label">
+      <label>Base Version</label>
+    </div>
+    <div class="input-holder-inner">
+      <p>{{zdocData.data.zDocBaseVersion}}</p>
+    </div>
+  </div>
+  <div class="input-holder">
+      <div class="absolute-label">
+        <label>Custom Version</label>
+      </div>
+      <div class="input-holder-inner">
+        <p>{{zdocData.data.zDocCustomVersion}}</p>
+      </div>
+  </div>
+  <div class="input-holder">
+      <div class="absolute-label">
+        <label>Engine</label>
+      </div>
+      <div class="input-holder-inner">
+        <p>{{zdocData.data.engine}}</p>
+      </div>
+  </div>
+  <div class="input-holder">
+        <div class="absolute-label">
+          <label>Upload JSON Template</label>
+        </div>
+        <div class="input-holder-inner">
+          <p>{{zdocData.data.mapping}}</p>
+        </div>
+  </div>
+  <div class="input-holder">
+      <div class="absolute-label">
+        <label>Upload XSD_FILE</label>
+      </div>
+      <div class="input-holder-inner">
+        <p>{{zdocData.data.xsdFile}}</p>
+      </div>
+  </div>
+  <div class="input-holder">
+      <div class="absolute-label">
+        <label>Upload XSD_API</label>
+      </div>
+      <div class="input-holder-inner">
+        <p>{{zdocData.data.xsd}}</p>
+      </div>
+  </div>
+ 
+</div>
+
+<div class="btndiv">
+    <!-- <input [disabled]="isClicked ? true : null" [hidden]="!apiConfigservice.editzdocData.id" class="generalsubmitbtn touchpointbtn" type="submit" value="Update Api" (click)="submitApi(zdocData.data); isClicked = true"/> -->
+    <input [disabled]="isClicked ? true : null" [hidden]="zdocConfigservice.editZdocResponse.id" class="generalsubmitbtn touchpointbtn"  type="submit" value="Configure zdoc" (click)="submitZdoc(zdocData.data); isClicked = true"/>
+    <input [disabled]="isClicked ? true : null" [hidden]="!zdocConfigservice.editZdocResponse.id" class="generalsubmitbtn touchpointbtn"  type="submit" value="Update zdoc" (click)="submitZdoc(zdocData.data); isClicked = true"/>
+</div>
+</div>

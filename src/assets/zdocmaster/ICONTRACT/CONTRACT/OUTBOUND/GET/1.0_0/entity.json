@@ -1,0 +1,861 @@
+{
+	"integrationEntityDetails": {
+	/*#exists contract*/
+	"contract": 
+		{
+		/*#with contract*/
+			/*#exists contractId*/
+				"contractId": "/*preprocess contractId*/"
+			/*/exists contractId*/
+			/*#exists externalId*/
+				,"externalId": "/*preprocess externalId*/"
+			/*/exists externalId*/
+			/*#exists isAmendment*/
+				,"isAmendment": "/*preprocess isAmendment*/"
+			/*/exists isAmendment*/
+			/*#exists createdOn*/
+				,"createdOn": "/*preprocess createdOn*/"
+			/*/exists createdOn*/
+			/*#exists updatedOn*/
+				,"updatedOn": "/*preprocess updatedOn*/"
+			/*/exists updatedOn*/
+			/*#exists byPassAuthoringReview*/
+				,"byPassAuthoringReview": "/*preprocess byPassAuthoringReview*/"
+			/*/exists byPassAuthoringReview*/
+			/*#exists byPassNegotiateCycle*/
+				,"byPassNegotiateCycle": "/*preprocess byPassNegotiateCycle*/"
+			/*/exists byPassNegotiateCycle*/
+			/*#exists contractSource*/
+				,"contractSource": "/*preprocess contractSource*/"
+			/*/exists contractSource*/
+			/*#exists contractModule*/
+				,"contractModule": "/*preprocess contractModule*/"
+			/*/exists contractModule*/
+			/*#exists contractHeaders*/
+			,"contractHeaders": 
+				{
+				/*#with contractHeaders*/
+					/*#exists type*/
+						"type": "/*preprocess type*/"
+					/*/exists type*/
+					/*#exists subType*/
+						,"subType": "/*preprocess subType*/"
+					/*/exists subType*/
+					/*#exists status*/
+						,"status": "/*preprocess status*/"
+					/*/exists status*/
+					/*#exists contractNumber*/
+						,"contractNumber": "/*preprocess contractNumber*/"
+					/*/exists contractNumber*/
+					/*#exists contractTitle*/
+						,"contractTitle": "/*preprocess contractTitle*/"
+					/*/exists contractTitle*/
+					/*#exists contractOwner*/
+						,"contractOwner": "/*preprocess contractOwner*/"
+					/*/exists contractOwner*/
+					/*#exists hierarchyStatus*/
+						,"hierarchyStatus": "/*preprocess hierarchyStatus*/"
+					/*/exists hierarchyStatus*/
+					/*#exists folder*/
+						,"folder": "/*preprocess folder*/"
+					/*/exists folder*/
+					/*#exists region*/
+						,"region": "/*preprocess region*/"
+					/*/exists region*/
+					/*#exists contractCategory*/
+						,"contractCategory": "/*preprocess contractCategory*/"
+					/*/exists contractCategory*/
+					/*#exists contractScannedCopy*/
+						,"contractScannedCopy": "/*preprocess contractScannedCopy*/"
+					/*/exists contractScannedCopy*/
+					/*#exists contractAuthoringCopy*/
+						,"contractAuthoringCopy": "/*preprocess contractAuthoringCopy*/"
+					/*/exists contractAuthoringCopy*/
+					/*#exists contractStartDate*/
+						,"contractStartDate": "/*preprocess contractStartDate*/"
+					/*/exists contractStartDate*/
+					/*#exists autoRenew*/
+						,"autoRenew": "/*preprocess autoRenew*/"
+					/*/exists autoRenew*/
+					/*#exists contractExpirationDate*/
+						,"contractExpirationDate": "/*preprocess contractExpirationDate*/"
+					/*/exists contractExpirationDate*/
+					/*#exists contractRenewalDate*/
+						,"contractRenewalDate": "/*preprocess contractRenewalDate*/"
+					/*/exists contractRenewalDate*/
+					/*#exists contractValue*/
+						,"contractValue": "/*preprocess contractValue*/"
+					/*/exists contractValue*/
+					/*#exists baseCurrency*/
+						,"baseCurrency": "/*preprocess baseCurrency*/"
+					/*/exists baseCurrency*/
+				/*/with contractHeaders*/
+				}
+			/*/exists contractHeaders*/
+			/*#exists contractDetails*/
+			,"contractDetails": 
+				{
+				/*#with contractDetails*/
+					/*#exists metaDataFields*/
+					"metaDataFields": 
+						{
+						/*#with metaDataFields*/
+							/*#exists metaDataField*/
+							"metaDataField": [
+								/*#each metaDataField*/
+									{
+										/*#exists fieldName*/
+											"fieldName": "/*preprocess fieldName*/"
+										/*/exists fieldName*/
+										/*#exists fieldValue*/
+											,"fieldValue": "/*preprocess fieldValue*/"
+										/*/exists fieldValue*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each metaDataField*/
+							]
+							/*/exists metaDataField*/
+						/*/with metaDataFields*/
+						}
+					/*/exists metaDataFields*/
+					/*#exists customEntities*/
+					,"customEntities": 
+						{
+						/*#with customEntities*/
+							/*#exists customEntityList*/
+							"customEntityList": [
+								/*#each customEntityList*/
+									{
+										/*#exists customEntityName*/
+											"customEntityName": "/*preprocess customEntityName*/"
+										/*/exists customEntityName*/
+										/*#exists customEntityWrapper*/
+										,"customEntityWrapper": 
+											{
+											/*#with customEntityWrapper*/
+												/*#exists customEntity*/
+												"customEntity": [
+													/*#each customEntity*/
+														{
+															/*#exists customEntityId*/
+																"customEntityId": "/*preprocess customEntityId*/"
+															/*/exists customEntityId*/
+															/*#exists isDelete*/
+																,"isDelete": "/*preprocess isDelete*/"
+															/*/exists isDelete*/
+															/*#exists customFields*/
+															,"customFields": 
+																{
+																/*#with customFields*/
+																	/*#exists customField*/
+																	"customField": [
+																		/*#each customField*/
+																			{
+																				/*#exists fieldName*/
+																					"fieldName": "/*preprocess fieldName*/"
+																				/*/exists fieldName*/
+																				/*#exists fieldValue*/
+																					,"fieldValue": "/*preprocess fieldValue*/"
+																				/*/exists fieldValue*/
+																			}
+																			/*#unless @last*/,/*/unless*/
+																		/*/each customField*/
+																	]
+																	/*/exists customField*/
+																/*/with customFields*/
+																}
+															/*/exists customFields*/
+														}
+														/*#unless @last*/,/*/unless*/
+													/*/each customEntity*/
+												]
+												/*/exists customEntity*/
+											/*/with customEntityWrapper*/
+											}
+										/*/exists customEntityWrapper*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each customEntityList*/
+							]
+							/*/exists customEntityList*/
+						/*/with customEntities*/
+						}
+					/*/exists customEntities*/
+				/*/with contractDetails*/
+				}
+			/*/exists contractDetails*/
+			/*#exists amendmentDetails*/
+			,"amendmentDetails": 
+				{
+				/*#with amendmentDetails*/
+					/*#exists amendmentNo*/
+						"amendmentNo": "/*preprocess amendmentNo*/"
+					/*/exists amendmentNo*/
+					/*#exists amendmentEffectiveDate*/
+						,"amendmentEffectiveDate": "/*preprocess amendmentEffectiveDate*/"
+					/*/exists amendmentEffectiveDate*/
+					/*#exists amendmentDescription*/
+						,"amendmentDescription": "/*preprocess amendmentDescription*/"
+					/*/exists amendmentDescription*/
+				/*/with amendmentDetails*/
+				}
+			/*/exists amendmentDetails*/
+			/*#exists businessUnits*/
+			,"businessUnits": 
+				{
+				/*#with businessUnits*/
+					/*#exists businessUnit*/
+					"businessUnit": [
+						/*#each businessUnit*/
+							{
+								/*#exists businessUnitNumber*/
+									"businessUnitNumber": "/*preprocess businessUnitNumber*/"
+								/*/exists businessUnitNumber*/
+								/*#exists isDelete*/
+									,"isDelete": "/*preprocess isDelete*/"
+								/*/exists isDelete*/
+								/*#exists businessUnitName*/
+									,"businessUnitName": "/*preprocess businessUnitName*/"
+								/*/exists businessUnitName*/
+								/*#exists buStatus*/
+									,"buStatus": "/*preprocess buStatus*/"
+								/*/exists buStatus*/
+								/*#exists buFields*/
+								,"buFields": 
+									{
+									/*#with buFields*/
+										/*#exists buField*/
+										"buField": [
+											/*#each buField*/
+												{
+													/*#exists buFieldName*/
+														"buFieldName": "/*preprocess buFieldName*/"
+													/*/exists buFieldName*/
+													/*#exists buFieldValue*/
+														,"buFieldValue": "/*preprocess buFieldValue*/"
+													/*/exists buFieldValue*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each buField*/
+										]
+										/*/exists buField*/
+									/*/with buFields*/
+									}
+								/*/exists buFields*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each businessUnit*/
+					]
+					/*/exists businessUnit*/
+				/*/with businessUnits*/
+				}
+			/*/exists businessUnits*/
+			/*#exists contractOutline*/
+			,"contractOutline": 
+				{
+				/*#with contractOutline*/
+					/*#exists templateType*/
+						"templateType": "/*preprocess templateType*/"
+					/*/exists templateType*/
+					/*#exists internalDocumentId*/
+						,"internalDocumentId": "/*preprocess internalDocumentId*/"
+					/*/exists internalDocumentId*/
+					/*#exists externalFileName*/
+						,"externalFileName": "/*preprocess externalFileName*/"
+					/*/exists externalFileName*/
+					/*#exists externalFileId*/
+						,"externalFileId": "/*preprocess externalFileId*/"
+					/*/exists externalFileId*/
+				/*/with contractOutline*/
+				}
+			/*/exists contractOutline*/
+			/*#exists lineItems*/
+			,"lineItems": 
+				{
+				/*#with lineItems*/
+					/*#exists lineItem*/
+					"lineItem": [
+						/*#each lineItem*/
+							{
+								/*#exists itemNumber*/
+									"itemNumber": "/*preprocess itemNumber*/"
+								/*/exists itemNumber*/
+								/*#exists isDelete*/
+									,"isDelete": "/*preprocess isDelete*/"
+								/*/exists isDelete*/
+								/*#exists description*/
+									,"description": "/*preprocess description*/"
+								/*/exists description*/
+								/*#exists unitsOfMeasurement*/
+									,"unitsOfMeasurement": "/*preprocess unitsOfMeasurement*/"
+								/*/exists unitsOfMeasurement*/
+								/*#exists quantity*/
+									,"quantity": "/*preprocess quantity*/"
+								/*/exists quantity*/
+								/*#exists category*/
+									,"category": "/*preprocess category*/"
+								/*/exists category*/
+								/*#exists priceType*/
+									,"priceType": "/*preprocess priceType*/"
+								/*/exists priceType*/
+								/*#exists currency*/
+									,"currency": "/*preprocess currency*/"
+								/*/exists currency*/
+								/*#exists cost*/
+									,"cost": "/*preprocess cost*/"
+								/*/exists cost*/
+								/*#exists pricingType*/
+								,"pricingType": 
+									{
+									/*#with pricingType*/
+										/*#exists type*/
+											"type": "/*preprocess type*/"
+										/*/exists type*/
+										/*#exists fixedPrice*/
+											,"fixedPrice": "/*preprocess fixedPrice*/"
+										/*/exists fixedPrice*/
+										/*#exists volumeBasedPriceSlabs*/
+										,"volumeBasedSlabPricingList": 
+											{
+											/*#with volumeBasedPriceSlabs*/
+												/*#exists volumeBasedPriceSlab*/
+												"volumeBasedSlabPricing": [
+													/*#each volumeBasedPriceSlab*/
+														{
+															/*#exists lowerLimitQuantity*/
+																"lowerLimitQuantity": "/*preprocess lowerLimitQuantity*/"
+															/*/exists lowerLimitQuantity*/
+															/*#exists upperLimitQuantity*/
+																,"upperLimitQuantity": "/*preprocess upperLimitQuantity*/"
+															/*/exists upperLimitQuantity*/
+															/*#exists applicablePrice*/
+																,"applicablePrice": "/*preprocess applicablePrice*/"
+															/*/exists applicablePrice*/
+														}
+														/*#unless @last*/,/*/unless*/
+													/*/each volumeBasedPriceSlab*/
+												]
+												/*/exists volumeBasedPriceSlab*/
+											/*/with volumeBasedPriceSlabs*/
+											}
+										/*/exists volumeBasedPriceSlabs*/
+										/*#exists volumeBasedDiscountSlabs*/
+										,"volumeBasedDiscountSlabs": 
+											{
+											/*#with volumeBasedDiscountSlabs*/
+												/*#exists volumeBasedDiscountSlab*/
+												"volumeBasedDiscountSlab": [
+													/*#each volumeBasedDiscountSlab*/
+														{
+															/*#exists lowerLimitQuantity*/
+																"lowerLimitQuantity": "/*preprocess lowerLimitQuantity*/"
+															/*/exists lowerLimitQuantity*/
+															/*#exists upperLimitQuantity*/
+																,"upperLimitQuantity": "/*preprocess upperLimitQuantity*/"
+															/*/exists upperLimitQuantity*/
+															/*#exists basePrice*/
+																,"basePrice": "/*preprocess basePrice*/"
+															/*/exists basePrice*/
+															/*#exists discount*/
+																,"discount": "/*preprocess discount*/"
+															/*/exists discount*/
+														}
+														/*#unless @last*/,/*/unless*/
+													/*/each volumeBasedDiscountSlab*/
+												]
+												/*/exists volumeBasedDiscountSlab*/
+											/*/with volumeBasedDiscountSlabs*/
+											}
+										/*/exists volumeBasedDiscountSlabs*/
+									/*/with pricingType*/
+									}
+								/*/exists pricingType*/
+								/*#exists customFields*/
+								,"customFields": 
+									{
+									/*#with customFields*/
+										/*#exists customField*/
+										"customField": [
+											/*#each customField*/
+												{
+													/*#exists customFieldName*/
+														"customFieldName": "/*preprocess customFieldName*/"
+													/*/exists customFieldName*/
+													/*#exists customFieldValue*/
+														,"customFieldValue": "/*preprocess customFieldValue*/"
+													/*/exists customFieldValue*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each customField*/
+										]
+										/*/exists customField*/
+									/*/with customFields*/
+									}
+								/*/exists customFields*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each lineItem*/
+					]
+					/*/exists lineItem*/
+				/*/with lineItems*/
+				}
+			/*/exists lineItems*/
+			/*#exists contractingParties*/
+			,"contractingParties": 
+				{
+				/*#with contractingParties*/
+					/*#exists primaryContractingParty*/
+					"primaryContractingParty": 
+						{
+						/*#with primaryContractingParty*/
+							/*#exists primaryContractingPartyId*/
+								"primaryContractingPartyId": "/*preprocess primaryContractingPartyId*/"
+							/*/exists primaryContractingPartyId*/
+							/*#exists primaryContractingPartyName*/
+								,"primaryContractingPartyName": "/*preprocess primaryContractingPartyName*/"
+							/*/exists primaryContractingPartyName*/
+							/*#exists contactPersonId*/
+								,"contactPersonId": "/*preprocess contactPersonId*/"
+							/*/exists contactPersonId*/
+						/*/with primaryContractingParty*/
+						}
+					/*/exists primaryContractingParty*/
+					/*#exists otherContractingParties*/
+					,"otherContractingParties": 
+						{
+						/*#with otherContractingParties*/
+							/*#exists otherContractingParty*/
+							"otherContractingParty": [
+								/*#each otherContractingParty*/
+									{
+										/*#exists contractingPartyId*/
+											"contractingPartyId": "/*preprocess contractingPartyId*/"
+										/*/exists contractingPartyId*/
+										/*#exists isDelete*/
+											,"isDelete": "/*preprocess isDelete*/"
+										/*/exists isDelete*/
+										/*#exists contractingPartyName*/
+											,"contractingPartyName": "/*preprocess contractingPartyName*/"
+										/*/exists contractingPartyName*/
+										/*#exists contactPersonId*/
+											,"contactPersonId": "/*preprocess contactPersonId*/"
+										/*/exists contactPersonId*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each otherContractingParty*/
+							]
+							/*/exists otherContractingParty*/
+						/*/with otherContractingParties*/
+						}
+					/*/exists otherContractingParties*/
+				/*/with contractingParties*/
+				}
+			/*/exists contractingParties*/
+			/*#exists contractors*/
+			,"contractors": 
+				{
+				/*#with contractors*/
+					/*#exists contractor*/
+					"contractor": [
+						/*#each contractor*/
+							{
+								/*#exists contractorId*/
+									"contractorId": "/*preprocess contractorId*/"
+								/*/exists contractorId*/
+								/*#exists isDelete*/
+									,"isDelete": "/*preprocess isDelete*/"
+								/*/exists isDelete*/
+								/*#exists contractorName*/
+									,"contractorName": "/*preprocess contractorName*/"
+								/*/exists contractorName*/
+								/*#exists engagementScheduleId*/
+									,"engagementScheduleId": "/*preprocess engagementScheduleId*/"
+								/*/exists engagementScheduleId*/
+								/*#exists engagementStartDate*/
+									,"engagementStartDate": "/*preprocess engagementStartDate*/"
+								/*/exists engagementStartDate*/
+								/*#exists engagementEndDate*/
+									,"engagementEndDate": "/*preprocess engagementEndDate*/"
+								/*/exists engagementEndDate*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each contractor*/
+					]
+					/*/exists contractor*/
+				/*/with contractors*/
+				}
+			/*/exists contractors*/
+			/*#exists milestones*/
+			,"milestones": 
+				{
+				/*#with milestones*/
+					/*#exists milestone*/
+					"milestone": [
+						/*#each milestone*/
+							{
+								/*#exists milestoneId*/
+									"milestoneId": "/*preprocess milestoneId*/"
+								/*/exists milestoneId*/
+								/*#exists isDelete*/
+									,"isDelete": "/*preprocess isDelete*/"
+								/*/exists isDelete*/
+								/*#exists milestoneTitle*/
+									,"milestoneTitle": "/*preprocess milestoneTitle*/"
+								/*/exists milestoneTitle*/
+								/*#exists milestoneType*/
+									,"milestoneType": "/*preprocess milestoneType*/"
+								/*/exists milestoneType*/
+								/*#exists milestoneDescription*/
+									,"milestoneDescription": "/*preprocess milestoneDescription*/"
+								/*/exists milestoneDescription*/
+								/*#exists milestoneStatus*/
+									,"milestoneStatus": "/*preprocess milestoneStatus*/"
+								/*/exists milestoneStatus*/
+								/*#exists milestoneDuedate*/
+									,"milestoneDuedate": "/*preprocess milestoneDuedate*/"
+								/*/exists milestoneDuedate*/
+								/*#exists milestoneDeliverytype*/
+									,"milestoneDeliverytype": "/*preprocess milestoneDeliverytype*/"
+								/*/exists milestoneDeliverytype*/
+								/*#exists milestoneAmountpayable*/
+									,"milestoneAmountpayable": "/*preprocess milestoneAmountpayable*/"
+								/*/exists milestoneAmountpayable*/
+								/*#exists milestonePercentage*/
+									,"milestonePercentage": "/*preprocess milestonePercentage*/"
+								/*/exists milestonePercentage*/
+								/*#exists milestoneNotifydate*/
+									,"milestoneNotifydate": "/*preprocess milestoneNotifydate*/"
+								/*/exists milestoneNotifydate*/
+								/*#exists milestoneRecurrenceduration*/
+									,"milestoneRecurrenceduration": "/*preprocess milestoneRecurrenceduration*/"
+								/*/exists milestoneRecurrenceduration*/
+								/*#exists milestoneVerifiers*/
+								,"milestoneVerifiers": 
+									{
+									/*#with milestoneVerifiers*/
+										/*#exists milestoneVerifier*/
+										"milestoneVerifier": [
+											/*#each milestoneVerifier*/
+												{
+													/*#exists isDelete*/
+														"isDelete": "/*preprocess isDelete*/"
+													/*/exists isDelete*/
+													/*#exists milestoneVerifierType*/
+														,"milestoneVerifierType": "/*preprocess milestoneVerifierType*/"
+													/*/exists milestoneVerifierType*/
+													/*#exists milestoneName*/
+														,"milestoneName": "/*preprocess milestoneName*/"
+													/*/exists milestoneName*/
+													/*#exists milestoneEmailid*/
+														,"milestoneEmailid": "/*preprocess milestoneEmailid*/"
+													/*/exists milestoneEmailid*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each milestoneVerifier*/
+										]
+										/*/exists milestoneVerifier*/
+									/*/with milestoneVerifiers*/
+									}
+								/*/exists milestoneVerifiers*/
+								/*#exists milestoneDocuments*/
+								,"milestoneDocuments": 
+									{
+									/*#with milestoneDocuments*/
+										/*#exists milestoneDocument*/
+										"milestoneDocument": [
+											/*#each milestoneDocument*/
+												{
+													/*#exists isDelete*/
+														"isDelete": "/*preprocess isDelete*/"
+													/*/exists isDelete*/
+													/*#exists milestoneDocumentnumber*/
+														,"milestoneDocumentnumber": "/*preprocess milestoneDocumentnumber*/"
+													/*/exists milestoneDocumentnumber*/
+													/*#exists milestoneDocumentname*/
+														,"milestoneDocumentname": "/*preprocess milestoneDocumentname*/"
+													/*/exists milestoneDocumentname*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each milestoneDocument*/
+										]
+										/*/exists milestoneDocument*/
+									/*/with milestoneDocuments*/
+									}
+								/*/exists milestoneDocuments*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each milestone*/
+					]
+					/*/exists milestone*/
+				/*/with milestones*/
+				}
+			/*/exists milestones*/
+			/*#exists amendments*/
+			,"amendments": 
+				{
+				/*#with amendments*/
+					/*#exists amendmentId*/
+						"amendmentId": [/*#each amendmentId*/ 
+						"/*preprocess this*/"
+						/*#unless @last*/,/*/unless*/
+					/*/each amendmentId*/]
+					/*/exists amendmentId*/
+				/*/with amendments*/
+				}
+			/*/exists amendments*/
+			/*#exists utilization*/
+			,"utilization": 
+				{
+				/*#with utilization*/
+					/*#exists utilizationAmount*/
+						"utilizationAmount": "/*preprocess utilizationAmount*/"
+					/*/exists utilizationAmount*/
+					/*#exists percentUtilization*/
+						,"percentUtilization": "/*preprocess percentUtilization*/"
+					/*/exists percentUtilization*/
+					/*#exists poDetails*/
+					,"poDetails": 
+						{
+						/*#with poDetails*/
+							/*#exists poInformation*/
+							"poInformation": [
+								/*#each poInformation*/
+									{
+										/*#exists poQuantity*/
+											"poQuantity": "/*preprocess poQuantity*/"
+										/*/exists poQuantity*/
+										/*#exists poNumber*/
+											,"poNumber": "/*preprocess poNumber*/"
+										/*/exists poNumber*/
+										/*#exists poDate*/
+											,"poDate": "/*preprocess poDate*/"
+										/*/exists poDate*/
+										/*#exists poUnitPrice*/
+											,"poUnitPrice": "/*preprocess poUnitPrice*/"
+										/*/exists poUnitPrice*/
+										/*#exists vendorId*/
+											,"vendorId": "/*preprocess vendorId*/"
+										/*/exists vendorId*/
+										/*#exists poDescription*/
+											,"poDescription": "/*preprocess poDescription*/"
+										/*/exists poDescription*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each poInformation*/
+							]
+							/*/exists poInformation*/
+						/*/with poDetails*/
+						}
+					/*/exists poDetails*/
+				/*/with utilization*/
+				}
+			/*/exists utilization*/
+			/*#exists documents*/
+			,"documents": 
+				{
+				/*#with documents*/
+					/*#exists document*/
+					"document": [
+						/*#each document*/
+							{
+								/*#exists documentDbId*/
+									"documentDbId": "/*preprocess documentDbId*/"
+								/*/exists documentDbId*/
+								/*#exists isDelete*/
+									,"isDelete": "/*preprocess isDelete*/"
+								/*/exists isDelete*/
+								/*#exists documentId*/
+									,"documentId": "/*preprocess documentId*/"
+								/*/exists documentId*/
+								/*#exists documentType*/
+									,"documentType": "/*preprocess documentType*/"
+								/*/exists documentType*/
+								/*#exists documentName*/
+									,"documentName": "/*preprocess documentName*/"
+								/*/exists documentName*/
+								/*#exists documentComments*/
+									,"documentComments": "/*preprocess documentComments*/"
+								/*/exists documentComments*/
+								/*#exists documentFields*/
+								,"documentFields": 
+									{
+									/*#with documentFields*/
+										/*#exists documentField*/
+										"documentField": [
+											/*#each documentField*/
+												{
+													/*#exists documentFieldName*/
+														"documentFieldName": "/*preprocess documentFieldName*/"
+													/*/exists documentFieldName*/
+													/*#exists documentFieldValue*/
+														,"documentFieldValue": "/*preprocess documentFieldValue*/"
+													/*/exists documentFieldValue*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each documentField*/
+										]
+										/*/exists documentField*/
+									/*/with documentFields*/
+									}
+								/*/exists documentFields*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each document*/
+					]
+					/*/exists document*/
+				/*/with documents*/
+				}
+			/*/exists documents*/
+			/*#exists alertsReminders*/
+			,"alertsReminders": 
+				{
+				/*#with alertsReminders*/
+					/*#exists alerts*/
+					"alerts": 
+						{
+						/*#with alerts*/
+							/*#exists alert*/
+							"alert": [
+								/*#each alert*/
+									{
+										/*#exists alertId*/
+											"alertId": "/*preprocess alertId*/"
+										/*/exists alertId*/
+										/*#exists isDelete*/
+											,"isDelete": "/*preprocess isDelete*/"
+										/*/exists isDelete*/
+										/*#exists alertType*/
+											,"alertType": "/*preprocess alertType*/"
+										/*/exists alertType*/
+										/*#exists alertTitle*/
+											,"alertTitle": "/*preprocess alertTitle*/"
+										/*/exists alertTitle*/
+										/*#exists alertDescription*/
+											,"alertDescription": "/*preprocess alertDescription*/"
+										/*/exists alertDescription*/
+										/*#exists alertPriority*/
+											,"alertPriority": "/*preprocess alertPriority*/"
+										/*/exists alertPriority*/
+										/*#exists alertCondition*/
+										,"alertCondition": 
+											{
+											/*#with alertCondition*/
+												/*#exists alertFor*/
+													"alertFor": "/*preprocess alertFor*/"
+												/*/exists alertFor*/
+												/*#exists alertDate*/
+													,"alertDate": "/*preprocess alertDate*/"
+												/*/exists alertDate*/
+												/*#exists utilizationPercentage*/
+													,"utilizationPercentage": "/*preprocess utilizationPercentage*/"
+												/*/exists utilizationPercentage*/
+												/*#exists utilizationValue*/
+													,"utilizationValue": "/*preprocess utilizationValue*/"
+												/*/exists utilizationValue*/
+												/*#exists bindingCondition*/
+													,"bindingCondition": "/*preprocess bindingCondition*/"
+												/*/exists bindingCondition*/
+											/*/with alertCondition*/
+											}
+										/*/exists alertCondition*/
+										/*#exists alertRecipients*/
+										,"alertRecipients": 
+											{
+											/*#with alertRecipients*/
+												/*#exists internalRecipients*/
+												"internalRecipients": 
+													{
+													/*#with internalRecipients*/
+														/*#exists internalRecipient*/
+														"internalRecipient": [
+															/*#each internalRecipient*/
+																{
+																	/*#exists userName*/
+																		"userName": "/*preprocess userName*/"
+																	/*/exists userName*/
+																	/*#exists userEmail*/
+																		,"userEmail": "/*preprocess userEmail*/"
+																	/*/exists userEmail*/
+																}
+																/*#unless @last*/,/*/unless*/
+															/*/each internalRecipient*/
+														]
+														/*/exists internalRecipient*/
+													/*/with internalRecipients*/
+													}
+												/*/exists internalRecipients*/
+												/*#exists externalRecipients*/
+												,"externalRecipients": 
+													{
+													/*#with externalRecipients*/
+														/*#exists externalRecipient*/
+														"externalRecipient": [
+															/*#each externalRecipient*/
+																{
+																	/*#exists userName*/
+																		"userName": "/*preprocess userName*/"
+																	/*/exists userName*/
+																	/*#exists userEmail*/
+																		,"userEmail": "/*preprocess userEmail*/"
+																	/*/exists userEmail*/
+																}
+																/*#unless @last*/,/*/unless*/
+															/*/each externalRecipient*/
+														]
+														/*/exists externalRecipient*/
+													/*/with externalRecipients*/
+													}
+												/*/exists externalRecipients*/
+											/*/with alertRecipients*/
+											}
+										/*/exists alertRecipients*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each alert*/
+							]
+							/*/exists alert*/
+						/*/with alerts*/
+						}
+					/*/exists alerts*/
+					/*#exists reminders*/
+					,"reminders": 
+						{
+						/*#with reminders*/
+							/*#exists reminder*/
+							"reminder": [
+								/*#each reminder*/
+									{
+										/*#exists reminderId*/
+											"reminderId": "/*preprocess reminderId*/"
+										/*/exists reminderId*/
+										/*#exists isDelete*/
+											,"isDelete": "/*preprocess isDelete*/"
+										/*/exists isDelete*/
+										/*#exists reminderTitle*/
+											,"reminderTitle": "/*preprocess reminderTitle*/"
+										/*/exists reminderTitle*/
+										/*#exists reminderDescription*/
+											,"reminderDescription": "/*preprocess reminderDescription*/"
+										/*/exists reminderDescription*/
+										/*#exists reminderDate*/
+											,"reminderDate": "/*preprocess reminderDate*/"
+										/*/exists reminderDate*/
+										/*#exists reminderTime*/
+											,"reminderTime": "/*preprocess reminderTime*/"
+										/*/exists reminderTime*/
+									}
+									/*#unless @last*/,/*/unless*/
+								/*/each reminder*/
+							]
+							/*/exists reminder*/
+						/*/with reminders*/
+						}
+					/*/exists reminders*/
+				/*/with alertsReminders*/
+				}
+			/*/exists alertsReminders*/
+		/*/with contract*/
+		}
+	/*/exists contract*/
+}
+}

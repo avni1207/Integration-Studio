@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:integration-inbound="http://www.zycus.com/integration/schemas/IntegrationInbound" targetNamespace="http://www.zycus.com/integration/schemas/IntegrationInbound" version="1.0">
+  <xs:element name="IntegrationDetails" type="integration-inbound:inboundIntegrationDetails"/>
+  <xs:element name="IntegrationEntity" type="integration-inbound:inboundIntegrationEntity"/>
+  <xs:complexType name="inboundIntegrationEntity">
+    <xs:sequence>
+      <xs:element name="integrationEntityHeader" type="integration-inbound:InboundIntegrationHeader"/>
+      <xs:element name="integrationEntityDetails" type="integration-inbound:inboundIntegrationEntityDetails"/>
+      <xs:element minOccurs="0" name="processingErrors" type="integration-inbound:processingErrors"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InboundIntegrationHeader">
+    <!-- <xs:complexContent> -->
+    <!-- <xs:extension base="integration-inbound:BaseIntegrationHeader"> -->
+    <xs:all>
+      <xs:element name="integrationTrackingNumber" type="xs:string"/>
+      <xs:element minOccurs="1" name="referenceCodeForEntity" type="xs:string"/>
+      <xs:element minOccurs="0" name="additionalInfo" type="xs:string"/>
+      <xs:element name="action" type="xs:string"/>
+      <xs:element name="entity" type="xs:string"/>
+      <xs:element name="source" type="xs:string"/>
+      <xs:element name="zDocBaseVersion" type="xs:string"/>
+      <xs:element name="zDocCustomVersion" type="xs:string"/>
+      <xs:element minOccurs="0" name="timestampUTC" type="xs:string"/>
+      <xs:element minOccurs="0" name="attachments" type="integration-inbound:attachments"/>
+    </xs:all>
+    <!-- </xs:extension> -->
+    <!-- </xs:complexContent> -->
+  </xs:complexType>
+  <xs:complexType name="inboundIntegrationEntityDetails">
+    <xs:choice>
+      <xs:element minOccurs="1" name="contract" type="integration-inbound:contract"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="inboundIntegrationDetails">
+    <xs:all>
+      <xs:element name="integrationEntities">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="integrationEntity" type="integration-inbound:inboundIntegrationEntity"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="processingErrors">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="shouldRetry" type="xs:boolean"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="error" type="integration-inbound:error"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="error">
+    <xs:all>
+      <xs:element name="errorCode" type="xs:string"/>
+      <xs:element name="errorDescription" type="xs:string"/>
+      <xs:element name="action" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="attachments">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="attachment" type="integration-inbound:attachment"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="attachment">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="id" type="xs:string"/>
+      <xs:element minOccurs="1" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="size" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- <xs:complexType name="BaseIntegrationHeader"> -->
+  <!-- <xs:all/> -->
+  <!-- </xs:complexType> -->
+  <xs:complexType name="contract">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="contractId" type="xs:string"/>
+      <xs:element minOccurs="1" name="externalId" type="xs:string"/>
+      <xs:element minOccurs="1" name="isAmendment" type="xs:string"/>
+      <xs:element minOccurs="0" name="createdOn" type="xs:string"/>
+      <xs:element minOccurs="0" name="updatedOn" type="xs:string"/>
+      <xs:element minOccurs="0" name="byPassAuthoringReview" type="xs:string"/>
+      <xs:element minOccurs="0" name="byPassNegotiateCycle" type="xs:string"/>
+      <xs:element minOccurs="0" name="contractSource" type="xs:string"/>
+      <xs:element minOccurs="0" name="contractModule" type="xs:string"/>
+      <xs:element minOccurs="0" name="contractHeaders">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="type" type="xs:string"/>
+            <xs:element minOccurs="0" name="subType" type="xs:string"/>
+            <xs:element minOccurs="0" name="status" type="xs:string"/>
+            <xs:element minOccurs="0" name="contractNumber" type="xs:string"/>
+            <xs:element minOccurs="0" name="contractTitle" type="xs:string"/>
+            <xs:element minOccurs="0" name="contractOwner" type="xs:string"/>
+            <xs:element minOccurs="0" name="hierarchyStatus" type="xs:string"/>
+            <xs:element minOccurs="0" name="folder" type="xs:string"/>
+            <xs:element minOccurs="0" name="region" type="xs:string"/>
+            <xs:element minOccurs="0" name="contractCategory" type="xs:string"/>
+            <xs:element minOccurs="0" name="contractScannedCopy" type="xs:string"/>
+            <xs:element minOccurs="0" name="contractAuthoringCopy" type="xs:string"/>
+            <xs:element minOccurs="0" name="contractStartDate" type="xs:string"/>
+            <xs:element minOccurs="0" name="autoRenew" type="xs:string"/>
+            <xs:element minOccurs="0" name="contractExpirationDate" type="xs:string"/>
+            <xs:element minOccurs="0" name="contractRenewalDate" type="xs:string"/>
+            <xs:element minOccurs="0" name="contractValue" type="xs:string"/>
+            <xs:element minOccurs="0" name="baseCurrency" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="contractDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="metaDataFields">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="metaDataField">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+                        <xs:element minOccurs="0" name="fieldValue" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="customEntities">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="customEntityList">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="1" name="customEntityName" type="xs:string"/>
+                        <xs:element minOccurs="0" name="customEntityWrapper">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element maxOccurs="unbounded" minOccurs="0" name="customEntity">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element minOccurs="0" name="customEntityId" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="isDelete" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="customFields">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element maxOccurs="unbounded" minOccurs="0" name="customField">
+                                            <xs:complexType>
+                                              <xs:sequence>
+                                                <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+                                                <xs:element minOccurs="0" name="fieldValue" type="xs:string"/>
+                                              </xs:sequence>
+                                            </xs:complexType>
+                                          </xs:element>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="amendmentDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="amendmentNo" type="xs:string"/>
+            <xs:element minOccurs="0" name="amendmentEffectiveDate" type="xs:string"/>
+            <xs:element minOccurs="0" name="amendmentDescription" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="businessUnits">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="businessUnit">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" name="businessUnitNumber" type="xs:string"/>
+                  <xs:element minOccurs="0" name="isDelete" type="xs:string"/>
+                  <xs:element minOccurs="0" name="businessUnitName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="buStatus" type="xs:string"/>
+                  <xs:element minOccurs="0" name="buFields">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="buField">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="buFieldName" type="xs:string"/>
+                              <xs:element minOccurs="0" name="buFieldValue" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="contractOutline">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="templateType" type="xs:string"/>
+            <xs:element minOccurs="0" name="internalDocumentId" type="xs:string"/>
+            <xs:element minOccurs="0" name="externalFileName" type="xs:string"/>
+            <xs:element minOccurs="0" name="externalFileId" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="lineItems">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="lineItem">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" name="itemNumber" type="xs:string"/>
+                  <xs:element minOccurs="0" name="isDelete" type="xs:string"/>
+                  <xs:element minOccurs="0" name="description" type="xs:string"/>
+                  <xs:element minOccurs="0" name="unitsOfMeasurement" type="xs:string"/>
+                  <xs:element minOccurs="0" name="quantity" type="xs:string"/>
+                  <xs:element minOccurs="0" name="category" type="xs:string"/>
+                  <xs:element minOccurs="0" name="priceType" type="xs:string"/>
+                  <xs:element minOccurs="0" name="currency" type="xs:string"/>
+                  <xs:element minOccurs="0" name="cost" type="xs:string"/>
+                  <xs:element minOccurs="0" name="pricingType">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="type" type="xs:string"/>
+                        <xs:element minOccurs="0" name="fixedPrice" type="xs:string"/>
+                        <xs:element minOccurs="0" name="volumeBasedSlabPricingList">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element maxOccurs="unbounded" minOccurs="0" name="volumeBasedSlabPricing">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element minOccurs="0" name="lowerLimitQuantity" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="upperLimitQuantity" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="applicablePrice" type="xs:string"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="volumeBasedDiscountSlabs">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element maxOccurs="unbounded" minOccurs="0" name="volumeBasedDiscountSlab">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element minOccurs="0" name="lowerLimitQuantity" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="upperLimitQuantity" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="basePrice" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="discount" type="xs:string"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="customFields">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="customField">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="customFieldName" type="xs:string"/>
+                              <xs:element minOccurs="0" name="customFieldValue" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="contractingParties">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="primaryContractingParty">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="primaryContractingPartyId" type="xs:string"/>
+                  <xs:element minOccurs="0" name="primaryContractingPartyName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="contactPersonId" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="otherContractingParties">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="otherContractingParty">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="contractingPartyId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="isDelete" type="xs:string"/>
+                        <xs:element minOccurs="0" name="contractingPartyName" type="xs:string"/>
+                        <xs:element minOccurs="0" name="contactPersonId" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="contractors">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="contractor">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="contractorId" type="xs:string"/>
+                  <xs:element minOccurs="0" name="isDelete" type="xs:string"/>
+                  <xs:element minOccurs="0" name="contractorName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="engagementScheduleId" type="xs:string"/>
+                  <xs:element minOccurs="0" name="engagementStartDate" type="xs:string"/>
+                  <xs:element minOccurs="0" name="engagementEndDate" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="milestones">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="milestone">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" name="milestoneId" type="xs:string"/>
+                  <xs:element minOccurs="0" name="isDelete" type="xs:string"/>
+                  <xs:element minOccurs="0" name="milestoneTitle" type="xs:string"/>
+                  <xs:element minOccurs="0" name="milestoneType" type="xs:string"/>
+                  <xs:element minOccurs="0" name="milestoneDescription" type="xs:string"/>
+                  <xs:element minOccurs="0" name="milestoneStatus" type="xs:string"/>
+                  <xs:element minOccurs="0" name="milestoneDuedate" type="xs:string"/>
+                  <xs:element minOccurs="0" name="milestoneDeliverytype" type="xs:string"/>
+                  <xs:element minOccurs="0" name="milestoneAmountpayable" type="xs:string"/>
+                  <xs:element minOccurs="0" name="milestonePercentage" type="xs:string"/>
+                  <xs:element minOccurs="0" name="milestoneNotifydate" type="xs:string"/>
+                  <xs:element minOccurs="0" name="milestoneRecurrenceduration" type="xs:string"/>
+                  <xs:element minOccurs="0" name="milestoneVerifiers">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="milestoneVerifier">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="isDelete" type="xs:string"/>
+                              <xs:element minOccurs="0" name="milestoneVerifierType" type="xs:string"/>
+                              <xs:element minOccurs="0" name="milestoneName" type="xs:string"/>
+                              <xs:element minOccurs="0" name="milestoneEmailid" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="milestoneDocuments">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="milestoneDocument">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="isDelete" type="xs:string"/>
+                              <xs:element minOccurs="0" name="milestoneDocumentnumber" type="xs:string"/>
+                              <xs:element minOccurs="0" name="milestoneDocumentname" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="amendments">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="amendmentId" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="utilization">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="utilizationAmount" type="xs:string"/>
+            <xs:element minOccurs="0" name="percentUtilization" type="xs:string"/>
+            <xs:element minOccurs="0" name="poDetails">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="poInformation">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="poQuantity" type="xs:string"/>
+                        <xs:element minOccurs="0" name="poNumber" type="xs:string"/>
+                        <xs:element minOccurs="0" name="poDate" type="xs:string"/>
+                        <xs:element minOccurs="0" name="poUnitPrice" type="xs:string"/>
+                        <xs:element minOccurs="0" name="vendorId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="poDescription" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="documents">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="document">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="documentDbId" type="xs:string"/>
+                  <xs:element minOccurs="0" name="isDelete" type="xs:string"/>
+                  <xs:element minOccurs="1" name="documentId" type="xs:string"/>
+                  <xs:element minOccurs="0" name="documentType" type="xs:string"/>
+                  <xs:element minOccurs="0" name="documentName" type="xs:string"/>
+                  <xs:element minOccurs="0" name="documentComments" type="xs:string"/>
+                  <xs:element minOccurs="0" name="documentFields">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="documentField">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="documentFieldName" type="xs:string"/>
+                              <xs:element minOccurs="0" name="documentFieldValue" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="alertsReminders">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="alerts">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="alert">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="1" name="alertId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="isDelete" type="xs:string"/>
+                        <xs:element minOccurs="0" name="alertType" type="xs:string"/>
+                        <xs:element minOccurs="0" name="alertTitle" type="xs:string"/>
+                        <xs:element minOccurs="0" name="alertDescription" type="xs:string"/>
+                        <xs:element minOccurs="0" name="alertPriority" type="xs:string"/>
+                        <xs:element minOccurs="0" name="alertCondition">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="alertFor" type="xs:string"/>
+                              <xs:element minOccurs="0" name="alertDate" type="xs:string"/>
+                              <xs:element minOccurs="0" name="utilizationPercentage" type="xs:string"/>
+                              <xs:element minOccurs="0" name="utilizationValue" type="xs:string"/>
+                              <xs:element minOccurs="0" name="bindingCondition" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="alertRecipients">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="internalRecipients">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="internalRecipient">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="userName" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="userEmail" type="xs:string"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="externalRecipients">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="externalRecipient">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element minOccurs="0" name="userName" type="xs:string"/>
+                                          <xs:element minOccurs="0" name="userEmail" type="xs:string"/>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="reminders">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="reminder">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="1" name="reminderId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="isDelete" type="xs:string"/>
+                        <xs:element minOccurs="0" name="reminderTitle" type="xs:string"/>
+                        <xs:element minOccurs="0" name="reminderDescription" type="xs:string"/>
+                        <xs:element minOccurs="0" name="reminderDate" type="xs:string"/>
+                        <xs:element minOccurs="0" name="reminderTime" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

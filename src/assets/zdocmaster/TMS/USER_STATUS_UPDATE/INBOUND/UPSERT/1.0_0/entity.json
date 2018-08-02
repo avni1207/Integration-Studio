@@ -1,0 +1,39 @@
+{
+	"integrationEntityDetails": {
+	/*#exists statusUpdate*/
+	"statusUpdate": 
+		{
+		/*#with statusUpdate*/
+			/*#exists emailId*/
+				"emailId": "/*preprocess emailId*/"
+			/*/exists emailId*/
+			/*#exists createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"createdOn": /*preprocess createdOn*/
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"updatedOn": /*preprocess updatedOn*/
+			/*/exists updatedOn*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists adminDetails*/
+			,"adminDetails": 
+				{
+				/*#each adminDetails*/
+					/*#exists authorizedBy*/
+						"authorizedBy": "/*preprocess authorizedBy*/"
+					/*/exists authorizedBy*/
+				/*/each adminDetails*/
+				}
+			/*/exists adminDetails*/
+		/*/with statusUpdate*/
+		}
+	/*/exists statusUpdate*/
+}
+}

@@ -1,0 +1,424 @@
+{
+	"integrationEntityDetails": {
+	/*#exists sourcingEvent*/
+	"sourcingEvent": 
+		{
+		/*#with sourcingEvent*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists eventId*/
+				,"eventId": "/*preprocess eventId*/"
+			/*/exists eventId*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"createdOn": /*preprocess createdOn*/
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"updatedOn": /*preprocess updatedOn*/
+			/*/exists updatedOn*/
+			/*#exists tmsUserid*/
+				,"tmsUserid": "/*preprocess tmsUserid*/"
+			/*/exists tmsUserid*/
+			/*#exists buyerId*/
+				,"buyerId": /*preprocess buyerId*/
+			/*/exists buyerId*/
+			/*#exists eventName*/
+				,"eventName": "/*preprocess eventName*/"
+			/*/exists eventName*/
+			/*#exists eventDesc*/
+				,"eventDesc": "/*preprocess eventDesc*/"
+			/*/exists eventDesc*/
+			/*#exists eventType*/
+				,"eventType": "/*preprocess eventType*/"
+			/*/exists eventType*/
+			/*#exists auctionType*/
+				,"auctionType": "/*preprocess auctionType*/"
+			/*/exists auctionType*/
+			/*#exists auctionSubType*/
+				,"auctionSubType": "/*preprocess auctionSubType*/"
+			/*/exists auctionSubType*/
+			/*#exists statusId*/
+				,"statusId": /*preprocess statusId*/
+			/*/exists statusId*/
+			/*#exists eventOpenTime*/
+				,"eventOpenTime": /*preprocess eventOpenTime*/
+			/*/exists eventOpenTime*/
+			/*#exists buyerEmail*/
+				,"buyerEmail": "/*preprocess buyerEmail*/"
+			/*/exists buyerEmail*/
+			/*#exists eventCloseTime*/
+				,"eventCloseTime": /*preprocess eventCloseTime*/
+			/*/exists eventCloseTime*/
+			/*#exists isTestEvent*/
+				,"isTestEvent": /*preprocess isTestEvent*/
+			/*/exists isTestEvent*/
+			/*#exists isPublicEvent*/
+				,"isPublicEvent": /*preprocess isPublicEvent*/
+			/*/exists isPublicEvent*/
+			/*#exists isDeleted*/
+				,"isDeleted": /*preprocess isDeleted*/
+			/*/exists isDeleted*/
+			/*#exists publicEventURL*/
+				,"publicEventURL": "/*preprocess publicEventURL*/"
+			/*/exists publicEventURL*/
+			/*#exists decimalPrecision*/
+				,"decimalPrecision": /*preprocess decimalPrecision*/
+			/*/exists decimalPrecision*/
+			/*#exists isBroadcastedEvent*/
+				,"isBroadcastedEvent": /*preprocess isBroadcastedEvent*/
+			/*/exists isBroadcastedEvent*/
+			/*#exists isResponsesSealed*/
+				,"isResponsesSealed": /*preprocess isResponsesSealed*/
+			/*/exists isResponsesSealed*/
+			/*#exists primaryCurrency*/
+			,"primaryCurrency": 
+				{
+				/*#with primaryCurrency*/
+					/*#exists currencyId*/
+						"currencyId": /*preprocess currencyId*/
+					/*/exists currencyId*/
+					/*#exists abbr*/
+						,"abbr": "/*preprocess abbr*/"
+					/*/exists abbr*/
+					/*#exists converstionRate*/
+						,"converstionRate": /*preprocess converstionRate*/
+					/*/exists converstionRate*/
+				/*/with primaryCurrency*/
+				}
+			/*/exists primaryCurrency*/
+			/*#exists hasMulticurrency*/
+				,"hasMulticurrency": /*preprocess hasMulticurrency*/
+			/*/exists hasMulticurrency*/
+			/*#exists acceptedCurrencies*/
+			,"acceptedCurrencies": 
+				{
+				/*#with acceptedCurrencies*/
+					/*#exists acceptedCurrency*/
+					"acceptedCurrency": [
+						/*#each acceptedCurrency*/
+							{
+								/*#exists currencyId*/
+									"currencyId": /*preprocess currencyId*/
+								/*/exists currencyId*/
+								/*#exists abbr*/
+									,"abbr": "/*preprocess abbr*/"
+								/*/exists abbr*/
+								/*#exists converstionRate*/
+									,"converstionRate": /*preprocess converstionRate*/
+								/*/exists converstionRate*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each acceptedCurrency*/
+					]
+					/*/exists acceptedCurrency*/
+				/*/with acceptedCurrencies*/
+				}
+			/*/exists acceptedCurrencies*/
+			/*#exists suppliers*/
+			,"suppliers": 
+				{
+				/*#with suppliers*/
+					/*#exists supplier*/
+					"supplier": [
+						/*#each supplier*/
+							{
+								/*#exists id*/
+									"id": /*preprocess id*/
+								/*/exists id*/
+								/*#exists globalSupplierId*/
+									,"globalSupplierId": /*preprocess globalSupplierId*/
+								/*/exists globalSupplierId*/
+								/*#exists globalContactId*/
+									,"globalContactId": /*preprocess globalContactId*/
+								/*/exists globalContactId*/
+								/*#exists inviteStatusId*/
+									,"inviteStatusId": /*preprocess inviteStatusId*/
+								/*/exists inviteStatusId*/
+								/*#exists inviteStatus*/
+									,"inviteStatus": "/*preprocess inviteStatus*/"
+								/*/exists inviteStatus*/
+								/*#exists companyName*/
+									,"companyName": "/*preprocess companyName*/"
+								/*/exists companyName*/
+								/*#exists firstName*/
+									,"firstName": "/*preprocess firstName*/"
+								/*/exists firstName*/
+								/*#exists lastName*/
+									,"lastName": "/*preprocess lastName*/"
+								/*/exists lastName*/
+								/*#exists email*/
+									,"email": "/*preprocess email*/"
+								/*/exists email*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each supplier*/
+					]
+					/*/exists supplier*/
+				/*/with suppliers*/
+				}
+			/*/exists suppliers*/
+			/*#exists itemLotGroup*/
+			,"itemLotGroup": 
+				{
+				/*#with itemLotGroup*/
+					/*#exists itemLot*/
+					"itemLot": [
+						/*#each itemLot*/
+							{
+								/*#exists itemLotId*/
+									"itemLotId": /*preprocess itemLotId*/
+								/*/exists itemLotId*/
+								/*#exists itemLotName*/
+									,"itemLotName": "/*preprocess itemLotName*/"
+								/*/exists itemLotName*/
+								/*#exists sectionId*/
+									,"sectionId": /*preprocess sectionId*/
+								/*/exists sectionId*/
+								/*#exists baseLineCost*/
+									,"baseLineCost": /*preprocess baseLineCost*/
+								/*/exists baseLineCost*/
+								/*#exists isFlexiItemTable*/
+									,"isFlexiItemTable": /*preprocess isFlexiItemTable*/
+								/*/exists isFlexiItemTable*/
+								/*#exists isTotalCostBidding*/
+									,"isTotalCostBidding": /*preprocess isTotalCostBidding*/
+								/*/exists isTotalCostBidding*/
+								/*#exists itemGroup*/
+								,"itemGroup": 
+									{
+									/*#with itemGroup*/
+										/*#exists item*/
+										"item": [
+											/*#each item*/
+												{
+													/*#exists itemId*/
+														"itemId": /*preprocess itemId*/
+													/*/exists itemId*/
+													/*#exists itemFieldGroup*/
+													,"itemFields": 
+														{
+														/*#with itemFieldGroup*/
+															/*#exists itemField*/
+															"itemField": [
+																/*#each itemField*/
+																	{
+																		/*#exists value*/
+																			"value": "/*preprocess value*/"
+																		/*/exists value*/
+																		/*#exists isHidden*/
+																			,"isHidden": /*preprocess isHidden*/
+																		/*/exists isHidden*/
+																		/*#exists type*/
+																			,"type": "/*preprocess type*/"
+																		/*/exists type*/
+																		/*#exists headerName*/
+																			,"headerName": "/*preprocess headerName*/"
+																		/*/exists headerName*/
+																		/*#exists parentHeaderName*/
+																			,"parentHeaderName": "/*preprocess parentHeaderName*/"
+																		/*/exists parentHeaderName*/
+																		/*#exists fieldCategory*/
+																			,"fieldCategory": "/*preprocess fieldCategory*/"
+																		/*/exists fieldCategory*/
+																		/*#exists formula*/
+																			,"formula": "/*preprocess formula*/"
+																		/*/exists formula*/
+																	}
+																	/*#unless @last*/,/*/unless*/
+																/*/each itemField*/
+															]
+															/*/exists itemField*/
+														/*/with itemFieldGroup*/
+														}
+													/*/exists itemFieldGroup*/
+													/*#exists incumbentSuppliers*/
+													,"incumbentSuppliers": 
+														{
+														/*#with incumbentSuppliers*/
+															/*#exists incumbentSupplier*/
+															"incumbentSupplier": [
+																/*#each incumbentSupplier*/
+																	{
+																		/*#exists supplierId*/
+																			"supplierId": /*preprocess supplierId*/
+																		/*/exists supplierId*/
+																		/*#exists globalSupplierId*/
+																			,"globalSupplierId": /*preprocess globalSupplierId*/
+																		/*/exists globalSupplierId*/
+																		/*#exists globalContactId*/
+																			,"globalContactId": /*preprocess globalContactId*/
+																		/*/exists globalContactId*/
+																		/*#exists quantityPreAllocation*/
+																			,"quantityPreAllocation": /*preprocess quantityPreAllocation*/
+																		/*/exists quantityPreAllocation*/
+																		/*#exists percentPreAllocation*/
+																			,"percentPreAllocation": /*preprocess percentPreAllocation*/
+																		/*/exists percentPreAllocation*/
+																	}
+																	/*#unless @last*/,/*/unless*/
+																/*/each incumbentSupplier*/
+															]
+															/*/exists incumbentSupplier*/
+														/*/with incumbentSuppliers*/
+														}
+													/*/exists incumbentSuppliers*/
+												}
+												/*#unless @last*/,/*/unless*/
+											/*/each item*/
+										]
+										/*/exists item*/
+									/*/with itemGroup*/
+									}
+								/*/exists itemGroup*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each itemLot*/
+					]
+					/*/exists itemLot*/
+				/*/with itemLotGroup*/
+				}
+			/*/exists itemLotGroup*/
+			/*#exists sectionLevelSettings*/
+			,"sectionLevelSettings": 
+				{
+				/*#with sectionLevelSettings*/
+					/*#exists sectionLevelSetting*/
+					"sectionLevelSetting": [
+						/*#each sectionLevelSetting*/
+							{
+								/*#exists id*/
+									"id": /*preprocess id*/
+								/*/exists id*/
+								/*#exists name*/
+									,"name": "/*preprocess name*/"
+								/*/exists name*/
+								/*#exists isPricingSection*/
+									,"isPricingSection": /*preprocess isPricingSection*/
+								/*/exists isPricingSection*/
+								/*#exists isLineItemBidding*/
+									,"isLineItemBidding": /*preprocess isLineItemBidding*/
+								/*/exists isLineItemBidding*/
+								/*#exists openDateTime*/
+									,"openDateTime": /*preprocess openDateTime*/
+								/*/exists openDateTime*/
+								/*#exists closeDateTime*/
+									,"closeDateTime": /*preprocess closeDateTime*/
+								/*/exists closeDateTime*/
+								/*#exists auctionSettings*/
+								,"auctionSettings": 
+									{
+									/*#with auctionSettings*/
+										/*#exists durationPerLotDays*/
+											"durationPerLotDays": /*preprocess durationPerLotDays*/
+										/*/exists durationPerLotDays*/
+										/*#exists durationPerLotHours*/
+											,"durationPerLotHours": /*preprocess durationPerLotHours*/
+										/*/exists durationPerLotHours*/
+										/*#exists durationPerLotMins*/
+											,"durationPerLotMins": /*preprocess durationPerLotMins*/
+										/*/exists durationPerLotMins*/
+										/*#exists manualAuctionReset*/
+											,"manualAuctionReset": /*preprocess manualAuctionReset*/
+										/*/exists manualAuctionReset*/
+										/*#exists englishAuction*/
+										,"englishAuction": 
+											{
+											/*#with englishAuction*/
+												/*#exists bidSettings*/
+												"bidSettings": 
+													{
+													/*#with bidSettings*/
+														/*#exists startingBid*/
+															"startingBid": /*preprocess startingBid*/
+														/*/exists startingBid*/
+														/*#exists minimumBidChange*/
+															,"minimumBidChange": /*preprocess minimumBidChange*/
+														/*/exists minimumBidChange*/
+														/*#exists minimumBidChangeType*/
+															,"minimumBidChangeType": "/*preprocess minimumBidChangeType*/"
+														/*/exists minimumBidChangeType*/
+													/*/with bidSettings*/
+													}
+												/*/exists bidSettings*/
+												/*#exists tiePrevention*/
+												,"tiePrevention": 
+													{
+													/*#with tiePrevention*/
+														/*#exists aboveBestBidValue*/
+															"aboveBestBidValue": /*preprocess aboveBestBidValue*/
+														/*/exists aboveBestBidValue*/
+														/*#exists belowBestBidValue*/
+															,"belowBestBidValue": /*preprocess belowBestBidValue*/
+														/*/exists belowBestBidValue*/
+														/*#exists valueType*/
+															,"valueType": "/*preprocess valueType*/"
+														/*/exists valueType*/
+													/*/with tiePrevention*/
+													}
+												/*/exists tiePrevention*/
+											/*/with englishAuction*/
+											}
+										/*/exists englishAuction*/
+										/*#exists dutchAuction*/
+										,"dutchAuction": 
+											{
+											/*#with dutchAuction*/
+												/*#exists targetPrice*/
+													"targetPrice": /*preprocess targetPrice*/
+												/*/exists targetPrice*/
+												/*#exists reserveBid*/
+													,"reserveBid": /*preprocess reserveBid*/
+												/*/exists reserveBid*/
+											/*/with dutchAuction*/
+											}
+										/*/exists dutchAuction*/
+									/*/with auctionSettings*/
+									}
+								/*/exists auctionSettings*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each sectionLevelSetting*/
+					]
+					/*/exists sectionLevelSetting*/
+				/*/with sectionLevelSettings*/
+				}
+			/*/exists sectionLevelSettings*/
+			/*#exists eventLevelMetaDataFields*/
+			,"eventLevelMetaDataFields": 
+				{
+				/*#with eventLevelMetaDataFields*/
+					/*#exists eventlevelMetaDataField*/
+					"eventlevelMetaDataField": [
+						/*#each eventlevelMetaDataField*/
+							{
+								/*#exists fieldId*/
+									"fieldId": /*preprocess fieldId*/
+								/*/exists fieldId*/
+								/*#exists name*/
+									,"name": "/*preprocess name*/"
+								/*/exists name*/
+								/*#exists selectedvalue*/
+									,"selectedvalue": "/*preprocess selectedvalue*/"
+								/*/exists selectedvalue*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each eventlevelMetaDataField*/
+					]
+					/*/exists eventlevelMetaDataField*/
+				/*/with eventLevelMetaDataFields*/
+				}
+			/*/exists eventLevelMetaDataFields*/
+		/*/with sourcingEvent*/
+		}
+	/*/exists sourcingEvent*/
+}
+}

@@ -1,0 +1,174 @@
+<div *ngIf="zdocConfigservice.notFoundzdocError != ''"><b>{{zdocConfigservice.notFoundMsg}}</b></div> 
+<div *ngIf="zdocConfigservice.notFoundzdocError == ''">
+  <div class="module-title">
+    <i class="fa fa-cog" aria-hidden="true"></i>
+    Zdoc Configuration
+  </div>
+  <div class="row">
+    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+      <div class="touch_points_block" (click)="createZdocForm()">
+        <div class="add_icon_block">
+          <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+        </div>
+        <p  class="add_text_block">Configure new Zdoc</p>
+      </div>
+    </div>
+  </div>
+   <div class="module-title filter-row">
+    <div class="row">
+      <div class="col-lg-2 col-sm-2 filter-title">Configured ZDOCS</div>
+      <div class="col-lg-3 col-sm-3 searchdiv">
+          <i class="fa fa-search" aria-hidden="true"></i><input [(ngModel)]="searchText" placeholder="Search here.."> 
+      </div>
+      <div class="filter col-lg-7 col-sm-7" align="right">
+          <form #zdocFilterForm="ngForm">
+
+            <label>Filter by Product</label>
+            <select name="product" #q [(ngModel)]="model.product" >
+              <option value="" selected disabled>Select Product</option>
+              <option [value]="product" *ngFor="let product of zdocConfigservice.zdocDataProducts">{{product}}</option>
+            </select>
+            <label>Filter by Direction</label>
+            <select name="direction" #w [(ngModel)]="model.direction" >
+              <option value="" selected disabled>Select Direction</option>
+              <option value="inbound">INBOUND</option>
+              <option value="outbound">OUTBOUND</option>
+            </select>
+            <label>Filter by Action</label>
+            <select name="action" #e [(ngModel)]="model.action" >
+              <option value="" selected disabled>Select Action</option>
+              <option [value]="action" *ngFor="let action of zdocConfigservice.zdocDataActions">{{action}}</option>
+            </select>
+            <input type="button" class="generalsubmitbtn"  [disabled]="(!q.value && !w.value && !e.value)" (click)="onSort(zdocFilterForm.value)" value="Go"/>
+            <input type="button" class="generalsubmitbtn" [disabled]="(!q.value && !w.value && !e.value)" (click)="onClear()" value="Reset">
+          </form>
+      </div>
+      
+    </div>
+  </div> 
+    <div class="row" *ngIf="!zdocConfigservice.zdocFlag">
+      <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+        Loading Zdocs.....
+      </div>
+    </div>
+    <div class="row" *ngIf="zdocConfigservice.filterData.responseCode =='500'">
+        <div class="col-lg-12 col-md-4 col-sm-12 col-xs-12">
+            {{zdocConfigservice.filterData.errorMessage}} 
+        </div>
+    </div>
+    <div class="row" *ngIf="zdocConfigservice.filterData.responseCode=='200'">
+        <div class="col-lg-12"  *ngIf="(zdocConfigservice.filteredZdocs | filter : searchText).length !== 0" >
+          <div class="table-container">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th style="width: 20%">
+                    Product
+                  </th>
+                  <th>
+                    Entity
+                  </th>
+                  <th>
+                    Direction
+                  </th>
+                  <th>
+                    Action
+                  </th>
+                  <th>
+                    Base Version
+                  </th>
+                  <th>
+                    Custom Version
+                  </th>
+                  <th>
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let zdoc of zdocConfigservice.filteredZdocs | filter : searchText  | paginate: { itemsPerPage: count, currentPage: p }">
+                  <td>{{zdoc.product}}</td>
+                  <td>{{zdoc.entity}}</td>
+                  <td>{{zdoc.directionFlag}}</td>
+                  <td>{{zdoc.action}}</td>
+                  <td>{{zdoc.zDocBaseVersion}}</td>
+                  <td>{{zdoc.zDocCustomVersion}}</td>
+                  <td><a><i class="fa fa-pencil" (click)="getZdocDetails(zdoc)"></i></a></td>
+                </tr>
+               
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="noZdocDiv" *ngIf="(zdocConfigservice.filteredZdocs | filter : searchText).length === 0">
+            No zDocs found
+        </div>
+      </div>
+     
+
+    <div class="row" *ngIf="zdocConfigservice.allZdocs.length && !zdocConfigservice.filteredZdocs.length">
+      <div class="col-lg-12" *ngIf="(zdocConfigservice.allZdocs | filter : searchText).length !== 0">
+        <div class="table-container">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th style="width: 20%">
+                  Product
+                </th>
+                <th>
+                  Entity
+                </th>
+                <th>
+                  Direction
+                </th>
+                <th>
+                  Action
+                </th>
+                <th>
+                  Base Version
+                </th>
+                <th>
+                  Custom Version
+                </th>
+                <th>
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr *ngFor="let zdoc of zdocConfigservice.allZdocs | filter : searchText | paginate: { itemsPerPage: count, currentPage: p };">
+                <td>{{zdoc.product}}</td>
+                <td>{{zdoc.entity}}</td>
+                <td>{{zdoc.directionFlag}}</td>
+                <td>{{zdoc.action}}</td>
+                <td>{{zdoc.zDocBaseVersion}}</td>
+                <td>{{zdoc.zDocCustomVersion}}</td>
+                <td><a title="Edit"><i class="fa fa-pencil" (click)="getZdocDetails(zdoc)"></i></a></td>
+                
+              </tr>
+             
+             
+            </tbody>
+           
+          </table>
+        </div>
+      </div>
+      <div class="noZdocDiv" *ngIf="(zdocConfigservice.allZdocs | filter : searchText).length === 0">
+          No zDocs found
+      </div>
+    </div>
+    <div class="sticky-pagination active" *ngIf="(zdocConfigservice.filterData.responseCode=='200' || (zdocConfigservice.allZdocs.length && !zdocConfigservice.filteredZdocs.length)) && ((zdocConfigservice.allZdocs | filter : searchText).length !== 0)">
+        <label>Show 
+        <select name="showRecord" (change)="sendCount($event.target.value)">
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+        Entries</label>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div> 
+</div>
+  
+

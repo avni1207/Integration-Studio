@@ -1,0 +1,282 @@
+/**
+Customs Variable Overridding
+**/
+
+/**
+* Colors
+
+$primary:       #3949AB;
+$secondary:     #0097A7;
+$success:       #43A047;
+$info:          #1E88E5;
+$warning:       #FDD835;
+$danger:        #E53935;
+$text-white:    #ffffff;**/
+
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+$enable-shadows:            false;
+
+//override bootstrap variable values to get custom output
+//
+// Spacing
+//
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: ($spacer * .25), //4px
+  2: ($spacer * .5), //8px
+  3: $spacer, //16px
+  4: ($spacer * 1.5), //24px
+  5: ($spacer * 2), //32px
+  6: ($spacer * 2.5), //40px
+  7: ($spacer * 3) //48px
+);
+
+//
+//Color system
+//
+$brand-primary:   #2D3E50;
+$brand-secondary: #ebeff1;
+$brand-success:   #2aa77c;
+$brand-info:      #3b99fc;
+$brand-warning:   #f2af35;
+$brand-danger:    #ce445d;
+$brand-light:     #ffffff;
+$brand-dark:      #333333;
+$brand-light-two: #f8fbff;
+$brand-border:    #d3dade;
+$brand-footer:    #f1f5f6;
+
+$theme-colors: (
+  primary: $brand-primary,
+  secondary: $brand-secondary,
+  success: $brand-success,
+  info: $brand-info,
+  warning: $brand-warning,
+  danger: $brand-danger,
+  light: $brand-light,
+  dark: $brand-dark
+);
+
+$base-transition: .3s ease-in-out;
+$base-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+$base-border: 1px solid $brand-border;
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg:       $brand-secondary;
+$body-color:    $brand-dark;
+
+// Links
+//
+// Style anchor elements.
+$link-color:            $brand-info;
+$link-decoration:       none;
+$link-hover-color:      darken($link-color, 15%);
+$link-hover-decoration: underline;
+
+//
+// Components
+//
+// Define common padding and border radius sizes and more.
+$border-radius-sm:      3px;
+$border-radius:         5px;
+$border-radius-lg:      8px;
+$border-color:          $brand-border;
+
+
+// Fonts
+//
+// Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif: "Lato", "Helvetica", Arial, sans-serif;
+$font-family-base:       $font-family-sans-serif !default;
+
+$font-size-sm:   $u-12;
+$font-size-base: $u-13;
+$font-size-lg:   $u-15;
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+$headings-font-weight:   700;
+
+$component-active-color: $brand-dark;
+$component-active-bg:    $brand-secondary;
+//
+// Forms & Buttons
+//
+
+//
+// alerts
+//
+$alert-border-radius: $border-radius-sm;
+
+//
+// Badges
+//
+$badge-font-size:             $u-13;
+$badge-padding-y:             $u-5;
+$badge-padding-x:             $u-10;
+$badge-pill-padding-x:        $u-10;
+
+//
+// Breadcrumbs
+//
+$breadcrumb-padding-y:          0;
+$breadcrumb-padding-x:          0;
+$breadcrumb-item-padding:       $u-10;
+$breadcrumb-margin-bottom:      0;
+$breadcrumb-bg:                 transparent;
+$breadcrumb-divider-color:      $brand-light;
+$breadcrumb-active-color:       $brand-secondary;
+$breadcrumb-divider:            "\25b6";
+
+//
+// Input & btn
+//
+$input-btn-padding-y-sm:    $u-5;
+$input-btn-padding-x-sm:    $u-12;
+
+$input-btn-padding-y:       $u-9;
+$input-btn-padding-x:       $u-12;
+$input-btn-line-height:     1.20;
+
+$input-btn-padding-y-lg:    $u-13;
+$input-btn-padding-x-lg:    $u-20;
+
+$btn-font-weight:           $font-weight-bold;
+$btn-block-spacing-y:       $u-9;
+
+$btn-border-radius-lg:      $border-radius;
+$btn-border-radius-sm:      $border-radius;
+
+$btn-disable-bg:            #999999;
+
+$input-border-radius-lg:    $border-radius;
+$input-border-radius-sm:    $border-radius;
+
+$input-group-addon-color:        $brand-light;
+$input-group-addon-bg:           $brand-info;
+
+//
+// Navbar
+//
+$navbar-brand-font-size:            $u-14;
+$nav-link-height:                   $u-60;
+$navbar-brand-height:               $u-60;
+$navbar-brand-padding-y:            $u-10;
+
+//
+// Dropdowns
+//
+// Dropdown menu container and contents.
+$dropdown-padding-y:             0;
+$dropdown-spacer:                0;
+$dropdown-border-color:          transparent;
+$dropdown-border-width:          0;
+
+$dropdown-box-shadow:            $base-shadow;
+
+$dropdown-link-color:            $brand-dark;
+$dropdown-link-hover-bg:         $brand-secondary;
+
+$dropdown-link-active-color:     $brand-dark;
+$dropdown-link-active-bg:        $brand-secondary;
+
+$dropdown-item-padding-y:        $u-14;
+$dropdown-item-padding-x:        $u-18;
+
+//
+// Navs
+//
+$nav-link-padding-y:            $u-15;
+$nav-link-padding-x:            $u-20;
+$nav-link-disabled-color:       #666666;
+
+$nav-tabs-border-width:             0;
+$nav-tabs-border-radius:            $border-radius-lg;
+
+$nav-pills-border-radius:     $border-radius-lg;
+
+//
+// Custom variables
+//
+$header-bg: rgb(28, 38, 44);
+$header-height: $u-60;
+$header-color: #fff;
+$header-sidemenu-trigger-width: $u-80;
+$footer-height: $u-50;
+
+/**********************Integration studio css***************************/
+body{
+  font-family: 'Roboto', sans-serif !important; 
+}
+label{
+  font-weight: bold;
+}
+.icons{
+  padding: 5px;
+}
+.module-title{
+  border-bottom: 2px solid #f5b771;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  color:black;
+  font-size: 16px;
+}
+.modal-dialog{
+  margin-top: 230px !important;
+}
+.modal-open .modal-dialog .modal-content{
+    border-radius: 0px;
+  }
+.modal-body #form1 .submitbtn{
+    border-radius: 0px;
+    border: 1px solid #ced4da;
+ }
+.subscribeForm{
+  width: 100%;
+  display: inline-block;
+  padding: 10px 15px;
+}
+.subscribeForm label{
+  display: block;
+}
+.subscribeForm input{
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 13px;
+}
+.subscribeForm .eventUser{
+  width: 48%;
+  margin-right: 8px;
+  float: left;
+  clear: both;
+}
+.subscribeForm .eventPwd{
+  width: 50%;
+  float: left;
+}
+.subscribeForm .subscribebtn{
+  text-align: center;
+}
+.subscribeForm .subscribebtn .btn{
+  background: #2D3E50;
+  color: white;
+  border-radius: 0px;
+  margin: 8px 0px;
+  border: 0px;
+  padding: 10px 25px;
+  width: 30%;
+  font-weight: normal;
+}
+.big{
+  width: 2em;
+  height: 2em;
+}

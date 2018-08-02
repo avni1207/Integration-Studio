@@ -1,0 +1,142 @@
+// :host{
+//
+//   .entity-wrapper{
+//     padding: 15px 0;
+//     font-size: 14px;
+//     margin: 0 auto;
+//     width: 60%;
+//   }
+//
+//   .entityacc{
+//     border: 1px solid #ccc;
+//   }
+//   button.disable {
+//     pointer-events: none;
+//     opacity: .5;
+//   }
+//   button.disable.enable {
+//     pointer-events: initial;
+//     opacity: 1;
+//     cursor:pointer
+//   }
+//   .button-container {
+//     padding: 30px 0;
+//   }
+//
+//   ::ng-deep .entity-wrapper .card-header{
+//     border-bottom: 0px;
+//   }
+//   ::ng-deep .entity-wrapper .card-header a{
+//      color: #333;
+//    }
+//   ::ng-deep .entity-wrapper .card-header a:hover{
+//      text-decoration: none;
+//    }
+//   ::ng-deep .entity-wrapper .card-header a b{
+//      font-weight: normal;
+//      vertical-align: text-bottom;
+//    }
+//   ::ng-deep .entity-wrapper .card-header a i{
+//      font-size: 20px;
+//    }
+//   ::ng-deep .entity-wrapper .card-body{
+//      background-color: #eee;
+//    }
+//   ::ng-deep  .entity-wrapper .card-body .radiolbl{
+//     vertical-align: text-bottom;
+//     margin-left: 10px;
+//   }
+//   ::ng-deep .entity-wrapper .card{
+//     border-radius: 0px;
+//   }
+//
+// }
+
+:host{
+  .endpointftpWrapper {
+    padding: 15px 0;
+    font-size: 14px;
+    margin: 0 auto;
+    height: 100%;
+  }
+  .filewrapper{
+    border: 1px solid #ccc;
+    padding: 30px;
+    background-color: #fff;
+  }
+  .filewrapper,.filewrapper form{
+    width: 100%;
+    display: inline-block;
+  }
+  .endpointftpWrapper .endpointtitle{
+    font-size: 18px;
+  }
+  .filewrapper label{
+    display: block;
+  }
+  .filewrapper input{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 13px;
+  }
+  .filewrapper select{
+    width: 100%;
+    padding: 10px 8px;
+    margin-bottom: 8px;
+  }
+  .filewrapper .userinput{
+    width: 48%;
+    margin-right: 13px;
+    float: left;
+    clear: both;
+  }
+  .filewrapper .paswdinput{
+    width: 50%;
+    float: left;
+  }
+  .filewrapper .certificateinput{
+    width: 78%;
+    margin-right: 8px;
+    float: left;
+  }
+ .filewrapper .browsebtn{
+   width: 20%;
+   float: left;
+   margin-top: 30px;
+ }
+  .filewrapper .endpointradio{
+    width: 48%;
+    float: left;
+    margin-right: 13px;
+    clear: both;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .filewrapper .endpointradio input{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-bottom: 0px;
+    vertical-align: middle;
+    margin-right: 14px;
+  }
+  button.btn-download {
+    background-color: #2D3E50;
+    border: none;
+    padding: 10px 25px;
+    color: #fff;
+  }
+  .btn-download i {
+    margin-left: 10px;
+}
+.select-holder {
+    padding-right: 147px;
+}
+.absolute-btn-holder {
+    position: absolute;
+    top: 29px;
+    right: 0;
+}
+.input-holder {
+    position: relative;
+}
+}

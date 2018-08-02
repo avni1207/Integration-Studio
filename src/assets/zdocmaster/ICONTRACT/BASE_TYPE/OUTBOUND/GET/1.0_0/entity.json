@@ -1,0 +1,33 @@
+{
+	"integrationEntityDetails": {
+	/*#exists baseTypeEntity*/
+	"baseTypeEntity": 
+		{
+		/*#with baseTypeEntity*/
+			/*#exists baseTypes*/
+			"baseTypes": 
+				{
+				/*#with baseTypes*/
+					/*#exists baseType*/
+					"baseType": [
+						/*#each baseType*/
+							{
+								/*#exists baseTypeName*/
+									"baseTypeName": "/*preprocess baseTypeName*/"
+								/*/exists baseTypeName*/
+								/*#exists displayName*/
+									,"displayName": "/*preprocess displayName*/"
+								/*/exists displayName*/
+							}
+							/*#unless @last*/,/*/unless*/
+						/*/each baseType*/
+					]
+					/*/exists baseType*/
+				/*/with baseTypes*/
+				}
+			/*/exists baseTypes*/
+		/*/with baseTypeEntity*/
+		}
+	/*/exists baseTypeEntity*/
+}
+}

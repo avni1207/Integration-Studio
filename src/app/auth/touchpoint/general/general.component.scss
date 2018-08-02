@@ -1,0 +1,186 @@
+:host{
+  .card{
+    border: 0px;
+    border-radius: 0px;
+  }
+
+  .genralForm label{
+    display: block;
+  }
+  .genralForm input{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+  .genralForm select{
+    width: 100%;
+    padding: 10px 8px;
+    margin-bottom: 8px;
+  }
+
+ .genralForm .browsebtn{
+   width: 20%;
+   float: left;
+   margin-top: 30px;
+ }
+  .genralForm .endpointradio{
+    width: 48%;
+    float: left;
+    margin-right: 13px;
+    clear: both;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .genralForm .endpointradio input{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-bottom: 0px;
+    vertical-align: middle;
+    margin-right: 14px;
+  }
+  button.btn-download {
+    background-color: #2D3E50;
+    border: none;
+    padding: 10px 25px;
+    color: #fff;
+  }
+  .btn-download i {
+    margin-left: 10px;
+  }
+  .select-holder {
+      padding-right: 98px;
+  }
+  .absolute-btn-holder {
+     position: absolute;
+     top: 9px;
+     right: 0;
+     font-size: 15px;
+     /* color: #0472e7; */
+  }
+  .absolute-btn-holder a {
+     color: #0472e7;
+     text-decoration: underline;
+     cursor:pointer
+  }
+
+
+  .genralForm .input-holder {
+      position: relative;
+      width: 100%;
+  }
+  .genralForm .outputAck input{
+    font-style: italic;
+  }
+  .genralForm .generalsubmitbtn{
+    background: #2D3E50;
+    width: 20%;
+    margin: 10px auto;
+    display: block;
+    color: white;
+    border: 0;
+  }
+  .genralForm input[type="radio"]{
+    width: auto;
+    vertical-align: middle;
+    margin: 7px 0px;
+  }
+ .genralForm  .ftpradio{
+   border: 1px solid #a9a9a9;
+   padding: 5px 10px;
+   margin-bottom: 8px;
+ }
+  .genralForm  .ftpradio span{
+    margin:0 5px;
+  }
+  .genralForm .checksum{
+    background: #fff;
+  }
+  .genralForm h5{
+    margin: 40px 0 25px 0;
+    color: #666;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+  }
+  .switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 20px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.absolute-label {
+    position: absolute;
+    width: 90px;
+    display: table;
+    height: 40px;
+}
+.input-holder-inner {
+    padding-left: 125px;
+    margin-bottom: 20px;
+    height: 40px;
+}
+.absolute-btn-holder i.fa.fa-download {
+    margin-right: 5px;
+}
+.absolute-label label {
+    display: table-cell !important;
+    vertical-align: middle;
+    height: 100%;
+}
+label.switch {
+    position: relative;
+    top: 8px;
+}
+form.genralForm {
+    width: 60%;
+    margin: 0 auto;
+}
+}

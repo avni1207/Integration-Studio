@@ -1,0 +1,325 @@
+<!-- <div *ngIf="apiConfigservice.notFoundapiError != ''"><b>{{apiConfigservice.notFoundMsg}}</b></div> 
+<div *ngIf="apiConfigservice.notFoundapiError == ''"> -->
+<h5>Zdoc Subscription</h5>
+<form name="formNew" class="genralForm" #zdocForm="ngForm">
+
+    <!-- /*************************** Add case ********************************/ -->
+    <div class="interfacediv"  *ngIf="zdocConfigservice.editZdocResponse == ''">
+        <div class="input-holder">
+            <div class="absolute-label">
+              <label>Product</label>
+            </div>
+            <div class="input-holder-inner select-box-icon">
+              <select *ngIf="zdocForm.invalid || zdocConfigservice.validvar == '' || zdocConfigservice.validvar == 'false'" #s name="product" [(ngModel)]="zdocData.data.product" (change)="changeOptioncolor(s)" required>
+                <option value="" disabled selected>Select Product</option>
+                <option [value]="product" *ngFor="let product of zdocConfigservice.zdocDataProducts">{{product}}</option>
+              </select>
+              <input type="text" *ngIf="zdocConfigservice.validvar == 'true' && zdocForm.valid" name="product"  [(ngModel)]="zdocData.data.product" readonly/>
+            </div>
+        </div>
+        <div class="input-holder" *ngIf="zdocData.data.product">
+            <div class="absolute-label">
+              <label>Direction</label>
+            </div>
+            <div class="input-holder-inner select-box-icon">
+              <select *ngIf="zdocForm.invalid || zdocConfigservice.validvar == ''|| zdocConfigservice.validvar == 'false'" #m name="directionFlag" [(ngModel)]="zdocData.data.directionFlag" (change)="changeOptioncolor(m);getZdocaction(zdocForm.value)"  required>
+                <option value="" disabled selected>Select Direction</option>
+                <option value="INBOUND">INBOUND</option>
+                <option value="OUTBOUND">OUTBOUND</option>
+              </select>
+              <input type="text" *ngIf="zdocConfigservice.validvar == 'true' && zdocForm.valid" name="directionFlag" [(ngModel)]="zdocData.data.directionFlag" readonly/>
+            </div>
+        </div>
+        <div class="input-holder" *ngIf="zdocData.data.directionFlag">
+            <div class="absolute-label">
+              <label>Interface</label>
+            </div>
+            <div class="input-holder-inner" *ngIf="zdocForm.invalid || zdocConfigservice.validvar == '' || zdocConfigservice.validvar == 'false'">
+              <input class="upprcaseinpt" #tName="ngModel" type="text" maxlength="100" name="entity" pattern="^[A-Za-z_]+$" placeholder="Enter an Interface" [(ngModel)]="zdocData.data.entity" required/>
+              <div class="md-errors-spacer" [hidden]="tName.valid || tName.pristine">
+                  <div class="text-danger"  *ngIf="tName.errors && tName.errors.pattern">
+                      Only A-Z and _ characters allowed
+                  </div>
+              </div>
+            </div>
+            <div  class="input-holder-inner" *ngIf="zdocConfigservice.validvar == 'true' && zdocForm.valid">
+              <input type="text"  name="entity" [(ngModel)]="zdocData.data.entity" readonly/>
+            </div>
+            
+        </div> 
+
+        <div class="input-holder" *ngIf="zdocData.data.entity">
+            <div class="absolute-label">
+              <label>Action</label>
+            </div>
+            <div class="input-holder-inner select-box-icon">
+                <select *ngIf="zdocForm.invalid || zdocConfigservice.validvar == ''|| zdocConfigservice.validvar == 'false'" #w name="action" [(ngModel)]="zdocData.data.action"  required>
+                  <option value="" disabled selected>Select an Action</option>
+                  <option value="{{action}}" *ngFor="let action of zdocConfigservice.zDocactions">{{action}}</option>
+                </select>
+            </div>
+        
+           
+            <div class="input-holder-inner" *ngIf="zdocConfigservice.validvar == 'true' && zdocForm.valid">
+                <input type="text" *ngIf="zdocConfigservice.validvar == 'true'" name="action" [(ngModel)]="zdocData.data.action" readonly/>
+            </div>
+        </div> 
+        
+        <div class="input-holder" *ngIf="zdocData.data.action">
+          <div class="absolute-label">
+            <label>Base Version</label>
+          </div>
+          <div class="input-holder-inner"  *ngIf="zdocForm.invalid || zdocConfigservice.validvar == '' || zdocConfigservice.validvar == 'false'">
+            <input #sName="ngModel" type="text"  name="zDocBaseVersion" pattern="^\d+(.\d+){0,1}$" placeholder="Enter Base Version" [(ngModel)]="zdocData.data.zDocBaseVersion"  required/>
+            <div class="md-errors-spacer" [hidden]="sName.valid || sName.pristine">
+                <div class="text-danger"  *ngIf="sName.errors && sName.errors.pattern">
+                    Only decimals are allowed
+                </div>
+            </div>
+          </div>
+          <div class="input-holder-inner" *ngIf="zdocConfigservice.validvar == 'true' && zdocForm.valid">
+              <input type="text" *ngIf="zdocConfigservice.validvar == 'true'" name="zDocBaseVersion" [(ngModel)]="zdocData.data.zDocBaseVersion" readonly/>
+          </div>
+
+        </div> 
+        <div class="input-holder" *ngIf="zdocData.data.zDocBaseVersion"> 
+            <div class="absolute-label">
+              <label>Custom Version</label>
+            </div>
+            <div class="input-holder-inner" *ngIf="zdocConfigservice.validvar == '' || zdocConfigservice.validvar == 'false'">
+              <input #eName="ngModel" type="text" name="zDocCustomVersion" class="custminpt" [(ngModel)]="zdocData.data.zDocCustomVersion" placeholder="Enter Custom Version" pattern="^\d+(.\d+){0,1}$"/>
+              <input [disabled]="eName.errors || !zdocData.data.zDocCustomVersion || zdocForm.invalid" class="validatebtn" type="button" value="Check for Duplicates" (click)="getEngineVal(zdocForm.value);"/>
+              <div class="md-errors-spacer" [hidden]="eName.valid || eName.pristine">
+                  <div class="text-danger"  *ngIf="eName.errors && eName.errors.pattern">
+                    Only decimals are allowed
+                  </div>
+              </div>
+              
+              <div class="text-danger"  *ngIf="zdocConfigservice.validvar == 'false'">
+                <div class="text-danger">{{zdocConfigservice.invalidVersionMsg}}</div>
+              </div>
+              <div class="text-danger"  *ngIf="zdocConfigservice.invalidEngineMsg">
+                  <div class="text-danger">{{zdocConfigservice.invalidEngineMsg}}</div>
+              </div>
+
+            </div>
+            <div class="input-holder-inner" *ngIf="zdocConfigservice.validvar == 'true'">
+                <input  type="number" name="zDocCustomVersion" class="custminpt" [(ngModel)]="zdocData.data.zDocCustomVersion" readonly/>
+                <input class="validatebtn" type="button" value="Check for Duplicates" disabled/>
+                <div class="text-success">No duplicate configuration found</div>
+            </div>
+            
+        </div>
+        <div class="input-holder" *ngIf="zdocConfigservice.validvar == 'true'">
+          <div class="absolute-label">
+            <label>Engine</label>
+          </div>
+          <div class="input-holder-inner">
+            <input type="text" name="engine" [(ngModel)]="zdocData.data.engine"  required readonly/>
+          </div>
+        </div> 
+       
+        <div class="input-holder" *ngIf="zdocConfigservice.validvar == 'true'">
+            <div class="absolute-label">
+              <label>Upload JSON Template</label>
+            </div>
+            <div class="input-holder-inner">
+                <div class="uploadfilediv">
+                  <i class="fa fa-cloud-upload" style="font-size: 25px;vertical-align:middle"></i>
+                Drag file to upload or <a class="chooselink">Choose File</a> <b>{{this.zdocData.jsonfilename}}</b>
+                  <label class="upload-button">
+                    <input type="file" id="jsoninput" required  (change)="jsonfileValidation()">
+                  </label>
+                </div>
+                <svg *ngIf="zdocConfigservice.jsonshowloader" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                  <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                    <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"/>
+                  </path>
+                </svg>
+                <div class="text-danger" *ngIf="jsonfileErr">{{jsonfileValidationMsg}}</div>
+                <div class="text-success" *ngIf="zdocConfigservice.jsonupoloadSuccess == 'true'">JSON File uploaded successfully</div>
+            </div>
+            <input type="hidden" name="mapping" [(ngModel)]="zdocData.data.mapping"/>
+        </div>
+        <div class="input-holder" *ngIf="zdocConfigservice.validvar == 'true'">
+          <div class="absolute-label">
+            <label>Upload XSD_FILE</label>
+          </div>
+          <div class="input-holder-inner">
+              <div class="uploadfilediv">
+                  <i class="fa fa-cloud-upload" style="font-size: 25px;vertical-align:middle"></i>
+                Drag file to upload or <a class="chooselink">Choose File</a> <b>{{this.zdocData.xsdfilename}}</b>
+                <label class="upload-button">
+                  <input type="file" id="xsdinput" required  (change)="xsdfileValidation()">
+                  
+                </label>
+              </div>
+              <svg *ngIf="zdocConfigservice.xsdshowloader" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                  <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"/>
+                </path>
+              </svg>
+              <div class="text-danger" *ngIf="xsdfileErr">{{xsdfileValidationMsg}}</div>
+              <div class="text-success" *ngIf="zdocConfigservice.xsdupoloadSuccess == 'true'">XSD File uploaded successfully</div>
+          </div>
+          <input type="hidden" name="xsdFile" [(ngModel)]="zdocData.data.xsdFile"/>
+      </div>
+     
+      <div class="input-holder" *ngIf="zdocConfigservice.validvar == 'true'">
+        <div class="absolute-label">
+          <label>Upload XSD_API</label>
+        </div>
+        <div class="input-holder-inner">
+            <div class="uploadfilediv">
+              <i class="fa fa-cloud-upload" style="font-size: 25px;vertical-align:middle"></i>
+              Drag file to upload or <a class="chooselink">Choose File</a> <b>{{this.zdocData.xsdapifilename}}</b>
+              <label class="upload-button">
+                <input type="file" id="xsdapiinput" required  (change)="xsdapifileValidation()">
+              </label>
+            </div>
+            <svg *ngIf="zdocConfigservice.xsdapishowloader" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+              <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"/>
+              </path>
+            </svg>
+            <div class="text-danger" *ngIf="xsdapifileErr">{{xsdapifileValidationMsg}}</div>
+            <div class="text-success" *ngIf="zdocConfigservice.xsdapiupoloadSuccess == 'true'">XSD_API File uploaded successfully</div>
+        </div>
+        <input type="hidden" name="xsd" [(ngModel)]="zdocData.data.xsd"/>
+    </div>
+  </div>
+
+<!-- /*************************** Edit case ********************************/ -->
+
+  <div class="interfacediv"  *ngIf="zdocConfigservice.editZdocResponse != ''">
+      <input type="hidden" name="id" [(ngModel)]="zdocData.data.id" required readonly/>
+      <div class="input-holder">
+          <div class="absolute-label">
+            <label>Product</label>
+          </div>
+          <div class="input-holder-inner">
+              <input  name="product" [(ngModel)]="zdocData.data.product" required readonly/>
+          </div>
+      </div>
+      <div class="input-holder">
+          <div class="absolute-label">
+            <label>Direction</label>
+          </div>
+          <div class="input-holder-inner">
+              <input  name="directionFlag" [(ngModel)]="zdocData.data.directionFlag" required readonly/>
+          </div>
+      </div>
+      <div class="input-holder">
+          <div class="absolute-label">
+            <label>Interface</label>
+          </div>
+          <div class="input-holder-inner">
+              <input  name="entity" [(ngModel)]="zdocData.data.entity" required readonly/>
+          </div>
+      </div> 
+      <div class="input-holder">
+          <div class="absolute-label">
+            <label>Action</label>
+          </div>
+          <div class="input-holder-inner">
+              <input  name="action" [(ngModel)]="zdocData.data.action" required readonly/>
+          </div>
+      </div> 
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Base Version</label>
+        </div>
+        <div class="input-holder-inner">
+            <input name="zDocBaseVersion" [(ngModel)]="zdocData.data.zDocBaseVersion" required readonly/>
+         
+        </div>
+      </div> 
+      <div class="input-holder"> 
+          <div class="absolute-label">
+            <label>Custom Version</label>
+          </div>
+          <div class="input-holder-inner">
+              <input name="zDocCustomVersion" [(ngModel)]="zdocData.data.zDocCustomVersion" required readonly/>
+          </div>
+      </div>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Engine</label>
+        </div>
+        <div class="input-holder-inner">
+          <input type="text" name="engine" [(ngModel)]="zdocData.data.engine"  required readonly/>
+        </div>
+      </div> 
+     
+      <div class="input-holder">
+          <div class="absolute-label">
+            <label>Upload JSON Template</label>
+          </div>
+          <div class="input-holder-inner">
+              <div class="uploadfilediv">
+                <i class="fa fa-cloud-upload" style="font-size: 25px;vertical-align:middle"></i>
+              Drag file to upload or <a class="chooselink">Choose File</a> <b>{{this.zdocData.jsonfilename}}</b>
+                <label class="upload-button">
+                  <input type="file" id="jsoninput" (change)="jsonfileValidation()" required>
+                </label>
+              </div>
+              <svg *ngIf="zdocConfigservice.jsonshowloader" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                  <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"/>
+                </path>
+              </svg>
+              <div class="text-danger" *ngIf="jsonfileErr">{{jsonfileValidationMsg}}</div>
+              <div class="text-success" *ngIf="zdocConfigservice.jsonupoloadSuccess == 'true'">JSON File uploaded successfully</div>
+          </div>
+          <input type="hidden" name="mapping" [(ngModel)]="zdocData.data.mapping"  required/>
+      </div>
+      <div class="input-holder">
+        <div class="absolute-label">
+          <label>Upload XSD_FILE</label>
+        </div>
+        <div class="input-holder-inner">
+            <div class="uploadfilediv">
+                <i class="fa fa-cloud-upload" style="font-size: 25px;vertical-align:middle"></i>
+              Drag file to upload or <a class="chooselink">Choose File</a> <b>{{this.zdocData.xsdfilename}}</b>
+              <label class="upload-button">
+                <input type="file" id="xsdinput"  (change)="xsdfileValidation()" required>
+                
+              </label>
+            </div>
+            <svg *ngIf="zdocConfigservice.xsdshowloader" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+              <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"/>
+              </path>
+            </svg>
+            <div class="text-danger" *ngIf="xsdfileErr">{{xsdfileValidationMsg}}</div>
+            <div class="text-success" *ngIf="zdocConfigservice.xsdupoloadSuccess == 'true'">XSD File uploaded successfully</div>
+        </div>
+        <input type="hidden" name="xsdFile" [(ngModel)]="zdocData.data.xsdFile"  required/>
+    </div>
+    <div class="input-holder">
+      <div class="absolute-label">
+        <label>Upload XSD_API</label>
+      </div>
+      <div class="input-holder-inner">
+          <div class="uploadfilediv">
+            <i class="fa fa-cloud-upload" style="font-size: 25px;vertical-align:middle"></i>
+            Drag file to upload or <a class="chooselink">Choose File</a> <b>{{this.zdocData.xsdapifilename}}</b>
+            <label class="upload-button">
+              <input type="file" id="xsdapiinput" required  (change)="xsdapifileValidation()">
+            </label>
+          </div>
+          <svg *ngIf="zdocConfigservice.xsdapishowloader" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+            <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+              <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"/>
+            </path>
+          </svg>
+          <div class="text-danger" *ngIf="xsdapifileErr">{{xsdapifileValidationMsg}}</div>
+          <div class="text-success" *ngIf="zdocConfigservice.xsdapiupoloadSuccess == 'true'">XSD_API File uploaded successfully</div>
+      </div>
+      <input type="hidden" name="xsd" [(ngModel)]="zdocData.data.xsd"  required/>
+  </div>
+  </div>
+    <input class="generalsubmitbtn" type="button" [hidden]="!zdocConfigservice.editZdocResponse.id" [disabled]="!zdocForm.valid || zdocConfigservice.jsonFlag || zdocConfigservice.xsdFlag || zdocConfigservice.xsdapiFlag" (click)="onSubmit(zdocForm.value)" value="Preview" />
+    <input class="generalsubmitbtn" type="button" [hidden]="zdocConfigservice.editZdocResponse.id" [disabled]="!zdocForm.valid || zdocConfigservice.validvar == 'false'|| !zdocData.data.xsd || !zdocData.data.xsdFile || !zdocData.data.mapping" (click)="onSubmit(zdocForm.value)" value="Preview" />
+</form>
+

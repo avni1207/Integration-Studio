@@ -1,0 +1,59 @@
+{
+	"integrationEntityDetails": {
+	/*#exists taxRate*/
+	"taxRate": 
+		{
+		/*#with taxRate*/
+			/*#exists id*/
+				"id": "/*preprocess id*/"
+			/*/exists id*/
+			/*#exists status*/
+				,"status": "/*preprocess status*/"
+			/*/exists status*/
+			/*#exists taxRateName*/
+				,"taxRateName": "/*preprocess taxRateName*/"
+			/*/exists taxRateName*/
+			/*#exists taxTypeName*/
+				,"taxTypeName": "/*preprocess taxTypeName*/"
+			/*/exists taxTypeName*/
+			/*#exists taxRatePercent*/
+				,"taxRatePercent": /*preprocess taxRatePercent*/
+			/*/exists taxRatePercent*/
+			/*#exists countryId*/
+				,"countryId": "/*preprocess countryId*/"
+			/*/exists countryId*/
+			/*#exists countryId*/
+				,"countryId": "/*preprocess countryId*/"
+			/*/exists countryId*/
+			/*#exists county*/
+				,"county": "/*preprocess county*/"
+			/*/exists county*/
+			/*#exists city*/
+				,"city": "/*preprocess city*/"
+			/*/exists city*/
+			/*#exists taxRateApplicableOn*/
+				,"taxRateApplicableOn": /*preprocess taxRateApplicableOn*/
+			/*/exists taxRateApplicableOn*/
+			/*#exists taxRateApplicationMethod*/
+				,"taxRateApplicationMethod": /*preprocess taxRateApplicationMethod*/
+			/*/exists taxRateApplicationMethod*/
+			/*#exists erpId*/
+				,"erpId": "/*preprocess erpId*/"
+			/*/exists erpId*/
+			/*#exists createdBy*/
+				,"createdBy": "/*preprocess createdBy*/"
+			/*/exists createdBy*/
+			/*#exists createdOn*/
+				,"createdOn": /*preprocess createdOn*/
+			/*/exists createdOn*/
+			/*#exists updatedBy*/
+				,"updatedBy": "/*preprocess updatedBy*/"
+			/*/exists updatedBy*/
+			/*#exists updatedOn*/
+				,"updatedOn": /*preprocess updatedOn*/
+			/*/exists updatedOn*/
+		/*/with taxRate*/
+		}
+	/*/exists taxRate*/
+}
+}

@@ -1,0 +1,97 @@
+<div *ngIf="apiConfigservice.notFoundapiError != ''"><b>{{apiConfigservice.notFoundMsg}}</b></div> 
+<div *ngIf="apiConfigservice.notFoundapiError == ''">
+  <div class="module-title">
+    <i class="fa fa-cog" aria-hidden="true"></i>
+    Api Configuration
+  </div>
+  <div class="row">
+    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+      <div class="touch_points_block" (click)="createApiForm()">
+        <div class="add_icon_block">
+          <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+        </div>
+        <p  class="add_text_block">Configure new Api</p>
+      </div>
+    </div>
+  </div>
+  <div class="module-title filter-row">
+    <div class="row">
+      <div class="col-lg-2 col-sm-2 filter-title">Configured API</div>
+      <div class="col-lg-3 col-sm-3 searchdiv">
+          <i class="fa fa-search" aria-hidden="true"></i><input [(ngModel)]="searchText" placeholder="Search here.."> 
+      </div>
+      <div class="filter filter col-lg-7 col-sm-7" align="right" *ngIf="apiConfigservice.filteredProducts.length">
+        <label>Filter by Product</label>
+        <select name="filter" #t ngModel (change)="sendProduct(t.value)">
+          <option value="" selected disabled>Select Product</option>
+          <option [value]="product" *ngFor="let product of apiConfigservice.filteredProducts">{{product}}</option>
+        </select>
+      </div>
+    </div>
+  </div> 
+  <div class="row" *ngIf="!apiConfigservice.getAllapidata.length">
+    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+      Loading Api.....
+    </div>
+  </div>
+  <div class="row" *ngIf="apiConfigservice.getAllapidata.length">
+    <div class="col-lg-12" *ngIf="(apiConfigservice.getAllapidata | filter : searchText).length !== 0">
+      <div class="table-container">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th style="width: 20%">
+                Product
+              </th>
+              <th>
+                Url
+              </th>
+              <th>
+                Request Entity
+              </th>
+              <th>
+                Request Action
+              </th>
+              <th>
+                Response Entity
+              </th>
+              <th>
+                Response Action
+              </th>
+              <th>
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let api of apiConfigservice.getAllapidata | filter : searchText  | paginate: { itemsPerPage: count, currentPage: p }">
+              <td>{{api.source}}</td>
+              <td>{{api.url}}</td>
+              <td>{{api.requestEntity}}</td>
+              <td>{{api.requestAction}}</td>
+              <td>{{api.responseEntity}}</td>
+              <td>{{api.responseAction}}</td>
+              <td><a title="Edit" (click)="getEditDetails(api)"><i class="fa fa-pencil"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-lg-12" *ngIf="(apiConfigservice.getAllapidata | filter : searchText).length == 0">
+        No API found
+    </div>
+  </div>
+  <div class="sticky-pagination active" *ngIf="(apiConfigservice.getAllapidata | filter : searchText).length !== 0">
+      <label>Show 
+          <select name="showRecord" (change)="sendCount($event.target.value)">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          Entries</label>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div> 
+</div>
+
+
